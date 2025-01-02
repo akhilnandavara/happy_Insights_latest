@@ -1,0 +1,209 @@
+/* DashBoard.module.css */
+.dashboardPage {
+  color: #333;
+  padding: 20px;
+  background-color: #f8fafc;
+}
+
+/* Header Section */
+.headerContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  gap: 1rem;
+  max-height: 40%;
+}
+.headerSection {
+  flex: 2;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 20px;
+  background-color: #e6f7f4;
+  border-radius: 10px;
+  margin-bottom: 20px;
+  gap: 1rem;
+}
+
+.welcomeContainer {
+  flex: 3;
+}
+
+.welcomeTitle {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--brand);
+  margin-bottom: 10px;
+}
+
+.welcomeDescription {
+  font-size: 16px;
+  color: var(--dark);
+  margin-bottom: 20px;
+  line-height: 1.6;
+}
+
+.searchBar {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  max-width: 60%;
+}
+
+.searchInput {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+  flex: 1;
+}
+
+.searchButton {
+  padding: 10px 20px;
+  background-color: #14b8a6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+.searchButton:hover {
+  background-color: #0d9488;
+}
+
+.imageContainer {
+  background: url("https://placehold.co/100x400") center/cover no-repeat;
+  border-radius: 10px;
+  flex: 1;
+  height: 200px;
+}
+
+/* Carousel Section */
+.carouselSection {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  flex: 1;
+  max-width: 20%;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Stats Section */
+.statsSection {
+  background-color: #ffffff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Filter Container */
+.filterContainer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.filterButton {
+  padding: 10px 15px;
+  background-color: #3b82f6;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  margin: 5px;
+  cursor: pointer;
+}
+
+.filterButton:hover {
+  background-color: #2563eb;
+}
+
+.dateFilter {
+  display: flex;
+  gap: 10px;
+}
+
+.dateInput {
+  padding: 10px;
+  border: 1px solid #d1d5db;
+  border-radius: 5px;
+}
+
+/* Stats Overview */
+.statsOverview {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-bottom: 20px;
+  gap: 20px;
+}
+.statCard {
+  background-color: #f3f4f6;
+  padding: 15px 20px;
+  border-radius: 8px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #1e293b;
+  text-align: center;
+  flex: 1;
+  min-width: 150px;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Graph and Sentiment Analysis */
+.graphContainer {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.barGraph {
+  flex: 2;
+  background-color: #e5e7eb;
+  border-radius: 8px;
+  padding: 20px;
+  height: 300px; /* Adjust based on chart library */
+}
+
+.sentimentAnalysis {
+  flex: 1;
+  background-color: #f9fafb;
+  border-radius: 8px;
+  padding: 20px;
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sentimentTitle {
+  font-size: 18px;
+  font-weight: bold;
+  color: #374151;
+  margin-bottom: 10px;
+}
+
+.sentimentList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  text-align: left;
+  width: 100%;
+  font-size: 14px;
+  color: #6b7280;
+}
+
+.sentimentItem {
+  margin: 5px 0;
+}
+
+.averageSentiment {
+  margin-top: 20px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #10b981;
+}

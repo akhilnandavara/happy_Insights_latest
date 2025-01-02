@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap");
+
+:root {
+  /* Font and rendering */
+  --font-family: "Poppins", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  --color-scheme: light;
+
+  /* Colors */
+  --dark: #333333;
+  --light: #f0f0f0;
+  --brand: #21ba95;
+  --brand-hover: #21ba94de;
+  --white: #ffffff;
+  --comment-bg: #e6f7f4;
+  --comment-border: #1abc9c;
+  --comment-border-hover: #007acc;
+  --bg-light: #f4f4f4;
+  --bg-light-border: #dbe1e8;
+
+  /* Plan colors */
+  --aiRes-bg-color: #00b8d4;
+  --plans-basic-border-top: gray;
+  --plans-normal-border-top: orange;
+  --plans-pro-border-top: green;
+  --plans-advance-border-top: purple;
+
+  /* Font sizes */
+  --font-size-base: 1rem;
+  --font-size-sm: 1.2rem;
+  --font-size-md: 1.4rem;
+  --font-size-lg: 1.6rem;
+}

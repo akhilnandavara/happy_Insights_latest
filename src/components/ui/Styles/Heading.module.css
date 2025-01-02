@@ -1,0 +1,27 @@
+.text4xl {
+    font-size: 1.5rem;
+    font-weight: 500;
+
+  }
+  
+  .headingxl {
+    font-size: 2.25rem;
+    font-weight: 600;
+  }
+  
+  @media (min-width: 768px) {
+    .text4xl {
+      font-size: 1.38rem;
+    }
+  
+    .headingxl {
+      font-size: 2.13rem;
+    }
+  }
+  
+  @media (max-width: 640px) {
+    .headingxl {
+      font-size: 2rem;
+    }
+  }
+  

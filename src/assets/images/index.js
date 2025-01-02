@@ -1,0 +1,10 @@
+export { default as userAvatar } from "./user-avatar.png";
+export { default as ThumbUpPng } from "./thumb-up-icon.png";
+export { default as ThumbDownPng } from "./thumb-down-icon.png";
+export { default as hismallLogo } from "./hi-small-logo.png";
+export { default as circleLogo } from "./hi-circle-small-logo.png";
+export { default as thumbUpPng1 } from "./web-thumb-up.png";
+export { default as faceTouchpng } from "./face-touch-emoji.png";
+export { default as commentPng } from "./comment.png";
+export { default as AvatarBine } from "./avatar_bine-1.png";
+export { default as sidePotPng } from "./sidePot.png";

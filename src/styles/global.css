@@ -1,0 +1,82 @@
+/* Reset and Base Styles */
+@import "./variables.css";
+
+* {
+  box-sizing: border-box;
+  line-height: normal;
+  font-family: inherit;
+  margin: unset;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  width: 100vw;
+  height: 100vh;
+  font-size: var(--font-size-base);
+  overflow: hidden;
+  font-family: var(--font-family);
+  box-sizing: border-box; /* Include padding and borders in width/height */
+}
+
+/* Responsive Typography */
+@media (min-width: 600px) {
+  body {
+    font-size: var(--font-size-sm);
+  }
+}
+
+@media (min-width: 900px) {
+  body {
+    font-size: var(--font-size-md);
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: var(--font-size-lg);
+  }
+}
+
+/* List Styling */
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+li {
+  list-style-type: none;
+}
+
+/* Main Dashbaord -sidebar topbar and content warpper css */
+.mainLayoutContainer {
+  position: relative;
+  /* max-height: 100vh; */
+  display: flex;
+}
+/* Container for the dynamic content */
+.contentContainer {
+  /* width: 90%; */
+  /* width: 80%; */
+  max-width: 1450px;
+  flex-grow: 1;
+  margin: 0 auto;
+  overflow: auto;
+  padding-top: 60px;
+  /* padding: 20px; */
+}
+
+/* Custom active dots up to the current index */
+.swiper-pagination-bullet-active {
+  background-color: var(--brand) !important;
+}
+.swiper-slide-active > :nth-child(2) {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.swiper-slide-active > :nth-child(2) > :nth-child(1) {
+  width: 50%;
+}
