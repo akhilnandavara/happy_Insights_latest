@@ -93,19 +93,9 @@
 
 /* Stats Section */
 .statsSection {
-  background-color: #ffffff;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.1);
-}
-
-/* Filter Container */
-.filterContainer {
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  margin-bottom: 20px;
-  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 20px;
 }
 
 .filterButton {
@@ -159,6 +149,7 @@
   display: flex;
   gap: 20px;
   flex-wrap: wrap;
+  
 }
 
 .barGraph {

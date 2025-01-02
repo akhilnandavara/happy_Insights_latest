@@ -76,3 +76,49 @@ const dashboardData = {
         "TikTok": 256
     }
 }
+
+
+export const dashboardBarChartData = {
+    data: {
+        labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
+        datasets: [
+            {
+                label: 'This Week',
+                data: [1500, 1800, 2000, 2300, 1900, 1700, 2100],
+                backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                borderColor: 'rgba(54, 162, 235, 1)',
+                borderWidth: 1,
+                barThickness: 15,
+            },
+            {
+                label: 'Last Week',
+                data: [1300, 1600, 1800, 2100, 1600, 1400, 1900],
+                backgroundColor: 'rgba(255, 159, 64, 0.7)',
+                borderColor: 'rgba(255, 159, 64, 1)',
+                borderWidth: 1,
+                barThickness: 15,
+            },
+        ],
+    },
+
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            tooltip: {
+                mode: 'index',
+                intersect: false,
+            },
+        },
+        scales: {
+            y: {
+                beginAtZero: true,
+                ticks: {
+                    stepSize: 400,
+                },
+            },
+        },
+    },
+}

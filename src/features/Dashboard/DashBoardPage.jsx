@@ -5,9 +5,15 @@ import IntroSlider from "../../components/Carousel/IntroSlider";
 import DashBoardHeaderLeftSlider from "../../components/Carousel/DashboardHeaderLeftSlider";
 import { useSelector } from "react-redux";
 import useDebounce from "../../hooks/useDebounce";
+import FilterBar from "../../components/FilterBar";
+import StatsOverView from "../../components/DashBoard/StatsOverview";
+import CustomBarChart from "../../components/BarGraph";
+import { dashboardBarChartData } from "../../data/Dashboard";
 
 export default function DashBoardPage() {
   const [showModal, setShowModal] = useState(false);
+  const [activeStatsOverview, setActiveStatsOverview] =
+    useState("Total Comments");
   const { user } = useSelector((state) => state.profile);
   const handleCloseModal = () => {
     setShowModal(false);
@@ -16,6 +22,25 @@ export default function DashBoardPage() {
     user !== null ? user : JSON.parse(sessionStorage.getItem("user")),
     300
   );
+
+  const { data, options } = dashboardBarChartData;
+
+  const methods = [
+    "All Channels",
+    "YouTube",
+    "Facebook",
+    "Instagram",
+    "LinkedIn",
+    "TikTok",
+  ];
+
+  const handleFilterSelect = (method) => {
+    console.log("Selected Filter:", method);
+  };
+  const onStatsOverviewSelect = (platform) => {
+    console.log("Selected Stats Overview:", platform);
+    setActiveStatsOverview(platform);
+  };
 
   return (
     <div className={styles.dashboardPage}>
@@ -54,41 +79,19 @@ export default function DashBoardPage() {
       {/* Filter and Stats Section */}
       <section className={styles.statsSection}>
         {/* Filters */}
-        <div className={styles.filterContainer}>
-          <button className={styles.filterButton}>All Channels</button>
-          <button className={styles.filterButton}>Facebook</button>
-          <button className={styles.filterButton}>YouTube</button>
-          <button className={styles.filterButton}>Instagram</button>
-          <button className={styles.filterButton}>LinkedIn</button>
-          <button className={styles.filterButton}>TikTok</button>
-          <div className={styles.dateFilter}>
-            <input
-              type="date"
-              className={styles.dateInput}
-              placeholder="Start date"
-            />
-            <input
-              type="date"
-              className={styles.dateInput}
-              placeholder="End date"
-            />
-            <button className={styles.filterButton}>Filter</button>
-          </div>
-        </div>
+        <FilterBar methods={methods} onSelect={handleFilterSelect} />
 
         {/* Stats Overview */}
-        <div className={styles.statsOverview}>
-          <div className={styles.statCard}>Total Comments: 12,635</div>
-          <div className={styles.statCard}>Facebook: 2,354</div>
-          <div className={styles.statCard}>YouTube: 3,276</div>
-          <div className={styles.statCard}>Instagram: 1,804</div>
-          <div className={styles.statCard}>LinkedIn: 2,719</div>
-          <div className={styles.statCard}>TikTok: 2,482</div>
-        </div>
+        <StatsOverView
+          activeStatsOverview={activeStatsOverview}
+          onStatsOverviewSelect={onStatsOverviewSelect}
+        />
 
         {/* Graph and Sentiment Analysis */}
         <div className={styles.graphContainer}>
-          <div className={styles.barGraph}></div>
+          <div className={styles.barGraph}>
+            <CustomBarChart data={data} options={options} />
+          </div>
           <div className={styles.sentimentAnalysis}>
             <h3 className={styles.sentimentTitle}>Sentiment Analysis</h3>
             <ul className={styles.sentimentList}>
