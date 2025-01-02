@@ -8,7 +8,11 @@ import useDebounce from "../../hooks/useDebounce";
 import FilterBar from "../../components/FilterBar";
 import StatsOverView from "../../components/DashBoard/StatsOverview";
 import CustomBarChart from "../../components/BarGraph";
-import { dashboardBarChartData } from "../../data/Dashboard";
+import {
+  dashboardBarChartData,
+  dashboardDoughnutChartData,
+} from "../../data/Dashboard";
+import SentimentAnalysisSection from "../../components/DashBoard/SentimentAnalysisSection";
 
 export default function DashBoardPage() {
   const [showModal, setShowModal] = useState(false);
@@ -24,6 +28,8 @@ export default function DashBoardPage() {
   );
 
   const { data, options } = dashboardBarChartData;
+  const { chartData, sentimentData, sourcesData, averageSentiment } =
+    dashboardDoughnutChartData;
 
   const methods = [
     "All Channels",
@@ -93,16 +99,11 @@ export default function DashBoardPage() {
             <CustomBarChart data={data} options={options} />
           </div>
           <div className={styles.sentimentAnalysis}>
-            <h3 className={styles.sentimentTitle}>Sentiment Analysis</h3>
-            <ul className={styles.sentimentList}>
-              <li className={styles.sentimentItem}>Happy Words: 2,559</li>
-              <li className={styles.sentimentItem}>Sad Words: 1,471</li>
-              <li className={styles.sentimentItem}>Greets Words: 865</li>
-              <li className={styles.sentimentItem}>Neutral Words: 865</li>
-            </ul>
-            <div className={styles.averageSentiment}>
-              Average Sentiment: 77%
-            </div>
+            <SentimentAnalysisSection
+              sentimentData={sentimentData}
+              sourcesData={sourcesData}
+              averageSentiment={averageSentiment}
+            />
           </div>
         </div>
       </section>

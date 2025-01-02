@@ -147,28 +147,20 @@
 /* Graph and Sentiment Analysis */
 .graphContainer {
   display: flex;
-  gap: 20px;
-  flex-wrap: wrap;
-  
+  gap: .5rem;
+  flex-wrap:wrap;
 }
 
 .barGraph {
-  flex: 2;
-  background-color: #e5e7eb;
-  border-radius: 8px;
+  flex: 1;
   padding: 20px;
-  height: 300px; /* Adjust based on chart library */
+  background: #fff;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
 .sentimentAnalysis {
   flex: 1;
-  background-color: #f9fafb;
-  border-radius: 8px;
-  padding: 20px;
-  height: 300px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
 }
 
 .sentimentTitle {

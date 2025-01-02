@@ -79,46 +79,129 @@ const dashboardData = {
 
 
 export const dashboardBarChartData = {
+
     data: {
-        labels: ['Mon', 'Tue', 'Wed', 'Thur', 'Fri', 'Sat', 'Sun'],
+        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
         datasets: [
             {
                 label: 'This Week',
                 data: [1500, 1800, 2000, 2300, 1900, 1700, 2100],
-                backgroundColor: 'rgba(54, 162, 235, 0.7)',
+                backgroundColor: 'rgba(54, 162, 235, 0.8)', // Adjust transparency for a cleaner look
                 borderColor: 'rgba(54, 162, 235, 1)',
                 borderWidth: 1,
-                barThickness: 15,
+                barThickness: 25, // Wider bars
             },
             {
                 label: 'Last Week',
                 data: [1300, 1600, 1800, 2100, 1600, 1400, 1900],
-                backgroundColor: 'rgba(255, 159, 64, 0.7)',
+                backgroundColor: 'rgba(255, 159, 64, 0.8)',
                 borderColor: 'rgba(255, 159, 64, 1)',
                 borderWidth: 1,
-                barThickness: 15,
+                barThickness: 25,
             },
         ],
     },
 
     options: {
         responsive: true,
+        maintainAspectRatio: false, // Allows better resizing
         plugins: {
             legend: {
-                position: 'top',
+                display: true,
+                position: 'bottom', // Position below the chart
+                labels: {
+                    boxWidth: 12, // Smaller legend boxes
+                    font: {
+                        size: 14,
+                    },
+                },
             },
             tooltip: {
-                mode: 'index',
-                intersect: false,
+                callbacks: {
+                    label: (tooltipItem) => `${tooltipItem.raw}+`, // Add '+' to values
+                },
             },
         },
         scales: {
-            y: {
-                beginAtZero: true,
+            x: {
+                grid: {
+                    display: false, // Remove gridlines for x-axis
+                },
                 ticks: {
-                    stepSize: 400,
+                    font: {
+                        size: 14,
+                    },
+                    color: '#888', // Adjust label color
+                },
+            },
+            y: {
+                grid: {
+                    borderDash: [8, 4], // Dashed gridlines
+                },
+                ticks: {
+                    font: {
+                        size: 14,
+                    },
+                    stepSize: 500, // Adjust steps
+                    callback: (value) => `${value}+`, // Add '+' to axis values
                 },
             },
         },
     },
+
 }
+
+export const dashboardDoughnutChartData =
+{
+    "sentimentData": [
+        {
+            "emoji": "😊",
+            "label": "Happy Words",
+            "count": 2559
+        },
+        {
+            "emoji": "😢",
+            "label": "Sad Words",
+            "count": 1471
+        },
+        {
+            "emoji": "😊",
+            "label": "Greets Words",
+            "count": 865
+        },
+        {
+            "emoji": "😐",
+            "label": "Neutral",
+            "count": 865
+        },
+        {
+            "emoji": "😡",
+            "label": "Angry",
+            "count": 865
+        }
+    ],
+    "sourcesData": [
+        {
+            "label": "Facebook",
+            "count": 768
+        },
+        {
+            "label": "YouTube",
+            "count": 640
+        },
+        {
+            "label": "Instagram",
+            "count": 512
+        },
+        {
+            "label": "LinkedIn",
+            "count": 384
+        },
+        {
+            "label": "TikTok",
+            "count": 256
+        }
+    ],
+    "averageSentiment": 77
+}
+
