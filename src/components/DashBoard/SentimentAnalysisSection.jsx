@@ -71,7 +71,6 @@ const SentimentAnalysisSection = ({
     <div className={styles.sentimentAnalysisContainer}>
       {/* Sentiment List */}
       <div className={styles.sentimentListContainer}>
-        <h3 className={styles.title}>Sentiment Analysis</h3>
         <ul className={styles.sentimentList}>
           <div className={styles.sourcesHeader}>
             <Heading as={"h4"} className={styles.sourcesTitle}>
@@ -96,8 +95,8 @@ const SentimentAnalysisSection = ({
       {/* Doughnut Chart */}
       <div className={styles.chartAndSourcesContainer}>
         <div className={styles.chartContainer}>
+          <Doughnut data={chartData} options={chartOptions} />
           <div className={styles.doughnutWrapper}>
-            <Doughnut data={chartData} options={chartOptions} />
             <div className={styles.percentage}>
               <Heading as="h2" className={styles.averageSentimentTitle}>
                 {averageSentiment}%

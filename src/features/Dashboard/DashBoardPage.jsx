@@ -70,9 +70,8 @@ export default function DashBoardPage() {
               audience interaction.
             </p>
             <div className={styles.searchBarContainer}>
-
-            <SearchBar value={searchTerm} onChange={handleSearchChange} />
-            <button className={styles.searchButton}>Search</button>
+              <SearchBar value={searchTerm} onChange={handleSearchChange} />
+              <button className={styles.searchButton}>Search</button>
             </div>
           </div>
           <div className={styles.imageContainer}></div>
@@ -101,6 +100,7 @@ export default function DashBoardPage() {
             <CustomBarChart data={data} options={options} />
           </div>
           <div className={styles.sentimentAnalysis}>
+            <h3 className={styles.title}>Sentiment Analysis</h3>
             <SentimentAnalysisSection
               sentimentData={sentimentData}
               sourcesData={sourcesData}

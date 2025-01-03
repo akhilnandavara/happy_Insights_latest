@@ -13,7 +13,6 @@
   gap: 1rem;
   height: 12%;
   overflow: hidden;
-
 }
 .headerSection {
   flex: 2;
@@ -118,36 +117,46 @@
   gap: 20px;
 }
 .statCard {
-  background-color: #f3f4f6;
+  background-color: var(--color-white);
   padding: 15px 20px;
   border-radius: 8px;
   font-size: 16px;
   font-weight: bold;
-  color: #1e293b;
+  color: var(--color-text-dark);
   text-align: center;
   flex: 1;
   min-width: 150px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
-
 /* Graph and Sentiment Analysis */
 .graphContainer {
   display: flex;
-  gap: 0.5rem;
+  gap: 1rem;
   flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: stretch;
+  margin-top: 20px;
 }
 
 .barGraph {
-  max-width: 100%;
-  flex: 1;
+  flex: 1 1 60%; /* Allows it to shrink and grow within 60% of the parent */
+  min-width: 300px;
   padding: 20px;
   background: #fff;
   border-radius: 10px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 400px; /* Set a maximum height to ensure consistency */
 }
 
 .sentimentAnalysis {
-  flex: 1;
+  flex: 1 1 35%; /* Takes 35% of the parent width */
+  min-width: 250px;
+  padding: 20px;
+  background: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-height: 400px;
+  overflow: hidden;
 }
 
 .sentimentTitle {
@@ -178,6 +187,7 @@
   color: var(--color-primary);
 }
 
+/* Responsive Adjustments */
 @media screen and (max-width: 1200px) {
   .welcomeTitle {
     font-size: 1.2rem;
@@ -188,5 +198,15 @@
   .carouselSection,
   .imageContainer {
     display: none;
+  }
+  .graphContainer {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .barGraph,
+  .sentimentAnalysis {
+    flex: 1 1 100%; /* Full width on smaller screens */
+    max-height: none; /* Remove height restriction for smaller devices */
   }
 }

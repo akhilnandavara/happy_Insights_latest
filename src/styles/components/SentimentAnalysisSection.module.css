@@ -1,18 +1,16 @@
 .sentimentAnalysisContainer {
   display: flex;
   justify-content: space-between;
-  padding: 1rem;
-  background-color: var(--color-white);
-  border-radius: 10px;
-  box-shadow: 0 2px 4px var(--color-box-shadow);
   gap: 1rem;
-  flex-wrap: wrap; /* Makes it responsive */
+  height: 100%;
+  width: 100%;
 }
 
 .sentimentListContainer {
   flex: 1;
-  margin-right: 1rem;
-  min-width: 280px; /* Ensures proper sizing on small screens */
+  max-width: calc(50% - 1rem); /* Prevents it from growing too large */
+  box-sizing: border-box;
+  flex-shrink: 1; /* Ensures proper sizing on small screens */
 }
 
 .title {
@@ -72,16 +70,20 @@
   border-radius: 10px;
   background-color: var(--color-bg-container);
   min-width: 280px; /* Ensures proper sizing */
+  max-width: calc(50% - 1rem); /* Prevents it from growing too large */
+  box-sizing: border-box;
+  flex-shrink: 1; /* Shrinks content if necessary */
+  overflow: hidden; /* Ensures no overflow outside the container */
+  position: relative;
 }
 
 .chartContainer {
-  flex: 1;
   display: flex;
+  overflow: hidden;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   position: relative;
-  max-height: 50%;
 }
 
 .averageSentimentTitle {
@@ -103,6 +105,7 @@
 .sourcesHeader {
   font-size: var(--font-size-sm);
   display: flex;
+  margin-bottom: 0.5rem;
   justify-content: space-between;
 }
 
