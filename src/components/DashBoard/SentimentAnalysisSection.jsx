@@ -32,18 +32,18 @@ const SentimentAnalysisSection = ({
         data: [...filledData, remainingPercentage],
         backgroundColor: [
           "#4caf50", // Facebook
-          "#8bc34a", // YouTube
-          "#cddc39", // Instagram
-          "#ffc107", // LinkedIn
-          "#ff5722", // TikTok
-          "#e0e0e0", // Remaining (white/gray)
+          "#357a3a", // YouTube
+          "#82af4c", // Instagram
+          "#5a8723", // LinkedIn
+          "#47691f", // TikTok
+          "#e0e0e0",
         ],
         hoverBackgroundColor: [
           "#388e3c",
-          "#689f38",
-          "#afb42b",
-          "#ffa000",
-          "#d84315",
+          "#357a3a",
+          "#82af4c",
+          "#5a8723",
+          "#47691f",
           "#d6d6d6",
         ],
         borderWidth: 0,
@@ -73,6 +73,14 @@ const SentimentAnalysisSection = ({
       <div className={styles.sentimentListContainer}>
         <h3 className={styles.title}>Sentiment Analysis</h3>
         <ul className={styles.sentimentList}>
+          <div className={styles.sourcesHeader}>
+            <Heading as={"h4"} className={styles.sourcesTitle}>
+              Sources
+            </Heading>
+            <Heading as={"h4"} className={styles.sourcesTitle}>
+              comments
+            </Heading>
+          </div>
           {sentimentData.map((item) => (
             <li className={styles.sentimentItem} key={item.label}>
               <div>
@@ -103,7 +111,15 @@ const SentimentAnalysisSection = ({
 
         {/* Sources List */}
         <div className={styles.sourcesContainer}>
-          <h4 className={styles.sourcesTitle}>Sources</h4>
+          <div className={styles.sourcesHeader}>
+            <Heading as={"h4"} className={styles.sourcesTitle}>
+              Sources
+            </Heading>
+            <Heading as={"h4"} className={styles.sourcesTitle}>
+              comments
+            </Heading>
+          </div>
+
           <ul className={styles.sourcesList}>
             {sourcesData.map((source) => (
               <li className={styles.sourceItem} key={source.label}>

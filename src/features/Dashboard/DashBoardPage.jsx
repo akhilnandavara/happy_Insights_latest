@@ -13,9 +13,11 @@ import {
   dashboardDoughnutChartData,
 } from "../../data/Dashboard";
 import SentimentAnalysisSection from "../../components/DashBoard/SentimentAnalysisSection";
+import SearchBar from "../../components/SearchBar";
 
 export default function DashBoardPage() {
   const [showModal, setShowModal] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
   const [activeStatsOverview, setActiveStatsOverview] =
     useState("Total Comments");
   const { user } = useSelector((state) => state.profile);
@@ -48,6 +50,9 @@ export default function DashBoardPage() {
     setActiveStatsOverview(platform);
   };
 
+  const handleSearchChange = (e) => {
+    setSearchTerm(e.target.value);
+  };
   return (
     <div className={styles.dashboardPage}>
       <section className={styles.headerContainer}>
@@ -64,13 +69,10 @@ export default function DashBoardPage() {
               Gain valuable insights to refine your content strategy and boost
               audience interaction.
             </p>
-            <div className={styles.searchBar}>
-              <input
-                type="text"
-                placeholder="Enter ..."
-                className={styles.searchInput}
-              />
-              <button className={styles.searchButton}>Search</button>
+            <div className={styles.searchBarContainer}>
+
+            <SearchBar value={searchTerm} onChange={handleSearchChange} />
+            <button className={styles.searchButton}>Search</button>
             </div>
           </div>
           <div className={styles.imageContainer}></div>

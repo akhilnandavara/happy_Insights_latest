@@ -61,7 +61,7 @@
     overflow: hidden;
     background: #031c30;
     border-radius: 10px;
-    border: 1px solid var(--brand);
+    border: 1px solid var(--color-primary);
   }
   .img {
     width: 100%;
@@ -80,10 +80,10 @@
   }
   .desc {
     font-size: 0.75rem;
-    color: var(--dark);
+    color: var(--color-text-dark);
   }
   .highlightedText {
-    color: var(--brand) !important;
+    color: var(--color-primary) !important;
     font-weight: bold;
   }
   /* Navigation Buttons */
@@ -102,14 +102,14 @@
     transition: background-color 0.3s ease;
   }
   .customPrevBtn {
-    color: var(--brand);
+    color: var(--color-primary);
     background: none;
-    border: 1px solid var(--brand);
+    border: 1px solid var(--color-primary);
   }
   .customNextBtn {
-    color: var(--light);
-    background-color: var(--brand);
-    border: 1px solid var(--brand);
+    color: var(--color-white);
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
   }
   .customPrevBtn:focus,
   .customNextBtn:focus {

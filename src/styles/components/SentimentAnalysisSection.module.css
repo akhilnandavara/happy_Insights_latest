@@ -1,21 +1,25 @@
 .sentimentAnalysisContainer {
   display: flex;
   justify-content: space-between;
-  padding: 20px;
-  background: #fff;
+  padding: 1rem;
+  background-color: var(--color-white);
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px var(--color-box-shadow);
+  gap: 1rem;
+  flex-wrap: wrap; /* Makes it responsive */
 }
 
 .sentimentListContainer {
   flex: 1;
-  margin-right: 20px;
+  margin-right: 1rem;
+  min-width: 280px; /* Ensures proper sizing on small screens */
 }
 
 .title {
-  font-size: 18px;
+  font-size: var(--font-size-xl);
   font-weight: bold;
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
+  color: var(--color-text-dark);
 }
 
 .sentimentList {
@@ -28,43 +32,48 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 10px 15px;
-  border: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  border: 1px solid var(--color-border-muted);
   border-radius: 8px;
-  font-size: 1rem;
-  margin-bottom: 10px;
-  background-color: #ffffff;
+  font-size: var(--font-size-sm);
+  margin-bottom: 0.5rem;
+  background-color: var(--color-white);
   transition: background-color 0.3s, border-color 0.3s;
   cursor: pointer;
 }
+
 .sentimentItem:hover {
-  background-color: #f9f9f9;
-  border-color: var(--brand);
+  background-color: var(--color-bg-light);
+  border-color: var(--color-primary);
 }
 
 .sentimentItem.selected {
-  border: 2px solid var(--brand);
-  background-color: #e8f5e9;
+  border: 2px solid var(--color-primary);
+  background-color: var(--color-comment-bg);
 }
 
 .emoji {
-  margin-right: 10px;
+  margin-right: 0.5rem;
+  font-size: var(--font-size-md);
 }
 
 .count {
   font-weight: bold;
+  color: var(--color-text-dark);
 }
 
 .chartAndSourcesContainer {
   display: flex;
   flex: 2;
   flex-direction: column;
-  gap: 20px;
+  gap: 1rem;
   padding: 1rem;
-  border: 1px solid var(--light);
+  border: 1px solid var(--color-border-container);
   border-radius: 10px;
-  background: #fff;
+  background-color: var(--color-bg-container);
+  min-width: 280px; /* Ensures proper sizing */
 }
+
 .chartContainer {
   flex: 1;
   display: flex;
@@ -76,16 +85,25 @@
 }
 
 .averageSentimentTitle {
-  font-size: 18px;
+  font-size: var(--font-size-sm);
   font-weight: bold;
+  color: var(--color-text-dark);
 }
+
 .averageSentimentSubTitle {
-  font-size: 14px;
+  font-size: var(--font-size-xs);
+  color: var(--color-text-muted);
 }
 
 .sourcesContainer {
   width: 100%;
-  max-width: 300px;
+  max-width: 280px;
+}
+
+.sourcesHeader {
+  font-size: var(--font-size-sm);
+  display: flex;
+  justify-content: space-between;
 }
 
 .sourcesList {
@@ -97,9 +115,9 @@
 .sourceItem {
   display: flex;
   justify-content: space-between;
-  padding: 5px 0;
-  font-size: 1rem;
-  border-bottom: 1px solid #f1f1f1;
+  padding: 0.5rem 0;
+  font-size: var(--font-size-xs);
+  border-bottom: 1px solid var(--color-border-muted);
 }
 
 .percentage {
@@ -107,9 +125,44 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1rem;
+  font-size: var(--font-size-sm);
   text-align: center;
   font-weight: bold;
-  color: var(--dark);
+  color: var(--color-text-dark);
   margin-top: 1rem;
+}
+
+/* Media Query for Smaller Screens */
+@media (max-width: 768px) {
+  .sentimentAnalysisContainer {
+    flex-direction: column;
+    padding: 1rem;
+  }
+
+  .sentimentListContainer,
+  .chartAndSourcesContainer {
+    margin-right: 0;
+    min-width: 100%;
+  }
+
+  .title {
+    font-size: var(--font-size-md);
+  }
+
+  .sentimentItem {
+    font-size: var(--font-size-xs);
+  }
+
+  .averageSentimentTitle,
+  .averageSentimentSubTitle {
+    font-size: var(--font-size-xs);
+  }
+
+  .sourceItem {
+    font-size: var(--font-size-xxs);
+  }
+
+  .percentage {
+    font-size: var(--font-size-xs);
+  }
 }

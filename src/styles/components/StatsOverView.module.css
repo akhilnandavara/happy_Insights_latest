@@ -1,11 +1,10 @@
 .container {
   display: flex;
   justify-content: space-between;
-  background-color: #f8f9fa;
+  background-color: var(--color-bg-container);
   border-radius: 0.5rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  border: 1px solid #e0e0e0;
-
+  box-shadow: 0 2px 4px var(--color-box-shadow);
+  border: 1px solid var(--color-border-container);
   overflow: hidden;
 }
 
@@ -20,9 +19,10 @@
 }
 
 .card.active {
-  box-shadow: 2px 0 4px rgba(0, 0, 0, 0.1);
-  border-right: 1px solid #e0e0e0;
+  box-shadow: 2px 0 4px var(--color-box-shadow);
+  border-right: 1px solid var(--color-border-container);
 }
+
 .header {
   display: flex;
   align-items: center;
@@ -37,7 +37,7 @@
 .platform {
   font-size: 14px;
   font-weight: 500;
-  color: #495057;
+  color: var(--color-text-muted);
 }
 
 .body {
@@ -49,7 +49,7 @@
 .count {
   font-size: 24px;
   font-weight: 700;
-  color: #212529;
+  color: var(--color-text-dark);
 }
 
 .change {
@@ -59,17 +59,17 @@
 }
 
 .positive {
-  color: var(--brand);
-  border: 1px solid var(--brand);
+  color: var(--color-primary);
+  border: 1px solid var(--color-primary);
   border-radius: 1rem;
   padding: 0.25rem;
-  background: var(--comment-bg);
+  background: var(--color-comment-bg);
 }
 
 .negative {
-  background: #f8e5e7;
-  border: 1px solid var(--red);
+  background: var(--color-bg-negative);
+  border: 1px solid var(--color-border-negative);
   border-radius: 1rem;
   padding: 0.25rem;
-  color: var(--red);
+  color: var(--color-border-negative);
 }

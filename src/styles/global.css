@@ -14,8 +14,8 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  font-size: var(--font-size-base);
-  /* overflow: hidden; */
+  font-size: var( --font-size-xs);
+  overflow: hidden;
   font-family: var(--font-family);
   box-sizing: border-box; /* Include padding and borders in width/height */
 }
@@ -63,15 +63,17 @@ li {
   max-width: 1450px;
   flex-grow: 1;
   margin: 0 auto;
-  overflow: auto;
+  height: calc(100vh - 10px); /* Account for padding or margins */
   padding-top: 60px;
-  
+  overflow-x: hidden;
+  overflow-y: auto;
+  scrollbar-width: none;
   /* padding: 20px; */
 }
 
 /* Custom active dots up to the current index */
 .swiper-pagination-bullet-active {
-  background-color: var(--brand) !important;
+  background-color: var(--color-primary) !important;
 }
 .swiper-slide-active > :nth-child(2) {
   opacity: 1;
