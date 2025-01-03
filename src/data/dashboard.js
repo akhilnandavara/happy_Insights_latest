@@ -183,23 +183,29 @@ export const dashboardDoughnutChartData =
     "sourcesData": [
         {
             "label": "Facebook",
-            "count": 768
+            "count": 768,
+            "color": "#4caf50"
         },
         {
             "label": "YouTube",
-            "count": 640
+            "count": 640,
+            "color": "#357a3a",
         },
         {
             "label": "Instagram",
-            "count": 512
+            "count": 512,
+            "color": "#82af4c"
         },
         {
             "label": "LinkedIn",
-            "count": 384
+            "count": 384,
+            "color": "#5a8723"
+
         },
         {
             "label": "TikTok",
-            "count": 256
+            "count": 256,
+            "color": "#47691f"
         }
     ],
     "averageSentiment": 77

@@ -189,7 +189,6 @@ form {
   color: var(--color-primary, #21ba95); /* Updated */
 }
 
-
 .submitBtn {
   border-radius: 5px;
   background-color: var(--color-primary, #21ba95); /* Updated */
@@ -206,7 +205,6 @@ form {
   border: none;
   cursor: pointer;
 }
-
 
 .signupopMsg {
   color: var(--color-primary, #21ba95); /* Updated */
@@ -394,6 +392,7 @@ form {
   align-items: start;
   margin-top: 20px;
   margin-left: 10%;
+  background: var(--color-white);
   /* gap: 27px; */
   position: relative;
 }
@@ -403,11 +402,12 @@ form {
   height: 12px;
   border-width: 1px 0 0 1px;
   position: absolute;
-  border: solid var(--color-highlight);
+  border: 1px solid var(--color-highlight);
   background: var(--color-white);
   top: 0;
   left: 42%;
-  transform: rotate(45deg) translate(-50%, -40%);
+  z-index: -1;
+  transform: rotate(45deg) translate(-50%, -50%);
 }
 .playButton {
   aspect-ratio: 1;
@@ -575,7 +575,7 @@ form {
     width: 85%;
   }
   .mediaContainer::before {
-    top: 0;
+    top: 2%;
     right: 25%;
     left: auto;
     transform: rotate(45deg) translate(-50%, -40%);

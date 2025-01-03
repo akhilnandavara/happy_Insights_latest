@@ -14,6 +14,8 @@ const SentimentAnalysisSection = ({
   // Calculate proportional data based on the average sentiment
   const filledPercentage = averageSentiment; // Example: 70%
   const remainingPercentage = 100 - filledPercentage;
+  const [selectedSentiment, setSelectedSentiment] =
+    React.useState("Happy Words");
 
   // Proportionally divide the "filled" part among the sources
   const totalComments = sourcesData.reduce(
@@ -81,7 +83,13 @@ const SentimentAnalysisSection = ({
             </Heading>
           </div>
           {sentimentData.map((item) => (
-            <li className={styles.sentimentItem} key={item.label}>
+            <li
+              className={`${styles.sentimentItem} ${
+                selectedSentiment === item.label && styles.selected
+              }`}
+              onClick={() => setSelectedSentiment(item.label)}
+              key={item.label}
+            >
               <div>
                 <span className={styles.emoji}>{item.emoji}</span>
                 {item.label}
@@ -96,15 +104,13 @@ const SentimentAnalysisSection = ({
       <div className={styles.chartAndSourcesContainer}>
         <div className={styles.chartContainer}>
           <Doughnut data={chartData} options={chartOptions} />
-          <div className={styles.doughnutWrapper}>
-            <div className={styles.percentage}>
-              <Heading as="h2" className={styles.averageSentimentTitle}>
-                {averageSentiment}%
-              </Heading>
-              <Text as="p" className={styles.averageSentimentSubTitle}>
-                Average Sentiment
-              </Text>
-            </div>
+          <div className={styles.percentage}>
+            <Heading as="h2" className={styles.averageSentimentTitle}>
+              {averageSentiment}%
+            </Heading>
+            <Text as="p" className={styles.averageSentimentSubTitle}>
+              Average Sentiment
+            </Text>
           </div>
         </div>
 
@@ -122,7 +128,13 @@ const SentimentAnalysisSection = ({
           <ul className={styles.sourcesList}>
             {sourcesData.map((source) => (
               <li className={styles.sourceItem} key={source.label}>
-                <span>{source.label}</span>
+                <div className={styles.sourceLabelContainer}>
+                  <span
+                    className={styles.sourceColor}
+                    style={{ backgroundColor: source.color }}
+                  />
+                  <span className={styles.sourceLabel}>{source.label}</span>
+                </div>
                 <span>{source.count}</span>
               </li>
             ))}
