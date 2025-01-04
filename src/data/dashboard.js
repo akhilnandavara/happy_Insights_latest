@@ -151,63 +151,89 @@ export const dashboardBarChartData = {
 
 }
 
-export const dashboardDoughnutChartData =
-{
+export const dashboardDoughnutChartData = {
     "sentimentData": [
         {
             "emoji": "😊",
             "label": "Happy Words",
-            "count": 2559
+            "count": 1500 // 500 + 400 + 200 + 100 + 300
         },
         {
             "emoji": "😢",
             "label": "Sad Words",
-            "count": 1471
+            "count": 1500 // 100 + 200 + 400 + 500 + 300
         },
         {
             "emoji": "😊",
             "label": "Greets Words",
-            "count": 865
+            "count": 495 // 50 + 75 + 120 + 150 + 100
         },
         {
             "emoji": "😐",
             "label": "Neutral",
-            "count": 865
+            "count": 328 // 168 + 40 + 40 + 40 + 40
         },
         {
             "emoji": "😡",
             "label": "Angry",
-            "count": 865
+            "count": 587 // 82 + 185 + 105 + 90 + 125
         }
     ],
     "sourcesData": [
         {
             "label": "Facebook",
-            "count": 768,
+            "counts": {
+                "Happy Words": 500,
+                "Sad Words": 100,
+                "Greets Words": 50,
+                "Neutral": 168,
+                "Angry": 82
+            },
             "color": "#4caf50"
         },
         {
             "label": "YouTube",
-            "count": 640,
-            "color": "#357a3a",
+            "counts": {
+                "Happy Words": 400,
+                "Sad Words": 200,
+                "Greets Words": 75,
+                "Neutral": 40,
+                "Angry": 185
+            },
+            "color": "#357a3a"
         },
         {
             "label": "Instagram",
-            "count": 512,
+            "counts": {
+                "Happy Words": 200,
+                "Sad Words": 400,
+                "Greets Words": 120,
+                "Neutral": 40,
+                "Angry": 105
+            },
             "color": "#82af4c"
         },
         {
             "label": "LinkedIn",
-            "count": 384,
+            "counts": {
+                "Happy Words": 100,
+                "Sad Words": 500,
+                "Greets Words": 150,
+                "Neutral": 40,
+                "Angry": 90
+            },
             "color": "#5a8723"
-
         },
         {
             "label": "TikTok",
-            "count": 256,
+            "counts": {
+                "Happy Words": 300,
+                "Sad Words": 300,
+                "Greets Words": 100,
+                "Neutral": 40,
+                "Angry": 125
+            },
             "color": "#47691f"
         }
-    ],
-    "averageSentiment": 77
-}
-
+    ]
+};

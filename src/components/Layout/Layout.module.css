@@ -279,7 +279,7 @@
   justify-content: center;
   gap: 3px;
   background-color: var(--color-primary);
-  color:var(--color-white) ;
+  color: var(--color-white);
   border: 2px solid var(--color-white);
   border-radius: 10px;
   /* width: 97px; */
@@ -287,7 +287,6 @@
   white-space: nowrap;
   cursor: pointer;
   padding: 0.5rem 1rem;
-
 }
 
 .upgradeBtn {
@@ -311,7 +310,6 @@
   padding: 0 30px;
   cursor: pointer;
   background: var(--color-white);
-  box-shadow: 0 2px 2px #0000001a;
   transition: all 0.5s;
 }
 
@@ -332,14 +330,14 @@
 
 /* Profile Name */
 .profileName {
-  font-size: 0.8rem;
+  font-size: var(--font-size-md);
   font-weight: 500;
   color: var(--color-text-muted);
 }
 
 /* Profile Email */
 .profileEmail {
-  font-size: 0.5rem;
+  font-size: var(--font-size-sm);
   color: var(--color-text-muted);
 }
 
@@ -444,11 +442,11 @@
   }
 
   .profileName {
-    font-size: 0.7rem;
+    font-size: var(--font-size-sm);
   }
 
   .profileEmail {
-    font-size: 0.45rem;
+    font-size: var(--font-size-xs);
   }
   .menuIcon {
     width: 25px;
