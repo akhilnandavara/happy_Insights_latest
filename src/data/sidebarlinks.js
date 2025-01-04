@@ -33,6 +33,13 @@ export const sidebarlinks = [
         // path: "linkedin",
         icon: 'CiLinkedin',
         color: "text-blue"
+    },
+    {
+        id: 5,
+        name: 'Settings',
+        // path: "linkedin",
+        icon: 'CiSettings',
+        color: ""
     }
 ]
 

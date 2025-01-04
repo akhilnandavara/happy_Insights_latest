@@ -7,12 +7,14 @@ export default function MainLayout() {
   return (
     <div className={"mainLayoutContainer"}>
       {/* Top bar and sidebar */}
-      <TopBar />
       <SideBar />
 
       {/* Main content area */}
       <div className={"contentContainer"}>
-        <Outlet />
+        <TopBar />
+        <div className={"dynamicContent"}>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

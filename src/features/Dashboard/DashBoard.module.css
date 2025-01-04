@@ -2,7 +2,7 @@
 .dashboardPage {
   color: var(--color-text-dark);
   padding: 20px;
-  background-color: #f8fafc;
+  background-color: var(--color-white);
 }
 /* Header Section */
 .headerContainer {

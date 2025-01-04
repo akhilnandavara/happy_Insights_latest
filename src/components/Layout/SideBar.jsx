@@ -1,6 +1,6 @@
 import React, { useState, useRef } from "react";
 import styles from "./Layout.module.css";
-import { Img } from "../ui";
+import { Heading, Img } from "../ui";
 import { profilelinks, sidebarlinks } from "../../data/sidebarlinks";
 import SideBarLink from "./SideBarLink";
 import hiSmalllogo from "../../assets/images/hi-small-logo.png";
@@ -23,14 +23,23 @@ export default function SideBar({ showIntroModal }) {
       }`}
     >
       {/* Logo */}
-      <Img
-        onClick={showIntroModal}
-        src={hiSmalllogo}
-        alt="logoImg"
-        className={`${styles.logoImg} ${
-          isSideBarOpen ? "" : styles.logoImgClosed
-        }`}
-      />
+      <div className={`${styles.logoContainer} ${isSideBarOpen ? "" : styles.logoContainerClosed}`}>
+        <Img
+          onClick={showIntroModal}
+          src={hiSmalllogo}
+          alt="logoImg"
+          className={`${styles.logoImg} ${
+            isSideBarOpen ? "" : styles.logoImgClosed
+          }`}
+        />
+        <Heading
+          className={`${styles.sidebarlogoText}  ${
+            isSideBarOpen ? "" : styles.hidden
+          }`}
+        >
+          Happy Insights
+        </Heading>
+      </div>
 
       {/* Sidebar Links */}
       <div
@@ -38,24 +47,28 @@ export default function SideBar({ showIntroModal }) {
           isSideBarOpen ? "" : styles.closed
         }`}
       >
-        {sidebarlinks.map((link) => (
-          <SideBarLink
-            key={link.id}
-            link={link}
-            iconName={link.icon}
-            isSideBarOpen={isSideBarOpen}
-          />
-        ))}
+        <div className={styles.mainSidebarLinksContainer}>
+          {sidebarlinks.map((link) => (
+            <SideBarLink
+              key={link.id}
+              link={link}
+              iconName={link.icon}
+              isSideBarOpen={isSideBarOpen}
+            />
+          ))}
+        </div>
 
-        <div className={styles.lineBar}></div>
-        {profilelinks.map((link) => (
-          <SideBarLink
-            key={link.id}
-            link={link}
-            iconName={link.icon}
-            isSideBarOpen={isSideBarOpen}
-          />
-        ))}
+        <div className={styles.profileLinksContainer}>
+          <div className={styles.lineBar}></div>
+          {profilelinks.map((link) => (
+            <SideBarLink
+              key={link.id}
+              link={link}
+              iconName={link.icon}
+              isSideBarOpen={isSideBarOpen}
+            />
+          ))}
+        </div>
       </div>
 
       {/* Toggle Button - Only visible on small screens */}
@@ -63,11 +76,6 @@ export default function SideBar({ showIntroModal }) {
         setSidebarOpen={setIsSideBarOpen}
         isSidebarOpen={isSideBarOpen}
       />
-
-      <div
-        onClick={() => setIsSideBarOpen(!isSideBarOpen)}
-        className={styles.toggleSideBar}
-      ></div>
     </div>
   );
 }

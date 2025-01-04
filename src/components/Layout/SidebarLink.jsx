@@ -29,9 +29,9 @@ export default function SideBarLink({ link, iconName, isSideBarOpen }) {
         } ${styles.navcontent} `}
       >
         {link.name.toLowerCase() === "dashboard" ? (
-          <MdOutlineDashboardCustomize className={styles.icon} />
+          <MdOutlineDashboardCustomize className={styles.sidebarIcon} />
         ) : (
-          <Icon className={styles.icon} />
+          <Icon className={styles.sidebarIcon} />
         )}
         <span
           className={`${styles.navLinkName} ${
