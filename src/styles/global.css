@@ -14,7 +14,7 @@ body {
   padding: 0;
   width: 100vw;
   height: 100vh;
-  font-size: var( --font-size-xs);
+  font-size: var(--font-size-xs);
   overflow: hidden;
   font-family: var(--font-family);
   box-sizing: border-box; /* Include padding and borders in width/height */
@@ -82,4 +82,9 @@ li {
 
 .swiper-slide-active > :nth-child(2) > :nth-child(1) {
   width: 50%;
+}
+
+.react-datepicker-wrapper,
+.react-datepicker__input-container {
+  height: 100% ;
 }
