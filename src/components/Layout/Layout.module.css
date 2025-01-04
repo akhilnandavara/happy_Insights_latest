@@ -11,7 +11,7 @@
   z-index: 1000;
   /* padding: 1rem; */
   /* box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.25); */
-  border-right: 1px solid var(--color-primary-light);
+  border-right: 2px solid var(--color-bg-container);
   transition: width 0.5s ease-in-out, opacity 0.5s ease;
 }
 
@@ -97,13 +97,7 @@
   justify-content: flex-start;
 }
 .selectedLink {
-  background-color: var(--color-primary);
-  height: 100%;
-  width: 5px;
-  position: absolute;
-  right: 0;
-  top: 0;
-  border-radius: 0 5px 5px 0;
+  background-color: var(--color-primary-bg);
 }
 .icon {
   font-size: 1.5rem;
@@ -272,7 +266,6 @@
 }
 
 /* Upgrade Button */
-
 .upgradeBtnContainer {
   display: flex;
   place-items: center;
@@ -296,9 +289,10 @@
 
 /* Icon */
 .icon {
-  width: 1rem;
-  height: 1rem;
+  width: 1.5rem;
+  height: 1.5rem;
 }
+
 
 /* Profile Container */
 .profileContainer {

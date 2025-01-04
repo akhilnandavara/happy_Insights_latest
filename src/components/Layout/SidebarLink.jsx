@@ -17,7 +17,12 @@ export default function SideBarLink({ link, iconName, isSideBarOpen }) {
   const location = window.location.pathname;
 
   return (
-    <NavLink to={link.path} className={styles.navlink}>
+    <NavLink
+      to={link.path}
+      className={`${
+        matchRoute(link.name, location) ? styles.selectedLink : ""
+      } ${styles.navlink}`}
+    >
       <div
         className={`${
           matchRoute(link.name, location) ? styles[link.color] : ""
@@ -36,11 +41,6 @@ export default function SideBarLink({ link, iconName, isSideBarOpen }) {
           {link.name}
         </span>
       </div>
-      <span
-        className={`${
-          matchRoute(link.name, location) ? styles.selectedLink : ""
-        } `}
-      ></span>
     </NavLink>
   );
 }

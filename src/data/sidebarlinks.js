@@ -4,7 +4,7 @@ export const sidebarlinks = [
         name: 'Dashboard',
         path: "dashboard",
         icon: 'MdOutlineDashboardCustomize',
-        color: 'brandColor'
+        color: 'color-primaryColor'
     },
     {
         id: 2,

@@ -10,13 +10,13 @@
   transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
 }
 .toggleButton {
-  background-color: var(--bg-light);
+  background-color: var(--color-bg-container);
   cursor: pointer;
   display: flex;
   align-items: center;
   height: 100%;
   width: 80%;
-  border: 1px solid var(--bg-light-border);
+  border: 2px solid var(--color-border-container);
   border-left: none;
   z-index: 100;
   position: absolute; /* Keep the button's position relative to the wrapper */
@@ -25,7 +25,7 @@
   transition: width 0.5s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
 }
 .toggleButtonWrapperClosed {
-  right: -30px;
+  right: -20px;
 }
 .toggleButtonWrapperOpen {
   right: -1px;
