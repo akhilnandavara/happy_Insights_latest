@@ -5,9 +5,8 @@ import { CiLogout, CiSettings } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
-import { PiCrownSimpleFill } from "react-icons/pi";
-import { IoIosArrowDown } from "react-icons/io";
 import useDebounce from "../../hooks/useDebounce";
+import Icon from "../Icon";
 
 const placeholderImg = "https://api.dicebear.com/5.x/initials/svg?seed=Hello";
 
@@ -15,8 +14,8 @@ const MemoizedImg = React.memo(Img);
 
 const MemoizedMenuItem = React.memo(({ item, onClick }) => (
   <div className={styles.profileItem} onClick={onClick}>
-    {item.icon}
-    <span className={styles.title}>{item.title}</span>
+    <div className={styles.sidebarIcon}>{item.icon}</div>
+    <div className={styles.title}>{item.title}</div>
   </div>
 ));
 
@@ -78,23 +77,20 @@ export default function TopBar({ onLogout }) {
 
   return (
     <div className={styles.container}>
-      <div className={styles.topBarContents}>
-        <Heading as={"h2"} className={styles.topBarLeft}>
+      <>
+        <Heading as={"h2"} className={styles.topBarPageTitle}>
           {pageName}
         </Heading>
         <div className={styles.topBarRight}>
-          <div className={styles.btnContainer}>
-            <button
-              className={styles.upgradeBtnContainer}
-              onClick={() => navigate("upgrade")}
-            >
-              <PiCrownSimpleFill className={styles.icon} />
-              <Text as={"p"} className={styles.upgradeBtn}>
-                Upgrade Plans
-              </Text>
-            </button>
-           
-          </div>
+          <button
+            className={styles.upgradeBtnContainer}
+            onClick={() => navigate("upgrade")}
+          >
+            <Icon name={"crown"} className={styles.sidebarIcon} />
+            <Text as={"p"} className={styles.upgradeBtn}>
+              Upgrade Plans
+            </Text>
+          </button>
 
           <div
             className={styles.profileContainer}
@@ -116,8 +112,9 @@ export default function TopBar({ onLogout }) {
                 {debouncedUser?.email}
               </span>
             </div>
-            <IoIosArrowDown
-              className={` ${styles.icon} ${styles.profileArrowDown} ${
+            <Icon
+              name={"arrow-down"}
+              className={` ${styles.sidebarIcon} ${styles.profileArrowDown} ${
                 showMenu ? styles.rotate : ""
               }`}
             />
@@ -130,7 +127,7 @@ export default function TopBar({ onLogout }) {
             )}
           </div>
         </div>
-      </div>
+      </>
     </div>
   );
 }

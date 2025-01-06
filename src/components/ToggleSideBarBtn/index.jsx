@@ -5,12 +5,13 @@ import {
   MdOutlineKeyboardArrowRight,
 } from "react-icons/md";
 import classNames from "classnames";
+import Icon from "../Icon";
 
 export default function ToggleSideBarBtn({ setSidebarOpen, isSidebarOpen }) {
   const toggleSidebar = useCallback(() => {
     setSidebarOpen((prev) => !prev);
   }, []);
-  
+
   return (
     <div
       className={classNames(styles.toggleButtonWrapper, {
@@ -26,11 +27,12 @@ export default function ToggleSideBarBtn({ setSidebarOpen, isSidebarOpen }) {
         })}
         onClick={toggleSidebar}
       >
-        {isSidebarOpen ? (
-          <MdOutlineKeyboardArrowLeft className={styles.toggleIcon} />
+        <Icon name="arrow-down" className={`${styles.toggleIcon} ${!isSidebarOpen && styles.toggleIconClosed}`} />
+        {/* {isSidebarOpen ? (
+          // <MdOutlineKeyboardArrowLeft className={styles.toggleIcon} />
         ) : (
           <MdOutlineKeyboardArrowRight className={styles.toggleIcon} />
-        )}
+        )} */}
       </button>
     </div>
   );

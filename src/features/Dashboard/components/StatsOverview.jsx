@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "./StatsOverview.module.css";
+import styles from "../styles/StatsOverView.module.css";
 import { FaFacebook, FaYoutube, FaInstagram, FaLinkedin, FaTiktok } from "react-icons/fa";
 import { MdChatBubble } from "react-icons/md";
 

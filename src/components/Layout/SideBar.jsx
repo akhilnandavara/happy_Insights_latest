@@ -18,36 +18,40 @@ export default function SideBar({ showIntroModal }) {
   return (
     <div
       ref={sideBarRef}
-      className={`${styles.sidebar} ${
+      className={`${styles.sidebar}  ${
         isSideBarOpen ? styles.sidebarOpen : styles.sidebarClosed
       }`}
     >
-      {/* Logo */}
-      <div className={`${styles.logoContainer} ${isSideBarOpen ? "" : styles.logoContainerClosed}`}>
-        <Img
-          onClick={showIntroModal}
-          src={hiSmalllogo}
-          alt="logoImg"
-          className={`${styles.logoImg} ${
-            isSideBarOpen ? "" : styles.logoImgClosed
-          }`}
-        />
-        <Heading
-          className={`${styles.sidebarlogoText}  ${
-            isSideBarOpen ? "" : styles.hidden
-          }`}
-        >
-          Happy Insights
-        </Heading>
-      </div>
-
       {/* Sidebar Links */}
       <div
         className={`${styles.sidebarLinksContainer} ${
           isSideBarOpen ? "" : styles.closed
         }`}
       >
-        <div className={styles.mainSidebarLinksContainer}>
+        <div className={styles.logoAndLinksContainer}>
+          {/* Logo */}
+          <div
+            className={`${styles.logoContainer} ${
+              isSideBarOpen ? "" : styles.logoContainerClosed
+            }`}
+          >
+            <Img
+              onClick={showIntroModal}
+              src={hiSmalllogo}
+              alt="logoImg"
+              className={`${styles.logoImg} ${
+                isSideBarOpen ? "" : styles.logoImgClosed
+              }`}
+            />
+            <Heading
+              className={`${styles.sidebarlogoText}  ${
+                isSideBarOpen ? "" : styles.hidden
+              }`}
+            >
+              Happy Insights
+            </Heading>
+          </div>
+
           {sidebarlinks.map((link) => (
             <SideBarLink
               key={link.id}

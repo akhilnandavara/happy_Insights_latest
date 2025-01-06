@@ -1,0 +1,54 @@
+.wrapper {
+  display: flex;
+  width: 100%;
+  max-width: 1450px;
+  height: calc(100% - 10px); /* Account for padding or margins */
+  justify-content: space-between;
+  overflow-y: auto;
+  scrollbar-width: none;
+  margin: 0 auto;
+}
+/* Comments section */
+.content {
+  display: flex;
+  flex-direction: row;
+  height: 100%;
+  flex: 1;
+  transition: all 0.5s ease; /* Smooth transitions for layout changes */
+  overflow: hidden;
+}
+
+.commentContainer {
+  flex: 6; /* Allow the container to grow/shrink dynamically */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+
+.commentContainer {
+  animation: floatFromTop 0.5s ease-out;
+  animation-fill-mode: both;
+}
+
+@media (min-width: 2000px) {
+  .commentContainer {
+    height: 60% !important;
+  }
+  /* .replyToggleBtn {
+      width: 15%;
+    } */
+}
+
+/* AI Suggestion Section */
+.suggestionContainer {
+  flex: 2; /* Default size when visible */
+  /* max-height: 600px; */
+  transition: all 0.5s ease;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  border-left: 1.5px solid var(--bg-light-border);
+}

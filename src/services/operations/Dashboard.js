@@ -36,6 +36,7 @@ export const getAllConfig = (navigate) => async (dispatch) => {
     dispatch(setLoading(true));
     try {
         const response = await apiConnector("GET", userApi.getAllConfig, null, {}, false);
+        console.log("All configurations fetched successfully:", response.data);
         dispatch(setUserConfig(response.data));
     } catch (error) {
         navigate("/")

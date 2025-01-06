@@ -1,0 +1,22 @@
+/* Icon.module.css */
+.icon {
+    width: 10px; /* default size */
+    height: 10px;
+    fill: currentColor; /* Allows the icon to inherit color from the text */
+  }
+  
+  .icon.large {
+    width: 48px; /* for larger icons */
+    height: 48px;
+  }
+  
+  .icon.primary {
+    fill: #0070f3; /* color for primary icon */
+  }
+  
+  svg.icon {
+    display: inline-block;
+    width: 1em;  /* Adjust as needed */
+    height: 1em;  /* Adjust as needed */
+  }
+  

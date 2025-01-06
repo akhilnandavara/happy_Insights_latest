@@ -11,14 +11,14 @@
   transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
 }
 .toggleButton {
-  background-color: var(--color-bg-container);
+  background-color: var(--primary-border);
   cursor: pointer;
   display: flex;
   align-items: center;
+
   height: 100%;
   width: 80%;
-  border: 2px solid var(--color-border-container);
-  border-left: none;
+  border: 1px solid var(--border-secondary);
   z-index: 100;
   position: absolute; /* Keep the button's position relative to the wrapper */
   right: 0;
@@ -34,7 +34,8 @@
 .toggleButtonClosed {
   transition: transform 0.3s ease-in-out;
   border-radius: 10px 0 0 10px;
-  justify-content: flex-end;
+  justify-content: flex-start;
+  border-right: 0px;
 }
 
 .toggleButtonOpen {
@@ -42,19 +43,25 @@
   border-radius: 0 10px 10px 0;
   transform-origin: left;
   left: 0;
+  border-left: 0px;
 }
 
 .toggleIcon {
   position: absolute;
   top: 50%; /* Center vertically */
-  /* right: 0.1rem; */
-  transform: translateY(-50%); /* Center vertically */
-  color: var(--color-primary); /* Icon color */
+  transform: translate(-50%, 50%); /* Center horizontally */
+  color: var(--primary); /* Icon color */
   width: 100%;
   height: 100%;
+  rotate: 90deg;
   pointer-events: none; /* Prevent interaction with the icon */
 }
 .toggleButton:hover {
   width: 100%;
   border: transparent;
+}
+
+.toggleIconClosed {
+  transform: rotate(180deg) translate(50%, 0%);
+  right: 0;
 }
