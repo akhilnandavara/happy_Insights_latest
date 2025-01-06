@@ -3,6 +3,7 @@
   color: var(--color-text-dark);
   padding: 0 10px;
   background-color: var(--color-white);
+  transition: all 0.5s ease; /* Smooth transitions for layout changes */
 }
 /* Header Section */
 .headerContainer {
@@ -52,9 +53,15 @@
   font-weight: 400;
   line-height: 22px;
   text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Limit to 4 lines */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Adds ellipsis for overflow */
+  width: 100%;
 }
+
+
 .searchBarContainer {
   display: flex;
   align-items: center;

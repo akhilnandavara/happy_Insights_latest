@@ -92,6 +92,9 @@
   line-height: 22px;
   text-align: left;
   overflow: hidden;
+  display: -webkit-box;
+  -webkit-line-clamp: 4; /* Limit to 4 lines */
+  -webkit-box-orient: vertical;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: var(--white);
