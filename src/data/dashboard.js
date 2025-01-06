@@ -1,11 +1,11 @@
 
-const dashboardStaticData =
+export const dashboardStaticData =
 {
-    "welcome_message": {
+    welcome_message: {
         "title": "Hi Welcome! 👋",
-        "description": "Explore Happy Insights to effortlessly manage your channels using AI. It helps you analyze comments, likes, and feedback (positive or negative) while automating short replies for better engagement. Gain valuable insights to refine your content strategy and boost audience interaction."
+        "desc": "Explore Happy Insights to effortlessly manage your channels using AI. It helps you analyze comments, likes, and feedback (positive or negative) while automating short replies for better engagement. Gain valuable insights to refine your content strategy and boost audience interaction."
     },
-    "card": [{
+    card: [{
         "title": "Channel Management",
         "description": "Effortlessly manage video comments across your channels, including all positive and negative feedback.",
         "button_text": "Configure Now"

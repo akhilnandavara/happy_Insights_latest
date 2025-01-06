@@ -1,8 +1,8 @@
 import React, { lazy } from "react";
-import DashBoardPage from "../features/Dashboard/DashBoardPage";
+import DashBoardPage from "../pages/DashBoardPage";
 import MainLayout from "../pages/MainLayout";
-import YouTubePage from "../features/YouTube";
 import UpgradePage from "../pages/UpgradePlans";
+import YouTubePage from "../pages/YouTubePage";
 
 const MainLayoutRoutes = [
   {
