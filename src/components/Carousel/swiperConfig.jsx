@@ -35,21 +35,21 @@ export const introSlides = [
 export const DashBoardHeaderLeftSlides = [
   {
     // img: "/assets/engagementImages/slide1.jpg",
-    img: "https://placehold.co/400",
+    img: "/public/illustrators/dashboard-carousel-img-1.svg",
     title: "Channel Management",
     desc: "Effortlessly manage video comments across your channels, including all positive and negative feedback.",
     btnText: "Configure Now",
   },
   {
     // img: "/assets/engagementImages/slide2.jpg",
-    img: "https://placehold.co/400",
+    img: "/public/illustrators/dashboard-carousel-img-2.svg",
     title: "Comment Control Hub",
     desc: "Upgrade to effortlessly manage video comments, gain insights, and handle both positive and negative feedback.",
     btnText: "Upgrade To Pro",
   },
   {
     // img: "/assets/engagementImages/slide3.jpg",
-    img: "https://placehold.co/400",
+    img: "/public/illustrators/dashboard-carousel-img-3.svg",
     title: "AI Insghts: Video Enagement Analysis",
     desc: "Effortlessly manage video comments across your channels, including all positive and negative feedback.",
     btnText: "Explore Now",

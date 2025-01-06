@@ -30,6 +30,12 @@ export const sidebarlinks = [
     },
     {
         id: 6,
+        name: 'TikTok',
+        // path: "linkedin",
+
+    },
+    {
+        id: 7,
         name: 'Settings',
         // path: "linkedin",
 

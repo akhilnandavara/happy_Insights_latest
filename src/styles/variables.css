@@ -14,33 +14,20 @@
   --primary-border: rgba(244, 244, 244, 1);
   --bg-primary: rgba(233, 254, 248, 1);
   --border-secondary: rgba(233, 235, 237, 1);
-  
+
   --text-value: rgba(55, 65, 81, 1);
   --text-secondary: rgba(93, 114, 133, 1);
   --text-tertiary: rgba(107, 114, 128, 1);
   --text-placeholder: rgba(239, 242, 244, 1);
   --white: rgba(255, 255, 255, 1);
 
-  --color-primary-light: #f0f0f0;
-  --color-primary-hover: #21ba94de;
-  --color-primary-dark: #004349;
-  --color-primary-bg: #d2f1e5;
+  --text-dashboard-title: rgba(0, 75, 80, 1);
+  --text-dashboard-desc: rgba(0, 75, 80, 1);
 
-  --color-comment-bg: #e6f7f4;
-  --color-comment-border: #1abc9c;
-  --color-comment-border-hover: #007acc;
-  --color-border-muted: #f4f4f4;
-  --color-bg-container: #f4f4f4;
-  --color-border-container: #e9ebed;
   --color-bg-negative: #f8e5e7;
   --color-border-negative: #e74c3c;
   --color-box-shadow: rgba(0, 0, 0, 0.1);
 
-  /* New Colors */
-  --color-secondary: #313131; /* Secondary text color */
-  --color-muted: #6b7280; /* Timestamps and subtle text */
-  --color-highlight: #fc4788; /* Highlight or action elements */
-  --color-border-light: #ebebeb; /* Light borders */
 
   /* Plan Colors */
   --color-plan-basic-border-top: gray;

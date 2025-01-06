@@ -14,7 +14,7 @@
   min-height: 50%;
   height: 100%;
   overflow: hidden;
-  background: var(--color-white);
+  background: var(--white);
   border-radius: 10px;
   transition: transform 0.6s ease, opacity 0.6s ease; /* Smooth transition */
 }
@@ -25,16 +25,18 @@
   transition: transform 0.6s ease, opacity 0.6s ease; /* Smooth transition */
 }
 
-/* Text Container */
 /* Text Container (Default State) */
 .textContainer {
   display: flex;
   flex-direction: column;
-  gap: 10px;
   padding: 0.5rem;
   flex: 1;
   position: absolute;
   bottom: 0;
+  width: 90%;
+  padding: 12px 15px 12px 15px;
+  gap: 10px;
+  opacity: 0px;
   transform: translateY(0px);
   transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth transition */
 }
@@ -45,32 +47,54 @@
   justify-content: center;
   align-items: center;
   height: 2rem;
-  background-color: var(--color-primary);
-  color: var(--color-white);
+  background-color: var(--primary);
+  color: var(--white);
   border-radius: 0.5rem;
   cursor: pointer;
   transition: background-color 0.3s ease, transform 0.3s ease, width 1s ease; /* Smooth button transition */
-  width: 0;
   border: none;
+  width: 100%;
   cursor: pointer;
+  padding: 4px 8px 4px 8px;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  text-wrap: nowrap;
+  line-height: 18px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 
 .btn:hover {
-  background-color: var(--color-text-dark);
-  transform: scale(1.05); /* Slight zoom on hover */
+  background-color: var(--text-secondary);
 }
 
 /* Title */
 .title {
-  font-size: 1rem;
-  text-align: start;
+  font-family: Poppins;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 30px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--white);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
   transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth text transition */
 }
 
 /* Description */
 .desc {
-  font-size: 0.75rem;
-  color: var(--color-text-dark);
+  font-weight: 400;
+  line-height: 22px;
+  text-align: left;
+  overflow: hidden;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--white);
   transition: opacity 0.6s ease, transform 0.6s ease; /* Smooth text transition */
 }
 
