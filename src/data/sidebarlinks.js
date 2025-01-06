@@ -16,7 +16,7 @@ export const sidebarlinks = [
     {
         id: 3,
         name: 'YouTube',
-        path: "youtube/insights",
+        path: "youtube",
         icon: 'CiYoutube',
         color: "text-red"
     },
