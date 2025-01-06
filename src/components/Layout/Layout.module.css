@@ -28,7 +28,7 @@
 }
 
 .sidebarOpen {
-  width: 500px;
+  width: 200px;
   opacity: 1; /* Opacity for smooth open transition */
 }
 
@@ -187,7 +187,7 @@
 
 @media (max-width: 1200px) {
   .sidebarOpen {
-    width: 400px;
+    width: 250px;
   }
   .sidebarlogoText {
     font-size: 1.4rem;

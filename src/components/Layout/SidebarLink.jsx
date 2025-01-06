@@ -7,7 +7,7 @@ import matchRoute from "../../utils/matchRoute";
 
 export default function SideBarLink({ link, iconName, isSideBarOpen }) {
   const Icon = Icons[iconName];
-  const location = useLocation(); // Use the hook to get the current location
+  const location = useLocation();
 
   return (
     <NavLink
