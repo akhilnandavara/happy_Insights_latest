@@ -109,10 +109,11 @@ form {
   padding: 17px 19px;
 }
 .inputField input:focus {
-  outline: none;
+  /* outline: none; */
+  outline-color: var(--color-primary, #21ba95);
 }
 .inputField input::placeholder {
-  color: var(--color-border-muted, #e0e0e0); /* Updated */
+  color: var(--color-border-muted, #e0e0e0);
 }
 
 .showPasswordBtn {
@@ -407,7 +408,7 @@ form {
   top: 0;
   left: 42%;
   z-index: -1;
-  transform: rotate(45deg) translate(-50%, -50%);
+  transform: rotate(45deg) translate(-50%, -40%);
 }
 .playButton {
   aspect-ratio: 1;
@@ -429,13 +430,14 @@ form {
 .mediaWrapper {
   display: flex;
   gap: 20px;
-  flex-grow: 1;
-  width: 70%;
+  width: 80%;
   padding: 10px;
-  padding-left: 20px;
 }
 .interactionbtn {
-  width: 25px;
+  aspect-ratio: 1;
+  object-fit: contain;
+  object-position: center;
+  width: 30px;
 }
 
 .videoThumbnail {

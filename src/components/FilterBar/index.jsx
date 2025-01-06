@@ -1,5 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
-import styles from "../../styles/components/FilterBar.module.css";
+import styles from "./FilterBar.module.css";
 import { IoIosArrowDown } from "react-icons/io";
 import FilterByPeriod from "./FilterByPeriod";
 

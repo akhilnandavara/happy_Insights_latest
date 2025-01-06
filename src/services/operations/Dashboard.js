@@ -1,4 +1,4 @@
-import { setLoading, setSubDetails, setUser, setUserConfig } from "../../slices/profileSlice";
+import { setLoading, setSubDetails, setUser, setUserConfig } from "../../store/slices/profileSlice";
 import { apiConnector } from "../apiConnector";
 import { userApi, youtubeAPi } from "../apis";
 

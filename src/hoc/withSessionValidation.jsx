@@ -3,7 +3,8 @@ import { useNavigate } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import LoadingSpinner from "../components/Loader"; // You can customize this component
 import { getUserDetails } from "../services/operations/Dashboard";
-import { setLoading } from "../slices/authSlice";
+import { setLoading } from "../store/slices/authSlice";
+
 
 const withSessionValidation = (Component) => {
   return (props) => {

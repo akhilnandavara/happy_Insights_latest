@@ -6,14 +6,14 @@ import DashBoardHeaderLeftSlider from "../../components/Carousel/DashboardHeader
 import { useSelector } from "react-redux";
 import useDebounce from "../../hooks/useDebounce";
 import FilterBar from "../../components/FilterBar";
-import StatsOverView from "../../components/DashBoard/StatsOverview";
 import CustomBarChart from "../../components/BarGraph";
 import {
   dashboardBarChartData,
   dashboardDoughnutChartData,
 } from "../../data/Dashboard";
-import SentimentAnalysisSection from "../../components/DashBoard/SentimentAnalysisSection";
+import SentimentAnalysisSection from "./components/SentimentAnalysisSection";
 import SearchBar from "../../components/SearchBar";
+import StatsOverView from "./components/StatsOverview";
 
 export default function DashBoardPage() {
   const [showModal, setShowModal] = useState(false);

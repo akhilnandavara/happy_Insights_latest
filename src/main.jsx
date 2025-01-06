@@ -4,18 +4,12 @@ import App from "./App.jsx";
 // import "react-datepicker/dist/react-datepicker.css";
 import "./styles/global.css";
 import { GoogleOAuthProvider } from "@react-oauth/google";
-import { configureStore } from "@reduxjs/toolkit";
 
 import useSsoId from "./hooks/useSsoId.js";
 import LoadingSpinner from "./components/Loader";
 import ErrorBoundary from "./components/ErrorBoundary/index.jsx";
 import { Provider } from "react-redux";
-import rootReducer from "./reducer/index.js";
-
-// Redux store setup
-const store = configureStore({
-  reducer: rootReducer,
-});
+import store from "./store/index.js";
 
 const Main = () => {
   const { clientId, isLoading, error } = useSsoId();

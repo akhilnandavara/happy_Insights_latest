@@ -1,5 +1,5 @@
 import React, { useState, useRef } from "react";
-import styles from "../../styles/components/FilterBar.module.css";
+import styles from "./FilterBar.module.css";
 import { IoIosArrowDown } from "react-icons/io";
 import { FaCalendarAlt } from "react-icons/fa";
 import "react-datepicker/dist/react-datepicker.css";

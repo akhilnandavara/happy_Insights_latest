@@ -1,8 +1,8 @@
 import React from "react";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
-import styles from "../../styles/components/SentimentAnalysisSection.module.css";
-import { Heading, Text } from "../ui";
+import styles from "./SentimentAnalysisSection.module.css";
+import { Heading, Text } from "../../../components/ui";
 
 ChartJS.register(ArcElement, Tooltip, Legend);
 

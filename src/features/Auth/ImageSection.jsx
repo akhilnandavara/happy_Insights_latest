@@ -1,6 +1,6 @@
 import React from "react";
-import styles from "../../styles/components/Auth.module.css";
-import { Img } from "../ui";
+import styles from "./Auth.module.css";
+import { Img } from "../../components/ui"
 
 import {
   userAvatar,

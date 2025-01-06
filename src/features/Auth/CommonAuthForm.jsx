@@ -3,8 +3,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { GoogleLogin } from "@react-oauth/google";
 import { Link } from "react-router-dom";
-import styles from "../../styles/components/Auth.module.css";
-import { Heading } from "../ui";
+import styles from "./Auth.module.css";
+import { Heading } from "../../components/ui";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 
 const CommonAuthForm = React.memo(

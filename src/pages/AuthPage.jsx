@@ -1,8 +1,8 @@
 import React from "react";
-import LoginForm from "../components/Auth/LoginForm";
-import SignupForm from "../components/Auth/SignupForm";
-import ImageSection from "../components/Auth/ImageSection";
-import styles from "../styles/components/Auth.module.css";
+import LoginForm from "../features/Auth/LoginForm";
+import SignupForm from "../features/Auth/SignupForm";
+import ImageSection from "../features/Auth/ImageSection";
+import styles from "../features/Auth/Auth.module.css";
 import { Img } from "../components/ui";
 import { Link, useLocation } from "react-router-dom";
 import logo from "../assets/images/logo.png";
@@ -12,7 +12,7 @@ const MemoizedLoginForm = React.memo(LoginForm);
 const MemoizedSignupForm = React.memo(SignupForm);
 const MemoizedImageSection = React.memo(ImageSection);
 
-export default function Auth() {
+export default function AuthPage() {
   const location = useLocation();
   const isLogin = location.pathname === "/";
   

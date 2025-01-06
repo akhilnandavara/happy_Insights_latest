@@ -1,7 +1,7 @@
 import { apiConnector } from "../apiConnector";
 import { authApi } from "../apis";
-import { setLoading } from "../../slices/authSlice";
-import { setUser } from "../../slices/profileSlice";
+import { setLoading } from "../../store/slices/authSlice";
+import { setUser } from "../../store/slices/profileSlice";
 
 // Function to handle signup
 export function signup({ name, email }) {
