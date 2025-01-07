@@ -4,7 +4,6 @@ import useDebounce from "../hooks/useDebounce";
 import styles from "../features/Dashboard/Dashboard.module.css";
 import { Heading } from "../components/ui";
 import IntroSlider from "../components/Carousel/IntroSlider";
-import DashBoardHeaderLeftSlider from "../components/Carousel/DashboardHeaderLeftSlider";
 import FilterBar from "../components/FilterBar";
 import SearchBar from "../components/SearchBar";
 import CustomBarChart from "../components/BarGraph";
@@ -12,6 +11,7 @@ import StatsOverView from "../features/Dashboard/components/StatsOverview";
 import SentimentAnalysisSection from "../features/Dashboard/components/SentimentAnalysisSection";
 import { dashboardBarChartData, dashboardDoughnutChartData } from "../data/Dashboard";
 import { dashboardStaticData } from "../data/Dashboard";
+import DashBoardHeaderRightSlider from "../components/Carousel/DashboardHeaderRightSlider";
 
 // Utility: Debounced User Data
 const getDebouncedUser = (user) =>
@@ -45,7 +45,7 @@ function HeaderSection({ welcomeMessage, debouncedUser, searchTerm, onSearchChan
         <div className={styles.imageContainer}></div>
       </div>
       <div className={styles.carouselSection}>
-        <DashBoardHeaderLeftSlider />
+        <DashBoardHeaderRightSlider />
       </div>
     </section>
   );

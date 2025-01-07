@@ -82,11 +82,6 @@ li {
   background-color: var(--bg-pagination-bullet) !important;
 }
 
-
-/* .swiper-slide-active > :nth-child(2) > :nth-child(1) {
-  width: 50%;
-} */
-
 .react-datepicker-wrapper,
 .react-datepicker__input-container {
   height: 100%;

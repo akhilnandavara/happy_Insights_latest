@@ -1,12 +1,12 @@
 import React, { useRef } from "react";
 import CustomSwiper from "./CustomSwiper";
-import styles from "./styles/DashboardHeaderLeftSlider.module.css";
+import styles from "./styles/DashboardHeaderRightSlider.module.css";
 import {
   DashBoardHeaderLeftConfig,
-  DashBoardHeaderLeftSlides,
+  DashBoardHeaderRightSlides,
 } from "./swiperConfig";
 
-const DashBoardHeaderLeftSlider = () => {
+const DashBoardHeaderRightSlider = () => {
   // Ref for Swiper instance
   const swiperRef = useRef(null);
 
@@ -21,7 +21,7 @@ const DashBoardHeaderLeftSlider = () => {
   return (
     <>
       <CustomSwiper
-        slides={DashBoardHeaderLeftSlides}
+        slides={DashBoardHeaderRightSlides}
         config={DashBoardHeaderLeftConfig}
         customStyles={styles}
       />
@@ -46,4 +46,4 @@ const DashBoardHeaderLeftSlider = () => {
   );
 };
 
-export default DashBoardHeaderLeftSlider;
+export default DashBoardHeaderRightSlider;
