@@ -34,25 +34,25 @@ export const introSlides = [
 
 export const DashBoardHeaderLeftSlides = [
   {
-    // img: "/assets/engagementImages/slide1.jpg",
     img: "/public/illustrators/dashboard-carousel-img-1.svg",
     title: "Channel Management",
     desc: "Effortlessly manage video comments across your channels, including all positive and negative feedback.",
     btnText: "Configure Now",
+    btnWidth: "40%", // Define the button width for this slide
   },
   {
-    // img: "/assets/engagementImages/slide2.jpg",
     img: "/public/illustrators/dashboard-carousel-img-2.svg",
     title: "Comment Control Hub",
     desc: "Upgrade to effortlessly manage video comments, gain insights, and handle both positive and negative feedback.",
     btnText: "Upgrade To Pro",
+    btnWidth: "50%", // Define a different width for this slide
   },
   {
-    // img: "/assets/engagementImages/slide3.jpg",
     img: "/public/illustrators/dashboard-carousel-img-3.svg",
-    title: "AI Insghts: Video Enagement Analysis",
+    title: "AI Insights: Video Engagement Analysis",
     desc: "Effortlessly manage video comments across your channels, including all positive and negative feedback.",
     btnText: "Explore Now",
+    btnWidth: "35%", // Another width value for this slide
   },
 ];
 

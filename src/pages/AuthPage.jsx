@@ -14,8 +14,8 @@ const MemoizedImageSection = React.memo(ImageSection);
 
 export default function AuthPage() {
   const location = useLocation();
-  const isLogin = location.pathname === "/";
-  
+  const isLogin = location.pathname === "/login";
+
   return (
     <div className={styles.wrapper}>
       {/* Header */}

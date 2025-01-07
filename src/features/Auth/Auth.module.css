@@ -7,7 +7,7 @@
   display: flex;
   gap: 7px;
   font-size: 28px;
-  color: var(--color-text-dark, #111); /* Updated */
+  color: var(--text-value, #111); /* Updated */
   font-weight: 500;
   text-transform: uppercase;
   line-height: 1;
@@ -30,7 +30,7 @@
   font-weight: 800;
   line-height: 29px;
   font-family: Raleway, sans-serif;
-  color: var(--color-primary, #21ba95); /* Updated */
+  color: var(--primary, #21ba95); /* Updated */
 }
 
 .contentWrapper {
@@ -55,7 +55,7 @@
 }
 
 .title {
-  color: var(--color-primary, #21ba95); /* Updated */
+  color: var(--primary, #21ba95); /* Updated */
   font: 600 32px Poppins, sans-serif;
 }
 
@@ -79,7 +79,7 @@ form {
 
 .inputLabel {
   backdrop-filter: blur(2px);
-  background-color: var(--color-white, #fff); /* Updated */
+  background-color: var(--white, #fff); /* Updated */
   z-index: 10;
   color: var(--color-text-dark, #000); /* Updated */
   position: absolute;
@@ -93,7 +93,7 @@ form {
   display: flex;
   align-items: center;
   border-radius: 7px;
-  background-color: var(--color-white, #fff); /* Updated */
+  background-color: var(--white, #fff); /* Updated */
   max-width: 100%;
   color: var(--color-border-muted, #e0e0e0); /* Updated */
   white-space: nowrap;
@@ -110,7 +110,7 @@ form {
 }
 .inputField input:focus {
   /* outline: none; */
-  outline-color: var(--color-primary, #21ba95);
+  outline-color: var(--primary, #21ba95);
 }
 .inputField input::placeholder {
   color: var(--color-border-muted, #e0e0e0);
@@ -139,20 +139,20 @@ form {
   display: flex;
   /* margin-top: 19px; */
   width: 100%;
-  gap: 40px;
+  gap: 20px;
   font: 400 10px Poppins, sans-serif;
   align-items: center;
   justify-content: space-between;
 }
 .rememberMeContainer {
   display: flex;
-  gap: 9px;
+  gap: 5px;
   color: var(--color-text-muted, #313131); /* Updated */
   flex: 1;
 }
 
 .rememberMeContainer:hover {
-  color: var(--color-primary);
+  color: var(--primary);
   transition: all 0.3s;
 }
 .checkbox {
@@ -160,7 +160,7 @@ form {
   height: 18px;
   border-radius: 3px;
   border: 1px solid var(--color-border-muted, #e0e0e0); /* Updated */
-  background-color: var(--color-white, #fff); /* Updated */
+  background-color: var(--white, #fff); /* Updated */
   appearance: none;
   cursor: pointer;
   position: relative;
@@ -172,7 +172,7 @@ form {
   left: 20%;
   width: 5px;
   height: 10px;
-  border: solid var(--color-primary, #21ba95); /* Updated */
+  border: solid var(--primary, #21ba95); /* Updated */
   border-width: 0 2px 2px 0;
   transform: rotate(35deg) translate(-50%, -50%);
 }
@@ -182,22 +182,20 @@ form {
   opacity: 0.75;
   font: 400 10px Poppins, sans-serif;
   white-space: nowrap;
-  margin: auto 0;
   text-decoration: none;
   cursor: pointer;
 }
 .forgotPassword {
-  color: var(--color-primary, #21ba95); /* Updated */
+  color: var(--primary, #21ba95); /* Updated */
 }
 
 .submitBtn {
   border-radius: 5px;
-  background-color: var(--color-primary, #21ba95); /* Updated */
+  background-color: var(--primary, #21ba95); /* Updated */
   display: flex;
-  margin-top: 34px;
   flex-direction: column;
   align-items: center;
-  color: var(--color-white, #fff); /* Updated */
+  color: var(--white, #fff); /* Updated */
   white-space: nowrap;
   text-transform: uppercase;
   justify-content: center;
@@ -206,9 +204,12 @@ form {
   border: none;
   cursor: pointer;
 }
+.submitBtn:hover {
+  background-color: var(--primary-dark, #1a9b7d); /* Updated */
+}
 
 .signupopMsg {
-  color: var(--color-primary, #21ba95); /* Updated */
+  color: var(--primary, #21ba95); /* Updated */
 }
 
 .redirectText {
@@ -218,12 +219,12 @@ form {
   font: 400 10px Poppins, sans-serif;
 }
 .redirectTextLink {
-  color: var(--color-primary, #21ba95); /* Updated */
+  color: var(--primary, #21ba95); /* Updated */
   text-decoration: none;
 }
 
 .orLoginSignupWith {
-  color: var(--color-secondary);
+  color: var(--text-secondary);
   opacity: 0.75;
   align-self: center;
   /* margin: 33px 0 0 22px; */
@@ -246,8 +247,8 @@ form {
   flex-grow: 1;
   width: 30%;
   padding: 62px 16px 8px 64px;
-  background-color: var(--color-white);
-  border: 1px solid var(--color-border-light);
+  background-color: var(--white);
+  border: 1px solid var(--border-secondary);
   align-self: flex-start;
   display: flex;
   margin-top: 9px;
@@ -315,21 +316,21 @@ form {
 }
 
 .userName {
-  color: var(--color-secondary);
+  color: var(--text-secondary);
   font-size: 20px;
   font-weight: 600;
   flex-grow: 1;
 }
 
 .commentTime {
-  color: var(--color-muted);
+  color: var(--text-value);
   font-size: 16px;
   font-weight: 400;
   margin: auto 0;
 }
 
 .commentText {
-  color: var(--color-secondary);
+  color: var(--text-secondary);
   font-size: 18px;
   font-weight: 400;
 }
@@ -346,7 +347,7 @@ form {
   gap: 33px;
   align-items: center;
   font-size: 16px;
-  color: var(--color-muted);
+  color: var(--text-value);
   font-weight: 400;
   white-space: nowrap;
   margin: 6px 56px 0 0;
@@ -379,7 +380,7 @@ form {
   font-weight: 400;
   margin-top: 50px;
   width: 100%;
-  border: 1px solid var(--color-border-light);
+  border: 1px solid var(--primary-border);
   padding-left: 20px;
 }
 
@@ -387,13 +388,13 @@ form {
   display: flex;
   width: 400px;
   /* border: 1px solid #8b2323; */
-  border: 1px solid var(--color-highlight);
+  border: 1px solid var(--color-border-negative);
   border-radius: 10px;
   padding: 0 10px;
   align-items: start;
   margin-top: 20px;
   margin-left: 10%;
-  background: var(--color-white);
+  background: var(--white);
   /* gap: 27px; */
   position: relative;
 }
@@ -403,8 +404,8 @@ form {
   height: 12px;
   border-width: 1px 0 0 1px;
   position: absolute;
-  border: 1px solid var(--color-highlight);
-  background: var(--color-white);
+  border: 1px solid var(--color-border-negative);
+  background: var(--white);
   top: 0;
   left: 42%;
   z-index: -1;
