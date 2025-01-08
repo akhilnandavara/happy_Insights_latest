@@ -14,6 +14,9 @@
   --bg-primary: rgba(233, 254, 248, 1);
   --bg-pagination-bullet: rgba(33, 186, 149, 1);
   --border-secondary: rgba(233, 235, 237, 1);
+  --topBar-icon:rgba(68, 71, 80, 1);
+
+  /* dashboard Colors */
   --filter-border: rgba(223, 226, 230, 1);
   --filter-bg-active: rgba(242, 243, 244, 1);
   --statsOveriew-value-border-positive: rgba(156, 223, 192, 1);

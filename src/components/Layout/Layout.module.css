@@ -288,11 +288,11 @@
 
 /* Profile Name */
 .profileName {
-  font-size: 16px;
+  font-size: 14px;
   letter-spacing: 1%;
   font-weight: 500;
   line-height: 20px;
-  color: var(--text-secondary);
+  color: var(--text-value);
   text-wrap: nowrap;
 }
 
@@ -313,6 +313,9 @@
 }
 .profileArrowDown {
   transition: all 0.5s;
+  color: var(--topBar-icon);
+  font-size: 16px;
+
 }
 .profileArrowDown.rotate {
   transform: rotate(180deg);

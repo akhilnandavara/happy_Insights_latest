@@ -1,6 +1,5 @@
 
-export const dashboardStaticData =
-{
+export const dashboardStaticData = {
     welcome_message: {
         "title": "Hi Welcome! 👋",
         "desc": "Explore Happy Insights to effortlessly manage your channels using AI. It helps you analyze comments, likes, and feedback (positive or negative) while automating short replies for better engagement. Gain valuable insights to refine your content strategy and boost audience interaction."
@@ -132,161 +131,168 @@ export const statsOverViewData = {
 
 
 export const dashboardBarChartData = {
-
     data: {
         labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
         datasets: [
             {
                 label: 'This Week',
                 data: [1500, 1800, 2000, 2300, 1900, 1700, 2100],
-                backgroundColor: 'rgba(54, 162, 235, 0.8)', // Adjust transparency for a cleaner look
-                borderColor: 'rgba(54, 162, 235, 1)',
+                backgroundColor: 'rgba(47, 128, 237, 1)', // Blue
+                borderColor: 'rgba(47, 128, 237, 1)',
                 borderWidth: 1,
-                barThickness: 25, // Wider bars
+                barThickness: 25,
             },
             {
                 label: 'Last Week',
                 data: [1300, 1600, 1800, 2100, 1600, 1400, 1900],
-                backgroundColor: 'rgba(255, 159, 64, 0.8)',
-                borderColor: 'rgba(255, 159, 64, 1)',
+                backgroundColor: 'rgba(242, 153, 74, 1)', // Orange
+                borderColor: 'rgba(242, 153, 74, 1)',
                 borderWidth: 1,
                 barThickness: 25,
             },
         ],
     },
-
     options: {
         responsive: true,
-        maintainAspectRatio: false, // Allows better resizing
+        maintainAspectRatio: false,
         plugins: {
             legend: {
                 display: true,
-                position: 'bottom', // Position below the chart
+                position: 'bottom',
+
                 labels: {
-                    boxWidth: 12, // Smaller legend boxes
+                    usePointStyle: true, // Use circular points instead of squares
+                    pointStyle: 'circle', // Set the style explicitly to 'circle'
                     font: {
-                        size: 14,
+                        size: 10, // Adjust font size
                     },
+                    boxWidth: 10, // Smaller circle size
+                    boxHeight: 5, // Optional: Ensure proportional circle height (if needed)
+                    padding: 20, // Adds space between the circle and the label
                 },
             },
             tooltip: {
                 callbacks: {
-                    label: (tooltipItem) => `${tooltipItem.raw}+`, // Add '+' to values
+                    label: (tooltipItem) => `${tooltipItem.raw}+`,
                 },
             },
         },
         scales: {
             x: {
                 grid: {
-                    display: false, // Remove gridlines for x-axis
+                    display: false, // Remove vertical grid lines
                 },
                 ticks: {
                     font: {
-                        size: 14,
+                        family: 'Poppins',
+                        size: 10,
                     },
-                    color: '#888', // Adjust label color
+                    color: '#9CA3AF',
                 },
             },
             y: {
-                grid: {
-                    borderDash: [8, 4], // Dashed gridlines
+
+                border: {
+                    dash: [2, 4],
                 },
                 ticks: {
                     font: {
-                        size: 14,
+                        family: 'Poppins',
+                        size: 10,
                     },
-                    stepSize: 500, // Adjust steps
-                    callback: (value) => `${value}+`, // Add '+' to axis values
+                    color: '#9CA3AF', // Slightly darker label color
+                    stepSize: 500,
+                    callback: (value) => `${value}+`,
                 },
             },
         },
     },
+};
 
-}
 
 export const dashboardDoughnutChartData = {
-    "sentimentData": [
+    sentimentData: [
         {
-            "emoji": "😊",
-            "label": "Happy Words",
-            "count": 1500 // 500 + 400 + 200 + 100 + 300
+            emoji: "😊",
+            label: "Happy Words",
+            count: 1500, // Total of all sources
+            colors: ["#4caf50", "#66bb6a", "#81c784", "#a5d6a7", "#c8e6c9"], // Green shades
         },
         {
-            "emoji": "😢",
-            "label": "Sad Words",
-            "count": 1500 // 100 + 200 + 400 + 500 + 300
+            emoji: "😢",
+            label: "Sad Words",
+            count: 1500,
+            colors: ["#1E88E5", "#42A5F5", "#64B5F6", "#90CAF9", "#BBDEFB"], // Blue shades
         },
         {
-            "emoji": "😊",
-            "label": "Greets Words",
-            "count": 495 // 50 + 75 + 120 + 150 + 100
+            emoji: "🤝",
+            label: "Greets Words",
+            count: 495,
+            colors: ["#FFC107", "#FFD54F", "#FFEB3B", "#FFF176", "#FFF59D"], // Yellow shades
         },
         {
-            "emoji": "😐",
-            "label": "Neutral",
-            "count": 328 // 168 + 40 + 40 + 40 + 40
+            emoji: "😐",
+            label: "Neutral",
+            count: 328,
+            colors: ["#9E9E9E", "#BDBDBD", "#E0E0E0", "#EEEEEE", "#F5F5F5"],// Grey shades
         },
         {
-            "emoji": "😡",
-            "label": "Angry",
-            "count": 587 // 82 + 185 + 105 + 90 + 125
-        }
+            emoji: "😡",
+            label: "Angry Words",
+            count: 587,
+            colors: ["#E53935", "#EF5350", "#F44336", "#E57373", "#FFCDD2"], // Red shades
+        },
     ],
-    "sourcesData": [
+    sourcesData: [
         {
-            "label": "Facebook",
-            "counts": {
+            label: "Facebook",
+            counts: {
                 "Happy Words": 500,
                 "Sad Words": 100,
                 "Greets Words": 50,
                 "Neutral": 168,
-                "Angry": 82
+                "Angry Words": 82,
             },
-            "color": "#4caf50"
         },
         {
-            "label": "YouTube",
-            "counts": {
+            label: "YouTube",
+            counts: {
                 "Happy Words": 400,
                 "Sad Words": 200,
                 "Greets Words": 75,
                 "Neutral": 40,
-                "Angry": 185
+                "Angry Words": 185,
             },
-            "color": "#357a3a"
         },
         {
-            "label": "Instagram",
-            "counts": {
+            label: "Instagram",
+            counts: {
                 "Happy Words": 200,
                 "Sad Words": 400,
                 "Greets Words": 120,
                 "Neutral": 40,
-                "Angry": 105
+                "Angry Words": 105,
             },
-            "color": "#82af4c"
         },
         {
-            "label": "LinkedIn",
-            "counts": {
+            label: "LinkedIn",
+            counts: {
                 "Happy Words": 100,
                 "Sad Words": 500,
                 "Greets Words": 150,
                 "Neutral": 40,
-                "Angry": 90
+                "Angry Words": 90,
             },
-            "color": "#5a8723"
         },
         {
-            "label": "TikTok",
-            "counts": {
+            label: "TikTok",
+            counts: {
                 "Happy Words": 300,
                 "Sad Words": 300,
                 "Greets Words": 100,
                 "Neutral": 40,
-                "Angry": 125
+                "Angry Words": 125,
             },
-            "color": "#47691f"
-        }
-    ]
+        },
+    ],
 };
