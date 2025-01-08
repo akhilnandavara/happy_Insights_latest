@@ -1,13 +1,14 @@
 import React, { useState, useRef } from "react";
 import styles from "./FilterBar.module.css";
-import { IoIosArrowDown } from "react-icons/io";
-import { FaCalendarAlt } from "react-icons/fa";
 import "react-datepicker/dist/react-datepicker.css";
 import DatePicker from "react-datepicker";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
+import Icon from "../Icon";
+import { Text } from "../ui";
+import { IoIosArrowDown } from "react-icons/io";
 
 const FilterByPeriod = ({ onSelect }) => {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isDropDownOpen, setIsDropDownOpen] = useState(false);
   const [selectedOption, setSelectedOption] = useState("This Week");
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -15,11 +16,11 @@ const FilterByPeriod = ({ onSelect }) => {
 
   const options = ["Today", "This Week", "This Month", "Custom Date"];
 
-  useOnClickOutside(dropdownRef, () => setIsOpen(false)); // Use the custom hook
+  useOnClickOutside(dropdownRef, () => setIsDropDownOpen(false)); // Use the custom hook
 
   const handleOptionSelect = (option) => {
     setSelectedOption(option);
-    setIsOpen(false);
+    setIsDropDownOpen(false);
     onSelect?.(option); // Optional chaining to handle undefined onSelect
   };
 
@@ -27,13 +28,21 @@ const FilterByPeriod = ({ onSelect }) => {
     <div className={styles.filterByPeriodContainer} ref={dropdownRef}>
       <div className={styles.filterByPeriod}>
         <button
-          className={styles.button}
-          onClick={() => setIsOpen((prev) => !prev)}
+          className={styles.filterBtnContainer}
+          onClick={() => setIsDropDownOpen((prev) => !prev)}
         >
-          <FaCalendarAlt className={styles.icon} />
-          {selectedOption} <IoIosArrowDown className={styles.arrow} />
+          <Icon sprite="youtube" name="calender" className={styles.icon} />
+          <Text as={"p"} className={styles.filterBtnText}>
+            {" "}
+            {selectedOption}
+          </Text>
+         <IoIosArrowDown
+            className={`${styles.icon} ${styles.arrowDown} ${
+              isDropDownOpen && styles.arrowRotate
+            }`}
+          />
         </button>
-        {isOpen && (
+        {isDropDownOpen && (
           <div className={`${styles.dropdownMenu} ${styles.open}`}>
             {options.map((option) => (
               <button
@@ -51,14 +60,15 @@ const FilterByPeriod = ({ onSelect }) => {
         <div className={styles.customDateContainer}>
           {["Start Date", "End Date"].map((label, index) => (
             <div className={styles.datePicker} key={label}>
-              <label className={styles.datePickerLabel}>{label}:</label>
+              <label className={styles.datePickerLabel}>{label}</label>
               <DatePicker
                 selected={index === 0 ? startDate : endDate}
                 onChange={(date) =>
                   index === 0 ? setStartDate(date) : setEndDate(date)
                 }
-                placeholderText={`Select ${label.toLowerCase()}`}
+                placeholderText="dd/mm/yyyy"
               />
+              <Icon sprite="youtube" name={"calender"} className={styles.icon} />
             </div>
           ))}
         </div>

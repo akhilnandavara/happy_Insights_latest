@@ -4,31 +4,44 @@
   --theme-light: rgba(255, 255, 255, 1);
   --theme-dark: rgba(3, 28, 48, 1);
 
-  /* Colors */
+  /*  main Colors */
   --primary: rgba(33, 186, 149, 1);
   --dark-primary: rgba(3, 28, 48, 1);
-
   --divider: rgba(219, 225, 232, 1);
   --divider-secondary: rgba(255, 255, 255, 1);
   --hover-bg: rgba(233, 254, 248, 1);
   --primary-border: rgba(244, 244, 244, 1);
   --bg-primary: rgba(233, 254, 248, 1);
-  --bg-pagination-bullet:rgba(33, 186, 149, 1);
+  --bg-pagination-bullet: rgba(33, 186, 149, 1);
   --border-secondary: rgba(233, 235, 237, 1);
+  --filter-border: rgba(223, 226, 230, 1);
+  --filter-bg-active: rgba(242, 243, 244, 1);
 
+  /* Text Color */
   --text-value: rgba(55, 65, 81, 1);
   --text-secondary: rgba(93, 114, 133, 1);
-  --text-tertiary: rgba(107, 114, 128, 1);
+  --text-tertiary: rgba(107, 114, 128, 1); /*used for icons  */
   --text-placeholder: rgba(239, 242, 244, 1);
   --white: rgba(255, 255, 255, 1);
+  --text-filter-btn: rgba(70, 76, 85, 1);
 
+  /* Dashboard Header Text */
   --text-dashboard-title: rgba(0, 75, 80, 1);
   --text-dashboard-desc: rgba(0, 75, 80, 1);
+  --text-filterByPeriod-btn: rgba(37, 33, 59, 1);
+
+  /* shadow */
+  --shadow-xs: rgba(16, 24, 40, 0.05);
+
+  /* spacing */
+  --spacing-xl: 2rem;
+  --spacing-lg: 1.5rem;
+  --spacing-md: 1rem;
+  --spacing-sm: 0.5rem;
+  --spacing-xs: 0.25rem;
 
   --color-bg-negative: #f8e5e7;
   --color-border-negative: #e74c3c;
-  --color-box-shadow: rgba(0, 0, 0, 0.1);
-
 
   /* Plan Colors */
   --color-plan-basic-border-top: gray;

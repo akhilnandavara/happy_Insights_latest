@@ -2,6 +2,8 @@ import React, { useState, useRef, useEffect } from "react";
 import styles from "./FilterBar.module.css";
 import { IoIosArrowDown } from "react-icons/io";
 import FilterByPeriod from "./FilterByPeriod";
+import Icon from "../Icon";
+import { Text } from "../../components/ui";
 
 const FilterBar = ({ methods, onSelect }) => {
   const [activeMethod, setActiveMethod] = useState(methods[0]); // Default to the first method
@@ -36,7 +38,7 @@ const FilterBar = ({ methods, onSelect }) => {
     calculateMethods();
     window.addEventListener("resize", calculateMethods);
     return () => window.removeEventListener("resize", calculateMethods);
-  }, [methods]);
+  }, [methods, containerRef]);
 
   const handleMethodClick = (method) => {
     setActiveMethod(method);
@@ -44,12 +46,12 @@ const FilterBar = ({ methods, onSelect }) => {
   };
 
   return (
-    <div className={styles.filterBar} ref={containerRef}>
-      <div className={styles.filterMethods}>
+    <div className={styles.filterBarContainer} ref={containerRef}>
+      <div className={styles.filterLeftContainer}>
         {visibleMethods.map((method) => (
           <button
             key={method}
-            className={`${styles.filterMethod} ${
+            className={`${styles.filterItem} ${
               activeMethod === method ? styles.active : ""
             }`}
             onClick={() => handleMethodClick(method)}
@@ -59,8 +61,8 @@ const FilterBar = ({ methods, onSelect }) => {
         ))}
         {overflowMethods.length > 0 && (
           <div className={styles.dropdown}>
-            <button className={styles.dropdownToggle}>
-              <IoIosArrowDown className={styles.icon} />
+            <button className={styles.dropdownToggleBtn}>
+              <IoIosArrowDown  className={`${styles.icon} ${styles.dropdownToggleBtnIcon}`} />
             </button>
             <div className={styles.dropdownMenu}>
               {overflowMethods.map((method) => (
@@ -78,9 +80,14 @@ const FilterBar = ({ methods, onSelect }) => {
           </div>
         )}
       </div>
-      <div className={styles.filterActions}>
+      <div className={styles.filterRightContainer}>
         <FilterByPeriod onSelect={onSelect} />
-        <button className={styles.button}>Filter</button>
+        <button className={styles.filterBtnContainer}>
+          <Icon sprite="youtube" name="filter" className={styles.icon} />
+          <Text as={"p"} className={styles.filterBtnText}>
+            Filter{" "}
+          </Text>
+        </button>
       </div>
     </div>
   );

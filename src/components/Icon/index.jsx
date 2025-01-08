@@ -5,10 +5,10 @@ const Icon = ({
   name,
   sprite = "global",
   className = "",
-  // fill = "#6B7280", // Default fill for themes
+  fill = "#6B7280", // Default fill for themes
 }) => {
   // const spriteUrl = `/icons/${sprite}.svg#${name}`; // Adjust for production
-  const spriteUrl = `/icons/${sprite}.svg#${name}`; // Adjust for production
+  const spriteUrl = `/public/icons/${sprite}.svg#${name}`; // Adjust for production
 
   return (
     <>
