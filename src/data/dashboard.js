@@ -22,60 +22,104 @@ export const dashboardStaticData =
     ]
 }
 
-const dashboardData = {
-    "totalComments": 12635,
-    "totalCommentsChange": "12%",
-    "platforms": {
-        "Facebook": {
-            "comments": 2354,
-            "change": "5%"
+
+
+export const statsOverViewData = {
+
+    platforms: [
+        {
+            name: "Total Comments",
+            comments: 12635,
+            change: "12",
+            changeType: "up"
         },
-        "YouTube": {
-            "comments": 3276,
-            "change": "21%"
+        {
+            name: "Facebook",
+            comments: 2354,
+            change: "5",
+            changeType: "down"
         },
-        "Instagram": {
-            "comments": 1804,
-            "change": "-3%"
+        {
+            name: "YouTube",
+            comments: 3276,
+            change: "21",
+            changeType: "up"
         },
-        "LinkedIn": {
-            "comments": 2719,
-            "change": "-1%"
+        {
+            name: "Instagram",
+            comments: 1804,
+            change: "3",
+            changeType: "down"
         },
-        "TikTok": {
-            "comments": 2482,
-            "change": "8%"
-        }
+        {
+            name: "LinkedIn",
+            comments: 2719,
+            change: "1",
+            changeType: "down"
+        },
+        {
+            name: "TikTok",
+            comments: 2482,
+            change: "8",
+            changeType: "up"
+        },
+    ],
+    averageComments: [
+        {
+            day: "Monday",
+            thisWeek: 800,
+            lastWeek: 800,
+        },
+        {
+            day: "Tuesday",
+            thisWeek: 1000,
+            lastWeek: 1000,
+        },
+        {
+            day: "Wednesday",
+            thisWeek: 1600,
+            lastWeek: 1600,
+        },
+        {
+            day: "Thursday",
+            thisWeek: 1800,
+            lastWeek: 1800,
+        },
+        {
+            day: "Friday",
+            thisWeek: 1200,
+            lastWeek: 1200,
+        },
+        {
+            day: "Saturday",
+            thisWeek: 1400,
+            lastWeek: 1400,
+        },
+        {
+            day: "Sunday",
+            thisWeek: 2000,
+            lastWeek: 2000,
+        },
+    ],
+    sentimentAnalysis: {
+        averageSentiment: "77%",
+        sentiments: [
+            { type: "happyWords", count: 2559 },
+            { type: "sadWords", count: 1471 },
+            { type: "greetWords", count: 865 },
+            { type: "neutral", count: 865 },
+            { type: "angry", count: 865 },
+        ],
     },
-    "averageComments": {
-        "days": [
-            { "day": "Monday", "thisWeek": 800, "lastWeek": 800 },
-            { "day": "Tuesday", "thisWeek": 1000, "lastWeek": 1000 },
-            { "day": "Wednesday", "thisWeek": 1600, "lastWeek": 1600 },
-            { "day": "Thursday", "thisWeek": 1800, "lastWeek": 1800 },
-            { "day": "Friday", "thisWeek": 1200, "lastWeek": 1200 },
-            { "day": "Saturday", "thisWeek": 1400, "lastWeek": 1400 },
-            { "day": "Sunday", "thisWeek": 2000, "lastWeek": 2000 }
-        ]
-    },
-    "sentimentAnalysis": {
-        "averageSentiment": "77%",
-        "sentiments": {
-            "happyWords": 2559,
-            "sadWords": 1471,
-            "greetWords": 865,
-            "neutral": 865,
-            "angry": 865
-        }
-    },
-    "sourceBreakdown": {
-        "Facebook": 768,
-        "YouTube": 640,
-        "Instagram": 512,
-        "LinkedIn": 384,
-        "TikTok": 256
-    }
-}
+    sourceBreakdown: [
+        { platform: "Facebook", value: 768 },
+        { platform: "YouTube", value: 640 },
+        { platform: "Instagram", value: 512 },
+        { platform: "LinkedIn", value: 384 },
+        { platform: "TikTok", value: 256 },
+    ],
+};
+
 
 
 export const dashboardBarChartData = {

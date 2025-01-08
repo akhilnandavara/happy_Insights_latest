@@ -212,9 +212,17 @@ input::placeholder {
   font-size: var(--font-size-xs) !important;
 }
 
-@media screen and (max-width: 1200px) {
+@media screen and (max-width: 748px) {
   .filterBar {
     gap: 1rem;
+  }
+  .filterItem {
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 10px;
+    padding: 8px var(--spacing-md) 8px var(--spacing-md);
+    gap: var(--spacing-sm);
+    opacity: 0px;
   }
   .datePicker input {
     width: 50px;

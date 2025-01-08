@@ -16,6 +16,11 @@
   --border-secondary: rgba(233, 235, 237, 1);
   --filter-border: rgba(223, 226, 230, 1);
   --filter-bg-active: rgba(242, 243, 244, 1);
+  --statsOveriew-value-border-positive: rgba(156, 223, 192, 1);
+  --statsOveriew-value-bg-positive: rgba(236, 253, 243, 1);
+  --statsOveriew-value-bg-negative: rgba(254, 243, 242, 1);
+  --statsOveriew-value-border-negative: rgba(246, 176, 171, 1);
+  
 
   /* Text Color */
   --text-value: rgba(55, 65, 81, 1);
@@ -24,6 +29,10 @@
   --text-placeholder: rgba(239, 242, 244, 1);
   --white: rgba(255, 255, 255, 1);
   --text-filter-btn: rgba(70, 76, 85, 1);
+  --statsOveriew-title-primary: rgba(0, 30, 56, 1);
+  --statsOveriew-title-secondary:rgba(123, 123, 123, 1);
+  --text-statsOveriew-value-positive: rgba(21, 154, 92, 1);
+  --text-statsOveriew-value-negative: rgba(199, 60, 51, 1);
 
   /* Dashboard Header Text */
   --text-dashboard-title: rgba(0, 75, 80, 1);
@@ -39,9 +48,19 @@
   --spacing-md: 1rem;
   --spacing-sm: 0.5rem;
   --spacing-xs: 0.25rem;
+  --spacing-xxs: 0.125rem;
+
+  /* radius */
+  --radius-full: 9999px;
+  --radius-lg: 0.5rem;
+  --radius-md: 0.375rem;
+  --radius-sm: 0.25rem;
+
 
   --color-bg-negative: #f8e5e7;
   --color-border-negative: #e74c3c;
+  --statsOveriew-icon-positive: rgba(66, 194, 134, 1);
+  --statsOveriew-icon-negative: rgba(238, 104, 95, 1);
 
   /* Plan Colors */
   --color-plan-basic-border-top: gray;

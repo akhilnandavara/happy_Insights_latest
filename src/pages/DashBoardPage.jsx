@@ -9,7 +9,10 @@ import SearchBar from "../components/SearchBar";
 import CustomBarChart from "../components/BarGraph";
 import StatsOverView from "../features/Dashboard/components/StatsOverview";
 import SentimentAnalysisSection from "../features/Dashboard/components/SentimentAnalysisSection";
-import { dashboardBarChartData, dashboardDoughnutChartData } from "../data/Dashboard";
+import {
+  dashboardBarChartData,
+  dashboardDoughnutChartData,
+} from "../data/Dashboard";
 import { dashboardStaticData } from "../data/Dashboard";
 import DashBoardHeaderRightSlider from "../components/Carousel/DashboardHeaderRightSlider";
 
@@ -28,7 +31,12 @@ const filterMethods = [
 ];
 
 // Header Section
-function HeaderSection({ welcomeMessage, debouncedUser, searchTerm, onSearchChange }) {
+function HeaderSection({
+  welcomeMessage,
+  debouncedUser,
+  searchTerm,
+  onSearchChange,
+}) {
   return (
     <section className={styles.headerContainer}>
       <div className={styles.headerSection}>
@@ -54,12 +62,13 @@ function HeaderSection({ welcomeMessage, debouncedUser, searchTerm, onSearchChan
 // Stats and Filter Section
 function StatsAndFilterSection({
   filterMethods,
-  activeStatsOverview,
   onFilterSelect,
-  onStatsOverviewSelect,
   barChartData,
   doughnutChartData,
 }) {
+  const [activeStatsOverview, setActiveStatsOverview] =
+    useState("Total Comments");
+  const onStatsOverviewSelect = (platform) => setActiveStatsOverview(platform);
   return (
     <section className={styles.statsSection}>
       {/* Filter Bar */}
@@ -74,7 +83,10 @@ function StatsAndFilterSection({
       {/* Graph and Sentiment Analysis */}
       <div className={styles.graphContainer}>
         <div className={styles.barGraph}>
-          <CustomBarChart data={barChartData.data} options={barChartData.options} />
+          <CustomBarChart
+            data={barChartData.data}
+            options={barChartData.options}
+          />
         </div>
         <div className={styles.sentimentAnalysis}>
           <h3 className={styles.title}>Sentiment Analysis</h3>
@@ -94,8 +106,6 @@ export default function DashBoardPage() {
   // State
   const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
-  const [activeStatsOverview, setActiveStatsOverview] =
-    useState("Total Comments");
 
   // Redux Selector and Debounced User
   const { user } = useSelector((state) => state.profile);
@@ -109,8 +119,8 @@ export default function DashBoardPage() {
 
   // Handlers
   const handleCloseModal = () => setShowModal(false);
-  const handleFilterSelect = (method) => console.log("Selected Filter:", method);
-  const onStatsOverviewSelect = (platform) => setActiveStatsOverview(platform);
+  const handleFilterSelect = (method) =>
+    console.log("Selected Filter:", method);
   const handleSearchChange = (e) => setSearchTerm(e.target.value);
 
   return (
@@ -126,9 +136,7 @@ export default function DashBoardPage() {
       {/* Stats and Filter Section */}
       <StatsAndFilterSection
         filterMethods={filterMethods}
-        activeStatsOverview={activeStatsOverview}
         onFilterSelect={handleFilterSelect}
-        onStatsOverviewSelect={onStatsOverviewSelect}
         barChartData={{ data, options }}
         doughnutChartData={{ sentimentData, sourcesData, averageSentiment }}
       />
