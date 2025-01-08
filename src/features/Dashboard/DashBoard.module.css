@@ -1,6 +1,5 @@
 /* DashBoard.module.css */
 .dashboardPage {
-  color: var(--color-text-dark);
   padding: 0 10px;
   background-color: var(--color-white);
   transition: all 0.5s ease; /* Smooth transitions for layout changes */
@@ -61,7 +60,6 @@
   width: 100%;
   transition: all 0.5s ease;
 }
-
 
 .searchBarContainer {
   display: flex;
@@ -154,63 +152,54 @@
   min-width: 150px;
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
 }
+
 /* Graph and Sentiment Analysis */
 .graphContainer {
   display: flex;
-  gap: 1rem;
+  gap: 16px;
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: stretch;
   margin-top: 20px;
 }
 
+.title {
+  color: var(--text-barGraph-title);
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.sentimentAnalysis,
 .barGraph {
-  flex: 1 1 60%; /* Allows it to shrink and grow within 60% of the parent */
+  background: var(--white);
+  transition: all 0.5s ease;
+  box-shadow: 0px 1px 2px 0px var(--shadow-xs);
+  border: 1px solid rgba(229, 229, 229, 1);
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-radius: 6px 0px 0px 0px;
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  overflow: hidden;
+}
+
+.barGraph {
+  flex: 1 1 50%;
   min-width: 300px;
-  padding: 20px;
-  background: #fff;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-height: 400px; /* Set a maximum height to ensure consistency */
 }
 
 .sentimentAnalysis {
   flex: 1 1 35%; /* Takes 35% of the parent width */
   min-width: 250px;
-  padding: 20px;
-  background: var(--color-white);
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   max-height: 400px;
-  overflow: hidden;
-}
-
-.sentimentTitle {
-  font-size: 18px;
-  font-weight: bold;
-  color: #374151;
-  margin-bottom: 10px;
-}
-
-.sentimentList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  text-align: left;
-  width: 100%;
-  font-size: 14px;
-  color: #6b7280;
-}
-
-.sentimentItem {
-  margin: 5px 0;
-}
-
-.averageSentiment {
-  margin-top: 20px;
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--color-primary);
 }
 
 /* Responsive Adjustments */

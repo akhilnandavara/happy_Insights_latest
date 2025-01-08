@@ -5,6 +5,7 @@ import FilterByPeriod from "./FilterByPeriod";
 import Icon from "../Icon";
 import { Text } from "../../components/ui";
 
+
 const FilterBar = ({ methods, onSelect }) => {
   const [activeMethod, setActiveMethod] = useState(methods[0]); // Default to the first method
   const [visibleMethods, setVisibleMethods] = useState([]); // Methods to display

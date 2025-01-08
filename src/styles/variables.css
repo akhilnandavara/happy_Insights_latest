@@ -34,10 +34,12 @@
   --text-statsOveriew-value-positive: rgba(21, 154, 92, 1);
   --text-statsOveriew-value-negative: rgba(199, 60, 51, 1);
 
-  /* Dashboard Header Text */
+  /* Dashboard  Text */
   --text-dashboard-title: rgba(0, 75, 80, 1);
   --text-dashboard-desc: rgba(0, 75, 80, 1);
   --text-filterByPeriod-btn: rgba(37, 33, 59, 1);
+  --text-barGraph-title: rgba(104, 113, 127, 1);
+  --text-sentimentsLabel-title: rgba(8, 47, 73, 1);
 
   /* shadow */
   --shadow-xs: rgba(16, 24, 40, 0.05);

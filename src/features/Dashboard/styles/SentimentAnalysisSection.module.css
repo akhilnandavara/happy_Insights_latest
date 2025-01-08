@@ -2,9 +2,8 @@
   display: flex;
   justify-content: space-between;
   gap: 0.5rem;
-  height: 100%;
+  height: 95%;
   width: 100%;
-  padding: 0.5rem;
 }
 
 .sentimentListContainer {
@@ -14,51 +13,66 @@
   flex-shrink: 1; /* Ensures proper sizing on small screens */
 }
 
-.title {
-  font-size: var(--font-size-xl);
-  font-weight: bold;
-  margin-bottom: 1rem;
-  color: var(--color-text-dark);
-}
-
-.sentimentList {
+.sentimentList,
+.sourcesList {
   list-style: none;
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
 }
 
 .sentimentItem {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
-  border: 1px solid var(--color-border-muted);
-  border-radius: 8px;
+  border: 1px solid var(--divider);
+  background-color: var(--white);
   font-size: clamp(0.75rem, 1.5vw, 1rem);
-  margin-bottom: 0.5rem;
-  background-color: var(--color-white);
-  transition: background-color 0.3s, border-color 0.3s;
   cursor: pointer;
+  padding: 10px 8px;
+  gap: 6px;
+  border-radius: 4px;
+  transition: background-color 0.3s, border-color 0.3s;
 }
 
 .sentimentItem:hover {
-  background-color: var(--color-bg-light);
-  border-color: var(--color-primary);
+  background-color: var(--hover-bg);
+  border-color: var(--primary);
 }
 
 .sentimentItem.selected {
-  border: 2px solid var(--color-primary);
-  background-color: var(--color-comment-bg);
+  border: 2px solid var(--primary);
+}
+
+.sentimentLabel,
+.sourceLabel {
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
 }
 
 .emoji {
-  margin-right: 0.5rem;
   font-size: clamp(1rem, 2vw, 1.25rem);
 }
-
+.labelText {
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  color: var(--text-sentimentsLabel-title);
+}
 .count {
-  font-weight: bold;
-  color: var(--color-text-dark);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 18px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  color: var(--text-sentimentsLabel-title);
   font-size: clamp(0.75rem, 1.5vw, 1rem);
 }
 
@@ -68,9 +82,8 @@
   flex-direction: column;
   gap: 1rem;
   padding: 1rem;
-  border: 1px solid var(--color-border-container);
-  border-radius: 10px;
-  background-color: var(--color-bg-container);
+  border: 1px solid var(--divider);
+  border-radius: 6px;
   /* min-width: 280px; Ensures proper sizing */
   max-width: calc(50% - 1rem); /* Prevents it from growing too large */
   box-sizing: border-box;
@@ -87,23 +100,42 @@
   justify-content: center;
   position: relative;
 }
+.averageValueContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
 
 .averageSentimentTitle {
   font-size: clamp(0.75rem, 1.5vw, 1rem);
   font-weight: bold;
-  color: var(--color-text-dark);
+  color: var(--text-sentimentsLabel-title);
+  /* font-size: 26px; */
+  font-weight: 700;
+  line-height: 34.24px;
+  letter-spacing: -0.5477965474128723px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 
 .averageSentimentSubTitle {
   font-size: clamp(0.6rem, 1.2vw, 0.9rem);
-  color: var(--color-text-muted);
+  /* font-size: 10.27px; */
+  font-weight: 500;
+  line-height: 17.97px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+
+  color: var(--statsOveriew-title-secondary);
 }
 
 .sourcesContainer {
   width: 100%;
   max-width: 280px;
 }
-
 .sourcesHeader {
   font-size: clamp(0.75rem, 1.5vw, 1rem);
   display: flex;
@@ -111,20 +143,10 @@
   justify-content: space-between;
 }
 
-.sourcesList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.sourceLabelContainer {
-  display: flex;
-  align-items: center;
-}
-
 .sourceItem {
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 0;
+  padding: 0;
   font-size: clamp(0.75rem, 1.5vw, 1rem);
   border-bottom: 1px solid var(--color-border-muted);
 }
@@ -136,18 +158,14 @@
 }
 .sourcesTitle {
   font-size: clamp(0.75rem, 1.5vw, 1rem);
-}
-
-.percentage {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: clamp(0.75rem, 1.5vw, 1rem);
-  text-align: center;
-  font-weight: bold;
-  color: var(--color-text-dark);
-  margin-top: 1rem;
+  color: var(--text-value);
+  font-family: Poppins;
+  /* font-size: 12px; */
+  font-weight: 500;
+  line-height: 18px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 
 /* Media Query for Smaller Screens */
@@ -160,28 +178,34 @@
   .sentimentListContainer,
   .chartAndSourcesContainer {
     margin-right: 0;
-    min-width: 100%;
+    max-width: 100%;
   }
 
-  .title {
-    font-size: var(--font-size-md);
+  .chartContainer {
+    max-height: 50%;
   }
 
   .sentimentItem {
     font-size: var(--font-size-xs);
   }
+  .averageValueContainer {
+    top: 60%;
+    transform: translate(-50%, -50%);
+  }
+
+  .averageSentimentTitle {
+    font-size: clamp(0.75rem, 1.5vw, 1rem);
+    line-height: 10px;
+    letter-spacing: -0.5477965474128723px;
+  }
 
   .averageSentimentTitle,
   .averageSentimentSubTitle {
-    font-size: var(--font-size-xs);
+    font-size: var(--font-size-sm);
   }
 
   .sourcesHeader,
   .sourceItem {
     font-size: var(--font-size-xxs);
-  }
-
-  .percentage {
-    font-size: var(--font-size-xs);
   }
 }

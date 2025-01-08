@@ -22,7 +22,16 @@ export const dashboardStaticData =
     ]
 }
 
-
+export const FilterBarData = {
+    filterMethods: [
+        "All Channels",
+        "YouTube",
+        "Facebook",
+        "Instagram",
+        "LinkedIn",
+        "TikTok",
+    ],
+}
 
 export const statsOverViewData = {
 

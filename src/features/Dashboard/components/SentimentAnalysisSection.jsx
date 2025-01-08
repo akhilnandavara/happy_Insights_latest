@@ -74,10 +74,10 @@ const SentimentList = ({ sentimentData, selectedSentiment, onSelect }) => (
   <ul className={styles.sentimentList}>
     <div className={styles.sourcesHeader}>
       <Heading as={"h4"} className={styles.sourcesTitle}>
-        Sources
+        Sentiments
       </Heading>
       <Heading as={"h4"} className={styles.sourcesTitle}>
-        comments
+        Comments
       </Heading>
     </div>
     {sentimentData.map((item) => (
@@ -88,11 +88,18 @@ const SentimentList = ({ sentimentData, selectedSentiment, onSelect }) => (
         onClick={() => onSelect(item.label)}
         key={item.label}
       >
-        <div>
-          <span className={styles.emoji}>{item.emoji}</span>
-          {item.label}
+        <div className={styles.sentimentLabel}>
+          <Text as={"p"} className={styles.emoji}>
+            {item.emoji}
+          </Text>
+          <Text as={"p"} className={styles.labelText}>
+            {" "}
+            {item.label}
+          </Text>
         </div>
-        <span className={styles.count}>{item.count}</span>
+        <Text as={"p"} className={styles.count}>
+          {item.count}
+        </Text>
       </li>
     ))}
   </ul>
@@ -101,7 +108,7 @@ const SentimentList = ({ sentimentData, selectedSentiment, onSelect }) => (
 const DoughnutChart = ({ chartData, averageSentiment }) => (
   <div className={styles.chartContainer}>
     <Doughnut data={chartData} options={chartOptions} />
-    <div className={styles.percentage}>
+    <div className={styles.averageValueContainer}>
       <Heading as="h2" className={styles.averageSentimentTitle}>
         {averageSentiment}%
       </Heading>
@@ -124,14 +131,16 @@ const SourcesList = ({ sourcesData, selectedSentiment }) => (
     </div>
     {sourcesData.map((source) => (
       <li className={styles.sourceItem} key={source.label}>
-        <div className={styles.sourceLabelContainer}>
+        <div className={styles.sourceLabel}>
           <span
             className={styles.sourceColor}
             style={{ backgroundColor: source.color }}
           />
-          <span className={styles.sourceLabel}>{source.label}</span>
+          <span className={styles.labelText}>{source.label}</span>
         </div>
-        <span>{source.counts[selectedSentiment]}</span>
+        <Text as={"p"} className={styles.count}>
+          {source.counts[selectedSentiment]}
+        </Text>
       </li>
     ))}
   </ul>

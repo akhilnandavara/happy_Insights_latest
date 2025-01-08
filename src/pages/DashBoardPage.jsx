@@ -10,25 +10,17 @@ import CustomBarChart from "../components/BarGraph";
 import StatsOverView from "../features/Dashboard/components/StatsOverview";
 import SentimentAnalysisSection from "../features/Dashboard/components/SentimentAnalysisSection";
 import {
+  dashboardStaticData,
+  FilterBarData,
   dashboardBarChartData,
   dashboardDoughnutChartData,
 } from "../data/Dashboard";
-import { dashboardStaticData } from "../data/Dashboard";
+
 import DashBoardHeaderRightSlider from "../components/Carousel/DashboardHeaderRightSlider";
 
 // Utility: Debounced User Data
 const getDebouncedUser = (user) =>
   useDebounce(user || JSON.parse(sessionStorage.getItem("user")), 300);
-
-// Filter Methods
-const filterMethods = [
-  "All Channels",
-  "YouTube",
-  "Facebook",
-  "Instagram",
-  "LinkedIn",
-  "TikTok",
-];
 
 // Header Section
 function HeaderSection({
@@ -83,13 +75,19 @@ function StatsAndFilterSection({
       {/* Graph and Sentiment Analysis */}
       <div className={styles.graphContainer}>
         <div className={styles.barGraph}>
+          <Heading as={"h3"} className={styles.title}>
+            Average Comments
+          </Heading>
+          
           <CustomBarChart
             data={barChartData.data}
             options={barChartData.options}
           />
         </div>
         <div className={styles.sentimentAnalysis}>
-          <h3 className={styles.title}>Sentiment Analysis</h3>
+          <Heading as={"h3"} className={styles.title}>
+            Sentiment Analysis
+          </Heading>
           <SentimentAnalysisSection
             sentimentData={doughnutChartData.sentimentData}
             sourcesData={doughnutChartData.sourcesData}
@@ -135,7 +133,7 @@ export default function DashBoardPage() {
 
       {/* Stats and Filter Section */}
       <StatsAndFilterSection
-        filterMethods={filterMethods}
+        filterMethods={FilterBarData.filterMethods}
         onFilterSelect={handleFilterSelect}
         barChartData={{ data, options }}
         doughnutChartData={{ sentimentData, sourcesData, averageSentiment }}
