@@ -14,7 +14,7 @@ const FilterByPeriod = ({ onSelect }) => {
   const [endDate, setEndDate] = useState(null);
   const dropdownRef = useRef(null);
 
-  const options = ["Today", "This Week", "This Month", "Custom Date"];
+  const options = ["Today", "This Week", "This Month", "Custom"];
 
   useOnClickOutside(dropdownRef, () => setIsDropDownOpen(false)); // Use the custom hook
 
@@ -56,7 +56,7 @@ const FilterByPeriod = ({ onSelect }) => {
           </div>
         )}
       </div>
-      {selectedOption === "Custom Date" && (
+      {selectedOption === "Custom" && (
         <div className={styles.customDateContainer}>
           {["Start Date", "End Date"].map((label, index) => (
             <div className={styles.datePicker} key={label}>
