@@ -33,7 +33,6 @@ export const FilterBarData = {
 }
 
 export const statsOverViewData = {
-
     platforms: [
         {
             name: "Total Comments",
@@ -129,7 +128,6 @@ export const statsOverViewData = {
 };
 
 
-
 export const dashboardBarChartData = {
     data: {
         labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
@@ -215,31 +213,31 @@ export const dashboardDoughnutChartData = {
         {
             emoji: "😊",
             label: "Happy Words",
-            count: 1500, // Total of all sources
+            count: 2559, // Total of all sources
             colors: ["#4caf50", "#66bb6a", "#81c784", "#a5d6a7", "#c8e6c9"], // Green shades
         },
         {
             emoji: "😢",
             label: "Sad Words",
-            count: 1500,
+            count: 1471,
             colors: ["#1E88E5", "#42A5F5", "#64B5F6", "#90CAF9", "#BBDEFB"], // Blue shades
         },
         {
             emoji: "🤝",
             label: "Greets Words",
-            count: 495,
+            count: 865,
             colors: ["#FFC107", "#FFD54F", "#FFEB3B", "#FFF176", "#FFF59D"], // Yellow shades
         },
         {
             emoji: "😐",
             label: "Neutral",
-            count: 328,
+            count: 865,
             colors: ["#9E9E9E", "#BDBDBD", "#E0E0E0", "#EEEEEE", "#F5F5F5"],// Grey shades
         },
         {
             emoji: "😡",
             label: "Angry Words",
-            count: 587,
+            count: 865,
             colors: ["#E53935", "#EF5350", "#F44336", "#E57373", "#FFCDD2"], // Red shades
         },
     ],
@@ -247,8 +245,8 @@ export const dashboardDoughnutChartData = {
         {
             label: "Facebook",
             counts: {
-                "Happy Words": 500,
-                "Sad Words": 100,
+                "Happy Words": 768,
+                "Sad Words": 441,
                 "Greets Words": 50,
                 "Neutral": 168,
                 "Angry Words": 82,
@@ -257,8 +255,8 @@ export const dashboardDoughnutChartData = {
         {
             label: "YouTube",
             counts: {
-                "Happy Words": 400,
-                "Sad Words": 200,
+                "Happy Words": 640,
+                "Sad Words": 368,
                 "Greets Words": 75,
                 "Neutral": 40,
                 "Angry Words": 185,
@@ -267,8 +265,8 @@ export const dashboardDoughnutChartData = {
         {
             label: "Instagram",
             counts: {
-                "Happy Words": 200,
-                "Sad Words": 400,
+                "Happy Words": 512,
+                "Sad Words": 294,
                 "Greets Words": 120,
                 "Neutral": 40,
                 "Angry Words": 105,
@@ -277,8 +275,8 @@ export const dashboardDoughnutChartData = {
         {
             label: "LinkedIn",
             counts: {
-                "Happy Words": 100,
-                "Sad Words": 500,
+                "Happy Words": 384,
+                "Sad Words": 221,
                 "Greets Words": 150,
                 "Neutral": 40,
                 "Angry Words": 90,
@@ -287,8 +285,8 @@ export const dashboardDoughnutChartData = {
         {
             label: "TikTok",
             counts: {
-                "Happy Words": 300,
-                "Sad Words": 300,
+                "Happy Words": 256,
+                "Sad Words": 147,
                 "Greets Words": 100,
                 "Neutral": 40,
                 "Angry Words": 125,

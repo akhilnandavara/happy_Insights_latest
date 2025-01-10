@@ -5,7 +5,6 @@ import FilterByPeriod from "./FilterByPeriod";
 import Icon from "../Icon";
 import { Text } from "../../components/ui";
 
-
 const FilterBar = ({ methods, onSelect }) => {
   const [activeMethod, setActiveMethod] = useState(methods[0]); // Default to the first method
   const [visibleMethods, setVisibleMethods] = useState([]); // Methods to display
@@ -63,7 +62,9 @@ const FilterBar = ({ methods, onSelect }) => {
         {overflowMethods.length > 0 && (
           <div className={styles.dropdown}>
             <button className={styles.dropdownToggleBtn}>
-              <IoIosArrowDown  className={`${styles.icon} ${styles.dropdownToggleBtnIcon}`} />
+              <IoIosArrowDown
+                className={`${styles.icon} ${styles.dropdownToggleBtnIcon}`}
+              />
             </button>
             <div className={styles.dropdownMenu}>
               {overflowMethods.map((method) => (

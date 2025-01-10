@@ -2,40 +2,50 @@
   position: absolute;
   top: 3%;
   right: 0;
-  width: 3rem;
-  min-height: 1.5rem;
-  max-height: 3rem;
+  width: 2.5rem;
+  min-height: 2rem;
+  max-height: 32px;
   height: 4% !important;
   z-index: 100;
   overflow: hidden;
   transition: transform 0.5s ease-in-out, opacity 0.3s ease-in-out;
 }
+.toggleButtonWrapperClosed {
+  right: -2.5rem;
+}
+.toggleButtonWrapperClosed:hover {
+  border-radius: 0 10px 10px 0;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1); /* Shadow on the right */
+}
+.toggleButtonWrapperOpen {
+  right: -1px;
+}
+
+.toggleButtonWrapperOpen:hover {
+  box-shadow: -2px 0 2px rgba(0, 0, 0, 0.1); /* Subtle shadow on the left */
+  border-radius: 10px 0px 0 10px;
+}
+
 .toggleButton {
   background-color: var(--primary-border);
   cursor: pointer;
   display: flex;
   align-items: center;
-
   height: 100%;
   width: 80%;
   border: 1px solid var(--border-secondary);
   z-index: 100;
-  position: absolute; /* Keep the button's position relative to the wrapper */
+  position: absolute; /* Position the button */
   right: 0;
   border-radius: 0 10px 10px 0; /* Rounded right edge */
-  transition: width 0.5s ease-in-out, box-shadow 0.3s ease-in-out; /* Smooth transition */
+  transition: width 0.5s ease; /* Smooth transition */
 }
-.toggleButtonWrapperClosed {
-  right: -35px;
-}
-.toggleButtonWrapperOpen {
-  right: -1px;
-}
+
 .toggleButtonClosed {
   transition: transform 0.3s ease-in-out;
   border-radius: 10px 0 0 10px;
   justify-content: flex-start;
-  border-right: 0px;
+  border-right: transparent;
 }
 
 .toggleButtonOpen {
@@ -43,7 +53,7 @@
   border-radius: 0 10px 10px 0;
   transform-origin: left;
   left: 0;
-  border-left: 0px;
+  border-left: transparent;
 }
 
 .toggleIcon {
@@ -51,8 +61,7 @@
   top: 50%; /* Center vertically */
   transform: translate(-50%, 50%); /* Center horizontally */
   color: var(--primary); /* Icon color */
-  width: 100%;
-  height: 100%;
+  font-size: 10px; /* Icon size */
   rotate: 90deg;
   pointer-events: none; /* Prevent interaction with the icon */
 }

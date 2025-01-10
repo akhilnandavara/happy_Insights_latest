@@ -8,7 +8,7 @@ const Icon = ({
   fill = "#6B7280", // Default fill for themes
 }) => {
   // const spriteUrl = `/icons/${sprite}.svg#${name}`; // Adjust for production
-  const spriteUrl = `/public/icons/${sprite}.svg#${name}`; // Adjust for production
+  const spriteUrl = `/icons/${sprite}.svg#${name}`; // Adjust for production
 
   return (
     <>

@@ -8,7 +8,24 @@
   border: 1px solid var(--divider);
   overflow: hidden;
   max-height: 100px;
+  flex-wrap: nowrap;
+  overflow-x: auto;
   transition: all 0.3s ease;
+}
+
+.container::-webkit-scrollbar {
+  height: 4px;
+}
+.container::-webkit-scrollbar-track {
+  background: var(--divider);
+  border-radius: 5px;
+}
+.container::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 6px;
+}
+.container::-webkit-scrollbar-thumb:hover {
+  background: var(--divider);
 }
 
 .card {
@@ -114,7 +131,6 @@
   .container {
     gap: 16px;
     max-height: none;
-    flex-wrap: wrap;
   }
 
   .card {

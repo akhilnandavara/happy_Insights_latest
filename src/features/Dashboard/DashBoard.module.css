@@ -1,6 +1,8 @@
 /* DashBoard.module.css */
 .dashboardPage {
   padding: 0 10px;
+  display: flex;
+  flex-direction: column;
   background-color: var(--color-white);
   transition: all 0.5s ease; /* Smooth transitions for layout changes */
 }
@@ -104,7 +106,7 @@
 .statsSection {
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
 }
 
 .filterButton {
@@ -140,19 +142,6 @@
   margin-bottom: 20px;
   gap: 20px;
 }
-.statCard {
-  background-color: var(--color-white);
-  padding: 15px 20px;
-  border-radius: 8px;
-  font-size: 16px;
-  font-weight: bold;
-  color: var(--color-text-dark);
-  text-align: center;
-  flex: 1;
-  min-width: 150px;
-  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.1);
-}
-
 /* Graph and Sentiment Analysis */
 .graphContainer {
   display: flex;
@@ -160,9 +149,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   align-items: stretch;
-  margin-top: 20px;
 }
-
 .title {
   color: var(--text-barGraph-title);
   font-family: Poppins;
@@ -173,7 +160,6 @@
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
-
 .sentimentAnalysis,
 .barGraph {
   background: var(--white);
@@ -184,24 +170,19 @@
   display: flex;
   flex-direction: column;
   gap: 8px;
-  border-radius: 6px 0px 0px 0px;
-  border: 1px 0px 0px 0px;
-  opacity: 0px;
+  border-radius: 6px;
   overflow: hidden;
 }
-
 .barGraph {
   flex: 1 1 50%;
   min-width: 300px;
   max-height: 400px; /* Set a maximum height to ensure consistency */
 }
-
 .sentimentAnalysis {
   flex: 1 1 35%; /* Takes 35% of the parent width */
   min-width: 250px;
   max-height: 400px;
 }
-
 /* Responsive Adjustments */
 @media screen and (max-width: 768px) {
   .welcomeTitle {

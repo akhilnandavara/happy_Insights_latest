@@ -9,7 +9,7 @@ const StatsOverView = ({ activeStatsOverview, onStatsOverviewSelect }) => {
   const { platforms } = statsOverViewData;
   return (
     <div className={styles.container}>
-      {platforms.map(({ name, comments, change,changeType}, index) => (
+      {platforms.map(({ name, comments, change, changeType }, index) => (
         <div
           key={index}
           className={`${styles.card}  ${
@@ -36,12 +36,12 @@ const StatsOverView = ({ activeStatsOverview, onStatsOverviewSelect }) => {
             <span className={styles.count}>{comments.toLocaleString()}</span>
             <div
               className={`${styles.updateTag} ${
-                changeType ==="up" ? styles.positive : styles.negative
+                changeType === "up" ? styles.positive : styles.negative
               }`}
             >
               <FaArrowUp
                 className={`${styles.updateTagIcon} ${
-                  changeType ==="down" && styles.rotate
+                  changeType === "down" && styles.rotate
                 }`}
               />
               <Text as={"p"} className={styles.updateTagText}>

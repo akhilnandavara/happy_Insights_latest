@@ -15,7 +15,6 @@ import {
   dashboardBarChartData,
   dashboardDoughnutChartData,
 } from "../data/Dashboard";
-
 import DashBoardHeaderRightSlider from "../components/Carousel/DashboardHeaderRightSlider";
 
 // Utility: Debounced User Data
@@ -78,7 +77,7 @@ function StatsAndFilterSection({
           <Heading as={"h3"} className={styles.title}>
             Average Comments
           </Heading>
-          
+
           <CustomBarChart
             data={barChartData.data}
             options={barChartData.options}

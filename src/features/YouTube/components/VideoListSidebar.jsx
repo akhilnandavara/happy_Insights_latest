@@ -1,10 +1,6 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
-import styles from "../Insights.module.css";
+import styles from "../styles/videoListSidebar.module.css";
 import { Heading, Img, Text } from "../../../components/ui";
-import {
-  MdOutlineKeyboardArrowLeft,
-  MdOutlineKeyboardArrowRight,
-} from "react-icons/md";
 
 import { CiSearch } from "react-icons/ci";
 import FilterMenu from "./FilterMenu";
@@ -22,6 +18,7 @@ import {
   toggleFavorites,
   toggleTop10,
 } from "../../../store/slices/filterSlice";
+import SearchBar from "../../../components/SearchBar";
 
 const VideoItem = React.memo(
   ({ video, isSidebarOpen, isSelected, onSelect }) => {
@@ -54,7 +51,7 @@ const VideoItem = React.memo(
             <Heading as="h3" className={styles.videoTitle}>
               {title}
             </Heading>
-            <Text as="p" className={styles.headerFavVideoSubTitle}>
+            <Text as="p" className={styles.videoSubTitle}>
               {description}
             </Text>
             <div className={styles.videoStatsContainer}>
@@ -154,9 +151,6 @@ export default function VideoListSidebar({
       video.title.toLowerCase().includes(searchTerm.toLowerCase())
     );
   }, [extraVideos, searchTerm]);
-  const toggleSidebar = useCallback(() => {
-    setSidebarOpen((prev) => !prev);
-  }, []);
 
   return (
     <div
@@ -206,7 +200,6 @@ export default function VideoListSidebar({
         )}
       </div>
       {/* Sidebar Toggle Button */}
-
       <ToggleSideBarBtn
         setSidebarOpen={setSidebarOpen}
         isSidebarOpen={isSidebarOpen}
@@ -214,21 +207,13 @@ export default function VideoListSidebar({
 
       {/* Search and Filters */}
       <div className={styles.videoListHeader}>
-        <div
+        <SearchBar
           className={classNames(
             styles.commentSearchBox,
             styles.videoListSearchBar
           )}
-        >
-          <CiSearch className={styles.searchIcon} />
-          <input
-            type="text"
-            placeholder="Search Videos..."
-            value={searchTerm}
-            onChange={handleSearchChange}
-            className={styles.searchInput}
-          />
-        </div>
+        />
+
         <div
           className={styles.filterIconWrapper}
           ref={filterBtnRef}
