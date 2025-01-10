@@ -44,7 +44,7 @@ const CustomSwiper = ({ slides, config, customStyles }) => {
               alt={`Slide ${index + 1}`}
             />
           </div>
-          <div className={customStyles?.textContainer}>
+          <div className={customStyles?.contentContainer}>
             <button
               className={customStyles.btn}
               style={{
