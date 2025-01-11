@@ -625,7 +625,7 @@
 .selectedCommentsContainer::-webkit-scrollbar-thumb,
 .suggestionBotContainer::-webkit-scrollbar-thumb,
 .nestedReplies::-webkit-scrollbar-thumb {
-  background-color: var(--color-primary); /* Scrollbar thumb color */
+  background-color: var(--primary); /* Scrollbar thumb color */
   border-radius: 10px; /* Rounded corners for the scrollbar */
   border: 2px solid #f1f1f1;
 }

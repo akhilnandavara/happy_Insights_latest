@@ -3,8 +3,8 @@
   width: 100%;
   height: calc(100% - 10px); /* Account for padding or margins */
   justify-content: space-between;
-  overflow-y: auto;
   scrollbar-width: none;
+  overflow: hidden;
   margin: 0 auto;
 }
 /* Comments section */

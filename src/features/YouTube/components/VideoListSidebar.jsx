@@ -5,7 +5,6 @@ import FilterMenu from "./FilterMenu";
 import { useDispatch, useSelector } from "react-redux";
 import dayjs from "dayjs";
 import { IoMdEye } from "react-icons/io";
-import { TbAdjustmentsFilled } from "react-icons/tb";
 import { formatViewCount } from "../utils";
 import Icon from "../../../components/Icon";
 import classNames from "classnames";
@@ -44,18 +43,22 @@ const VideoItem = React.memo(
             className={styles.thumbnailImg}
           />
         </div>
+
         {isSidebarOpen && (
           <div className={styles.videoInfo}>
+            {/* Video Title */}
             <Heading as="h3" className={styles.videoTitle}>
               {title}
             </Heading>
+            {/* Subtitle */}
             <Text as="p" className={styles.videoSubTitle}>
               {description}
             </Text>
+            {/* Video Stats Cotainer */}
             <div className={styles.videoStatsContainer}>
               <div className={styles.videoStats}>
                 <IoMdEye className={styles.icon} />
-                <Text as="p" className={styles.videoStatsText}>
+                <Text as="p" className={styles.videoSubTitle}>
                   {formatViewCount(view_count)}
                 </Text>
               </div>
@@ -65,7 +68,7 @@ const VideoItem = React.memo(
                   name="message"
                   className={styles.videoStatsIcon}
                 />
-                <Text as="p" className={styles.videoStatsText}>
+                <Text as="p" className={styles.videoSubTitle}>
                   {comment_count}
                 </Text>
               </div>
@@ -84,9 +87,9 @@ const VideoSection = React.memo(
     }
 
     return (
-      <div className={styles.videoSection}>
+      <>
         {title && (
-          <Heading as="h2" className={styles.videoSectionTitle}>
+          <Heading as="h2" className={styles.videoTitle}>
             {title}
           </Heading>
         )}
@@ -101,7 +104,7 @@ const VideoSection = React.memo(
             onSelect={() => onVideoSelect(video.video_id)}
           />
         ))}
-      </div>
+      </>
     );
   }
 );
