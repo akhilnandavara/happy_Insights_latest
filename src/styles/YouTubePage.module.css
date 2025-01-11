@@ -1,7 +1,6 @@
 .wrapper {
   display: flex;
   width: 100%;
-  max-width: 1450px;
   height: calc(100% - 10px); /* Account for padding or margins */
   justify-content: space-between;
   overflow-y: auto;

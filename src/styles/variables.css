@@ -23,6 +23,9 @@
   --statsOveriew-value-bg-positive: rgba(236, 253, 243, 1);
   --statsOveriew-value-bg-negative: rgba(254, 243, 242, 1);
   --statsOveriew-value-border-negative: rgba(246, 176, 171, 1);
+
+  /* Youtube Colors */
+  --SearchBtn-bg: rgba(245, 246, 247, 1);
   
 
   /* Text Color */

@@ -86,3 +86,78 @@ li {
 .react-datepicker__input-container {
   height: 100%;
 }
+
+.react-datepicker__triangle {
+  display: none;
+}
+
+.react-datepicker__day.react-datepicker__day--keyboard-selected {
+  border: none;
+  border-radius: 7px;
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.react-datepicker__day.react-datepicker__day--keyboard-selected:hover {
+  background-color: var(--dark);
+  color: var(--white);
+}
+
+.react-datepicker__day.react-datepicker__day--today {
+  border-radius: 7px;
+  border: solid 2px var(--primary) !important;
+  background-color: white !important;
+  color: var(--value) !important;
+  width: 30px;
+  height: 30px;
+}
+
+.react-datepicker__day--selected:hover,
+.react-datepicker__day--in-selecting-range:hover,
+.react-datepicker__day--in-range:hover,
+.react-datepicker__month-text--selected:hover,
+.react-datepicker__month-text--in-selecting-range:hover,
+.react-datepicker__month-text--in-range:hover,
+.react-datepicker__quarter-text--selected:hover,
+.react-datepicker__quarter-text--in-selecting-range:hover,
+.react-datepicker__quarter-text--in-range:hover,
+.react-datepicker__year-text--selected:hover,
+.react-datepicker__year-text--in-selecting-range:hover,
+.react-datepicker__year-text--in-range:hover {
+  background-color: var(--primary) !important;
+  color: var(--value) !important;
+}
+
+.react-datepicker__navigation-icon::before {
+  border-color: var(--primary) !important;
+}
+.react-datepicker__navigation-icon {
+  margin-top: 1rem;
+}
+
+.react-datepicker {
+  border: none !important;
+  font-family: "poppins" !important;
+  position: absolute;
+  bottom: -100px;
+  /* background-color: #000; */
+  width: auto !important;
+  max-width: 100% !important;
+  min-width: 230px !important;
+}
+
+.react-datepicker__header {
+  border-bottom: solid 2px var(--divider) !important;
+  background: var(--white) !important;
+}
+
+.react-datepicker__day {
+  width: 25px !important;
+  height: 25px !important;
+  line-height: 25px !important;
+}
+
+.react-datepicker__day--today {
+  width: 30px;
+  height: 30px;
+}

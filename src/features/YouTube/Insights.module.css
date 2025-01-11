@@ -1,5 +1,5 @@
 .container {
-  width: 80%;
+  width: 100%;
   height: 100%;
 }
 /*  Header */
@@ -301,80 +301,12 @@
   width: 80%;
   height: 100%;
 }
-.filterIconWrapper,
-.datePickerArrow {
-  cursor: pointer;
-  font-size: 1.2rem;
-  transition: color 0.3s ease;
-}
-.filterIconWrapper:hover,
-.datePickerArrow:hover {
-  color: var(--primary);
-}
-.datePickerArrow {
-  position: absolute;
-  right: 0;
-}
-.filterItem:hover {
-  background-color: rgba(76, 207, 174, 0.1);
-  color: var(--color-primary);
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-.filterMethod {
-  position: absolute;
-  bottom: -100px;
-  right: -10px;
-  max-width: 120px;
-  max-height: fit-content;
-  background-color: white;
-  border-radius: 8px;
-  border: 1px solid var(--color-white);
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-  z-index: 100;
-  padding: 0 0.5rem;
-}
-
-.FilterOptionsList {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-.filterOptionTitle {
-  font-size: 0.5rem;
-  font-weight: 500;
-  padding: 0.2rem;
-  cursor: pointer;
-  transition: background-color 0.2s ease;
-}
-.filterItem {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding: 0.5rem;
-  width: 100%;
-  transition: background-color 0.2s ease;
-}
-.filterItem:not(:last-child) {
-  border-bottom: 1px dotted rgba(151, 151, 151, 1);
-}
-.filterIconWrapper {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-.filterIcon {
-  height: fit-content;
-  width: fit-content;
-  rotate: 90deg;
-}
 
 .active {
   background-color: rgba(76, 207, 174, 0.1);
   border: 1px solid var(--primary);
 }
-
 /* Comment Section */
-
 .slideIn {
   animation: slideInFromRight 0.5s ease forwards;
 }
@@ -659,7 +591,6 @@
     font-size: 1rem;
   }
 }
-
 
 /* comments contents */
 .commentsWrapper {

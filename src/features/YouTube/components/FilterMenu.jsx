@@ -1,7 +1,7 @@
 import React, { useCallback } from "react";
 import { RiArrowRightWideFill } from "react-icons/ri";
 import ReactDatePicker from "react-datepicker";
-import styles from "../Insights.module.css";
+import styles from "../styles/videoListSidebar.module.css";
 import useOnClickOutside from "../../../hooks/useOnClickOutside";
 import { filterOptions } from "../utils";
 import dayjs from "dayjs";
@@ -71,40 +71,40 @@ const FilterMenu = React.memo(
 
       return (
         <div className={styles.filterMethod}>
-          {isFilterVisible && (
-            <ul className={styles.FilterOptionsList} ref={ref}>
-              {filterOptions.map(({ id, name, icon: Icon }) => (
-                <li
-                  key={id}
-                  className={styles.filterItem}
-                  onClick={() => handleFilterClick({ id, name })}
-                >
+          <ul className={styles.filterOptionsList} ref={ref}>
+            {filterOptions.map(({ id, name, icon: Icon }) => (
+              <li
+                key={id}
+                className={styles.filterItem}
+                onClick={() => handleFilterClick({ id, name })}
+              >
+                <div className={styles.filterOptionLeftContents}>
                   <Icon className={styles.icon} />
                   <Text as="p" className={styles.filterOptionTitle}>
                     {name}
                   </Text>
-                  {name === "Today" && (
-                    <RiArrowRightWideFill
-                      className={`${styles.filterIcon} ${styles.datePickerArrow}`}
-                      onClick={(e) => {
-                        e.stopPropagation();
-                        setShowDatePicker((prev) => !prev);
-                      }}
-                    />
-                  )}
-                </li>
-              ))}
-              {showDatePicker && (
-                <ReactDatePicker
-                  selected={datePickerDate}
-                  onChange={handleDateChange}
-                  inline
-                  className={styles.datePicker}
-                  maxDate={new Date()}
-                />
-              )}
-            </ul>
-          )}
+                </div>
+                {name === "Today" && (
+                  <RiArrowRightWideFill
+                    className={`${styles.icon}${styles.datePickerArrow}`}
+                    onClick={(e) => {
+                      e.stopPropagation();
+                      setShowDatePicker((prev) => !prev);
+                    }}
+                  />
+                )}
+              </li>
+            ))}
+            {showDatePicker && (
+              <ReactDatePicker
+                selected={datePickerDate}
+                onChange={handleDateChange}
+                inline
+                className={styles.datePicker}
+                maxDate={new Date()}
+              />
+            )}
+          </ul>
         </div>
       );
     }

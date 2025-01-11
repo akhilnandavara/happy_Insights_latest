@@ -1,8 +1,6 @@
 import React, { useCallback, useMemo, useRef, useState } from "react";
 import styles from "../styles/videoListSidebar.module.css";
 import { Heading, Img, Text } from "../../../components/ui";
-
-import { CiSearch } from "react-icons/ci";
 import FilterMenu from "./FilterMenu";
 import { useDispatch, useSelector } from "react-redux";
 import dayjs from "dayjs";
@@ -165,99 +163,134 @@ export default function VideoListSidebar({
           [styles.headerChannelInfoOpen]: isSidebarOpen,
         })}
       >
-        <Img
-          className={classNames(styles.headerChannelLogo, {
-            [styles.headerChannelLogoOpen]: isSidebarOpen,
-            [styles.headerChannelLogoClosed]: !isSidebarOpen,
-          })}
-          src="https://placehold.co/20x20"
-          alt="Channel Logo"
-        />
-        {isSidebarOpen && (
-          <div className={styles.headerChannelInfo}>
-            <Heading className={styles.headerChannelInfoTitle} as="h1">
-              Channel Name
-            </Heading>
-            <div className={styles.headerChannelInfoSubTitle}>
-              <div className={styles.headerChannelInfoSubTitleItem}>
-                <Text as="p" className={styles.ChannelInfoSubHeading}>
+        <div className={styles.headerChannelInfoContainer}>
+          {/* Section 1 */}
+          <div
+            className={`${styles.channelNameContainer} ${
+              !isSidebarOpen && styles.closedIcon
+            }`}
+          >
+            <Img
+              className={classNames(styles.headerChannelLogo, {
+                [styles.headerChannelLogoOpen]: isSidebarOpen,
+                [styles.headerChannelLogoClosed]: !isSidebarOpen,
+              })}
+              src="https://placehold.co/20x20"
+              alt="Channel Logo"
+            />
+
+            {isSidebarOpen && (
+              <div className={styles.headerChannelInfo}>
+                <Heading className={styles.headerChannelInfoTitle} as="h1">
+                  Tamil Pokkisham
+                </Heading>
+                <Text
+                  as="p"
+                  size="sm"
+                  className={styles.headerChannelInfoSubTitle}
+                >
+                  Channel Name
+                </Text>
+              </div>
+            )}
+          </div>
+          {/* Section 2 */}
+          {isSidebarOpen && (
+            <div className={styles.headerChannelStatsContainer}>
+              <div className={styles.headerChannelStatsItem}>
+                <Text as="p" className={styles.headerChannelInfoTitle}>
                   1.4M
                 </Text>
-                <Text as="p" size="sm">
+                <Text
+                  as="p"
+                  size="sm"
+                  className={styles.headerChannelInfoSubTitle}
+                >
                   Subscribers
                 </Text>
               </div>
-              <div className={styles.headerChannelInfoSubTitleItem}>
-                <Text as="p" className={styles.ChannelInfoSubHeading}>
-                  890
+              <div className={styles.headerChannelStatsItem}>
+                <Text as="p" className={styles.headerChannelInfoTitle}>
+                  254
                 </Text>
-                <Text as="p" size="sm">
+                <Text
+                  as="p"
+                  size="sm"
+                  className={styles.headerChannelInfoSubTitle}
+                >
                   Videos
                 </Text>
               </div>
             </div>
-          </div>
-        )}
-      </div>
-      {/* Sidebar Toggle Button */}
-      <ToggleSideBarBtn
-        setSidebarOpen={setSidebarOpen}
-        isSidebarOpen={isSidebarOpen}
-      />
-
-      {/* Search and Filters */}
-      <div className={styles.videoListHeader}>
-        <SearchBar
-          className={classNames(
-            styles.commentSearchBox,
-            styles.videoListSearchBar
           )}
-        />
-
-        <div
-          className={styles.filterIconWrapper}
-          ref={filterBtnRef}
-          onClick={() => setIsFilterVisible((prev) => !prev)}
-        >
-          <TbAdjustmentsFilled
-            className={classNames(styles.icon, styles.filterIcon)}
-          />
         </div>
-        {isFilterVisible && (
-          <FilterMenu
-            ref={filterMenuRef}
-            filterBtnRef={filterBtnRef}
-            showDatePicker={showDatePicker}
-            setShowDatePicker={setShowDatePicker}
-            handleDateChange={handleDateChange}
-            datePickerDate={selectedDate ? new Date(selectedDate) : new Date()}
-            toggleFavorites={() => dispatch(toggleFavorites())}
-            toggleTop10={() => dispatch(toggleTop10())}
-            resetFilter={() => dispatch(resetFilters())}
-            isFilterVisible={isFilterVisible}
-            setIsFilterVisible={setIsFilterVisible}
-          />
-        )}
-      </div>
-      {/* Video Sections */}
-      <div className={styles.videoListContainer}>
-        <VideoSection
-          videos={filteredDateVideos}
+        {/* Sidebar Toggle Button */}
+        <ToggleSideBarBtn
+          setSidebarOpen={setSidebarOpen}
           isSidebarOpen={isSidebarOpen}
-          selectedVideo={selectedVideo}
-          onVideoSelect={onVideoSelect}
-          compareComments={compareComments}
         />
-        {extraVideos.length > 0 && (
+      </div>
+
+      <div className={styles.videoListContent}>
+        {/* Search and Filters */}
+        <div className={styles.videoListHeaderSection}>
+          <SearchBar
+            placeholder="Search "
+            className={classNames(styles.videoListSearchBar)}
+          />
+
+          {/* Filter Button */}
+          <div
+            className={styles.filterIconWrapper}
+            ref={filterBtnRef}
+            onClick={() => setIsFilterVisible((prev) => !prev)}
+          >
+            <Icon
+              sprite="youtube"
+              name="menu-icon"
+              className={styles.filterIcon}
+            />
+          </div>
+
+          {isFilterVisible && (
+            <FilterMenu
+              ref={filterMenuRef}
+              filterBtnRef={filterBtnRef}
+              showDatePicker={showDatePicker}
+              setShowDatePicker={setShowDatePicker}
+              handleDateChange={handleDateChange}
+              datePickerDate={
+                selectedDate ? new Date(selectedDate) : new Date()
+              }
+              toggleFavorites={() => dispatch(toggleFavorites())}
+              toggleTop10={() => dispatch(toggleTop10())}
+              resetFilter={() => dispatch(resetFilters())}
+              isFilterVisible={isFilterVisible}
+              setIsFilterVisible={setIsFilterVisible}
+            />
+          )}
+        </div>
+
+        {/* Video Sections */}
+        <div className={styles.videoListContainer}>
           <VideoSection
-            videos={filteredExtraVideos}
-            title="Recent Videos"
+            videos={filteredDateVideos}
             isSidebarOpen={isSidebarOpen}
             selectedVideo={selectedVideo}
             onVideoSelect={onVideoSelect}
             compareComments={compareComments}
           />
-        )}
+          {extraVideos.length > 0 && (
+            <VideoSection
+              videos={filteredExtraVideos}
+              title="Recent Videos"
+              isSidebarOpen={isSidebarOpen}
+              selectedVideo={selectedVideo}
+              onVideoSelect={onVideoSelect}
+              compareComments={compareComments}
+            />
+          )}
+        </div>
       </div>
     </div>
   );
