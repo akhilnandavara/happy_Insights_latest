@@ -131,11 +131,13 @@ export default function CommentSection({
                   </div>
                 ))}
             </div>
-            <ReplyInputBox
-              replyContent={replyContent}
-              setReplyContent={setReplyContent}
-              smartReplyArr={smartReplyArr}
-            />
+            <div className={styles.userInputContainer}>
+              <ReplyInputBox
+                replyContent={replyContent}
+                setReplyContent={setReplyContent}
+                smartReplyArr={smartReplyArr}
+              />
+            </div>
           </div>
         )}
       </div>
