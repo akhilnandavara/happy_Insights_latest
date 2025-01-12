@@ -1,12 +1,13 @@
-import styles from "../Insights.module.css";
+import styles from "../styles/aiInsightsRightSideBar.module.css";
 import { Heading, Text } from "../../../components/ui";
 import { BsStars } from "react-icons/bs";
 import { IoMdSettings } from "react-icons/io";
-import { useState } from "react";
-import ReplyInputBox from "./ReplyInputBox";
 import { FaArrowLeft } from "react-icons/fa";
+import { useState, useMemo } from "react";
+import ReplyInputBox from "./ReplyInputBox";
+import Icon from "../../../components/Icon";
 
-// Suggestion Data
+// Suggestion data and other constants
 const suggestionData = [
   "Top 10 Comments Summary",
   "Summary of All Comments",
@@ -20,10 +21,96 @@ const suggestionData = [
   "Recurring Suggestions Summary",
 ];
 
+const smartReplyArr = [
+  { id: 2, icon: "smart-icon-2", className: "" },
+  { id: 3, icon: "smart-icon-3", className: "" },
+  { id: 4, icon: "smart-icon-4", className: "" },
+];
+
+// Header Component
+function Header({ title, onBack, onSettings, icon }) {
+  return (
+    <div className={styles.suggestionSectionHeader}>
+      <div className={styles.navHeader}>
+        {onBack && <FaArrowLeft onClick={onBack} className={styles.icon} />}
+        {icon}
+        <Heading as="h1" className={styles.navHeaderTitle}>
+          {title}
+        </Heading>
+      </div>
+      {onSettings && (
+        <div className={styles.navHeaderSettings} onClick={onSettings}>
+          <Icon name={"settings"} className={styles.icon} />
+        </div>
+      )}
+    </div>
+  );
+}
+
+// Suggestion List Component
+function SuggestionList({ title, items, onAdd, showAddButton = false }) {
+  return (
+    <div>
+      <Text as="h2" className={styles.suggestionSectionTitle}>
+        {title}
+      </Text>
+      <div className={styles.suggestionSectionWrapper}>
+        {items.map((item, index) => (
+          <div key={index} className={styles.suggestionItem}>
+            {item}
+          </div>
+        ))}
+        {showAddButton && (
+          <button className={styles.suggestionItem} onClick={onAdd}>
+            Add New
+          </button>
+        )}
+      </div>
+    </div>
+  );
+}
+
+// Suggestion History Component
+function SuggestionHistory({ history }) {
+  return (
+    <>
+      {history.map((item) => (
+        <div key={item.id} className={styles.suggestionBotItemContainer}>
+          {/* User Input Text */}
+          <div className={styles.suggestionBotItem}>
+            <Text as="p" className={styles.suggestionBotItemText}>
+              {item.text}
+            </Text>
+            <Text className={styles.timeTag}>
+              {item.date.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              })}
+            </Text>
+          </div>
+          {/* AI Response Text */}
+          <div className={styles.suggestionBotItemAIResItem}>
+            <Text as="p" className={styles.aiResText}>
+              {item.aiRes}
+            </Text>
+            <Text className={`${styles.timeTag} ${styles.aiResDate}`}>
+              {item.date.toLocaleTimeString([], {
+                hour: "2-digit",
+                minute: "2-digit",
+                hour12: true,
+              })}
+            </Text>
+          </div>
+        </div>
+      ))}
+    </>
+  );
+}
+
+// Main Suggestion Section Component
 export default function SuggestionSection() {
   const [showAllSuggestions, setShowAllSuggestions] = useState(false);
-  const [isInputBoxVisible, setIsInputBoxVisible] = useState(false);
-  const [replyContent, setReplyContent] = useState("");
   const [isConfig, setIsConfig] = useState(false);
   const [history, setHistory] = useState([
     {
@@ -39,97 +126,35 @@ export default function SuggestionSection() {
       aiRes: "Here is the summary of all comments",
     },
   ]);
-
   const [userInputs, setUserInputs] = useState([
     "Top 5 Positive Comments Summary",
     "Feedback Sentiment Overview",
   ]);
+  const [replyContent, setReplyContent] = useState("");
+  const [isInputBoxVisible, setIsInputBoxVisible] = useState(false);
 
-  // Toggle button label
-  const toggleButtonLabel = showAllSuggestions
-    ? "<<"
-    : `+${suggestionData.slice(2).length}`;
-
-  const smartReplyArr = [
-    { id: 2, icon: "smart-icon-2", className: "" },
-    { id: 3, icon: "smart-icon-3", className: "" },
-    { id: 4, icon: "smart-icon-4", className: "" },
-  ];
+  const toggleButtonLabel = useMemo(
+    () => (showAllSuggestions ? "<<" : `+${suggestionData.slice(2).length}`),
+    [showAllSuggestions]
+  );
 
   const handleAddNewInput = (input) => {
     setUserInputs((prev) => [...prev, input]);
     setIsInputBoxVisible(false);
   };
 
-  const renderSuggestions = (suggestions) =>
-    suggestions.map((item, index) => (
-      <div key={index} className={styles.suggestionItem}>
-        {item}
-      </div>
-    ));
-
-  const renderHistory = () =>
-    history.map((item) => (
-      <div key={item.id} className={styles.suggestionBotItem}>
-        <div className={styles.suggestionBotItemText}>
-          <Text as="p" className={styles.suggestionBotTitle}>
-            {item.text}
-          </Text>
-          <Text className={styles.botDate}>
-            {item.date.toLocaleTimeString([], {
-              hour: "2-digit",
-              minute: "2-digit",
-              hour12: true,
-            })}
-          </Text>
-        </div>
-        <div className={styles.suggestionBotItemAIRes}>
-          <Text as="p" className={styles.aiResText}>
-            {item.aiRes}
-          </Text>
-        </div>
-      </div>
-    ));
-
   return (
     <>
       {isConfig ? (
         <div className={styles.smartSuggestionContainer}>
-          {/* Header  */}
-          <div className={styles.suggestionSectionHeader}>
-            <div className={styles.suggestionHeaderContainer}>
-              <FaArrowLeft
-                onClick={() => setIsConfig(false)}
-                className={styles.icon}
-              />
-              <Heading as="h1" className={styles.suggestionSectionTitle}>
-                Configuration
-              </Heading>
-            </div>
-          </div>
-
-          {/* AI Suggestions Section */}
-          <Text as="h2" className={styles.suggestionSectionTitle}>
-            AI Suggestions
-          </Text>
-          <div className={styles.suggestionSectionWrapper}>
-            {renderSuggestions(suggestionData)}
-          </div>
-
-          {/* User Choice Options */}
-          <Text as="h2" className={styles.suggestionSectionTitle}>
-            User Inputs
-          </Text>
-          <div className={styles.suggestionSectionWrapper}>
-            {renderSuggestions(userInputs)}
-            <button
-              className={styles.suggestionItem}
-              onClick={() => setIsInputBoxVisible(true)}
-            >
-              Add New
-            </button>
-          </div>
-
+          <Header title="Configuration" onBack={() => setIsConfig(false)} />
+          <SuggestionList title="AI Suggestions" items={suggestionData} />
+          <SuggestionList
+            title="User Inputs"
+            items={userInputs}
+            showAddButton={true}
+            onAdd={() => setIsInputBoxVisible(true)}
+          />
           {isInputBoxVisible && (
             <div className={styles.suggestionInputContainer}>
               <ReplyInputBox
@@ -144,61 +169,44 @@ export default function SuggestionSection() {
         </div>
       ) : (
         <>
-          <div className={styles.suggestionSectionHeader}>
-            <div className={styles.suggestionHeaderContainer}>
-              <BsStars className={`${styles.icon} ${styles.aiStarIcon}`} />
-              <Heading as="h1" className={styles.suggestionSectionTitle}>
-                AI Insights
-              </Heading>
-            </div>
-            <IoMdSettings
-              className={styles.icon}
-              onClick={() => setIsConfig(true)}
-            />
-          </div>
-
-          {/* Content Section */}
+          <Header
+            title="AI Insights"
+            onSettings={() => setIsConfig(true)}
+            icon={
+              <Icon
+                sprite="youtube"
+                name={"ai-star"}
+                className={styles.aiStarIcon}
+              />
+            }
+          />
           <div className={styles.suggestionContentWrapper}>
+            {/* BOT CHAT  */}
             <div
               className={`${styles.suggestionBotContainer} ${
                 showAllSuggestions ? styles.expanded : ""
               }`}
             >
-              {renderHistory()}
+              <SuggestionHistory history={history} />
             </div>
 
-            {/* Titles and Suggestions */}
-            <div className={styles.smartSuggestionContainer}>
-              {/* AI Suggestions Section */}
-              <Text as="h2" className={styles.suggestionSectionTitle}>
-                AI Suggestions
-              </Text>
-              <div className={styles.suggestionSectionWrapper}>
-                {renderSuggestions(
-                  showAllSuggestions
-                    ? suggestionData
-                    : suggestionData.slice(0, 2)
-                )}
-                <button
-                  className={styles.suggestionItem}
-                  onClick={() => setShowAllSuggestions(!showAllSuggestions)}
-                >
-                  {toggleButtonLabel}
-                </button>
-              </div>
-              {showAllSuggestions && (
-                <>
-                  <Text as="h2" className={styles.suggestionSectionTitle}>
-                    User Inputs
-                  </Text>
-                  <div className={styles.suggestionSectionWrapper}>
-                    {renderSuggestions(userInputs)}
-                  </div>
-                </>
-              )}
-            </div>
-
-            {/* Input Section */}
+            {/* Input Suggestion */}
+            <SuggestionList
+              title="AI Suggestions"
+              items={
+                showAllSuggestions ? suggestionData : suggestionData.slice(0, 2)
+              }
+            />
+            <button
+              className={styles.suggestionItem}
+              onClick={() => setShowAllSuggestions(!showAllSuggestions)}
+            >
+              {toggleButtonLabel}
+            </button>
+            {showAllSuggestions && (
+              <SuggestionList title="User Inputs" items={userInputs} />
+            )}
+            {/* User Input Box */}
             <div className={styles.suggestionInputContainer}>
               <ReplyInputBox isAiChatBot smartReplyArr={smartReplyArr} />
             </div>

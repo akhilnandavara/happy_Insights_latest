@@ -16,13 +16,11 @@
   min-width: 15%;
   /* animation: expandSidebar 0.5s ease forwards; */
 }
-
 .videoListSidebarClosed {
   max-width: 10%; /* Adjust as necessary */
   min-width: 5%;
   animation: collapseSidebar 0.5s ease forwards;
 }
-
 /* Section 1 of the sidebar */
 .headerChannelInfoWrapper {
   display: flex;

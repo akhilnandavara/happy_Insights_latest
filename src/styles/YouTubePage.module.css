@@ -45,9 +45,10 @@
 .suggestionContainer {
   flex: 2; /* Default size when visible */
   /* max-height: 600px; */
-  transition: all 0.5s ease;
   display: flex;
   flex-direction: column;
   overflow: hidden;
-  border-left: 1.5px solid var(--bg-light-border);
+  max-width: 300px;
+  background: var(--white);
+  border-left: 1px solid var(--divider);
 }
