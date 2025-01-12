@@ -7,10 +7,11 @@ const SearchBar = ({
   value,
   onChange,
   className,
+  customIconClasss,
 }) => {
   return (
     <div className={`${styles.searchBarContainer} ${className}`}>
-      <CiSearch className={styles.searchIcon} />
+      <CiSearch className={`${styles.searchIcon} ${customIconClasss}`} />
       <input
         type="text"
         placeholder={placeholder}

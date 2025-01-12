@@ -5,7 +5,7 @@ import { FaThumbsUp } from "react-icons/fa";
 import { MdOutlineReply } from "react-icons/md";
 import { IoIosArrowDropdown } from "react-icons/io";
 import { PiArrowBendDownRight } from "react-icons/pi";
-import styles from "./../Insights.module.css";
+import styles from "../styles/commentsSection.module.css";
 import { formatRelativeTime } from "../utils";
 
 const ActionButton = ({

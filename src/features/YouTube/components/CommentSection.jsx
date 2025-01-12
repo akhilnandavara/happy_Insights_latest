@@ -2,7 +2,7 @@ import React, { useEffect, useState, useCallback, useMemo } from "react";
 import { getCommentsList } from "../../../services/operations/Youtube";
 import { useDispatch, useSelector } from "react-redux";
 import { FaListUl } from "react-icons/fa6";
-import styles from "../Insights.module.css";
+import styles from "../styles/commentsSection.module.css";
 import { CiSearch } from "react-icons/ci";
 import { Text } from "../../../components/ui";
 import useDebounce from "../../../hooks/useDebounce";
@@ -13,6 +13,7 @@ import { IoCloseCircle } from "react-icons/io5";
 import { setShowStats } from "../../../store/slices/youTubeSlice";
 import Comment from "./Comment";
 import { useCommentSection } from "../hooks/useCommentSection";
+import SearchBar from "../../../components/SearchBar";
 
 export default function CommentSection({
   selectedVideo,
@@ -21,7 +22,6 @@ export default function CommentSection({
 }) {
   const dispatch = useDispatch();
   const { commentsList, showStats } = useSelector((state) => state.youtube);
-
   const [searchTerm, setSearchTerm] = useState("");
   const [replyContent, setReplyContent] = useState("");
   const [currentCategory, setCurrentCategory] = useState("All");
@@ -161,7 +161,7 @@ const CommentsHeader = ({
   >
     {/* Catgories btns headers Section 1 */}
     <div
-      className={`${styles.commentsCategoryBtns} ${
+      className={`${styles.commentsCategoryBtnContainer} ${
         showStats && styles.statsCategoryBtns
       }`}
     >
@@ -186,23 +186,19 @@ const CommentsHeader = ({
         </button>
       ))}
     </div>
+
     {/* Comments Header section 2 */}
     <div
       className={`${styles.commentsHeader} ${showStats && styles.statsHeader}`}
     >
       {!showStats && (
-        <div className={styles.commentSearchBox}>
-          <CiSearch className={styles.searchIcon} />
-          <input
-            type="text"
-            placeholder="Search comments..."
-            value={searchTerm}
-            onChange={onSearchChange}
-            className={styles.searchInput}
-          />
-        </div>
+        <SearchBar
+          placeholder="Search the comments by username or title "
+          className={styles.commentSearchBox}
+          customIconClasss={styles.commentSearchIcon}
+        />
       )}
-      <div className={styles.commentsheaderActionBts}>
+      <div className={styles.commentsHeaderActionBts}>
         {!showStats && (
           <button
             onClick={() => handleCompareComments(true)}
@@ -221,7 +217,7 @@ const CommentsHeader = ({
           <Text className={styles.filterBtnText}>Filter</Text>
         </button>
 
-        <div className={styles.replyToggleBtn}>
+        <div className={styles.statsToggleBtnContainer}>
           <ToggleOption
             showStats={!showStats}
             onClick={() => dispatch(setShowStats(false))}

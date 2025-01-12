@@ -9,7 +9,9 @@
   width: 100%;
   max-width: 300px; /* Adjust size */
 }
-
+.searchBarContainer:focus-within {
+  border: 1px solid var(--primary);
+}
 .searchIcon {
   width: 16px;
   height: 16px;
@@ -20,7 +22,7 @@
   border: none;
   outline: none;
   flex: 1;
-  color: var(--color-text-dark);
+  color: var(--text-userInputBox);
   background-color: transparent;
   font-size: 12px;
   font-weight: 400;

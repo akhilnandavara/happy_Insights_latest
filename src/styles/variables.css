@@ -30,6 +30,8 @@
   --aiChatBox-bg-color: rgba(246, 246, 246, 1);
   --aiChatBox-userInput-bg: rgba(16, 108, 122, 1);
   --aiRes-bg-color:rgba(233, 251, 254, 1);
+  --filter-categories-bg-active: rgba(240, 240, 240, 1);
+  --searchBar-bg: rgba(247, 247, 247, 1);
   
 
   /* Text Color */
