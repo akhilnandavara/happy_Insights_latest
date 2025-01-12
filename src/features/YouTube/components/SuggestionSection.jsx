@@ -1,7 +1,5 @@
 import styles from "../styles/aiInsightsRightSideBar.module.css";
 import { Heading, Text } from "../../../components/ui";
-import { BsStars } from "react-icons/bs";
-import { IoMdSettings } from "react-icons/io";
 import { FaArrowLeft } from "react-icons/fa";
 import { useState, useMemo } from "react";
 import ReplyInputBox from "./ReplyInputBox";
@@ -48,12 +46,26 @@ function Header({ title, onBack, onSettings, icon }) {
 }
 
 // Suggestion List Component
-function SuggestionList({ title, items, onAdd, showAddButton = false }) {
+function SuggestionList({
+  title,
+  items,
+  onAdd,
+  showAddButton = false,
+  isConfig = false,
+  showAllSuggestions = true,
+  handleShowAllSuggestions = () => {},
+}) {
+  const toggleButtonLabel = useMemo(
+    () => (showAllSuggestions ? "<<" : `+${suggestionData.slice(2).length}`),
+    [showAllSuggestions]
+  );
   return (
-    <div>
-      <Text as="h2" className={styles.suggestionSectionTitle}>
-        {title}
-      </Text>
+    <>
+      {showAllSuggestions && (
+        <Text as="h2" className={styles.suggestionSectionTitle}>
+          {title}
+        </Text>
+      )}
       <div className={styles.suggestionSectionWrapper}>
         {items.map((item, index) => (
           <div key={index} className={styles.suggestionItem}>
@@ -65,8 +77,16 @@ function SuggestionList({ title, items, onAdd, showAddButton = false }) {
             Add New
           </button>
         )}
+        {!isConfig && title.toLowerCase() !== "user inputs" && (
+          <button
+            className={styles.suggestionItem}
+            onClick={handleShowAllSuggestions}
+          >
+            {toggleButtonLabel}
+          </button>
+        )}
       </div>
-    </div>
+    </>
   );
 }
 
@@ -133,25 +153,28 @@ export default function SuggestionSection() {
   const [replyContent, setReplyContent] = useState("");
   const [isInputBoxVisible, setIsInputBoxVisible] = useState(false);
 
-  const toggleButtonLabel = useMemo(
-    () => (showAllSuggestions ? "<<" : `+${suggestionData.slice(2).length}`),
-    [showAllSuggestions]
-  );
-
   const handleAddNewInput = (input) => {
     setUserInputs((prev) => [...prev, input]);
     setIsInputBoxVisible(false);
+  };
+  const handleShowAllSuggestions = () => {
+    setShowAllSuggestions(!showAllSuggestions);
   };
 
   return (
     <>
       {isConfig ? (
-        <div className={styles.smartSuggestionContainer}>
+        <div className={styles.suggestionContentWrapper}>
           <Header title="Configuration" onBack={() => setIsConfig(false)} />
-          <SuggestionList title="AI Suggestions" items={suggestionData} />
+          <SuggestionList
+            isConfig={isConfig}
+            title="AI Suggestions"
+            items={suggestionData}
+          />
           <SuggestionList
             title="User Inputs"
             items={userInputs}
+            isConfig={true}
             showAddButton={true}
             onAdd={() => setIsInputBoxVisible(true)}
           />
@@ -193,18 +216,20 @@ export default function SuggestionSection() {
             {/* Input Suggestion */}
             <SuggestionList
               title="AI Suggestions"
+              showAllSuggestions={showAllSuggestions}
+              handleShowAllSuggestions={handleShowAllSuggestions}
               items={
                 showAllSuggestions ? suggestionData : suggestionData.slice(0, 2)
               }
             />
-            <button
-              className={styles.suggestionItem}
-              onClick={() => setShowAllSuggestions(!showAllSuggestions)}
-            >
-              {toggleButtonLabel}
-            </button>
+
             {showAllSuggestions && (
-              <SuggestionList title="User Inputs" items={userInputs} />
+              <SuggestionList
+                showAllSuggestions={showAllSuggestions}
+                handleShowAllSuggestions={handleShowAllSuggestions}
+                title="User Inputs"
+                items={userInputs}
+              />
             )}
             {/* User Input Box */}
             <div className={styles.suggestionInputContainer}>

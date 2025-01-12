@@ -17,7 +17,7 @@ export default function ReplyInputBox({
 }) {
   const [smartBtnClick, setSmartBtnClick] = useState(null);
   const [spellChecker, setSpellChecker] = useState(null);
-  const [language, setLanguage] = useState("hi"); // Default to French
+  const [language, setLanguage] = useState("hi");
 
   useEffect(() => {
     // Fetch the .aff and .dic files from the public folder
@@ -122,7 +122,7 @@ export default function ReplyInputBox({
         onKeyDown={handleKeyPress} // Handle Enter key
       />
 
-      {/* Actions Section */}
+      {/* Actions Btn*/}
       <div className={styles.inputActions}>
         {/* Smart Replies */}
         <div className={styles.smartReplyWrapper}>
@@ -171,9 +171,7 @@ export default function ReplyInputBox({
 
       {/* Emoji Picker */}
       {smartBtnClick === "Emojis" && (
-        <div
-         className={styles.emojiPickerContainer}
-        >
+        <div className={styles.emojiPickerContainer}>
           <Picker data={data} onEmojiSelect={addEmoji} />
         </div>
       )}
