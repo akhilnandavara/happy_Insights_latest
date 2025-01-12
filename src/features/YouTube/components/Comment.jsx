@@ -7,6 +7,7 @@ import { IoIosArrowDropdown } from "react-icons/io";
 import { PiArrowBendDownRight } from "react-icons/pi";
 import styles from "../styles/commentsSection.module.css";
 import { formatRelativeTime } from "../utils";
+import Icon from "../../../components/Icon";
 
 const ActionButton = ({
   title,
@@ -129,14 +130,15 @@ export default function Comment({
       <div
         className={`${styles.commentItem}   ${
           isExpanded ? styles.dottedBorder : ""
-        }
-        `}
+        }`}
       >
         <div className={styles.userInfo}>
           {isReply && (
             <>
               <div className={styles.replyItemGap}></div>
-              <PiArrowBendDownRight
+              <Icon
+                sprite="youtube"
+                name={"arrow-right"}
                 className={`${styles.icon} ${styles.userInfoArrow}`}
               />
             </>
@@ -155,9 +157,12 @@ export default function Comment({
             </time>
           </div>
         </div>
+
+        {/* Message */}
         <Text as="p" className={styles.message}>
           {isReply ? comment.reply_text : comment.comment_text}
         </Text>
+
         <Text
           as={"p"}
           style={{ color: labelColor, background: labelbg }}
@@ -165,7 +170,8 @@ export default function Comment({
         >
           {label}
         </Text>
-        <div className={styles.actions}>
+        {/* Comment Stats */}
+        <div className={styles.commentStats}>
           {comment.like_count > 0 && (
             <ActionButton
               title={"like"}
@@ -174,32 +180,34 @@ export default function Comment({
             />
           )}
           {comment.replies?.length > 0 && (
-            <ActionButton
-              title={"reply_count"}
-              Icon={MdOutlineReply}
-              count={comment.replies.length}
-            />
-          )}
-          {!isReply && (
-            <button
-              onClick={handleCommentReply}
-              className={`${styles.commentReplyButton} ${
-                selectedComments.includes(comment.comment_id)
-                  ? styles.selected
-                  : ""
-              }`}
-            >
-              Reply
-            </button>
-          )}
-          {!isReply && (
-            <ActionButton
-              Icon={IoIosArrowDropdown}
-              onClick={handleToggleReply}
-              isReply={isExpanded}
-            />
+            <>
+              <ActionButton
+                title={"reply_count"}
+                Icon={MdOutlineReply}
+                count={comment.replies.length}
+              />
+            </>
           )}
         </div>
+        {!isReply && (
+          <button
+            onClick={handleCommentReply}
+            className={`${styles.commentReplyButton} ${
+              selectedComments.includes(comment.comment_id)
+                ? styles.selected
+                : ""
+            }`}
+          >
+            Reply
+          </button>
+        )}
+        {!isReply && (
+          <ActionButton
+            Icon={IoIosArrowDropdown}
+            onClick={handleToggleReply}
+            isReply={isExpanded}
+          />
+        )}
       </div>
       {isExpanded && comment.replies?.length > 0 && (
         <ReplyList

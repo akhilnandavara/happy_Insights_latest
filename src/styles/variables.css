@@ -56,7 +56,8 @@
 
   /* Youtube */
   --text-aiBot-time:rgba(155, 167, 182, 1);
-  --text-userInputBox:rgba(156, 163, 175, 1),
+  --text-userInputBox:rgba(156, 163, 175, 1);
+  
   /* shadow */
   --shadow-xs: rgba(16, 24, 40, 0.05);
 
@@ -81,10 +82,11 @@
   --statsOveriew-icon-negative: rgba(238, 104, 95, 1);
 
   /* Plan Colors */
-  --color-plan-basic-border-top: gray;
-  --color-plan-standard-border-top: orange;
-  --color-plan-pro-border-top: green;
-  --color-plan-advanced-border-top: purple;
+  --color-gray: gray;
+  --color-orange: rgba(242, 153, 74, 1);
+  --color-green: rgba(33, 150, 83, 1);
+  --color-purple: purple;
+  --color-blue:rgba(47, 128, 237, 1);
 
   --font-size-xs: 0.7rem;
   --font-size-sm: 0.9rem;
