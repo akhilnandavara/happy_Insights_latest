@@ -996,7 +996,7 @@
   padding: 0.25rem 0;
   color: var(--text-userInputBox);
   background: transparent;
-  box-sizing: border-box; 
+  box-sizing: border-box;
 }
 
 .replyButton {

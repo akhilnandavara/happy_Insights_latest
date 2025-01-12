@@ -63,7 +63,6 @@
   overflow-x: hidden;
   padding: 10px;
 }
-
 .suggestionBotContainer::-webkit-scrollbar {
   width: 5px; /* Width of the entire scrollbar */
 }
@@ -173,8 +172,8 @@
   color: var(--white);
 }
 
-.suggestionItemsWrapper{
-    display: flex;
+.suggestionItemsWrapper {
+  display: flex;
 }
 .suggestionInputContainer {
   position: relative;
@@ -187,9 +186,6 @@
   max-height: 100px;
   margin: 8px;
 }
-
-
-
 
 @media (min-width: 901px) and (max-width: 1200px) {
 }
