@@ -6,7 +6,6 @@ import styles from "../styles/commentsSection.module.css";
 import { CiSearch } from "react-icons/ci";
 import { Text } from "../../../components/ui";
 import useDebounce from "../../../hooks/useDebounce";
-// import PaginationComponent from "../../../Pagination";
 import Icon from "../../../components/Icon";
 import ReplyInputBox from "./ReplyInputBox";
 import { IoCloseCircle } from "react-icons/io5";
@@ -14,6 +13,7 @@ import { setShowStats } from "../../../store/slices/youTubeSlice";
 import Comment from "./Comment";
 import { useCommentSection } from "../hooks/useCommentSection";
 import SearchBar from "../../../components/SearchBar";
+import PaginationComponent from "../../../components/Pagination";
 
 export default function CommentSection({
   selectedVideo,
@@ -102,45 +102,42 @@ export default function CommentSection({
           // <InsightsSection />
           <div></div>
         )}
+        <PaginationComponent pageCount={5} onPageChange={() => {}} />
       </div>
 
       {/* Display selected comments */}
-      <div className={styles.replyWrapper}>
-        {/* <PaginationComponent pageCount={5} onPageChange={() => {}} /> */}
-        {selectedComments?.length > 0 && (
-          <div className={styles.replyContainer}>
-            <div className={styles.selectedCommentsContainer}>
-              {filteredComments
-                .filter(({ comment_id }) =>
-                  selectedComments.includes(comment_id)
-                ) // Match selected comment IDs
-                .map(({ comment_id, posted_by_name, comment_text }) => (
-                  <div key={comment_id} className={styles.replyContent}>
-                    <Text as={"p"} className={styles.postUserName}>
-                      {posted_by_name}
-                    </Text>
-                    <Text as="p" className={styles.replyText}>
-                      {comment_text || "No comment text available."}
-                    </Text>
-                    <div className={styles.selectedCommentsIconContainer}>
-                      <IoCloseCircle
-                        onClick={() => handleRemoveReply(comment_id)}
-                        className={`${styles.icon} ${styles.selectedCommentsIcon}`}
-                      />
-                    </div>
+
+      {selectedComments?.length > 0 && (
+        <div className={styles.replyWrapper}>
+          <div className={styles.selectedCommentsContainer}>
+            {filteredComments
+              .filter(({ comment_id }) => selectedComments.includes(comment_id)) // Match selected comment IDs
+              .map(({ comment_id, posted_by_name, comment_text }) => (
+                <div key={comment_id} className={styles.replyContent}>
+                  <Text as={"p"} className={styles.postUserName}>
+                    {posted_by_name}
+                  </Text>
+                  <Text as="p" className={styles.replyText}>
+                    {comment_text || "No comment text available."}
+                  </Text>
+                  <div className={styles.selectedCommentsIconContainer}>
+                    <IoCloseCircle
+                      onClick={() => handleRemoveReply(comment_id)}
+                      className={`${styles.icon} ${styles.selectedCommentsIcon}`}
+                    />
                   </div>
-                ))}
-            </div>
-            <div className={styles.userInputContainer}>
-              <ReplyInputBox
-                replyContent={replyContent}
-                setReplyContent={setReplyContent}
-                smartReplyArr={smartReplyArr}
-              />
-            </div>
+                </div>
+              ))}
           </div>
-        )}
-      </div>
+          <div className={styles.userInputContainer}>
+            <ReplyInputBox
+              replyContent={replyContent}
+              setReplyContent={setReplyContent}
+              smartReplyArr={smartReplyArr}
+            />
+          </div>
+        </div>
+      )}
     </>
   );
 }

@@ -1,0 +1,56 @@
+.paginationContainer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.25em 1rem; /* Adjust spacing for balance */
+  border-bottom: 1px solid var(--divider);
+  background-color: #f9f9f9; /* Subtle background for contrast */
+}
+
+.recordsPerPage {
+  font-size: 0.875rem; /* Slightly smaller font for labels */
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Space between text and dropdown */
+}
+
+.recordsDropdown {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem; /* Refined padding for dropdown */
+  font-size: 0.875rem; /* Consistent font size with labels */
+  background-color: #fff; /* Matches rest of the layout */
+  color: var(--dark);
+  cursor: pointer;
+}
+
+.pageNumbers {
+  font-size: 0.875rem;
+  color: #555;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* Increase space between page numbers */
+}
+
+.pageNumbers button {
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  padding: 0.25rem 0.5rem; /* Adjust padding for buttons */
+  background: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Smooth hover effect */
+}
+
+.pageNumbers button:hover {
+  background: var(--brand); /* Primary blue for hover */
+  color: white; /* Contrast text color */
+  border-color: var(--light);
+}
+
+.pageNumbers .active {
+  background: var(--light); /* Active page color */
+  color: var(--brand); /* Active page text color */
+  pointer-events: none; /* Disable clicking on active button */
+}
