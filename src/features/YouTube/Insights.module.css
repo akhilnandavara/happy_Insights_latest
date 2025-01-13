@@ -451,7 +451,7 @@
   color: var(--text-value);
   background: transparent;
   cursor: pointer;
-  position: relative;
+  /* position: relative; */
 }
 .smartReplyBtn:not(:last-child) {
   border-right: 1px solid var(--divider);
@@ -470,7 +470,7 @@
   align-items: center;
 }
 .tooltip {
-  font-size: 0.5rem !important;
+  font-size: 12px !important;
   padding: 0.25rem !important;
 }
 

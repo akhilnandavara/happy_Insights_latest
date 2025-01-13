@@ -149,16 +149,20 @@
 }
 
 .suggestionSectionTitle {
-  font-size: 0.7rem;
-  font-weight: 600;
   color: var(--text-value);
   padding: 0.25rem;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 .suggestionItem {
-  font-size: 0.5rem;
+  font-size: 12px;
   padding: 0.25rem;
   /* padding: 0.5rem 1rem; */
-  font-weight: 500;
   border-radius: 25px;
   color: var(--ai_starIcon);
   background: var(--white);
@@ -167,6 +171,12 @@
   transition: all 0.3s ease-in-out;
   gap: 10px;
   max-width: fit-content;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 18px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
 }
 .suggestionItem:hover {
   background-color: var(--ai_starIcon);
