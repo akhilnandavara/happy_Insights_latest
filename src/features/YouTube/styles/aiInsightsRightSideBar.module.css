@@ -84,7 +84,7 @@
 .suggestionBotItemContainer {
   display: flex;
   flex-direction: column;
-  gap: 2px;
+  gap: 10px;
 }
 
 .suggestionBotItemText {
@@ -97,6 +97,7 @@
   font-size: 12px;
   font-weight: 400;
   line-height: 16.8px;
+  margin-left: 20px;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;

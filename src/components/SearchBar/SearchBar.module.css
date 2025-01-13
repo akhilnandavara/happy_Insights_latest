@@ -13,9 +13,8 @@
   border: 1px solid var(--primary);
 }
 .searchIcon {
-  width: 16px;
-  height: 16px;
-  color: var(--text-value);
+  width: 16px !important;
+  height: 16px !important;
 }
 
 .searchInput {

@@ -170,45 +170,50 @@ export default function Comment({
         >
           {label}
         </Text>
-        {/* Comment Stats */}
-        <div className={styles.commentStats}>
-          {comment.like_count > 0 && (
+
+        <div className={styles.commentActionsContainer}>
+          {/* Comment Stats */}
+          <div className={styles.commentStats}>
+            {comment.like_count > 0 && (
+              <ActionButton
+                title={"like"}
+                Icon={FaThumbsUp}
+                count={comment.like_count}
+              />
+            )}
+            {comment.replies?.length > 0 && (
+              <>
+                <ActionButton
+                  title={"reply_count"}
+                  Icon={MdOutlineReply}
+                  count={comment.replies.length}
+                />
+              </>
+            )}
+          </div>
+
+          {!isReply && (
+            <button
+              onClick={handleCommentReply}
+              className={`${styles.commentReplyButton} ${
+                selectedComments.includes(comment.comment_id)
+                  ? styles.selected
+                  : ""
+              }`}
+            >
+              Reply
+            </button>
+          )}
+          {!isReply && (
             <ActionButton
-              title={"like"}
-              Icon={FaThumbsUp}
-              count={comment.like_count}
+              Icon={IoIosArrowDropdown}
+              onClick={handleToggleReply}
+              isReply={isExpanded}
             />
           )}
-          {comment.replies?.length > 0 && (
-            <>
-              <ActionButton
-                title={"reply_count"}
-                Icon={MdOutlineReply}
-                count={comment.replies.length}
-              />
-            </>
-          )}
         </div>
-        {!isReply && (
-          <button
-            onClick={handleCommentReply}
-            className={`${styles.commentReplyButton} ${
-              selectedComments.includes(comment.comment_id)
-                ? styles.selected
-                : ""
-            }`}
-          >
-            Reply
-          </button>
-        )}
-        {!isReply && (
-          <ActionButton
-            Icon={IoIosArrowDropdown}
-            onClick={handleToggleReply}
-            isReply={isExpanded}
-          />
-        )}
       </div>
+
       {isExpanded && comment.replies?.length > 0 && (
         <ReplyList
           replies={comment.replies}

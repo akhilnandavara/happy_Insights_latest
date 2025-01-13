@@ -155,6 +155,7 @@ export default function SuggestionSection() {
 
   const handleAddNewInput = (input) => {
     setUserInputs((prev) => [...prev, input]);
+    setReplyContent("");
     setIsInputBoxVisible(false);
   };
   const handleShowAllSuggestions = () => {
@@ -165,19 +166,21 @@ export default function SuggestionSection() {
     <>
       {isConfig ? (
         <div className={styles.suggestionContentWrapper}>
-          <Header title="Configuration" onBack={() => setIsConfig(false)} />
-          <SuggestionList
-            isConfig={isConfig}
-            title="AI Suggestions"
-            items={suggestionData}
-          />
-          <SuggestionList
-            title="User Inputs"
-            items={userInputs}
-            isConfig={true}
-            showAddButton={true}
-            onAdd={() => setIsInputBoxVisible(true)}
-          />
+          <div>
+            <Header title="Configuration" onBack={() => setIsConfig(false)} />
+            <SuggestionList
+              isConfig={isConfig}
+              title="AI Suggestions"
+              items={suggestionData}
+            />
+            <SuggestionList
+              title="User Inputs"
+              items={userInputs}
+              isConfig={true}
+              showAddButton={true}
+              onAdd={() => setIsInputBoxVisible(true)}
+            />
+          </div>
           {isInputBoxVisible && (
             <div className={styles.suggestionInputContainer}>
               <ReplyInputBox

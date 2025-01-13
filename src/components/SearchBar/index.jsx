@@ -1,6 +1,6 @@
 import React from "react";
 import styles from "./SearchBar.module.css"; // Import the styles
-import { CiSearch } from "react-icons/ci"; // Icon library (replace if needed)
+import Icon from "../Icon";
 
 const SearchBar = ({
   placeholder = "Enter...",
@@ -11,7 +11,7 @@ const SearchBar = ({
 }) => {
   return (
     <div className={`${styles.searchBarContainer} ${className}`}>
-      <CiSearch className={`${styles.searchIcon} ${customIconClasss}`} />
+      <Icon name={"search-icon"} className={`${styles.searchIcon} ${customIconClasss}`} />
       <input
         type="text"
         placeholder={placeholder}
