@@ -70,7 +70,7 @@ export default function CommentSection({
 
   return (
     <>
-      <div className={styles.commentSection}>
+      <div className={styles.commentsSectionWrapper}>
         <CommentsHeader
           searchTerm={searchTerm}
           onSearchChange={(e) => setSearchTerm(e.target.value)}

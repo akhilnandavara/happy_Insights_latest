@@ -1,14 +1,4 @@
 /*  Header */
-.headerSection {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0.5rem;
-  width: 100%;
-  /* max-height: 70px; */
-  /* background: #000; */
-  border-bottom: 1px solid rgba(151, 151, 151, 1);
-}
 
 .headerSwipper {
   position: relative;
@@ -251,10 +241,7 @@
 }
 /* Media Queries */
 @media (min-width: 901px) and (max-width: 1200px) {
-  .headerSection {
-    padding: 0.5rem;
-    max-height: 70px;
-  }
+ 
   .thumnailImg {
     width: 70px;
   }
@@ -300,10 +287,6 @@
   }
 }
 @media screen and (max-width: 600px) {
-  .headerSection {
-    padding: 0.5rem;
-    max-height: 70px;
-  }
   /* .headerChannelLogo {
       object-fit: cover;
       width: 30px;
