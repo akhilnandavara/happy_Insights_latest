@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import styles from "./ProfileAvatar.module.css";
 import { Img } from "../ui";
 
-const ProfileAvatar = ({ name, profilePhotoUrl, size = 50,className }) => {
+const ProfileAvatar = ({ name, profilePhotoUrl, size = 50, className }) => {
   // Generate initials if no profile photo is available
   const getInitials = (name) => {
     if (!name) return "?";
@@ -11,11 +11,10 @@ const ProfileAvatar = ({ name, profilePhotoUrl, size = 50,className }) => {
     if (words.length === 1) {
       return words[0][0].toUpperCase(); // Single word: First letter only
     }
-    console.log("words", words)
     return (
       words[0][0].toUpperCase() + words[1][0].toUpperCase() // Two letters for multi-word names
     );
-  }
+  };
 
   const getRandomColor = (name) => {
     if (!name) return "#ccc"; // Default color if no name
@@ -34,7 +33,6 @@ const ProfileAvatar = ({ name, profilePhotoUrl, size = 50,className }) => {
     return colors[hash % colors.length]; // Select a color from the array
   };
 
-
   // Determine if profile photo or fallback should be displayed
   const isImageAvailable = Boolean(profilePhotoUrl);
 
@@ -45,7 +43,9 @@ const ProfileAvatar = ({ name, profilePhotoUrl, size = 50,className }) => {
         width: size,
         height: size,
         fontSize: size / 2.5, // Adjust font size based on avatar size,
-        backgroundColor: !isImageAvailable ? getRandomColor(name) : "transparent",
+        backgroundColor: !isImageAvailable
+          ? getRandomColor(name)
+          : "transparent",
       }}
     >
       {isImageAvailable ? (

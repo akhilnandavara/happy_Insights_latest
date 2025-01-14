@@ -4,7 +4,6 @@ import { Heading, Img, Text } from "../../../components/ui";
 import { FaThumbsUp } from "react-icons/fa";
 import { MdOutlineReply } from "react-icons/md";
 import { IoIosArrowDropdown } from "react-icons/io";
-import { PiArrowBendDownRight } from "react-icons/pi";
 import styles from "../styles/commentsSection.module.css";
 import { formatRelativeTime } from "../utils";
 import Icon from "../../../components/Icon";

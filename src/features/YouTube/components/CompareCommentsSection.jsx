@@ -1,18 +1,18 @@
 import React, { useEffect, useState, useMemo, useCallback } from "react";
-import { getCommentsList } from "../../../../services/operations/Youtube";
+import { getCommentsList } from "../../../services/operations/Youtube";
 import { useDispatch, useSelector } from "react-redux";
-import styles from "./Insights.module.css";
-import { CiSearch } from "react-icons/ci";
-import { Text } from "../../../ui";
-import useDebounce from "../../../../hooks/useDebounce";
-import Comment from "./comment";
-import { useCommentSection } from "../../../../hooks/useCommentSection";
-import HeaderSection from "./HeaderSection";
+import styles from "../styles/commentsSection.module.css";
+import { Text } from "../../../components/ui";
+import useDebounce from "../../../hooks/useDebounce";
+import Comment from "./Comment";
+import { useCommentSection } from "../hooks/useCommentSection";
 import { FaArrowLeft } from "react-icons/fa";
-import PaginationComponent from "../../../Common/Pagination";
-import Icon from "../../../Common/Icon";
+import PaginationComponent from "../../../components/Pagination";
+import Icon from "../../../components/Icon";
 import ReplyInputBox from "./ReplyInputBox";
 import { IoCloseCircle } from "react-icons/io5";
+import CompareSectionHeaderSwiper from "./CompareSectionHeaderSwiper";
+import SearchBar from "../../../components/SearchBar";
 
 export default function CompareCommentsSection({
   selectedVideos,
@@ -106,17 +106,21 @@ export default function CompareCommentsSection({
 
   return (
     <>
-      <div className={`${styles.commentSection} ${styles.slideIn}`}>
-        <div className={styles.backBtnContainer}>
-          <button
-            onClick={() => handleCompareComments(false)}
-            className={styles.compareBackBtn}
-          >
-            <FaArrowLeft className={styles.icon} />
-          </button>
-          <Text as={"p"}>Compare Videos</Text>
-        </div>
-        <HeaderSection
+      <div className={styles.navBarContainer}>
+        <button
+          onClick={() => handleCompareComments(false)}
+          className={styles.compareBackBtn}
+        >
+          <FaArrowLeft
+            className={`${styles.icon} ${styles.compareBackBtnIcon}`}
+          />
+        </button>
+        <Text as={"p"} className={styles.backBtnText}>
+          Compare Videos
+        </Text>
+      </div>
+      <div className={`${styles.container} ${styles.slideIn}`}>
+        <CompareSectionHeaderSwiper
           selectedVideo={selectedVideos}
           setSelectedVideo={setSelectedVideo}
           videoLabels={videoLabels}
@@ -151,13 +155,10 @@ export default function CompareCommentsSection({
             <Text className={styles.noComments}>No comments available</Text>
           )}
         </div>
-      </div>
-
-      {/* Display selected comments */}
-      <div className={styles.replyWrapper}>
         <PaginationComponent pageCount={5} onPageChange={() => {}} />
+        {/* Display selected comments */}
         {selectedComments?.length > 0 && (
-          <div className={styles.replyContainer}>
+          <div className={styles.replyWrapper}>
             <div className={styles.selectedCommentsContainer}>
               {filteredComments
                 .filter(({ comment_id }) =>
@@ -173,17 +174,20 @@ export default function CompareCommentsSection({
                     </Text>
                     <div className={styles.selectedCommentsIconContainer}>
                       <IoCloseCircle
-                        onClick={() => toggleCommentSelection(comment_id)}
+                        onClick={() => handleRemoveReply(comment_id)}
                         className={`${styles.icon} ${styles.selectedCommentsIcon}`}
                       />
                     </div>
                   </div>
                 ))}
             </div>
-            <ReplyInputBox
-              setReplyContent={setReplyContent}
-              smartReplyArr={smartReplyArr}
-            />
+            <div className={styles.userInputContainer}>
+              <ReplyInputBox
+                replyContent={replyContent}
+                setReplyContent={setReplyContent}
+                smartReplyArr={smartReplyArr}
+              />
+            </div>
           </div>
         )}
       </div>
@@ -200,12 +204,11 @@ const CommentsHeader = ({
 }) => (
   <div className={styles.commentsHeaderWrapper}>
     {/* Catgories btns headers Section 1 */}
-    <div className={styles.commentsCategoryBtns}>
+    <div className={`${styles.commentsCategoryBtnContainer}`}>
       <button
         className={`${styles.commentsCategoryBtn} ${
           currentCategory === "All" ? styles.active : ""
         }`}
-        aria-label="Select all categories"
         onClick={() => onCategorySelect("All")}
       >
         All
@@ -225,17 +228,12 @@ const CommentsHeader = ({
     </div>
     {/* Comments Header section 2 */}
     <div className={styles.commentsHeader}>
-      <div className={styles.commentSearchBox}>
-        <CiSearch className={styles.searchIcon} />
-        <input
-          type="text"
-          placeholder="Search comments..."
-          value={searchTerm}
-          onChange={onSearchChange}
-          className={styles.searchInput}
-          aria-label="Search comments"
-        />
-      </div>
+      <SearchBar
+        placeholder="Search the comments by username or title "
+        className={styles.commentSearchBox}
+        customIconClasss={styles.commentSearchIcon}
+      />
+
       <div className={styles.commentsheaderActionBts}>
         <button className={styles.filterBtnContainer}>
           <Icon sprite="youtube" name={"filter"} className={styles.icon} />

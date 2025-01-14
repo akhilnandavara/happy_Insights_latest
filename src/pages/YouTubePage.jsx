@@ -9,6 +9,7 @@ import isBetween from "dayjs/plugin/isBetween";
 // import CompareCommentsSection from "../features/YouTube/components/CompareCommentsSection";
 import SuggestionSection from "../features/YouTube/components/SuggestionSection";
 import CommentSection from "../features/YouTube/components/CommentSection";
+import CompareCommentsSection from "../features/YouTube/components/CompareCommentsSection";
 dayjs.extend(isBetween);
 
 const selectFilteredVideos = createSelector(
@@ -143,14 +144,13 @@ export default function YouTubePage() {
       <div className={styles.content}>
         <div className={styles.commentContainer}>
           {compareComments ? (
-            // <CompareCommentsSection
-            //   selectedVideos={selectedVideosMulti}
-            //   setSelectedVideo={handleVideoSelection}
-            //   compareComments={compareComments}
-            //   handleCompareComments={() => setCompareComments(!compareComments)}
-            //   onClearSelection={() => setSelectedVideosMulti([])}
-            // />
-            <></>
+            <CompareCommentsSection
+              selectedVideos={selectedVideosMulti}
+              setSelectedVideo={handleVideoSelection}
+              compareComments={compareComments}
+              handleCompareComments={() => setCompareComments(!compareComments)}
+              onClearSelection={() => setSelectedVideosMulti([])}
+            />
           ) : (
             <CommentSection
               selectedVideo={memoizedSelectedVideoSingle}

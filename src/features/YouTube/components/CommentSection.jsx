@@ -3,17 +3,16 @@ import { getCommentsList } from "../../../services/operations/Youtube";
 import { useDispatch, useSelector } from "react-redux";
 import { FaListUl } from "react-icons/fa6";
 import styles from "../styles/commentsSection.module.css";
-import { CiSearch } from "react-icons/ci";
 import { Text } from "../../../components/ui";
 import useDebounce from "../../../hooks/useDebounce";
 import Icon from "../../../components/Icon";
 import ReplyInputBox from "./ReplyInputBox";
 import { IoCloseCircle } from "react-icons/io5";
 import { setShowStats } from "../../../store/slices/youTubeSlice";
-import Comment from "./Comment";
 import { useCommentSection } from "../hooks/useCommentSection";
 import SearchBar from "../../../components/SearchBar";
 import PaginationComponent from "../../../components/Pagination";
+import Comment from "./Comment";
 
 export default function CommentSection({
   selectedVideo,
@@ -51,7 +50,6 @@ export default function CommentSection({
     selectedComments,
     toggleCommentSelection,
   } = useCommentSection(commentsList, selectedCategory, debouncedSearchTerm);
-
   const handleCategorySelection = (category) => {
     setCurrentCategory(category);
     setSelectedCategory(category);
