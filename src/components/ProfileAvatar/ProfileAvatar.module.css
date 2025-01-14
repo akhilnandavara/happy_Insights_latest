@@ -1,0 +1,36 @@
+  /* For fallback avatar */
+  .fallbackAvatar {
+    width: 40px;
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--white); /* White text */
+    font-size: 20px;
+    border-radius: 50%; /* Make it circular */
+    text-transform: uppercase; /* Ensure text is uppercase */
+  }
+  
+
+  .avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%; /* Make it circular */
+    overflow: hidden; /* Ensure content stays within the circle */
+    color: var(--white); /* Fallback initials color */
+    /* font-weight: bold; */
+    text-transform: uppercase; /* Make initials uppercase */
+    background: var(--primary); /* Fallback background color */
+  }
+  
+  .avatarImg {
+    object-fit: cover; /* Ensure the image covers the circle */
+  }
+  
+  .avatarText {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  

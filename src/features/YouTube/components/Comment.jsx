@@ -8,6 +8,7 @@ import { PiArrowBendDownRight } from "react-icons/pi";
 import styles from "../styles/commentsSection.module.css";
 import { formatRelativeTime } from "../utils";
 import Icon from "../../../components/Icon";
+import ProfileAvatar from "../../../components/ProfileAvatar";
 
 const ActionButton = ({
   title,
@@ -143,10 +144,11 @@ export default function Comment({
               />
             </>
           )}
-          <Img
-            src={comment.posted_by_user_picture}
+          <ProfileAvatar
+            name={comment.posted_by_name}
+            profilePhotoUrl={comment.posted_by_user_picture}
+            size={40} // You can customize the size
             className={styles.avatar}
-            alt="User avatar"
           />
           <div className={styles.userDetails}>
             <Heading as="h3" className={styles.userName}>

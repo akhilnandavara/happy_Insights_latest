@@ -1,16 +1,13 @@
 import React, { useRef, useState, useMemo, useCallback } from "react";
 import styles from "./Layout.module.css";
-import { Heading, Img, Text } from "../ui";
+import { Heading, Text } from "../ui";
 import { CiLogout, CiSettings } from "react-icons/ci";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import useDebounce from "../../hooks/useDebounce";
 import Icon from "../Icon";
-
-const placeholderImg = "https://api.dicebear.com/5.x/initials/svg?seed=Hello";
-
-const MemoizedImg = React.memo(Img);
+import ProfileAvatar from "../ProfileAvatar";
 
 const MemoizedMenuItem = React.memo(({ item, onClick }) => (
   <div className={styles.profileItem} onClick={onClick}>
@@ -40,18 +37,6 @@ export default function TopBar({ onLogout }) {
   const debouncedUser = useDebounce(
     user !== null ? user : JSON.parse(sessionStorage.getItem("user")),
     300
-  );
-
-  const getProfileImage = (user) => {
-    if (user?.profile_photo_url) return user.profile_photo_url;
-    if (user?.name)
-      return `https://api.dicebear.com/5.x/initials/svg?seed=${user.name}`;
-    return placeholderImg;
-  };
-
-  const profileImg = useMemo(
-    () => getProfileImage(debouncedUser),
-    [debouncedUser]
   );
 
   const linemenu = useMemo(
@@ -100,12 +85,11 @@ export default function TopBar({ onLogout }) {
             onMouseEnter={() => setShowMenu(true)}
             onMouseLeave={() => setShowMenu(false)}
           >
-            <MemoizedImg
-              src={profileImg}
-              alt="profile"
-              className={styles.profileImg}
+            <ProfileAvatar
+              name={debouncedUser?.name}
+              profilePhotoUrl={debouncedUser?.profile_photo_url}
+              size={40} // You can customize the size
             />
-
             <div className={styles.profileContent}>
               <span className={styles.profileName}>{debouncedUser?.name}</span>
               <span className={styles.profileEmail}>

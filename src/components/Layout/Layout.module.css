@@ -71,7 +71,6 @@
   /* justify-content: space-between; */
   height: 60%;
   gap: 1rem;
-
 }
 
 .profileLinksContainer {
@@ -304,14 +303,6 @@
   color: var(--text-secondary);
 }
 
-/* Profile Image */
-.profileImg {
-  height: 40px;
-  width: 40px;
-  font-size: 10px;
-  border-radius: 50%;
-  object-fit: cover;
-}
 .profileArrowDown {
   transition: all 0.5s;
   color: var(--topBar-icon);

@@ -16,6 +16,7 @@ import {
   toggleTop10,
 } from "../../../store/slices/filterSlice";
 import SearchBar from "../../../components/SearchBar";
+import ProfileAvatar from "../../../components/ProfileAvatar";
 
 const VideoItem = React.memo(
   ({ video, isSidebarOpen, isSelected, onSelect }) => {
@@ -153,6 +154,12 @@ export default function VideoListSidebar({
     );
   }, [extraVideos, searchTerm]);
 
+  const channelData = {
+    name: "Tamil Pokkisham",
+    email: "tamil.pokkisham@gmail.com",
+    profile_photo_url: "",
+  };
+
   return (
     <div
       className={classNames(styles.videoListSidebar, {
@@ -173,19 +180,19 @@ export default function VideoListSidebar({
               !isSidebarOpen && styles.closedIcon
             }`}
           >
-            <Img
+            <ProfileAvatar
+              name={channelData?.name}
+              profilePhotoUrl={channelData?.profile_photo_url}
               className={classNames(styles.headerChannelLogo, {
                 [styles.headerChannelLogoOpen]: isSidebarOpen,
                 [styles.headerChannelLogoClosed]: !isSidebarOpen,
               })}
-              src="https://placehold.co/20x20"
-              alt="Channel Logo"
             />
 
             {isSidebarOpen && (
               <div className={styles.headerChannelInfo}>
                 <Heading className={styles.headerChannelInfoTitle} as="h1">
-                  Tamil Pokkisham
+                  {channelData.name}
                 </Heading>
                 <Text
                   as="p"

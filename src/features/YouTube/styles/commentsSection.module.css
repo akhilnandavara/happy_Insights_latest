@@ -365,12 +365,8 @@
 }
 
 .avatar {
-  /* aspect-ratio: 1.09; */
-  object-fit: cover;
-  object-position: center;
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
+  width: 40px !important;
+  height: 40px !important;
 }
 .userDetails {
   display: flex;
