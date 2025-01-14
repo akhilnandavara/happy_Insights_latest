@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import CommonAuthForm from "./CommonAuthForm";
 import useAuthForm from "../../hooks/useAuthForm";
 import { signup } from "../../services/operations/Auth";
+import { useSelector } from "react-redux";
 
 const signupSchema = Yup.object().shape({
   name: Yup.string().required("Name is required"),
@@ -11,17 +12,15 @@ const signupSchema = Yup.object().shape({
     .email("Invalid email address")
     .required("Email is required"),
 });
-
+signup
 function SignupForm() {
-  const navigate = useNavigate();
+  const { signSuccessMsg } = useSelector((state) => state.auth);
 
   const {
     loading,
-    error,
     onSubmit,
     handleGoogleLoginSuccess,
     handleGoogleLoginFailure,
-    signupMsg,
   } = useAuthForm(signup, true);
 
   return (
@@ -47,8 +46,7 @@ function SignupForm() {
       redirectLinkText="Sign In"
       googleBtnText="Sign up with Google"
       showPasswordField={false}
-      loginError={error}
-      signupMsg={signupMsg}
+      signupMsg={signSuccessMsg}
     />
   );
 }

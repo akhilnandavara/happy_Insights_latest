@@ -4,6 +4,7 @@ import * as Yup from "yup";
 import CommonAuthForm from "./CommonAuthForm";
 import useAuthForm from "../../hooks/useAuthForm";
 import { login } from "../../services/operations/Auth";
+import { useSelector } from "react-redux";
 
 const loginSchema = Yup.object().shape({
   email: Yup.string()
@@ -15,10 +16,9 @@ const loginSchema = Yup.object().shape({
 });
 
 function LoginForm() {
-  const navigate = useNavigate();
+  const {loginError}=useSelector((state)=>state.auth)
   const {
     loading,
-    error,
     onSubmit,
     handleGoogleLoginSuccess,
     handleGoogleLoginFailure,
@@ -45,7 +45,7 @@ function LoginForm() {
       redirectLink="/signup"
       redirectLinkText="Sign Up"
       showPasswordField={true}
-      loginError={error}
+      loginError={loginError}
     />
   );
 }

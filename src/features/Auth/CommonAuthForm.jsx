@@ -37,6 +37,7 @@ const CommonAuthForm = React.memo(
       resolver: yupResolver(validationSchema),
     });
 
+
     const handleFormSubmit = useCallback(
       async (data) => {
         setLoading(true);
@@ -131,7 +132,7 @@ const CommonAuthForm = React.memo(
           )}
 
           {(loginError || signupMsg) && (
-            <span className={styles.errorText}>{loginError || signupMsg}</span>
+            <span className={`${styles.errorText} ${signupMsg ? styles.successText:''}`}>{loginError || signupMsg}</span>
           )}
 
           <button type="submit" className={styles.submitBtn} disabled={loading}>

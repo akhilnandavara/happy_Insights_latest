@@ -2,23 +2,23 @@ import { useCallback, useState } from "react";
 import { useDispatch } from "react-redux";
 import { signInWithGoogle } from "../services/operations/Auth";
 import { useNavigate } from "react-router-dom";
+import { setLoginError, setSignUpSuccessMsg } from "../store/slices/authSlice";
 
 const useAuthForm = (authAction, isSignupForm) => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-  const [signupMsg, setSignupMsg] = useState(null);
 
   const handleError = useCallback((message) => {
-    setError(message);
-    setTimeout(() => setError(null), 5000); // Clear after 5 seconds
-  }, []);
+    dispatch(setLoginError(message));
+    setTimeout(() => dispatch(setLoginError(null)), 5000); // Clear the error message after 5 seconds
+  }, [dispatch]);
 
   const onSubmit = useCallback(
     async (data, reset) => {
       setLoading(true);
       const result = await dispatch(authAction(data));
+      console.log("result", result);
       isSignupForm && handleSignupMsgPopup(result.message);
 
       if (result.success) {
@@ -32,8 +32,8 @@ const useAuthForm = (authAction, isSignupForm) => {
   );
 
   const handleSignupMsgPopup = useCallback((message) => {
-    setSignupMsg(message);
-    setTimeout(() => setSignupMsg(null), 5000); // Clear the message after 5 seconds
+    dispatch(setSignUpSuccessMsg(message));
+    setTimeout(() => dispatch(setSignUpSuccessMsg(null)), 5000); // Clear the message after 5 seconds
   }, []);
 
   const handleGoogleLoginSuccess = useCallback(
@@ -52,13 +52,9 @@ const useAuthForm = (authAction, isSignupForm) => {
 
   return {
     loading,
-    error,
     onSubmit,
     handleGoogleLoginSuccess,
     handleGoogleLoginFailure,
-    signupMsg,
-    setSignupMsg
-
   };
 };
 

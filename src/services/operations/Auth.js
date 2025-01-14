@@ -24,7 +24,6 @@ export function signup({ name, email }) {
         }
     }
 }
-
 export function login({ username, passwd, rememberMe, navigate }) {
     return async (dispatch) => {
         dispatch(setLoading(true));
@@ -56,7 +55,6 @@ export function login({ username, passwd, rememberMe, navigate }) {
         }
     };
 }
-
 export function signInWithGoogle(id_token, navigate) {
     return async (dispatch) => {
         dispatch(setLoading(true));
@@ -82,7 +80,6 @@ export function signInWithGoogle(id_token, navigate) {
         }
     }
 }
-
 export async function getSsoId() {
     try {
         const response = await apiConnector("GET", authApi.getClientId);
@@ -92,7 +89,6 @@ export async function getSsoId() {
         return null;
     }
 }
-
 export function logout(navigate) {
     return async (dispatch) => {
         dispatch(setLoading(true));

@@ -5,9 +5,10 @@ import { Outlet, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAllConfig } from "../services/operations/Dashboard";
 import LoadingSpinner from "../components/Loader";
+import { logout } from "../services/operations/Auth";
 
 export default function MainLayout() {
-  const { loading,userConfig } = useSelector((state) => state.profile); // Redux loading state
+  const { loading, userConfig } = useSelector((state) => state.profile); // Redux loading state
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
@@ -17,7 +18,7 @@ export default function MainLayout() {
     const initializeDashboard = async () => {
       try {
         await dispatch(getAllConfig(navigate));
-        
+
         // await dispatch(loadFromLocalStorage(navigate));
       } catch (error) {
         console.error("Error fetching configurations:", error);
@@ -33,6 +34,9 @@ export default function MainLayout() {
   if (isLoading) {
     return <LoadingSpinner />;
   }
+
+  const handleLogout = () => dispatch(logout(navigate));
+
   return (
     <div className={"mainLayoutContainer"}>
       {/* Top bar and sidebar */}
@@ -40,7 +44,7 @@ export default function MainLayout() {
 
       {/* Main content area */}
       <div className={"contentContainer"}>
-        <TopBar />
+        <TopBar onLogout={handleLogout} />
         <div className={"dynamicContent"}>
           <Outlet />
         </div>
