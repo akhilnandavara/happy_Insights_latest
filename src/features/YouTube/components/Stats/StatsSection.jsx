@@ -31,7 +31,7 @@ const StatsSection = ({ charts, statsOverViewData }) => (
     <ChartCard
       title="Overall Sentiment Analysis"
       chartType="pie"
-      chartConfig={charts.pieChart}
+      chartConfig={charts.doughnut}
     />
 
     {/* Row 3: Charts */}

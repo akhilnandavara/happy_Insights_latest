@@ -1,5 +1,5 @@
 import React from "react";
-import { Line, Pie, Bar } from "react-chartjs-2";
+import { Line, Pie, Bar, Doughnut } from "react-chartjs-2";
 import BarChartWithLabels from "./BarChartWithLabels";
 import styles from "../../styles/ChartCard.module.css";
 import { Text } from "../../../../components/ui";
@@ -24,7 +24,7 @@ ChartJS.register(
   Title,
   Tooltip,
   Legend,
-  ArcElement,
+  ArcElement
 );
 
 const ChartCard = ({ title, chartType, chartConfig, customClasses }) => {
@@ -44,11 +44,13 @@ const ChartCard = ({ title, chartType, chartConfig, customClasses }) => {
           chartConfig={chartConfig}
         />
       ) : (
-        <div style={{ height: "150px" }}>
+        <div className={styles.chartContainer}>
           {chartType === "line" ? (
             <Line data={chartConfig.data} options={chartConfig.options} />
           ) : chartType === "pie" ? (
             <Pie data={chartConfig.data} options={chartConfig.options} />
+          ) : chartType === "doughnut" ? (
+            <Doughnut data={chartConfig.data} options={chartConfig.options} />
           ) : null}
         </div>
       )}
