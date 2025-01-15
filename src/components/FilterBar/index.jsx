@@ -5,12 +5,13 @@ import FilterByPeriod from "./FilterByPeriod";
 import Icon from "../Icon";
 import { Text } from "../../components/ui";
 
-const FilterBar = ({ methods, onSelect }) => {
-  const [activeMethod, setActiveMethod] = useState(methods[0]); // Default to the first method
+const FilterBar = ({ showStats, methods, onSelect }) => {
+  const [activeMethod, setActiveMethod] = useState(Object.keys(methods)[0]); // Default to the first method
   const [visibleMethods, setVisibleMethods] = useState([]); // Methods to display
   const [overflowMethods, setOverflowMethods] = useState([]); // Overflow methods for the dropdown
   const containerRef = useRef(null);
 
+  // Adjust visible and overflow methods based on container width
   useEffect(() => {
     const calculateMethods = () => {
       if (!containerRef.current) return;
@@ -21,13 +22,14 @@ const FilterBar = ({ methods, onSelect }) => {
       const visible = [];
       const overflow = [];
 
-      methods.forEach((method) => {
+      // Convert methods to an array of [key, value] pairs
+      Object.entries(methods).forEach(([method, count]) => {
         const methodWidth = 100; // Approximate width of each method button
         if (totalWidth + methodWidth <= visibleWidth) {
-          visible.push(method);
+          visible.push([method, count]);
           totalWidth += methodWidth;
         } else {
-          overflow.push(method);
+          overflow.push([method, count]);
         }
       });
 
@@ -48,7 +50,7 @@ const FilterBar = ({ methods, onSelect }) => {
   return (
     <div className={styles.filterBarContainer} ref={containerRef}>
       <div className={styles.filterLeftContainer}>
-        {visibleMethods.map((method) => (
+        {visibleMethods.map(([method, count]) => (
           <button
             key={method}
             className={`${styles.filterItem} ${
@@ -56,7 +58,7 @@ const FilterBar = ({ methods, onSelect }) => {
             }`}
             onClick={() => handleMethodClick(method)}
           >
-            {method}
+            {method} {count !== null && `(${count})`}
           </button>
         ))}
         {overflowMethods.length > 0 && (
@@ -67,7 +69,7 @@ const FilterBar = ({ methods, onSelect }) => {
               />
             </button>
             <div className={styles.dropdownMenu}>
-              {overflowMethods.map((method) => (
+              {overflowMethods.map(([method, count]) => (
                 <button
                   key={method}
                   className={`${styles.dropdownItem} ${
@@ -75,7 +77,7 @@ const FilterBar = ({ methods, onSelect }) => {
                   }`}
                   onClick={() => handleMethodClick(method)}
                 >
-                  {method}
+                  {method} {count !== null && `(${count})`}
                 </button>
               ))}
             </div>
@@ -84,12 +86,14 @@ const FilterBar = ({ methods, onSelect }) => {
       </div>
       <div className={styles.filterRightContainer}>
         <FilterByPeriod onSelect={onSelect} />
-        <button className={styles.filterBtnContainer}>
-          <Icon sprite="youtube" name="filter" className={styles.icon} />
-          <Text as={"p"} className={styles.filterBtnText}>
-            Filter{" "}
-          </Text>
-        </button>
+        {!showStats && (
+          <button className={styles.filterBtnContainer}>
+            <Icon sprite="youtube" name="filter" className={styles.icon} />
+            <Text as="p" className={styles.filterBtnText}>
+              Filter
+            </Text>
+          </button>
+        )}
       </div>
     </div>
   );

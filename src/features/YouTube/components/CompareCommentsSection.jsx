@@ -234,7 +234,7 @@ const CommentsHeader = ({
         customIconClasss={styles.commentSearchIcon}
       />
 
-      <div className={styles.commentsheaderActionBts}>
+      <div className={styles.commentsHeaderActionBtn}>
         <button className={styles.filterBtnContainer}>
           <Icon sprite="youtube" name={"filter"} className={styles.icon} />
           <Text className={styles.filterBtnText}>Filter</Text>

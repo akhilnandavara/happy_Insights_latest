@@ -22,14 +22,15 @@ export const dashboardStaticData = {
 }
 
 export const FilterBarData = {
-    filterMethods: [
-        "All Channels",
-        "YouTube",
-        "Facebook",
-        "Instagram",
-        "LinkedIn",
-        "TikTok",
-    ],
+    filterMethods: {
+        "All Channels": null,
+        "YouTube": null,
+        "Facebook": null,
+        "Instagram": null,
+        "LinkedIn": null,
+        "TikTok": null,
+    },
+
 }
 
 export const statsOverViewData = {

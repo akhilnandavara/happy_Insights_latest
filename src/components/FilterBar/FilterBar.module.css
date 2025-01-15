@@ -4,10 +4,11 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
+  height: 100%;
   align-items: center;
   /* border-radius: 0.5rem; */
   /* gap: 1rem; */
-  height: 36px;
+  max-height: 36px;
   /* padding: 1rem 0; */
 }
 
@@ -38,10 +39,6 @@
   padding: 8px var(--spacing-xl) 8px var(--spacing-xl);
   gap: var(--spacing-md);
   opacity: 0px;
-}
-
-.filterItem:first-child {
-  border-radius: 0.5rem 0 0 0.5rem;
 }
 
 .filterItem:hover,
@@ -102,6 +99,7 @@
   color: var(--color-text-dark);
   cursor: pointer;
   text-align: left;
+  text-wrap: nowrap;
   width: 100%;
   transition: background-color 0.3s ease;
 }
@@ -124,6 +122,7 @@
   align-items: center;
   justify-content: space-between;
   border: 1px solid var(--filter-border);
+  padding: 8px var(--spacing-xl) 8px var(--spacing-xl);
   background-color: var(--white);
   cursor: pointer;
   height: 100%;

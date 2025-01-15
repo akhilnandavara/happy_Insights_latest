@@ -1,0 +1,52 @@
+.gridContainer {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+  grid-template-rows: auto 1fr 1fr; /* First row auto, other rows share remaining height */
+  gap: 10px; /* Space between cards */
+  overflow: scroll;
+  scrollbar-width: none;
+}
+
+.card {
+  background: #ffffff;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  padding: 16px;
+}
+
+.spanCol2 {
+  grid-column: span 2; /* Spans two columns */
+}
+
+.spanCol3 {
+  grid-column: span 3; /* Spans all columns */
+}
+
+/* Reduce height of cards in the first row */
+.card:first-child,
+.card:nth-child(2),
+.card:nth-child(3),
+.card:nth-child(4) {
+  padding: 8px 16px; /* Reduce padding */
+}
+
+/* Optional: Add a height limit to first row cards */
+.card:first-child,
+.card:nth-child(2),
+.card:nth-child(3),
+.card:nth-child(4) {
+  height: auto;
+  max-height: 100px; /* Adjust this value to your preference */
+}
+.cardTitle {
+  font-size: 0.8rem;
+  color: var(--dark);
+}
+
+.chartContainer {
+  height: 100% !important;
+  width: 100% !important;
+}

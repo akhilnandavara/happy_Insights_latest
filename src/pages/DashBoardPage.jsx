@@ -57,6 +57,7 @@ function StatsAndFilterSection({
   barChartData,
   doughnutChartData,
 }) {
+  console.log("filterMethods", filterMethods);
   const [activeStatsOverview, setActiveStatsOverview] =
     useState("Total Comments");
   const onStatsOverviewSelect = (platform) => setActiveStatsOverview(platform);

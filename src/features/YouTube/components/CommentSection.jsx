@@ -13,6 +13,8 @@ import { useCommentSection } from "../hooks/useCommentSection";
 import SearchBar from "../../../components/SearchBar";
 import PaginationComponent from "../../../components/Pagination";
 import Comment from "./Comment";
+import StatsSection from "./StatsSection";
+import FilterBar from "../../../components/FilterBar";
 
 export default function CommentSection({
   selectedVideo,
@@ -33,14 +35,23 @@ export default function CommentSection({
 
   // Compute visible categories
   const visibleCategories = useMemo(() => {
-    if (!commentsList || !Array.isArray(commentsList)) return [];
-    return Object.entries(
-      commentsList.reduce((acc, comment) => {
-        const category = comment.comment_category || "Others";
-        acc[category] = (acc[category] || 0) + 1;
-        return acc;
-      }, {})
-    );
+    console.log("commentsList", commentsList);
+    if (!commentsList || !Array.isArray(commentsList)) {
+      return { All: commentsList?.length || 0 }; // Handle edge case for empty or non-array commentsList
+    }
+
+    // Reduce the commentsList into a key-value pair object
+    const categories = commentsList.reduce((acc, comment) => {
+      const category = comment.comment_category || "Others"; // Default to "Others" if no category is defined
+      acc[category] = (acc[category] || 0) + 1; // Increment count for each category
+      return acc;
+    }, {});
+
+    // Return the "All" category with the total count + all other categories
+    return {
+      All: commentsList.length, // Adding "All" category with the total count
+      ...categories, // Spread the categories into the object
+    };
   }, [commentsList]);
 
   const {
@@ -70,7 +81,11 @@ export default function CommentSection({
 
   return (
     <>
-      <div className={styles.commentsSectionWrapper}>
+      <div
+        className={`${styles.commentsSectionWrapper} ${
+          showStats && styles.statsSectionWrapper
+        }`}
+      >
         <CommentsHeader
           searchTerm={searchTerm}
           onSearchChange={(e) => setSearchTerm(e.target.value)}
@@ -84,27 +99,27 @@ export default function CommentSection({
         />
         {/* Comments */}
         {!showStats ? (
-          <div className={styles.commentsWrapper}>
-            {filteredComments.map((comment) => (
-              <Comment
-                key={comment.id}
-                comment={comment}
-                expandedReplies={expandedReplies}
-                toggleReply={toggleReply}
-                selectedComments={selectedComments}
-                toggleCommentSelection={toggleCommentSelection}
-              />
-            ))}
-          </div>
+          <>
+            <div className={styles.commentsWrapper}>
+              {filteredComments.map((comment) => (
+                <Comment
+                  key={comment.id}
+                  comment={comment}
+                  expandedReplies={expandedReplies}
+                  toggleReply={toggleReply}
+                  selectedComments={selectedComments}
+                  toggleCommentSelection={toggleCommentSelection}
+                />
+              ))}
+            </div>
+            <PaginationComponent pageCount={5} onPageChange={() => {}} />
+          </>
         ) : (
-          // <InsightsSection />
-          <div></div>
+          <StatsSection />
         )}
-        <PaginationComponent pageCount={5} onPageChange={() => {}} />
       </div>
 
       {/* Display selected comments */}
-
       {selectedComments?.length > 0 && (
         <div className={styles.replyWrapper}>
           <div className={styles.selectedCommentsContainer}>
@@ -156,38 +171,36 @@ const CommentsHeader = ({
       showStats && styles.statsHeaderWrapper
     }`}
   >
-    {/* Catgories btns headers Section 1 */}
+    {/* Categories buttons section */}
+    {!showStats ? (
+      <div className={`${styles.commentsCategoryBtnContainer} `}>
+        {Object.entries(visibleCategories).map(([category, count]) => (
+          <button
+            key={category}
+            className={`${styles.commentsCategoryBtn} ${
+              currentCategory === category ? styles.active : ""
+            }`}
+            onClick={() => onCategorySelect(category)}
+          >
+            {category} ({count})
+          </button>
+        ))}
+      </div>
+    ) : (
+      <FilterBar
+        showStats={showStats}
+        methods={visibleCategories}
+        onSelect={onCategorySelect}
+      />
+    )}
+
+    {/* Header Actions Section */}
     <div
-      className={`${styles.commentsCategoryBtnContainer} ${
-        showStats && styles.statsCategoryBtns
+      className={`${styles.commentsHeaderSection2Wrapper} ${
+        showStats && styles.statsHeader
       }`}
     >
-      <button
-        className={`${styles.commentsCategoryBtn} ${
-          currentCategory === "All" ? styles.active : ""
-        }`}
-        onClick={() => onCategorySelect("All")}
-      >
-        All
-      </button>
-
-      {visibleCategories.map(([category, count]) => (
-        <button
-          key={category}
-          className={`${styles.commentsCategoryBtn} ${
-            currentCategory === category ? styles.active : ""
-          }`}
-          onClick={() => onCategorySelect(category)}
-        >
-          {category} ({count})
-        </button>
-      ))}
-    </div>
-
-    {/* Comments Header section 2 */}
-    <div
-      className={`${styles.commentsHeader} ${showStats && styles.statsHeader}`}
-    >
+      {/* Serach Bar */}
       {!showStats && (
         <SearchBar
           placeholder="Search the comments by username or title "
@@ -195,24 +208,27 @@ const CommentsHeader = ({
           customIconClasss={styles.commentSearchIcon}
         />
       )}
-      <div className={styles.commentsHeaderActionBts}>
+      {/* RightActionBtns */}
+      <div className={styles.actionBtnsWrapper}>
         {!showStats && (
-          <button
-            onClick={() => handleCompareComments(true)}
-            className={styles.compareBtnContainer}
-          >
-            <Icon
-              sprite="youtube"
-              name={"compare-icon"}
-              className={`${styles.icon} ${styles.compareBtnActive}`}
-            />
-            <Text className={styles.compareBtnText}>Compare</Text>
-          </button>
+          <>
+            <button
+              onClick={() => handleCompareComments(true)}
+              className={styles.compareBtnContainer}
+            >
+              <Icon
+                sprite="youtube"
+                name={"compare-icon"}
+                className={`${styles.icon} ${styles.compareBtnActive}`}
+              />
+              <Text className={styles.compareBtnText}>Compare</Text>
+            </button>
+            <button className={styles.filterBtnContainer}>
+              <Icon sprite="youtube" name={"filter"} className={styles.icon} />
+              <Text className={styles.filterBtnText}>Filter</Text>
+            </button>
+          </>
         )}
-        <button className={styles.filterBtnContainer}>
-          <Icon sprite="youtube" name={"filter"} className={styles.icon} />
-          <Text className={styles.filterBtnText}>Filter</Text>
-        </button>
 
         <div className={styles.statsToggleBtnContainer}>
           <ToggleOption
@@ -239,11 +255,9 @@ const CommentsHeader = ({
 
 const ToggleOption = ({ showStats, onClick, icon }) => (
   <div
-    className={`${styles.toggleOption} ${showStats ? styles.active : ""}`}
+    className={`${styles.toggleOption} ${showStats && styles.active}`}
     onClick={onClick}
   >
-    {React.cloneElement(icon, {
-      style: { color: showStats && "#fff" }, // Dynamic color
-    })}
+    {icon}
   </div>
 );
