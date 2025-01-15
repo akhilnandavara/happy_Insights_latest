@@ -9,19 +9,13 @@
   scrollbar-width: none;
 }
 
-.card {
-  background: #ffffff;
-  border: 1px solid #ddd;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  padding: 16px;
-}
-
 .spanCol2 {
+  max-width: none !important;
   grid-column: span 2; /* Spans two columns */
 }
 
 .spanCol3 {
+  max-width: none !important;
   grid-column: span 3; /* Spans all columns */
 }
 
@@ -41,12 +35,6 @@
   height: auto;
   max-height: 100px; /* Adjust this value to your preference */
 }
-.cardTitle {
-  font-size: 0.8rem;
-  color: var(--dark);
-}
 
-.chartContainer {
-  height: 100% !important;
-  width: 100% !important;
-}
+
+

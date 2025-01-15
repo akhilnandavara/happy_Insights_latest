@@ -1,0 +1,76 @@
+.card {
+  background: var(--white);
+  border: 1px solid var(--divider);
+  padding: 16px;
+  min-width: 232px;
+  max-width: 325px;
+  padding: var(--spacing-md);
+  gap: var(--spacing-md);
+  border-radius: 8px;
+  box-shadow: 0px 1px 2px 0px rgba(16, 24, 40, 0.05);
+}
+.cardTitle {
+  color: var(--text-barGraph-title);
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 20px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.cardSubTitleContainer {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing-lg);
+}
+
+.cardSubTitle {
+  font-family: Poppins;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 38px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--statsOverview-SubTitle);
+}
+.updateTag {
+  padding: var(--spacing-xxs) 10px var(--spacing-xxs) var(--spacing-md);
+  gap: var(--spacing-xs);
+  border-radius: var(--radius-full);
+  border: 1px 0px 0px 0px;
+  opacity: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.updateTagIcon {
+  font-size: 10px;
+  color: var(--statsOveriew-icon-positive);
+}
+
+.updateTagIcon.rotate {
+  transform: rotate(180deg);
+  color: var(--statsOveriew-icon-negative);
+}
+
+.updateTagText {
+  font-size: 10px;
+  font-weight: 500;
+  line-height: 16px;
+  text-align: center;
+}
+
+.updateTag.positive {
+  color: var(--text-statsOveriew-value-positive);
+  border: 1px solid var(--statsOveriew-value-border-positive);
+  background: var(--statsOveriew-value-bg-positive);
+}
+
+.updateTag.negative {
+  background: var(--statsOveriew-value-bg-negative);
+  border: 1px solid var(--statsOveriew-value-border-negative);
+  color: var(--text-statsOveriew-value-negative);
+}

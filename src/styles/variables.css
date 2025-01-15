@@ -59,6 +59,8 @@
   /* Youtube */
   --text-aiBot-time:rgba(155, 167, 182, 1);
   --text-userInputBox:rgba(156, 163, 175, 1);
+  --statsOverview-SubTitle:rgba(55, 60, 67, 1);
+  --barGraph-label:rgba(87, 94, 106, 1);
 
   /* shadow */
   --shadow-xs: rgba(16, 24, 40, 0.05);

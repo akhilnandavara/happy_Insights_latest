@@ -13,8 +13,9 @@ import { useCommentSection } from "../hooks/useCommentSection";
 import SearchBar from "../../../components/SearchBar";
 import PaginationComponent from "../../../components/Pagination";
 import Comment from "./Comment";
-import StatsSection from "./StatsSection";
 import FilterBar from "../../../components/FilterBar";
+import StatsSection from "./Stats/StatsSection";
+import { chartsData, StatsOverViewData } from "../../../data/chart";
 
 export default function CommentSection({
   selectedVideo,
@@ -115,7 +116,10 @@ export default function CommentSection({
             <PaginationComponent pageCount={5} onPageChange={() => {}} />
           </>
         ) : (
-          <StatsSection />
+          <StatsSection
+            charts={chartsData}
+            statsOverViewData={StatsOverViewData}
+          />
         )}
       </div>
 

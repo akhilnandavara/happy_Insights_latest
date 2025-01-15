@@ -1,0 +1,44 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  overflow: scroll;
+  scrollbar-width: none;
+  gap: 12px;
+  height: 100%;
+  width: 100%;
+  padding-bottom:10px;
+}
+.statsItem {
+  display: flex;
+  flex-direction: column;
+  /* gap: 4px; */
+}
+.barGraphContainer {
+  width: 100%;
+  height: 16px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  justify-content: space-between;
+}
+.barChartWrapper {
+  width: 100%;
+  height: 20px;
+  background: var(--hover-bg);
+  border-radius: 10px;
+  overflow: hidden;
+  position: relative;
+}
+.barLine {
+  width: 100%;
+  height: 100%;
+}
+.label {
+  color: var(--barGraph-label);
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 22px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
