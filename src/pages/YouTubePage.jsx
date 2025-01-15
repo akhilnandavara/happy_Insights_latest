@@ -10,6 +10,7 @@ import isBetween from "dayjs/plugin/isBetween";
 import SuggestionSection from "../features/YouTube/components/SuggestionSection";
 import CommentSection from "../features/YouTube/components/CommentSection";
 import CompareCommentsSection from "../features/YouTube/components/CompareCommentsSection";
+import { setShowStats } from "../store/slices/youTubeSlice";
 dayjs.extend(isBetween);
 
 const selectFilteredVideos = createSelector(
@@ -96,6 +97,7 @@ export default function YouTubePage() {
 
   useEffect(() => {
     if (dateVideos.length && !compareComments) {
+      dispatch(setShowStats(false));
       setSelectedVideoSingle({ video_id: dateVideos[0].video_id }); // Default to the first video in single-selection mode
       setSelectedVideosMulti([{ video_id: dateVideos[0].video_id }]); // Default to the first video in mu-selection mode
     }
@@ -109,13 +111,17 @@ export default function YouTubePage() {
           (item) => item.video_id === videoId
         );
 
-        if (isAlreadySelected) {
+        // Prevent removal of the last selected video
+        if (isAlreadySelected && prev.length > 1) {
           // Remove the video if it's already selected
           return prev.filter((item) => item.video_id !== videoId);
-        } else {
+        } else if (!isAlreadySelected) {
           // Add the video if it's not selected
           return [...prev, { video_id: videoId }];
         }
+
+        // If only one item is left in the array, prevent its removal
+        return prev;
       });
     } else {
       // Single selection mode
@@ -142,7 +148,7 @@ export default function YouTubePage() {
         />
       )}
       <div className={styles.content}>
-        <div className={styles.commentContainer}>
+        <div className={`${styles.commentContainer} `}>
           {compareComments ? (
             <CompareCommentsSection
               selectedVideos={selectedVideosMulti}

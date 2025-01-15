@@ -1,4 +1,10 @@
-import React, { useEffect, useState, useMemo, useCallback } from "react";
+import React, {
+  useEffect,
+  useState,
+  useMemo,
+  useCallback,
+  Fragment,
+} from "react";
 import { getCommentsList } from "../../../services/operations/Youtube";
 import { useDispatch, useSelector } from "react-redux";
 import styles from "../styles/commentsSection.module.css";
@@ -106,7 +112,7 @@ export default function CompareCommentsSection({
 
   return (
     <>
-      <div className={styles.navBarContainer}>
+      <div className={`${styles.navBarContainer}  ${styles.slideIn}`}>
         <button
           onClick={() => handleCompareComments(false)}
           className={styles.compareBackBtn}
@@ -227,14 +233,14 @@ const CommentsHeader = ({
       ))}
     </div>
     {/* Comments Header section 2 */}
-    <div className={styles.commentsHeader}>
+    <div className={styles.commentsHeaderSection2Wrapper}>
       <SearchBar
         placeholder="Search the comments by username or title "
         className={styles.commentSearchBox}
         customIconClasss={styles.commentSearchIcon}
       />
 
-      <div className={styles.commentsHeaderActionBtn}>
+      <div className={styles.actionBtnsWrapper}>
         <button className={styles.filterBtnContainer}>
           <Icon sprite="youtube" name={"filter"} className={styles.icon} />
           <Text className={styles.filterBtnText}>Filter</Text>

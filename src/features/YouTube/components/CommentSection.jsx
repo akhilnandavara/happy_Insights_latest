@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useCallback, useMemo } from "react";
+import React, { useEffect, useState, useMemo } from "react";
 import { getCommentsList } from "../../../services/operations/Youtube";
 import { useDispatch, useSelector } from "react-redux";
 import { FaListUl } from "react-icons/fa6";
@@ -8,7 +8,6 @@ import useDebounce from "../../../hooks/useDebounce";
 import Icon from "../../../components/Icon";
 import ReplyInputBox from "./ReplyInputBox";
 import { IoCloseCircle } from "react-icons/io5";
-import { setShowStats } from "../../../store/slices/youTubeSlice";
 import { useCommentSection } from "../hooks/useCommentSection";
 import SearchBar from "../../../components/SearchBar";
 import PaginationComponent from "../../../components/Pagination";
@@ -16,6 +15,7 @@ import Comment from "./Comment";
 import FilterBar from "../../../components/FilterBar";
 import StatsSection from "./Stats/StatsSection";
 import { chartsData, StatsOverViewData } from "../../../data/chart";
+import { setShowStats } from "../../../store/slices/youTubeSlice";
 
 export default function CommentSection({
   selectedVideo,
@@ -23,12 +23,11 @@ export default function CommentSection({
   handleCompareComments,
 }) {
   const dispatch = useDispatch();
-  const { commentsList } = useSelector((state) => state.youtube);
+  const { commentsList, showStats } = useSelector((state) => state.youtube);
   const [searchTerm, setSearchTerm] = useState("");
   const [replyContent, setReplyContent] = useState("");
   const [currentCategory, setCurrentCategory] = useState("All");
   const [selectedCategory, setSelectedCategory] = useState("All");
-  const [showStats, setShowStats] = useState(false);
 
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
   useEffect(() => {
@@ -99,7 +98,6 @@ export default function CommentSection({
           handleCompareComments={handleCompareComments}
           dispatch={dispatch}
           showStats={showStats}
-          setShowStats={setShowStats}
         />
         {/* Comments */}
         {!showStats ? (
@@ -171,7 +169,6 @@ const CommentsHeader = ({
   compareComments,
   handleCompareComments,
   showStats,
-  setShowStats,
   dispatch,
 }) => (
   <div
@@ -241,12 +238,12 @@ const CommentsHeader = ({
         <div className={styles.statsToggleBtnContainer}>
           <ToggleOption
             showStats={!showStats}
-            onClick={() => setShowStats(false)}
+            onClick={() => dispatch(setShowStats(false))}
             icon={<FaListUl className={styles.icon} />}
           />
           <ToggleOption
             showStats={showStats}
-            onClick={() => setShowStats(true)}
+            onClick={() => dispatch(setShowStats(true))}
             icon={
               <Icon
                 sprite="youtube"
