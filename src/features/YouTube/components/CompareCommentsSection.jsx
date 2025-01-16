@@ -112,7 +112,7 @@ export default function CompareCommentsSection({
 
   return (
     <>
-      <div className={`${styles.navBarContainer}  ${styles.slideIn}`}>
+      <div className={`${styles.navBarContainer} fadeIn `}>
         <button
           onClick={() => handleCompareComments(false)}
           className={styles.compareBackBtn}
@@ -125,7 +125,7 @@ export default function CompareCommentsSection({
           Compare Videos
         </Text>
       </div>
-      <div className={`${styles.container} ${styles.slideIn}`}>
+      <div className={`${styles.container} fadeIn  `}>
         <CompareSectionHeaderSwiper
           selectedVideo={selectedVideos}
           setSelectedVideo={setSelectedVideo}

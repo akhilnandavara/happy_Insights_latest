@@ -117,7 +117,7 @@ export default function VideoListSidebar({
   onVideoSelect,
   compareComments,
 }) {
-  const [isSidebarOpen, setSidebarOpen] = useState(true);
+  const [isSidebarOpen, setSidebarOpen] = useState(false);
   const [isFilterVisible, setIsFilterVisible] = useState(false);
   const [showDatePicker, setShowDatePicker] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");

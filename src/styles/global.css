@@ -164,3 +164,48 @@ li {
   width: 30px;
   height: 30px;
 }
+
+.fadeIn {
+  animation: fadeIn 0.25s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+
+.slideIn {
+  animation: slideIn 1s ease-in-out forwards;
+}
+
+.slideOut {
+  animation: slideOut 1s ease-in-out forwards;
+}
+
+
+@keyframes slideIn {
+  from {
+    transform: translate(100%, 100%);
+    opacity: 0;
+  }
+  to {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+}
+
+@keyframes slideOut {
+  from {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  to {
+    transform: translate(100%, 100%);
+    opacity: 0;
+  }
+}

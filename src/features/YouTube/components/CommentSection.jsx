@@ -81,12 +81,13 @@ export default function CommentSection({
     toggleCommentSelection(comment_id);
   };
 
+
   return (
     <>
       <div
         className={`${styles.commentsSectionWrapper} ${
           showStats && styles.statsSectionWrapper
-        }`}
+        } fadeIn `}
       >
         <CommentsHeader
           searchTerm={searchTerm}
@@ -118,6 +119,7 @@ export default function CommentSection({
           </>
         ) : (
           <StatsSection
+            showStats={showStats}
             charts={chartsData}
             statsOverViewData={StatsOverViewData}
           />

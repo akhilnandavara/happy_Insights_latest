@@ -10,6 +10,7 @@ import SuggestionSection from "../features/YouTube/components/SuggestionSection"
 import CommentSection from "../features/YouTube/components/CommentSection";
 import CompareCommentsSection from "../features/YouTube/components/CompareCommentsSection";
 import { setShowStats } from "../store/slices/youTubeSlice";
+
 dayjs.extend(isBetween);
 
 const selectFilteredVideos = createSelector(
@@ -133,45 +134,51 @@ export default function YouTubePage() {
     [selectedVideoSingle]
   );
   return (
-    <div className={styles.wrapper}>
-      {/* Video list Sidebar */}
-      {!showStats && (
-        <VideoListSidebar
-          dateVideos={dateVideos}
-          extraVideos={extraVideos}
-          selectedVideo={
-            compareComments ? selectedVideosMulti : [selectedVideoSingle]
-          }
-          onVideoSelect={handleVideoSelection}
-          compareComments={compareComments}
-        />
-      )}
-      <div className={styles.content}>
-        <div className={`${styles.commentContainer} `}>
-          {compareComments ? (
-            <CompareCommentsSection
-              selectedVideos={selectedVideosMulti}
-              setSelectedVideo={handleVideoSelection}
-              compareComments={compareComments}
-              handleCompareComments={() => setCompareComments(!compareComments)}
-              onClearSelection={() => setSelectedVideosMulti([])}
-            />
-          ) : (
-            <CommentSection
-              selectedVideo={memoizedSelectedVideoSingle}
-              compareComments={compareComments}
-              onVideoSelect={handleVideoSelection}
-              handleCompareComments={() => setCompareComments(!compareComments)}
-            />
+    <>
+      <div className={`${styles.wrapper}`}>
+        {/* Video list Sidebar */}
+        {!showStats && (
+          <VideoListSidebar
+            dateVideos={dateVideos}
+            extraVideos={extraVideos}
+            selectedVideo={
+              compareComments ? selectedVideosMulti : [selectedVideoSingle]
+            }
+            onVideoSelect={handleVideoSelection}
+            compareComments={compareComments}
+          />
+        )}
+        <div className={styles.content}>
+          <div className={`${styles.commentContainer}`}>
+            {compareComments ? (
+              <CompareCommentsSection
+                selectedVideos={selectedVideosMulti}
+                setSelectedVideo={handleVideoSelection}
+                compareComments={compareComments}
+                handleCompareComments={() =>
+                  setCompareComments(!compareComments)
+                }
+                onClearSelection={() => setSelectedVideosMulti([])}
+              />
+            ) : (
+              <CommentSection
+                selectedVideo={memoizedSelectedVideoSingle}
+                compareComments={compareComments}
+                onVideoSelect={handleVideoSelection}
+                handleCompareComments={() =>
+                  setCompareComments(!compareComments)
+                }
+              />
+            )}
+          </div>
+
+          {!compareComments === !showStats && (
+            <div className={`${styles.suggestionContainer}`}>
+              <SuggestionSection />
+            </div>
           )}
         </div>
-
-        {!compareComments === !showStats && (
-          <div className={styles.suggestionContainer}>
-            <SuggestionSection />
-          </div>
-        )}
       </div>
-    </div>
+    </>
   );
 }

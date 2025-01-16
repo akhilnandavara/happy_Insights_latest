@@ -24,6 +24,9 @@
   color: var(--text-value) !important;
 }
 
+
+
+
 /* Main Content */
 .commentsSectionWrapper {
   /* Used At CommentScetion */
@@ -41,35 +44,6 @@
   padding: 10px;
 }
 
-.slideIn {
-  animation: slideInFromRight 1s ease forwards;
-}
-
-.slideOut {
-  animation: slideOutToRight 1s ease forwards;
-}
-
-@keyframes slideInFromRight {
-  from {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideOutToRight {
-  from {
-    transform: translateX(0);
-    opacity: 1;
-  }
-  to {
-    transform: translateX(100%);
-    opacity: 0;
-  }
-}
 /* Used At Compare Section */
 .container {
   display: flex;
@@ -88,8 +62,9 @@
   flex-direction: column;
   max-height: 25%;
   /* overflow: hidden; */
-  transition: all 0.3s ease; /* TODO smoot header Transition*/
+  transition: all 5s ease-in-out; /* TODO smoot header Transition*/
 }
+
 .statsHeaderWrapper {
   align-items: center;
   flex-direction: row;
