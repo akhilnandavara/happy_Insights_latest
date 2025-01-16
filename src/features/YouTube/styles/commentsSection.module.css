@@ -619,7 +619,7 @@ contentContainer .commentsWrapper::-webkit-scrollbar-thumb:hover,
   box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.07);
   margin: 8px;
   height: 180px;
-  max-height: 30%;
+  max-height: 20%;
 }
 
 .selectedCommentsContainer {
