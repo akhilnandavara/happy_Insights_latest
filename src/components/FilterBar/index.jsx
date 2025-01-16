@@ -4,9 +4,12 @@ import { IoIosArrowDown } from "react-icons/io";
 import FilterByPeriod from "./FilterByPeriod";
 import Icon from "../Icon";
 import { Text } from "../../components/ui";
+import useWindowSize from "../../hooks/useWindowSize";
 
 const FilterBar = ({ showStats, methods, onSelect }) => {
   const [activeMethod, setActiveMethod] = useState(Object.keys(methods)[0]); // Default to the first method
+  const { width: windowWidth } = useWindowSize(); // Get window width
+
   const [visibleMethods, setVisibleMethods] = useState([]); // Methods to display
   const [overflowMethods, setOverflowMethods] = useState([]); // Overflow methods for the dropdown
   const containerRef = useRef(null);
@@ -16,13 +19,12 @@ const FilterBar = ({ showStats, methods, onSelect }) => {
     const calculateMethods = () => {
       if (!containerRef.current) return;
 
-      const containerWidth = containerRef.current.offsetWidth;
+      const containerWidth = containerRef.current.offsetWidth || windowWidth; // Use container width or fallback to window width
       const visibleWidth = containerWidth * 0.4; // Allocate 40% of the container width
       let totalWidth = 0;
       const visible = [];
       const overflow = [];
 
-      // Convert methods to an array of [key, value] pairs
       Object.entries(methods).forEach(([method, count]) => {
         const methodWidth = 100; // Approximate width of each method button
         if (totalWidth + methodWidth <= visibleWidth) {
@@ -38,9 +40,7 @@ const FilterBar = ({ showStats, methods, onSelect }) => {
     };
 
     calculateMethods();
-    window.addEventListener("resize", calculateMethods);
-    return () => window.removeEventListener("resize", calculateMethods);
-  }, [methods, containerRef]);
+  }, [methods, windowWidth]);
 
   const handleMethodClick = (method) => {
     setActiveMethod(method);

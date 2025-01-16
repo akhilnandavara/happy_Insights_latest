@@ -74,6 +74,7 @@ li {
   scrollbar-width: none;
   overflow-x: hidden;
   overflow-y: auto;
+  z-index: 0;
 }
 
 /* Custom active dots up to the current index */

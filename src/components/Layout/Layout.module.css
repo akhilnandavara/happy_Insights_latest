@@ -324,7 +324,7 @@
   bottom: 0;
   transform: translateY(100%) !important;
   min-width: 150px;
-  z-index: 1000;
+  
   height: fit-content;
   overflow: hidden;
   background: var(--white);
