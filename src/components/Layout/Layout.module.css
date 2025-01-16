@@ -100,11 +100,13 @@
   white-space: nowrap;
   position: relative;
   width: 100%;
+  overflow: hidden;
 }
 
 .navlink:hover {
   color: var(--primary);
   background-color: var(--hover-bg);
+  
 }
 
 .navcontent {

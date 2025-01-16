@@ -25,6 +25,7 @@
   font-weight: 600;
   line-height: 24px;
   text-align: left;
+  text-wrap: nowrap;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   color: var(--text-value);
@@ -63,15 +64,15 @@
   overflow-x: hidden;
   padding: 10px;
 }
-.suggestionBotContainer::-webkit-scrollbar {
+.suggestionBotContainer::-webkit-scrollbar , .suggestionItemContainer::-webkit-scrollbar {
   width: 5px; /* Width of the entire scrollbar */
 }
-.suggestionBotContainer::-webkit-scrollbar-track {
+.suggestionBotContainer::-webkit-scrollbar-track , .suggestionItemContainer::-webkit-scrollbar-track {
   background: var(--aiChatBox-bg-color); /* Color of the tracking area */
   border: 1px solid var(--divider);
   border-radius: 10px;
 }
-.suggestionBotContainer::-webkit-scrollbar-thumb {
+.suggestionBotContainer::-webkit-scrollbar-thumb , .suggestionItemContainer::-webkit-scrollbar-thumb {
   background-color: var(--primary); /* Scrollbar thumb color */
   border-radius: 10px; /* Rounded corners for the scrollbar */
   border: 2px solid var(--aiChatBox-bg-color);
@@ -140,6 +141,11 @@
   max-width: 80%;
 }
 
+.suggestionItemContainer {
+  max-height: 60%;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
 .suggestionSectionWrapper {
   display: flex;
   flex-wrap: wrap;

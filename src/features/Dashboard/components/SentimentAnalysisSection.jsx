@@ -18,10 +18,8 @@ const calculateAverageSentiment = (sentimentData, positiveLabels) => {
       positiveLabels.includes(item.label) ? sum + item.count : sum,
     0
   );
-
   return Math.round((positiveCount / total) * 100);
 };
-
 // Function to process chart data
 const processChartData = (sourcesData, selectedSentiment, averageSentiment) => {
   const totalComments = sourcesData.reduce(
@@ -62,7 +60,10 @@ const processChartData = (sourcesData, selectedSentiment, averageSentiment) => {
       datasets: [
         {
           data: [...filledData, remainingPercentage],
-          backgroundColor:[ ...dataForChart.map((item) => item.color),"#d6d6d6"],
+          backgroundColor: [
+            ...dataForChart.map((item) => item.color),
+            "#d6d6d6",
+          ],
           hoverBackgroundColor: [
             ...dataForChart.map((item) => item.color),
             "#d6d6d6", // Remaining hover color

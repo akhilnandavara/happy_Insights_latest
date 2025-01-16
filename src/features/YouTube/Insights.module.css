@@ -14,7 +14,6 @@
 }
 /* Comment Section */
 
-
 .emptyCommentsText {
   text-align: center;
   color: var(--color-primary);
@@ -92,14 +91,15 @@
 }
 .replyButtonIcon {
   font-size: 1rem;
-  color: var(--white);
+  /* color: var(--white); */
 }
 .replyButtonIcon:hover {
   color: var(--white) !important;
   transition: background-color 0.3s;
 }
 .replyButton:hover {
-  background-color: var(--ai_starIcon) !important;
+  color: var(--dark-primary);
+  transition: color 0.3s;
 }
 
 .smartReplyWrapper {
@@ -128,9 +128,20 @@
   stroke: var(--primary);
 }
 .smartReplyIcon {
+  color: var(--primary);
+}
+.aiBotActionBtn {
+  color: var(--aiChatBox-userInput-bg);
+}
+.aiBotSendBtn {
+  background: var(--aiChatBox-userInput-bg);
+}
+.aiBotSendBtn:hover {
+  background: var(--ai_starIcon);
+}
+.smartReplyIcon {
   width: 24px !important;
   height: 24px !important;
-  color: var(--primary);
 }
 .inputActions {
   display: flex;

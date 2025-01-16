@@ -1,8 +1,9 @@
 .sentimentAnalysisContainer {
   display: flex;
   justify-content: space-between;
-  gap: 0.5rem;
+  gap: 10px;
   height: 95%;
+  max-height: 300px;
   width: 100%;
 }
 
@@ -71,7 +72,6 @@
   text-align: right;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-
   color: var(--text-sentimentsLabel-title);
   font-size: clamp(0.75rem, 1.5vw, 1rem);
 }
@@ -104,18 +104,22 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translate(-50%, -20%);
   text-align: center;
+}
+.chartContainer canvas {
+  max-height: 100%;
+  max-width: 100%;
 }
 
 .averageSentimentTitle {
-  font-size: clamp(0.75rem, 1.5vw, 1rem);
+  font-size: clamp(1.75rem, 1.5vw, 1rem);
   font-weight: bold;
   color: var(--text-sentimentsLabel-title);
   /* font-size: 26px; */
   font-weight: 700;
-  line-height: 34.24px;
-  letter-spacing: -0.5477965474128723px;
+  /* line-height: 34.24px; */
+  /* letter-spacing: -0.5477965474128723px; */
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
@@ -128,7 +132,6 @@
   text-align: center;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-
   color: var(--statsOveriew-title-secondary);
 }
 
@@ -147,18 +150,17 @@
   display: flex;
   justify-content: space-between;
   padding: 0;
+  gap: 16px;
   font-size: clamp(0.75rem, 1.5vw, 1rem);
-  border-bottom: 1px solid var(--color-border-muted);
 }
 .sourceColor {
   width: 10px;
   height: 10px;
   border-radius: 50%;
-  margin-right: 0.5rem;
 }
 .sourcesTitle {
   font-size: clamp(0.75rem, 1.5vw, 1rem);
-  color: var(--text-value);
+  color: var(--text-barGraph-title);
   font-family: Poppins;
   /* font-size: 12px; */
   font-weight: 500;

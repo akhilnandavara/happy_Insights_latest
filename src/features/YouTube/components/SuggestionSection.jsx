@@ -44,7 +44,6 @@ function Header({ title, onBack, onSettings, icon }) {
     </div>
   );
 }
-
 // Suggestion List Component
 function SuggestionList({
   title,
@@ -217,23 +216,27 @@ export default function SuggestionSection() {
             </div>
 
             {/* Input Suggestion */}
-            <SuggestionList
-              title="AI Suggestions"
-              showAllSuggestions={showAllSuggestions}
-              handleShowAllSuggestions={handleShowAllSuggestions}
-              items={
-                showAllSuggestions ? suggestionData : suggestionData.slice(0, 2)
-              }
-            />
-
-            {showAllSuggestions && (
+            <div className={styles.suggestionItemContainer}>
               <SuggestionList
+                title="AI Suggestions"
                 showAllSuggestions={showAllSuggestions}
                 handleShowAllSuggestions={handleShowAllSuggestions}
-                title="User Inputs"
-                items={userInputs}
+                items={
+                  showAllSuggestions
+                    ? suggestionData
+                    : suggestionData.slice(0, 2)
+                }
               />
-            )}
+
+              {showAllSuggestions && (
+                <SuggestionList
+                  showAllSuggestions={showAllSuggestions}
+                  handleShowAllSuggestions={handleShowAllSuggestions}
+                  title="User Inputs"
+                  items={userInputs}
+                />
+              )}
+            </div>
             {/* User Input Box */}
             <div className={styles.suggestionInputContainer}>
               <ReplyInputBox isAiChatBot smartReplyArr={smartReplyArr} />

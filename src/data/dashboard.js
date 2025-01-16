@@ -179,7 +179,7 @@ export const dashboardBarChartData = {
         scales: {
             x: {
                 grid: {
-                    display: false, // Remove vertical grid lines
+                    display: false, // Hides the horizontal line on the x-axis
                 },
                 ticks: {
                     font: {
@@ -190,9 +190,9 @@ export const dashboardBarChartData = {
                 },
             },
             y: {
-
                 border: {
                     dash: [2, 4],
+                    display: false,
                 },
                 ticks: {
                     font: {
@@ -201,7 +201,7 @@ export const dashboardBarChartData = {
                     },
                     color: '#9CA3AF', // Slightly darker label color
                     stepSize: 500,
-                    callback: (value) => `${value}+`,
+                    callback: (value) => `${value}`,
                 },
             },
         },

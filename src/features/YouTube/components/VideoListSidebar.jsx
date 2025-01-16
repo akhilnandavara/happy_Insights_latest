@@ -247,8 +247,9 @@ export default function VideoListSidebar({
           <SearchBar
             placeholder="Search "
             className={classNames(styles.videoListSearchBar)}
-          />
+            customIconClasss={styles.searchIcon}
 
+          />
           {/* Filter Button */}
           <div
             className={styles.filterIconWrapper}
