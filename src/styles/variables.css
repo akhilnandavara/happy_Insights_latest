@@ -34,6 +34,8 @@
   --searchBar-bg: rgba(247, 247, 247, 1);
   --selectedComments-bg:rgba(241, 241, 241, 1);
   --headerSwiper-border:rgba(224, 224, 224, 1);
+  --commentItem-hover-bg:rgba(233,247,254,255);
+  --commentItem-hover-border:rgba(50,164,222,255);
   
 
   /* Text Color */

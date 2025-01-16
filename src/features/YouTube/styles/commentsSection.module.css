@@ -360,7 +360,7 @@ contentContainer .commentsWrapper::-webkit-scrollbar-thumb:hover,
   border-top: none;
   border-right: none;
   border-bottom: none;
-  border-left: 1px solid transparent;
+  border-left: 4px solid transparent;
   transition: all 0.3s ease;
   border-bottom: 1px solid transparent;
 }
@@ -396,14 +396,16 @@ contentContainer .commentsWrapper::-webkit-scrollbar-thumb:hover,
 }
 
 .commentsContainer:hover {
-  background-color: var(--hover-bg); /* Slightly darker shade on hover */
-  border-left-color: var(--primary); /* Darker blue on hover */
+  background-color: var(
+    --commentItem-hover-bg
+  ); /* Slightly darker shade on hover */
+  border-left-color: var(--commentItem-hover-border); /* Darker blue on hover */
 }
 .commentsContainer.active {
   background-color: var(--hover-bg);
-  border-left: 3px solid var(--primary); /* Darker blue on hover */
+  border-left: 4px solid var(--primary); /* Darker blue on hover */
   transition: all 0.3s;
-  border-bottom: 1px solid var(--divider);
+  border-bottom: 1px soild transparent;
 }
 .commentsContainer.noHover {
   background-color: inherit !important; /* Remove background hover effect */
@@ -423,19 +425,21 @@ contentContainer .commentsWrapper::-webkit-scrollbar-thumb:hover,
   width: 20px !important;
   height: 20px !important;
   color: var(--text-tertiary);
+  flex-shrink: 0;
 }
 .userInfo {
   display: flex;
   align-items: center;
-  gap: 16px;
-  flex: 2;
-  max-width: 30% !important;
+  gap: 10px;
+  flex: 1;
+  max-width: 20% !important;
   overflow: hidden;
 }
 
 .avatar {
   width: 40px !important;
   height: 40px !important;
+  flex-shrink: 0;
 }
 .userDetails {
   display: flex;
@@ -470,8 +474,8 @@ contentContainer .commentsWrapper::-webkit-scrollbar-thumb:hover,
 }
 
 .message {
-  flex-grow: 1;
-  max-width: 50%;
+  flex: 2;
+  max-width: 60%;
   height: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -500,7 +504,7 @@ contentContainer .commentsWrapper::-webkit-scrollbar-thumb:hover,
   display: flex;
   gap: 10px;
   font-size: 0.8rem;
-  max-width: 28%;
+  max-width: 20%;
   align-items: right;
 }
 .commentStats {
