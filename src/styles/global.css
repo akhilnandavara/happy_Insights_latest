@@ -177,33 +177,3 @@ li {
     opacity: 1;
   }
 }
-
-.slideIn {
-  animation: slideIn 0.5s ease-in-out forwards;
-}
-
-.slideOut {
-  animation: slideOut 1s ease-in-out forwards;
-}
-
-@keyframes slideIn {
-  from {
-    transform: translate(100%, 100%);
-    opacity: 0;
-  }
-  to {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-}
-
-@keyframes slideOut {
-  from {
-    transform: translate(0, 0);
-    opacity: 1;
-  }
-  to {
-    transform: translate(100%, 100%);
-    opacity: 0;
-  }
-}

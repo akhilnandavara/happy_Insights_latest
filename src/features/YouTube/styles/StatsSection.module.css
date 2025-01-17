@@ -1,12 +1,20 @@
+.statsSectionWrapper {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding: 10px;
+  overflow: scroll;
+  scrollbar-width: none;
+  position: relative;
+  width: 0;
+  height: 0;
+  opacity: 0;
+}
 .gridContainer {
-  width: 100%;
-  height: 100%;
   display: grid;
   grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
   grid-template-rows: auto 1fr 1fr; /* First row auto, other rows share remaining height */
   gap: 10px; /* Space between cards */
-  overflow: scroll;
-  scrollbar-width: none;
 }
 
 .spanCol2 {
@@ -36,3 +44,96 @@
   max-height: 100px; /* Adjust this value to your preference */
 }
 
+.commentsHeaderWrapper {
+  flex: 0 1 auto;
+  display: flex;
+  flex-direction: column;
+  max-height: 25%;
+  /* overflow: hidden; */
+  /* transition: all 1s ease-in-out; TODO smoot header Transition */
+}
+.statsHeaderWrapper {
+  align-items: center;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 10px;
+}
+.statsToggleBtnContainer {
+  display: flex;
+  min-width: 40px;
+  /* height: 1.5rem; */
+  height: 100%;
+  border-radius: 4px;
+  border: 1px solid var(--divider);
+  overflow: hidden;
+}
+.toggleOption {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  height: 100%;
+  padding: 0.5rem;
+  cursor: pointer;
+  background-color: var(--white); /* Default background */
+  transition: background-color 0.3s;
+  color: var(--text-tertiary);
+}
+.toggleOption.active:hover {
+  background-color: var(--hover-bg); /* Hovered background color */
+  color: var(--primary);
+}
+.toggleOption.active {
+  background-color: var(--primary); /* Highlighted background color */
+  color: var(--white);
+  height: 100%;
+  border: none;
+}
+
+.slideIn {
+  width: 100%;
+  height: 100%;
+  -webkit-animation: slide-in 0.5s forwards;
+  animation: slide-in 0.5s forwards;
+}
+.slideOut {
+  -webkit-animation: slide-out 0.5s backwards;
+  animation: slide-out 0.5s backwards;
+}
+
+@-webkit-keyframes slide-out {
+  0% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 1;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+  100% {
+    -webkit-transform: translate(100%, 100%);
+    transform: translate(100%, 100%);
+    opacity: 0;
+    z-index: 0;
+    width: 0;
+    height: 0;
+  }
+}
+@keyframes slide-in {
+  0% {
+    -webkit-transform: translate(100%, 100%);
+    transform: translate(100%, 100%);
+    opacity: 0;
+    z-index: 0;
+    width: 0;
+    height: 0;
+  }
+  100% {
+    -webkit-transform: translate(0, 0);
+    transform: translate(0, 0);
+    opacity: 1;
+    z-index: 1;
+    width: 100%;
+    height: 100%;
+  }
+}

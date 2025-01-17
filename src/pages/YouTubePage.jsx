@@ -10,6 +10,8 @@ import SuggestionSection from "../features/YouTube/components/SuggestionSection"
 import CommentSection from "../features/YouTube/components/CommentSection";
 import CompareCommentsSection from "../features/YouTube/components/CompareCommentsSection";
 import { setShowStats } from "../store/slices/youTubeSlice";
+import StatsSection from "../features/YouTube/components/Stats/StatsSection";
+import { chartsData, StatsOverViewData } from "../data/chart";
 
 dayjs.extend(isBetween);
 
@@ -135,19 +137,23 @@ export default function YouTubePage() {
   );
   return (
     <>
-      <div className={`${styles.wrapper}`}>
+      {/* CommentsSection */}
+
+      <div
+        className={`${styles.wrapper} ${
+          !showStats ? styles.slideInTopLeft : styles.slideOutTopLeft
+        }`}
+      >
         {/* Video list Sidebar */}
-        {!showStats && (
-          <VideoListSidebar
-            dateVideos={dateVideos}
-            extraVideos={extraVideos}
-            selectedVideo={
-              compareComments ? selectedVideosMulti : [selectedVideoSingle]
-            }
-            onVideoSelect={handleVideoSelection}
-            compareComments={compareComments}
-          />
-        )}
+        <VideoListSidebar
+          dateVideos={dateVideos}
+          extraVideos={extraVideos}
+          selectedVideo={
+            compareComments ? selectedVideosMulti : [selectedVideoSingle]
+          }
+          onVideoSelect={handleVideoSelection}
+          compareComments={compareComments}
+        />
         <div className={styles.content}>
           <div className={`${styles.commentContainer}`}>
             {compareComments ? (
@@ -172,13 +178,15 @@ export default function YouTubePage() {
             )}
           </div>
 
-          {!compareComments === !showStats && (
+          {!compareComments && (
             <div className={`${styles.suggestionContainer}`}>
               <SuggestionSection />
             </div>
           )}
         </div>
       </div>
+
+      <StatsSection charts={chartsData} statsOverViewData={StatsOverViewData} />
     </>
   );
 }
