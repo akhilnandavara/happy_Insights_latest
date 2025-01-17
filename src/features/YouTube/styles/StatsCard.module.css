@@ -3,7 +3,6 @@
   border: 1px solid var(--divider);
   padding: 16px;
   min-width: 232px;
-  /* max-width: 325px; */
   padding: var(--spacing-md);
   gap: var(--spacing-md);
   border-radius: 8px;

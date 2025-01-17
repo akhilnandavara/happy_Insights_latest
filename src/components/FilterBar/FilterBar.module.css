@@ -40,7 +40,6 @@
   border-right: 1px solid var(--filter-border);
   padding: 8px var(--spacing-xl) 8px var(--spacing-xl);
   gap: var(--spacing-md);
-  opacity: 0px;
 }
 
 .filterItem:hover,
@@ -188,8 +187,8 @@
   height: 100%;
   border: 1px solid var(--filter-border);
   border-radius: 6px;
-  padding: 0 0.5rem;
   display: flex;
+  padding: 0.5rem;
   align-items: center;
   flex-wrap: nowrap;
 }

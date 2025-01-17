@@ -23,7 +23,12 @@ export default function ToggleSideBarBtn({ setSidebarOpen, isSidebarOpen }) {
         })}
         onClick={toggleSidebar}
       >
-        <Icon name="arrow-down" className={`${styles.toggleIcon} ${!isSidebarOpen && styles.toggleIconClosed}`} />
+        <Icon
+          name="arrow-down"
+          className={`${styles.toggleIcon} ${
+            !isSidebarOpen && styles.toggleIconClosed
+          }`}
+        />
       </button>
     </div>
   );

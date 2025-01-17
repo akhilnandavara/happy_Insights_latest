@@ -18,13 +18,13 @@
   width: 10%;
   min-width: 290px;
   opacity: 1; /* Opacity for smooth open transition */
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
 }
 
 .sidebarClosed {
   width: 60px; /* Reduced width for closed state */
   opacity: 0.85; /* Slight opacity for closed state */
-  transition: all 0.5s ease-in-out;
+  /* transition: all 0.5s ease-in-out; */
 }
 
 .logoContainer {

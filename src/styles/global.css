@@ -178,15 +178,13 @@ li {
   }
 }
 
-
 .slideIn {
-  animation: slideIn 1s ease-in-out forwards;
+  animation: slideIn 0.5s ease-in-out forwards;
 }
 
 .slideOut {
   animation: slideOut 1s ease-in-out forwards;
 }
-
 
 @keyframes slideIn {
   from {
