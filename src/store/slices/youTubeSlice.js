@@ -4,7 +4,7 @@ const initialState = {
     loading: false,
     videoList: [],
     commentsList: [],
-    showStats: false
+    showStats: false,
 };
 
 const youTubeSlice = createSlice({

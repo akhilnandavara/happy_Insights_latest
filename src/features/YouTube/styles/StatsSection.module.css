@@ -21,12 +21,12 @@
 }
 
 .spanCol2 {
-  /* max-width: none !important; */
+  max-width: none !important;
   grid-column: span 2; /* Spans two columns */
 }
 
 .spanCol3 {
-  /* max-width: none !important; */
+  max-width: none !important;
   grid-column: span 3; /* Spans all columns */
 }
 

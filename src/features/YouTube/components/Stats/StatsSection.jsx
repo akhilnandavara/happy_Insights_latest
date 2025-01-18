@@ -92,8 +92,8 @@ const StatsSection = ({ charts, statsOverViewData }) => {
         />
         <ChartCard
           title="Total Comments"
-          chartType="line"
-          chartConfig={charts.lineChart}
+          chartType="dottedLine"
+          chartConfig={charts.dottedLine}
           customClasses={styles.spanCol3}
         />
       </div>

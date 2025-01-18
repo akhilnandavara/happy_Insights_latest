@@ -113,6 +113,74 @@ export const chartsData = {
       },
     },
   },
+  dottedLine: {
+    data: {
+      labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+      datasets: [
+        {
+          label: "Last Week",
+          data: [40, 50, 60, 70, 80, 85, 90], // Replace with your data
+          borderColor: "rgba(136, 178, 84, 0.5)",
+          borderWidth: 2,
+          borderDash: [5, 5], // Makes the line dotted
+          tension: 0.4,
+          pointRadius: 0,
+        },
+        {
+          label: "This Week",
+          data: [30, 45, 70, 80, 95, 85, 100], // Replace with your data
+          borderColor: "rgba(136, 178, 84, 1)",
+          borderWidth: 2,
+          tension: 0.4,
+          pointRadius: 0,
+        },
+      ],
+    },
+    options: {
+      ...sharedOptions,
+      plugins: {
+        legend: {
+          display: true,
+          position: "bottom",
+          labels: {
+            font: { family: "Poppins", size: 12 },
+            boxWidth: 40, // Controls the size of the legend
+            boxHeight: 1,
+            useLineStyle: true,
+          },
+        },
+      },
+
+      scales: {
+        x: {
+          grid: {
+            display: false,
+          },
+
+
+          ticks: {
+            font: {
+              family: 'Poppins',
+              size: 10,
+            },
+            color: '#9CA3AF',
+          },
+        },
+        y: {
+          border: { dash: [2, 4] },
+
+          beginAtZero: true,
+          max: 100,
+          ticks: {
+            font: { family: 'Poppins', size: 12 },
+            color: 'rgba(171, 178, 188, 1)',
+            stepSize: 20,
+            callback: value => `${value} %`,
+          },
+        },
+      },
+    },
+  }
 };
 
 // Reusable card contents

@@ -48,11 +48,13 @@ const ChartCard = ({ title, chartType, chartConfig, customClasses }) => {
         <div className={styles.chartContainer}>
           {chartType === "line" ? (
             <Line data={chartConfig.data} options={chartConfig.options} />
-            // <LineGraph />
-          ) : chartType === "pie" ? (
+          ) : // <LineGraph />
+          chartType === "pie" ? (
             <Pie data={chartConfig.data} options={chartConfig.options} />
           ) : chartType === "doughnut" ? (
             <Doughnut data={chartConfig.data} options={chartConfig.options} />
+          ) : chartType === "dottedLine" ? (
+            <Line data={chartConfig.data} options={chartConfig.options} />
           ) : null}
         </div>
       )}
