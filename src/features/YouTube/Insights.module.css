@@ -132,6 +132,9 @@
 .smartReplyIcon {
   color: var(--primary);
 }
+.aiBotInputBox{
+  outline-color: var(--aiChatBox-userInput-bg);
+}
 .aiBotActionBtn {
   color: var(--aiChatBox-userInput-bg);
 }

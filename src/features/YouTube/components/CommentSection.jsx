@@ -25,6 +25,7 @@ export default function CommentSection({
   const [replyContent, setReplyContent] = useState("");
   const [currentCategory, setCurrentCategory] = useState("All");
   const [selectedCategory, setSelectedCategory] = useState("All");
+  const [popupVisible, setPopupVisible] = useState(false); // State for popup visibility
 
   const debouncedSearchTerm = useDebounce(searchTerm, 300);
   useEffect(() => {
@@ -75,6 +76,22 @@ export default function CommentSection({
   const handleRemoveReply = (comment_id) => {
     setReplyContent("");
     toggleCommentSelection(comment_id);
+  };
+
+  const handleSendReply = () => {
+    if (replyContent.trim()) {
+      // Simulate sending the reply
+      console.log("Reply sent:", replyContent);
+      setReplyContent("");
+
+      // Show success popup
+      setPopupVisible(true);
+
+      // Hide the popup after 3 seconds
+      setTimeout(() => {
+        setPopupVisible(false);
+      }, 3000);
+    }
   };
 
   return (
@@ -136,8 +153,16 @@ export default function CommentSection({
               replyContent={replyContent}
               setReplyContent={setReplyContent}
               smartReplyArr={smartReplyArr}
+              handleAddNewInput={handleSendReply}
             />
           </div>
+        </div>
+      )}
+      {/* Dummy Popup for testing */}
+
+      {popupVisible && (
+        <div className={styles.successPopup}>
+          <p>Reply sent successfully!</p>
         </div>
       )}
     </>

@@ -116,7 +116,7 @@ export default function ReplyInputBox({
         spellCheck="true"
         type="text"
         placeholder="Start Typing..."
-        className={styles.inputBox}
+        className={`${styles.inputBox} ${isAiChatBot && styles.aiBotInputBox}`}
         value={replyContent}
         onChange={(e) => setReplyContent(e.target.value)}
         onKeyDown={handleKeyPress} // Handle Enter key

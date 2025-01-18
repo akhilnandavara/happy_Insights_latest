@@ -53,6 +53,7 @@ function SuggestionList({
   isConfig = false,
   showAllSuggestions = true,
   handleShowAllSuggestions = () => {},
+  handleAddNewInput,
 }) {
   const toggleButtonLabel = useMemo(
     () => (showAllSuggestions ? "<<" : `+${suggestionData.slice(2).length}`),
@@ -67,7 +68,11 @@ function SuggestionList({
       )}
       <div className={styles.suggestionSectionWrapper}>
         {items.map((item, index) => (
-          <div key={index} className={styles.suggestionItem}>
+          <div
+            key={index}
+            className={styles.suggestionItem}
+            onClick={() => handleAddNewInput(item)}
+          >
             {item}
           </div>
         ))}
@@ -152,13 +157,39 @@ export default function SuggestionSection() {
   const [replyContent, setReplyContent] = useState("");
   const [isInputBoxVisible, setIsInputBoxVisible] = useState(false);
 
-  const handleAddNewInput = (input) => {
+  const handleCustomUserConfig = (input) => {
     setUserInputs((prev) => [...prev, input]);
     setReplyContent("");
     setIsInputBoxVisible(false);
   };
   const handleShowAllSuggestions = () => {
     setShowAllSuggestions(!showAllSuggestions);
+  };
+  const handleUserInput = (input) => {
+    // Add user input immediately to the history
+    console.log("input", input);
+    setHistory((prev) => [
+      ...prev,
+      {
+        id: prev.length + 1,
+        text: input,
+        date: new Date(),
+        aiRes: "...", // Placeholder for AI response
+      },
+    ]);
+    setReplyContent("");
+
+    // Simulate AI response after a delay (e.g., 2 seconds)
+    setTimeout(() => {
+      const aiResponse = `This is AI's response to: "${input}"`; // Replace with your AI response logic
+      setHistory((prev) =>
+        prev.map((entry) =>
+          entry.id === prev.length
+            ? { ...entry, aiRes: aiResponse } // Add AI response to the most recent entry
+            : entry
+        )
+      );
+    }, 2000); // 2000ms = 2 seconds delay
   };
 
   return (
@@ -183,7 +214,7 @@ export default function SuggestionSection() {
           {isInputBoxVisible && (
             <div className={styles.suggestionInputContainer}>
               <ReplyInputBox
-                handleAddNewInput={handleAddNewInput}
+                handleAddNewInput={handleCustomUserConfig}
                 setReplyContent={setReplyContent}
                 replyContent={replyContent}
                 isAiChatBot={true}
@@ -221,6 +252,7 @@ export default function SuggestionSection() {
                 title="AI Suggestions"
                 showAllSuggestions={showAllSuggestions}
                 handleShowAllSuggestions={handleShowAllSuggestions}
+                handleAddNewInput={handleUserInput}
                 items={
                   showAllSuggestions
                     ? suggestionData
@@ -234,12 +266,19 @@ export default function SuggestionSection() {
                   handleShowAllSuggestions={handleShowAllSuggestions}
                   title="User Inputs"
                   items={userInputs}
+                  handleAddNewInput={handleUserInput}
                 />
               )}
             </div>
             {/* User Input Box */}
             <div className={styles.suggestionInputContainer}>
-              <ReplyInputBox isAiChatBot smartReplyArr={smartReplyArr} />
+              <ReplyInputBox
+                replyContent={replyContent}
+                setReplyContent={setReplyContent}
+                handleAddNewInput={handleUserInput}
+                isAiChatBot={"true"}
+                smartReplyArr={smartReplyArr}
+              />
             </div>
           </div>
         </>
