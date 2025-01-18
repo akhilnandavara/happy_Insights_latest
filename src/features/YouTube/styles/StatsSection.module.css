@@ -99,9 +99,8 @@
 }
 
 .slideOut {
-  transition-delay: 1s;
-  -webkit-animation: slide-out 2s forwards; /* Use "forwards" instead of "backwards" */
-  animation: slide-out 2s forwards;
+  -webkit-animation: slide-out 1s forwards; /* Use "forwards" instead of "backwards" */
+  animation: slide-out 1s forwards;
 }
 @keyframes slide-in {
   0% {
@@ -118,7 +117,7 @@
 
 @keyframes slide-out {
   0% {
-    transform: translateX(0); /* Start at its original position */
+    transform: translate(0,0); /* Start at its original position */
     opacity: 1;
     z-index: 1;
   }

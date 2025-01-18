@@ -38,11 +38,10 @@ const StatsSection = ({ charts, statsOverViewData }) => {
       setTimeout(() => {
         dispatch(setShowStats(!showStats));
         setIsExiting(false);
-      }, 300);
+      }, 100);
     }
   }, [isExiting]);
 
-  console.log("showStats", showStats);
   return (
     <div
       className={`${styles.statsSectionWrapper} ${
