@@ -167,7 +167,6 @@ export default function SuggestionSection() {
   };
   const handleUserInput = (input) => {
     // Add user input immediately to the history
-    console.log("input", input);
     setHistory((prev) => [
       ...prev,
       {

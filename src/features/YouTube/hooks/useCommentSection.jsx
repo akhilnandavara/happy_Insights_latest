@@ -21,6 +21,7 @@ export const useCommentSection = (
     });
   }, []);
 
+  
   // Filter comments based on category and search term
   const filteredComments = useMemo(() => {
     return commentsList?.filter((comment) => {

@@ -33,7 +33,6 @@ const StatsSection = ({ charts, statsOverViewData }) => {
   }, [commentsList]);
 
   useEffect(() => {
-    console.log("isExiting", isExiting);
     if (isExiting) {
       setTimeout(() => {
         dispatch(setShowStats(!showStats));

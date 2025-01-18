@@ -44,7 +44,6 @@ export default function CommentSection({
       acc[category] = (acc[category] || 0) + 1; // Increment count for each category
       return acc;
     }, {});
-
     // Return the "All" category with the total count + all other categories
     return {
       All: commentsList.length, // Adding "All" category with the total count
@@ -170,12 +169,10 @@ export default function CommentSection({
 }
 
 const CommentsHeader = ({
-  searchTerm,
   onSearchChange,
   visibleCategories,
   currentCategory,
   onCategorySelect,
-  compareComments,
   handleCompareComments,
   dispatch,
 }) => (
@@ -203,6 +200,7 @@ const CommentsHeader = ({
         placeholder="Search the comments by username or title "
         className={styles.commentSearchBox}
         customIconClasss={styles.commentSearchIcon}
+        onChange={onSearchChange}
       />
 
       {/* RightActionBtns */}
