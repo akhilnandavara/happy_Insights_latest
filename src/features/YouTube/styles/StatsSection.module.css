@@ -6,9 +6,12 @@
   overflow: scroll;
   scrollbar-width: none;
   position: relative;
-  width: 0;
   height: 0;
   opacity: 0;
+  width: 100%;
+  height: 100%;
+  transform: translate(100%, 100%);
+  transition: transform 0.5s ease, opacity 0.5s ease; /* Transition for both transform and opacity */
 }
 .gridContainer {
   display: grid;
@@ -91,49 +94,37 @@
 }
 
 .slideIn {
-  width: 100%;
-  height: 100%;
   -webkit-animation: slide-in 0.5s forwards;
   animation: slide-in 0.5s forwards;
 }
-.slideOut {
-  -webkit-animation: slide-out 0.5s backwards;
-  animation: slide-out 0.5s backwards;
-}
 
-@-webkit-keyframes slide-out {
-  0% {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
-    opacity: 1;
-    z-index: 1;
-    width: 100%;
-    height: 100%;
-  }
-  100% {
-    -webkit-transform: translate(100%, 100%);
-    transform: translate(100%, 100%);
-    opacity: 0;
-    z-index: 0;
-    width: 0;
-    height: 0;
-  }
+.slideOut {
+  transition-delay: 1s;
+  -webkit-animation: slide-out 2s forwards; /* Use "forwards" instead of "backwards" */
+  animation: slide-out 2s forwards;
 }
 @keyframes slide-in {
   0% {
-    -webkit-transform: translate(100%, 100%);
-    transform: translate(100%, 100%);
+    transform: translateX(100%); /* Start completely off-screen */
     opacity: 0;
     z-index: 0;
-    width: 0;
-    height: 0;
   }
   100% {
-    -webkit-transform: translate(0, 0);
-    transform: translate(0, 0);
+    transform: translateX(0); /* Slide into its original position */
     opacity: 1;
     z-index: 1;
-    width: 100%;
-    height: 100%;
+  }
+}
+
+@keyframes slide-out {
+  0% {
+    transform: translateX(0); /* Start at its original position */
+    opacity: 1;
+    z-index: 1;
+  }
+  100% {
+    transform: translate(100%, 100%); /* Slide completely off-screen */
+    opacity: 0;
+    z-index: 0;
   }
 }

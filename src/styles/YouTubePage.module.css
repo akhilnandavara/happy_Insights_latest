@@ -6,9 +6,6 @@
   scrollbar-width: none;
   overflow: hidden;
   margin: 0 auto;
-  z-index: 0;
-  opacity: 0;
-  width: 0;
   position: relative;
 }
 /* Comments section */
@@ -22,13 +19,22 @@
   position: relative;
 }
 
-.commentContainer {
+.mainContent {
   flex: 6; /* Allow the container to grow/shrink dynamically */
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  transition: all 0.5s ease;
+}
+.commentContainer {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  overflow: hidden;
-  transition: all 0.5s ease;
+  z-index: 0;
+  opacity: 0;
+  width: 0;
+  position: relative;
+  
 }
 
 .commentContainer {
@@ -46,11 +52,6 @@
   max-width: 300px;
   background: var(--white);
   border-left: 1px solid var(--divider);
-}
-
-.slidetl {
-  animation: slide-top-left 2s ease-in-out forwards;
-  -webkit-animation: slide-top-left 2s ease-in-out forwards;
 }
 
 /* @-webkit-keyframes slide-top-left {
@@ -130,7 +131,7 @@
     transform: translate(-100%, -100%);
     opacity: 0;
     z-index: 0;
-    width: 0;
-    height: 0;
+    width: 0 !important;
+    height: 0 !important;
   }
 }

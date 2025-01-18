@@ -5,6 +5,7 @@ const initialState = {
     loading: false,
     userConfig: null,
     subDetails: null,
+    showIntroModal: false,
 };
 
 const profileSlice = createSlice({
@@ -23,11 +24,15 @@ const profileSlice = createSlice({
         },
         setSubDetails(state, value) {
             state.subDetails = value.payload;
+        },
+        setShowIntroModal(state, value) {
+            state.showIntroModal = value.payload;
         }
+        
 
     },
 });
 
 
-export const {setLoading,setUser,setUserConfig,setSubDetails } = profileSlice.actions;
+export const {setLoading,setUser,setUserConfig,setSubDetails ,setShowIntroModal} = profileSlice.actions;
 export default profileSlice.reducer;

@@ -60,7 +60,7 @@
   overflow: hidden;
   background: #031c30;
   border-radius: 10px;
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--primary);
 }
 .img {
   width: 100%;
@@ -80,11 +80,11 @@
 
 .desc {
   font-size: 0.75rem;
-  color: var(--color-text-dark);
+  color: var(--color-grey);
   background: white;
 }
 .highlightedText {
-  color: var(--color-primary) !important;
+  color: var(--primary) !important;
   font-weight: bold;
 }
 /* Navigation Buttons */
@@ -94,6 +94,7 @@
   align-items: center;
   width: 100%;
 }
+
 .customPrevBtn,
 .customNextBtn {
   padding: 0.25rem 0.8rem;
@@ -103,14 +104,14 @@
   transition: background-color 0.3s ease;
 }
 .customPrevBtn {
-  color: var(--color-primary);
+  color: var(--primary);
   background: none;
-  border: 1px solid var(--color-primary);
+  border: 1px solid var(--primary);
 }
 .customNextBtn {
-  color: var(--color-white);
-  background-color: var(--color-primary);
-  border: 1px solid var(--color-primary);
+  color: var(--white);
+  background-color: var(--primary);
+  border: 1px solid var(--primary);
 }
 .customPrevBtn:focus,
 .customNextBtn:focus {
@@ -119,6 +120,6 @@
 }
 .customPagination {
   display: flex;
-  justify-content: center;
   gap: 0.25rem;
+  transition: all 0.3s ease; /* Smooth pagination transition */
 }

@@ -67,10 +67,12 @@
   outline-color: var(--primary);
   width: 100%;
   height: 60%;
-  padding: 0.25rem 0;
   color: var(--text-userInputBox);
   background: transparent;
   box-sizing: border-box;
+  padding: 10px;
+  resize: none;
+  scrollbar-width: none; /* Hide scrollbar for Firefox */
 }
 
 .replyButton {

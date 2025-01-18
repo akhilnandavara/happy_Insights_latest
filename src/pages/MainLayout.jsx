@@ -6,9 +6,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { getAllConfig } from "../services/operations/Dashboard";
 import LoadingSpinner from "../components/Loader";
 import { logout } from "../services/operations/Auth";
+import { setShowIntroModal } from "../store/slices/profileSlice";
+import IntroSlider from "../components/Carousel/IntroSlider";
 
 export default function MainLayout() {
-  const { loading, userConfig } = useSelector((state) => state.profile); // Redux loading state
+  const { loading, userConfig,showIntroModal } = useSelector((state) => state.profile); // Redux loading state
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(true);
@@ -36,6 +38,7 @@ export default function MainLayout() {
   }
 
   const handleLogout = () => dispatch(logout(navigate));
+  const handleCloseModal = () => dispatch(setShowIntroModal(false));
 
   return (
     <div className={"mainLayoutContainer"}>
@@ -49,6 +52,7 @@ export default function MainLayout() {
           <Outlet />
         </div>
       </div>
+      {showIntroModal && <IntroSlider handleCloseModal={handleCloseModal} />}
     </div>
   );
 }

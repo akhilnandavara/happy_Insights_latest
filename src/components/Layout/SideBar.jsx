@@ -6,9 +6,12 @@ import SideBarLink from "./SideBarLink";
 import hiSmalllogo from "../../assets/images/hi-small-logo.png";
 import useOnClickOutside from "../../hooks/useOnClickOutside";
 import ToggleSideBarBtn from "../ToggleSideBarBtn";
+import { setShowIntroModal } from "../../store/slices/profileSlice";
+import { useDispatch } from "react-redux";
 
 export default function SideBar({ showIntroModal }) {
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
+  const dispatch = useDispatch();
   const sideBarRef = useRef();
   // const { width } = useWindowSize();
   //   const [isMobile, setIsMobile] = useState(width < 600);
@@ -34,6 +37,7 @@ export default function SideBar({ showIntroModal }) {
             className={`${styles.logoContainer} ${
               isSideBarOpen ? "" : styles.logoContainerClosed
             }`}
+            onClick={() => dispatch(setShowIntroModal(true))}
           >
             <Img
               onClick={showIntroModal}

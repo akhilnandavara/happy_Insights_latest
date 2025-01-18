@@ -15,6 +15,7 @@ import {
   Legend,
   ArcElement,
 } from "chart.js";
+import LineGraph from "../../../../components/LineGraph";
 ChartJS.register(
   CategoryScale,
   LinearScale,
@@ -47,6 +48,7 @@ const ChartCard = ({ title, chartType, chartConfig, customClasses }) => {
         <div className={styles.chartContainer}>
           {chartType === "line" ? (
             <Line data={chartConfig.data} options={chartConfig.options} />
+            // <LineGraph />
           ) : chartType === "pie" ? (
             <Pie data={chartConfig.data} options={chartConfig.options} />
           ) : chartType === "doughnut" ? (

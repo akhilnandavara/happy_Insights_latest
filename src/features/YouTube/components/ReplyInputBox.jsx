@@ -112,7 +112,7 @@ export default function ReplyInputBox({
   return (
     <div className={styles.userReplyContainer}>
       {/* Input Box */}
-      <input
+      <textarea
         spellCheck="true"
         type="text"
         placeholder="Start Typing..."

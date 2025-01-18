@@ -1,4 +1,4 @@
-import React, { useMemo } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import StatCard from "./StatsCard";
 import ChartCard from "./ChartCard";
 import styles from "../../styles/StatsSection.module.css";
@@ -10,7 +10,9 @@ import Icon from "../../../../components/Icon";
 
 const StatsSection = ({ charts, statsOverViewData }) => {
   const { commentsList, showStats } = useSelector((state) => state.youtube);
+  const [isExiting, setIsExiting] = useState(false);
   const dispatch = useDispatch();
+
   const visibleCategories = useMemo(() => {
     if (!commentsList || !Array.isArray(commentsList)) {
       return { All: commentsList?.length || 0 }; // Handle edge case for empty or non-array commentsList
@@ -30,17 +32,28 @@ const StatsSection = ({ charts, statsOverViewData }) => {
     };
   }, [commentsList]);
 
+  useEffect(() => {
+    console.log("isExiting", isExiting);
+    if (isExiting) {
+      setTimeout(() => {
+        dispatch(setShowStats(!showStats));
+        setIsExiting(false);
+      }, 300);
+    }
+  }, [isExiting]);
+
+  console.log("showStats", showStats);
   return (
     <div
       className={`${styles.statsSectionWrapper} ${
-        showStats ? styles.slideIn : styles.slideOut
-      }`}
+        !isExiting && showStats ? styles.slideIn : styles.slideOut
+      } `}
     >
       <CommentsHeader
         visibleCategories={visibleCategories}
         // onCategorySelect={handleCategorySelection}
         showStats={showStats}
-        dispatch={dispatch}
+        onToggleIsExiting={() => setIsExiting(true)}
       />
 
       <div className={`${styles.gridContainer} `}>
@@ -96,7 +109,7 @@ const CommentsHeader = ({
   visibleCategories,
   onCategorySelect,
   showStats,
-  dispatch,
+  onToggleIsExiting,
 }) => (
   <div
     className={`${styles.commentsHeaderWrapper} ${
@@ -113,7 +126,7 @@ const CommentsHeader = ({
     <div className={styles.statsToggleBtnContainer}>
       <ToggleOption
         showStats={!showStats}
-        onClick={() => dispatch(setShowStats(false))}
+        onClick={onToggleIsExiting}
         icon={<FaListUl className={styles.icon} />}
       />
       <ToggleOption

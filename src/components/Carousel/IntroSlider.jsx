@@ -36,6 +36,7 @@ const IntroSlider = ({ handleCloseModal }) => {
       >
         <CustomSwiper
           slides={introSlides}
+          introSlider="true"
           config={{
             ...introConfig,
             onBeforeInit: (swiper) => (swiperRef.current = swiper),
@@ -51,7 +52,7 @@ const IntroSlider = ({ handleCloseModal }) => {
           >
             {currentIndex === 0 ? "Skip" : "Back"}
           </button>
-          <div className={`${styles.customPagination} customPagination`}></div>
+          {/* <div className={`${styles.customPagination} customPagination`}></div> */}
           <button
             className={`${styles.customNextBtn} customNextBtn`}
             onClick={handleNextClick}

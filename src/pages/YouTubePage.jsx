@@ -135,58 +135,65 @@ export default function YouTubePage() {
     () => (selectedVideoSingle ? [selectedVideoSingle] : []),
     [selectedVideoSingle]
   );
+
   return (
     <>
       {/* CommentsSection */}
 
-      <div
-        className={`${styles.wrapper} ${
-          !showStats ? styles.slideInTopLeft : styles.slideOutTopLeft
-        }`}
-      >
+      <div className={`${styles.wrapper} `}>
         {/* Video list Sidebar */}
-        <VideoListSidebar
-          dateVideos={dateVideos}
-          extraVideos={extraVideos}
-          selectedVideo={
-            compareComments ? selectedVideosMulti : [selectedVideoSingle]
-          }
-          onVideoSelect={handleVideoSelection}
-          compareComments={compareComments}
-        />
+        {!showStats && (
+          <VideoListSidebar
+            dateVideos={dateVideos}
+            extraVideos={extraVideos}
+            selectedVideo={
+              compareComments ? selectedVideosMulti : [selectedVideoSingle]
+            }
+            onVideoSelect={handleVideoSelection}
+            compareComments={compareComments}
+          />
+        )}
         <div className={styles.content}>
-          <div className={`${styles.commentContainer}`}>
-            {compareComments ? (
-              <CompareCommentsSection
-                selectedVideos={selectedVideosMulti}
-                setSelectedVideo={handleVideoSelection}
-                compareComments={compareComments}
-                handleCompareComments={() =>
-                  setCompareComments(!compareComments)
-                }
-                onClearSelection={() => setSelectedVideosMulti([])}
-              />
-            ) : (
-              <CommentSection
-                selectedVideo={memoizedSelectedVideoSingle}
-                compareComments={compareComments}
-                onVideoSelect={handleVideoSelection}
-                handleCompareComments={() =>
-                  setCompareComments(!compareComments)
-                }
-              />
-            )}
+          <div className={`${styles.mainContent} `}>
+            <div
+              className={`${styles.commentContainer}  ${
+                !showStats ? styles.slideInTopLeft : styles.slideOutTopLeft
+              }`}
+            >
+              {compareComments ? (
+                <CompareCommentsSection
+                  selectedVideos={selectedVideosMulti}
+                  setSelectedVideo={handleVideoSelection}
+                  compareComments={compareComments}
+                  handleCompareComments={() =>
+                    setCompareComments(!compareComments)
+                  }
+                  onClearSelection={() => setSelectedVideosMulti([])}
+                />
+              ) : (
+                <CommentSection
+                  selectedVideo={memoizedSelectedVideoSingle}
+                  compareComments={compareComments}
+                  onVideoSelect={handleVideoSelection}
+                  handleCompareComments={() =>
+                    setCompareComments(!compareComments)
+                  }
+                />
+              )}
+            </div>
+            <StatsSection
+              charts={chartsData}
+              statsOverViewData={StatsOverViewData}
+            />
           </div>
 
-          {!compareComments && (
-            <div className={`${styles.suggestionContainer}`}>
+          {!compareComments && !showStats && (
+            <div className={`${styles.suggestionContainer} fadeIn`}>
               <SuggestionSection />
             </div>
           )}
         </div>
       </div>
-
-      <StatsSection charts={chartsData} statsOverViewData={StatsOverViewData} />
     </>
   );
 }

@@ -6,7 +6,12 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Heading, Img, Text } from "../ui";
 
-const CustomSwiper = ({ slides, config, customStyles }) => {
+const CustomSwiper = ({
+  slides,
+  config,
+  customStyles,
+  introSlider = false,
+}) => {
   const [buttonWidth, setButtonWidth] = useState("fit-content"); // Track button width
 
   const handleSlideChange = (swiper) => {
@@ -45,14 +50,16 @@ const CustomSwiper = ({ slides, config, customStyles }) => {
             />
           </div>
           <div className={customStyles?.contentContainer}>
-            <button
-              className={customStyles.btn}
-              style={{
-                width: buttonWidth, // Dynamically update width based on state
-              }}
-            >
-              {slide?.btnText}
-            </button>
+            {!introSlider && (
+              <button
+                className={customStyles.btn}
+                style={{
+                  width: buttonWidth,
+                }}
+              >
+                {slide?.btnText}
+              </button>
+            )}
 
             <Heading as={"h2"} className={customStyles?.title}>
               {slide.title}

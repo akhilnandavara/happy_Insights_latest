@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-import { useSelector } from "react-redux";
+import {  useSelector } from "react-redux";
 import useDebounce from "../hooks/useDebounce";
 import styles from "../features/Dashboard/Dashboard.module.css";
 import { Heading } from "../components/ui";
-import IntroSlider from "../components/Carousel/IntroSlider";
 import FilterBar from "../components/FilterBar";
 import SearchBar from "../components/SearchBar";
 import CustomBarChart from "../components/BarGraph";
@@ -101,9 +100,8 @@ function StatsAndFilterSection({
 
 // Main Component
 export default function DashBoardPage() {
-  // State
-  const [showModal, setShowModal] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
+
 
   // Redux Selector and Debounced User
   const { user } = useSelector((state) => state.profile);
@@ -116,7 +114,6 @@ export default function DashBoardPage() {
   const welcomeMessage = dashboardStaticData.welcome_message;
 
   // Handlers
-  const handleCloseModal = () => setShowModal(false);
   const handleFilterSelect = (method) =>
     console.log("Selected Filter:", method);
   const handleSearchChange = (e) => setSearchTerm(e.target.value);
@@ -140,7 +137,7 @@ export default function DashBoardPage() {
       />
 
       {/* Modal Section */}
-      {showModal && <IntroSlider handleCloseModal={handleCloseModal} />}
+    
     </div>
   );
 }
