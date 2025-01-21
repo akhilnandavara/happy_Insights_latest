@@ -15,6 +15,7 @@
   --bg-pagination-bullet: rgba(33, 186, 149, 1);
   --border-secondary: rgba(233, 235, 237, 1);
   --topBar-icon:rgba(68, 71, 80, 1);
+  --notification-item-border:rgba(220, 222, 228, 1);
 
   /* dashboard Colors */
   --filter-border: rgba(223, 226, 230, 1);
@@ -56,6 +57,7 @@
   --text-filterByPeriod-btn: rgba(37, 33, 59, 1);
   --text-barGraph-title: rgba(104, 113, 127, 1);
   --text-sentimentsLabel-title: rgba(8, 47, 73, 1);
+  
 
 
   /* Youtube */

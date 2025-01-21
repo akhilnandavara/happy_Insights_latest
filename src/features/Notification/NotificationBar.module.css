@@ -1,0 +1,202 @@
+.notificationBar {
+  border-radius: 8px;
+  overflow: hidden;
+  width: 400px;
+  height: 90%;
+  position: absolute;
+  right: -380px;
+  top: 5%;
+  background: var(--white);
+  z-index: 1000;
+  box-shadow: 0px 5px 10px 0px var(--shadow-xs);
+}
+
+.notificationHeader {
+  padding: 10px 10px 0px 10px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  border-bottom: 1px solid var(--divider);
+  box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 1px 2px 0px rgba(0, 0, 0, 0.04);
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 7px 4px 0px rgba(0, 0, 0, 0.02);
+}
+
+.section_1 {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.titleContainer {
+  display: flex;
+  gap: 6px;
+  align-items: center;
+}
+.headertitle {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: Poppins;
+  font-size: 16px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--text-value);
+}
+.countTag {
+  border-radius: 15px;
+  background: var(--primary);
+  color: var(--white);
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 21px;
+  width: 24px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.closeButtonContainer {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+}
+
+.markAllRead {
+  color: var(--color-blue);
+  cursor: pointer;
+  font-family: Inter;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.closeIcon {
+  color: var(--text-secondary);
+  font-size: 1rem;
+  cursor: pointer;
+}
+.closeIcon:hover {
+  color: var(--primary);
+  cursor: pointer;
+}
+.tabs {
+  display: flex;
+  gap: 24px;
+}
+
+.tabButton {
+  margin-right: 10px;
+  background: none;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+  font-size: 14px;
+}
+.tabButton.active {
+  border-bottom: var(--primary) 1px solid;
+  color: var(--primary);
+}
+
+.notificationList {
+  padding: 10px;
+  max-height: 90%;
+  overflow-y: auto;
+  scrollbar-width: none;
+}
+
+.notificationItem {
+  display: flex;
+  justify-content: space-between;
+  padding: 24px 16px 16px 16px;
+  gap: 12px;
+  border-bottom: 1px solid var(--notification-item-border);
+}
+
+.profileImage {
+  width: 32px;
+  height: 32px;
+  border-radius: 20px;
+}
+
+.menuIconContainer {
+  height: 24px;
+  width: 24px;
+  cursor: pointer;
+}
+
+.notificationDetails {
+  flex: 1;
+  padding: 2px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.notificationUserInfoContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.notificationUsername {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 600;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: var(--text-value);
+}
+.subText {
+  font-weight: 500;
+  line-height: 18px;
+}
+.notificationDesc {
+  border-left: 2px solid var(--primary);
+  padding: 8px 12px;
+  gap: 8px;
+  font-size: 14px;
+  color: var(--text-secondary);
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.notificationTime {
+  font-weight: 500;
+  color: var(--text-secondary);
+}
+
+.dropDownContainer {
+  position: absolute; /* Position fixed to the viewport */
+  right: 10px;
+  background: var(--white);
+  border: 1px solid var(--divider);
+  border-radius: 4px;
+  width: 80px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.dropdownItem {
+  padding: 0.5rem;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  gap: 0.5rem;
+  font-size: 0.75rem;
+  list-style: none;
+  margin: 0;
+}
+.dropdownItem:hover {
+  background-color: var(--hover-bg);
+  color: var(--primary);
+}

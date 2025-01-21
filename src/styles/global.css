@@ -67,6 +67,7 @@ li {
   margin: 0 auto;
   height: calc(100vh - 10px); /* Account for padding or margins */
   overflow: hidden;
+  position: relative;
 }
 
 .dynamicContent {

@@ -45,8 +45,7 @@ export const sidebarlinks = [
 export const profilelinks = [
     {
         id: 1,
-        name: 'Notification',
-        // path: "/notification",
+        name: 'Notifications',
 
     },
     {

@@ -8,15 +8,20 @@ import useOnClickOutside from "../../hooks/useOnClickOutside";
 import ToggleSideBarBtn from "../ToggleSideBarBtn";
 import { setShowIntroModal } from "../../store/slices/profileSlice";
 import { useDispatch } from "react-redux";
+import NotificationBar from "../../features/Notification/NotificationBar";
 
 export default function SideBar({ showIntroModal }) {
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
+  const [notificationBarOpen, setNotificationBarOpen] = useState(false);
   const dispatch = useDispatch();
   const sideBarRef = useRef();
   // const { width } = useWindowSize();
   //   const [isMobile, setIsMobile] = useState(width < 600);
 
   useOnClickOutside(sideBarRef, (prev) => isMobile && setIsSideBarOpen(!prev));
+  const handleNotificationToggle = () => {
+    setNotificationBarOpen((prev) => !prev);
+  };
 
   return (
     <div
@@ -68,22 +73,46 @@ export default function SideBar({ showIntroModal }) {
 
         <div className={styles.profileLinksContainer}>
           <div className={styles.lineBar}></div>
-          {profilelinks.map((link) => (
-            <SideBarLink
-              key={link.id}
-              link={link}
-              iconName={link.icon}
-              isSideBarOpen={isSideBarOpen}
-            />
-          ))}
+          {profilelinks.map((link) =>
+            link.name.toLowerCase() === "notifications" ? (
+              <div
+                key={link.id}
+                className={`${styles.notificationBtn} ${
+                  notificationBarOpen ? styles.active : ""
+                }`}
+                onClick={(e) => {
+                  e.preventDefault(); // Prevent default navigation
+                  handleNotificationToggle();
+                }}
+              >
+                <SideBarLink
+                  link={link}
+                  iconName={link.icon}
+                  isSideBarOpen={isSideBarOpen}
+                  preventNav
+                />
+              </div>
+            ) : (
+              <SideBarLink
+                key={link.id}
+                link={link}
+                iconName={link.icon}
+                isSideBarOpen={isSideBarOpen}
+              />
+            )
+          )}
         </div>
       </div>
 
       {/* Toggle Button - Only visible on small screens */}
-      <ToggleSideBarBtn
-        setSidebarOpen={setIsSideBarOpen}
-        isSidebarOpen={isSideBarOpen}
-      />
+      {!notificationBarOpen ? (
+        <ToggleSideBarBtn
+          setSidebarOpen={setIsSideBarOpen}
+          isSidebarOpen={isSideBarOpen}
+        />
+      ) : (
+        <NotificationBar  handleNotificationToggle={handleNotificationToggle}/>
+      )}
     </div>
   );
 }

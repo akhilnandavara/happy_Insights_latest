@@ -295,3 +295,75 @@ export const dashboardDoughnutChartData = {
         },
     ],
 };
+
+
+export const notificationsData = [
+    {
+        "id": 1,
+        "title": "Company Announcement",
+        "subText": "Replied to xyz in Company Announcements",
+        "description": "New policies and code of conduct have been updated and published in Company Rules.",
+        "time": "Today at 2:20 PM",
+        "bodyImage": null,
+        "mentioned": false,
+        "archived": false
+    },
+    {
+        "id": 2,
+        "title": "Mark Jaycob",
+        "subText": "Commented in Company Announcements",
+        "description": "Replied to @Natashia Bunny: What?!",
+        "time": "Today at 9:58 AM",
+        "bodyImage": null,
+        "mentioned": true,
+        "archived": false
+    },
+    {
+        "id": 3,
+        "title": "Edward Curr",
+        "subText": "",
+        "description": "Thanks everyone! I am amazing of course. I miss having subordinates. I should make a mug that says 'Coworkers tears.' I won’t be taking any more questions.",
+        "time": "Today at 9:41 AM",
+        "bodyImage": "https://via.placeholder.com/300x150",
+        "mentioned": false,
+        "archived": false
+    },
+    {
+        "id": 4,
+        "title": "Terry Williams",
+        "subText": "",
+        "description": "Welcome @Natashia Bunny to the team! He came highly recommended from the person I fired a while back.",
+        "time": "Today at 9:00 AM",
+        "bodyImage": "https://via.placeholder.com/300x200",
+        "mentioned": true,
+        "archived": false
+    }
+]
+
+
+export const notificationsMenuDropDownData = [
+    {
+        "id": 1,
+        "title": "Archive",
+        "icon": "archive",
+        "action": "archive",
+    },
+    {
+        "id": 2,
+        "title": "Delete",
+        "icon": "delete",
+        "action": "delete",
+    },
+    {
+        "id": 3,
+        "title": "Mark as read",
+        "icon": "mark as read",
+        "action": "markAsRead",
+    },
+    {
+        "id": 4,
+        "title": "Mark as unread",
+        "icon": "mark as unread",
+        "action": "markAsUnread",
+    },
+]
