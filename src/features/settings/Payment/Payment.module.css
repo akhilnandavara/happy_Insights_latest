@@ -1,0 +1,232 @@
+/* PricingPage.module.css */
+.container {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+  gap: 60px;
+  padding: 24px;
+}
+/* Styling for Pricing Header */
+.pricingHeader {
+  background-color: var(--white);
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  text-align: center;
+}
+.title {
+  font-family: Poppins;
+  font-size: 32px;
+  font-weight: 600;
+  color: var(--dark-primary);
+}
+.highlightText {
+  color: var(--primary);
+}
+.subTitle {
+  color: var(--text-value);
+  font-family: Poppins;
+  font-size: 18px;
+  font-weight: 400;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.dynamicPricingContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 16px;
+  padding: 0 60px;
+}
+.toggleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 174px;
+  border: 1px solid var(--divider);
+  border-radius: 100px;
+  position: relative;
+  padding: 4px;
+}
+
+.toggleBtn {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 100px;
+  width: 50%;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  line-height: 16.1px;
+  color: var(--text-secondary);
+}
+.saveTag {
+  position: absolute;
+  top: -45px;
+  left: 0;
+  translate: 20%;
+  color: var(--white);
+  background: var(--dark-primary);
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+.toggleBtnTagText {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.arrowDown {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  translate: -50%;
+  background: var(--dark-primary);
+  height: 10px;
+  width: 10px;
+  rotate: 45deg;
+}
+
+.active {
+  background: var(--primary); /* Active text color matches brand green */
+  color: var(--white);
+}
+.basicBorderTop {
+  border-top: 2px solid var(--color-gray) !important;
+}
+.normalBorderTop {
+  border-top: 2px solid var(--color-orange) !important;
+}
+.proBorderTop {
+  border-top: 2px solid var(--color-green) !important;
+}
+.advanceBorderTop {
+  border-top: 2px solid var(--color-purple) !important;
+}
+.pricingCardsContainer {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 16px;
+  width: 100%;
+  justify-content: center;
+}
+
+.card {
+  background-color: var(--white);
+  border: 1px solid var(--card-border);
+  padding: 32px 32px 16px 24px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+.headerTitle {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--dark-primary);
+}
+
+.headerSubTitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--dark-primary);
+}
+
+.cardPrice {
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.priceTag {
+  overflow: hidden;
+  color: var(--dark-primary);
+  font-size: 32px;
+  font-weight: 600;
+  font-family: Poppins;
+  line-height: 1;
+}
+.priceTagPeriod {
+  font-size: 12px;
+  font-weight: 400;
+  font-family: Poppins;
+  color: var(--dark-primary);
+}
+.featuresList {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  list-style: none;
+  padding: 0;
+}
+.featureListTitle {
+  font-family: Inter;
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--text-feature-title);
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.featureItem {
+  font-size: 1rem;
+  color: var(--text-secondary);
+  margin-bottom: 8px;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+.featureTickIcon {
+  color: var(--primary);
+  font-size: 24px;
+}
+
+.featureItemText {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--text-feature-title);
+}
+.cardButton {
+  padding: 12px 20px;
+  background-color: var(--primary);
+  color: var(--white);
+  border: none;
+  width: 100%;
+  border-radius: 4px;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background-color 0.3s ease-in;
+}
+
+.cardButton:hover {
+  background: var(--white);
+  color: var(--primary);
+  border: 1px solid var(--primary);
+}
+
+@media screen and (max-width: 1200px) {
+  .pricingGrid {
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 100%;
+  }
+}

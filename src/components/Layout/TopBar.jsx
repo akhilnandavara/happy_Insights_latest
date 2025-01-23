@@ -57,7 +57,7 @@ export default function TopBar({ onLogout }) {
 
   useOnClickOutside(ref, () => setShowMenu(false));
   const location = window.location.pathname.split("/");
-  const lastPart = location[location.length - 1]; // Get the last part of the path
+  const lastPart = location[1]; // Get the last part of the path
   const pageName = lastPart.charAt(0).toUpperCase() + lastPart.slice(1);
 
   return (
@@ -69,7 +69,7 @@ export default function TopBar({ onLogout }) {
         <div className={styles.topBarRight}>
           <button
             className={styles.upgradeBtnContainer}
-            onClick={() => navigate("upgrade")}
+            onClick={() => navigate("/settings/pricing-model")}
           >
             <Icon name={"crown"} className={styles.sidebarIcon} />
             <Text as={"p"} className={styles.upgradeBtn}>

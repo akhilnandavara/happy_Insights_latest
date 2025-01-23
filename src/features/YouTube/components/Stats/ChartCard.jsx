@@ -32,7 +32,7 @@ const ChartCard = ({ title, chartType, chartConfig, customClasses }) => {
   const isBarChart = chartType === "bar";
   const labels = chartConfig.data.labels || [];
   const counts = chartConfig.data.datasets[0].data || [];
-
+ 
   return (
     <div className={`${styles.card} ${customClasses}`}>
       <Text as="p" className={styles.cardTitle}>

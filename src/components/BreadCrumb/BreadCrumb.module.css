@@ -1,0 +1,43 @@
+.breadcrumbNav {
+  font-size: 14px;
+  padding: 0 8px;
+  border-bottom: 1px solid var(--divider);
+}
+
+.breadcrumb {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 10px;
+  padding: 8px 16px;
+}
+.breadcrumbItem {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.arrowIcon {
+  color: var(--text-secondary);
+  font-size: 12px;
+}
+.title {
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 400;
+  text-align: left;
+  color: var(--text-value);
+}
+.breadcrumbLink {
+  text-decoration: none;
+  transition: color 0.3s ease;
+  text-decoration-line: underline;
+  text-decoration-style: solid;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+.breadcrumbLink:hover {
+  color: var(--primary);
+}

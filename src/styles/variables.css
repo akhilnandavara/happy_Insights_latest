@@ -37,6 +37,10 @@
   --headerSwiper-border:rgba(224, 224, 224, 1);
   --commentItem-hover-bg:rgba(233,247,254,255);
   --commentItem-hover-border:rgba(50,164,222,255);
+
+  /* Payment Page */
+  --card-border:rgba(228, 228, 231, 1);
+  
   
 
   /* Text Color */
@@ -58,13 +62,14 @@
   --text-barGraph-title: rgba(104, 113, 127, 1);
   --text-sentimentsLabel-title: rgba(8, 47, 73, 1);
   
-
-
   /* Youtube */
   --text-aiBot-time:rgba(155, 167, 182, 1);
   --text-userInputBox:rgba(156, 163, 175, 1);
   --statsOverview-SubTitle:rgba(55, 60, 67, 1);
   --barGraph-label:rgba(87, 94, 106, 1);
+
+  /* Payment page */
+  --text-feature-title:rgba(24, 24, 27, 1);
 
   /* shadow */
   --shadow-xs: rgba(16, 24, 40, 0.05);
@@ -90,7 +95,7 @@
   --statsOveriew-icon-negative: rgba(238, 104, 95, 1);
 
   /* Plan Colors */
-  --color-gray: gray;
+  --color-gray: rgba(161, 161, 170, 1);
   --color-orange: rgba(242, 153, 74, 1);
   --color-green: rgba(33, 150, 83, 1);
   --color-purple: purple;

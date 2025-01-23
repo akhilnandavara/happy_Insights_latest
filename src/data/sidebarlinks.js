@@ -37,7 +37,7 @@ export const sidebarlinks = [
     {
         id: 7,
         name: 'Settings',
-        // path: "linkedin",
+        path: "/settings/channel-configuration",
 
     }
 ]
