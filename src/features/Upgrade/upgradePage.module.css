@@ -22,7 +22,7 @@
 .title {
   font-size: 2.5rem;
   font-weight: bold;
-  color: var(--text-secondary);
+  color: var(--text-value);
   margin-bottom: 10px;
 }
 .highlightText {
@@ -180,4 +180,13 @@
   background: var(--white);
   color: var(--primary);
   border: 1px solid var(--primary);
+}
+
+@media screen and (max-width: 1200px) {
+  .pricingGrid {
+    flex-wrap: wrap;
+  }
+  .card {
+    width: 100%;
+  }
 }

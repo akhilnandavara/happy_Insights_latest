@@ -13,7 +13,7 @@ const NotificationBar = ({ handleNotificationToggle }) => {
     if (action === "archive") {
       setNotifications((prev) =>
         prev.map((notification) =>
-          notification.id === id
+          notification.id === id    
             ? { ...notification, archived: true }
             : notification
         )
