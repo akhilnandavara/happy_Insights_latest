@@ -10,6 +10,12 @@ const methodIcons = [
   { name: "amex", src: "amex.png" },
   { name: "diners", src: "diners.png" },
 ];
+const membershipPlans = [
+  { type: "Basic", price: 36, period: "Year" },
+  { type: "Normal", price: 60, period: "Year" },
+  { type: "Pro", price: 72, period: "Year" },
+  { type: "Advance", price: 96, period: "Year" },
+];
 
 const PaymentPage = () => {
   const [formData, setFormData] = useState({
@@ -22,7 +28,7 @@ const PaymentPage = () => {
     state: "",
     city: "",
     zip: "",
-    membershipType: "pro",
+    membershipType: "Pro",
     termsAccepted: false,
     useCoins: false,
   });
@@ -101,7 +107,11 @@ const PaymentPage = () => {
                     </div>
                   </label>
                   {/* UPI Option */}
-                  <label className={styles.method}>
+                  <label
+                    className={`${styles.method} ${
+                      formData.paymentMethod === "upi" ? styles.active : ""
+                    }`}
+                  >
                     <input
                       type="radio" // Changed from checkbox to radio
                       name="paymentMethod"
@@ -208,84 +218,91 @@ const PaymentPage = () => {
                     onChange={handleChange}
                     className={styles.input}
                   />
-                  <Text as={"p"} className={styles.captionText}>Please enter valid address for secure payment.</Text>
+                  <Text as={"p"} className={styles.captionText}>
+                    Please enter valid address for secure payment.
+                  </Text>
                 </div>
               </div>
             </div>
 
             {/* Right Section */}
             <div className={styles.rightSection}>
-              <div className={styles.membership}>
-                <h3 className={styles.sectionTitle}>Membership Type</h3>
-                <label className={styles.plan}>
-                  <input
-                    type="radio"
-                    name="membershipType"
-                    value="basic"
-                    checked={formData.membershipType === "basic"}
-                    onChange={handleChange}
-                  />
-                  <span>Basic</span>
-                  <span className={styles.price}>$36 / Year</span>
-                </label>
-                <label className={styles.plan}>
-                  <input
-                    type="radio"
-                    name="membershipType"
-                    value="normal"
-                    checked={formData.membershipType === "normal"}
-                    onChange={handleChange}
-                  />
-                  <span>Normal</span>
-                  <span className={styles.price}>$60 / Year</span>
-                </label>
-                <label className={styles.plan}>
-                  <input
-                    type="radio"
-                    name="membershipType"
-                    value="pro"
-                    checked={formData.membershipType === "pro"}
-                    onChange={handleChange}
-                  />
-                  <span>Pro</span>
-                  <span className={styles.price}>$72 / Year</span>
-                  <span className={styles.save}>Save 20%</span>
-                </label>
-                <label className={styles.plan}>
-                  <input
-                    type="radio"
-                    name="membershipType"
-                    value="advance"
-                    checked={formData.membershipType === "advance"}
-                    onChange={handleChange}
-                  />
-                  <span>Advance</span>
-                  <span className={styles.price}>$96 / Year</span>
-                </label>
-              </div>
+              {/* //TODO: Adding Toggle BTn  */}
+              <div className={styles.plansInputsWrapper}>
+                <div className={styles.contentWrapper}>
+                  <h3 className={styles.sectionTitle}>Membership Type</h3>
+                  {membershipPlans.map((plan) => (
+                    <label
+                      className={`${styles.planBtn} ${
+                        formData.membershipType === plan.type && styles.active
+                      }`}
+                      key={plan.type}
+                    >
+                      <input
+                        type="radio"
+                        name="membershipType"
+                        value={plan.type}
+                        checked={formData.membershipType === plan.type}
+                        onChange={handleChange}
+                      />
+                      <span className={styles.customRadio}></span>
+                      <div className={styles.planContent}>
+                        <Heading as={"h4"} className={styles.sectionTitle}>
+                          {plan.type}
+                        </Heading>
+                        <Text as={"p"} className={styles.planPriceTag}>
+                          ${plan.price} / {plan.period}
+                        </Text>
+                      </div>
+                    </label>
+                  ))}
+                </div>
 
-              <div className={styles.extras}>
-                <label>
+                {/* Use Coins */}
+                <label className={styles.checkboxContainer}>
                   <input
                     type="checkbox"
                     name="useCoins"
                     checked={formData.useCoins}
                     onChange={handleChange}
                   />
-                  Use Coins (1 coin = $0.05). Balance: 1000 coins.
+                  <span
+                    className={`${styles.customRadio} ${styles.termsCustomRadio}`}
+                  ></span>
+                  <Text as={"p"} className={styles.description}>
+                    {" "}
+                    Use Coins{" "}
+                    <strong className={styles.highLightedText}>
+                      (1 coin = $0.05),
+                    </strong>{" "}
+                    <span className={styles.darkerText}>
+                      {" "}
+                      Balance:{" "}
+                      <strong className={styles.highLightedTextOrange}>
+                        1000
+                      </strong>{" "}
+                      coins.
+                    </span>
+                  </Text>
                 </label>
-                <label>
+                {/* T&c */}
+                <label className={styles.checkboxContainer}>
                   <input
                     type="checkbox"
                     name="termsAccepted"
                     checked={formData.termsAccepted}
                     onChange={handleChange}
                   />
-                  By continuing, you agree to our{" "}
-                  <a href="/terms">terms and conditions</a>.
+                  <span
+                    className={`${styles.customRadio} ${styles.termsCustomRadio}`}
+                  ></span>
+
+                  <Text as={"p"} className={styles.description}>
+                    By continuing, you agree to our{" "}
+                    <a href="/terms">terms and conditions</a>.
+                  </Text>
                 </label>
               </div>
-
               <button type="submit" className={styles.submitButton}>
                 Upgrade Plan
               </button>
