@@ -14,8 +14,8 @@
   --bg-primary: rgba(233, 254, 248, 1);
   --bg-pagination-bullet: rgba(33, 186, 149, 1);
   --border-secondary: rgba(233, 235, 237, 1);
-  --topBar-icon:rgba(68, 71, 80, 1);
-  --notification-item-border:rgba(220, 222, 228, 1);
+  --topBar-icon: rgba(68, 71, 80, 1);
+  --notification-item-border: rgba(220, 222, 228, 1);
 
   /* dashboard Colors */
   --filter-border: rgba(223, 226, 230, 1);
@@ -27,21 +27,22 @@
 
   /* Youtube Colors */
   --SearchBtn-bg: rgba(245, 246, 247, 1);
-  --ai_starIcon:rgba(32, 191, 216, 1);
+  --ai_starIcon: rgba(32, 191, 216, 1);
   --aiChatBox-bg-color: rgba(246, 246, 246, 1);
   --aiChatBox-userInput-bg: rgba(16, 108, 122, 1);
-  --aiRes-bg-color:rgba(233, 251, 254, 1);
+  --aiRes-bg-color: rgba(233, 251, 254, 1);
   --filter-categories-bg-active: rgba(240, 240, 240, 1);
   --searchBar-bg: rgba(247, 247, 247, 1);
-  --selectedComments-bg:rgba(241, 241, 241, 1);
-  --headerSwiper-border:rgba(224, 224, 224, 1);
-  --commentItem-hover-bg:rgba(233,247,254,255);
-  --commentItem-hover-border:rgba(50,164,222,255);
+  --selectedComments-bg: rgba(241, 241, 241, 1);
+  --headerSwiper-border: rgba(224, 224, 224, 1);
+  --commentItem-hover-bg: rgba(233, 247, 254, 255);
+  --commentItem-hover-border: rgba(50, 164, 222, 255);
 
   /* Payment Page */
-  --card-border:rgba(228, 228, 231, 1);
-  
-  
+  --card-border: rgba(228, 228, 231, 1);
+  --paymentMethod-bg: rgba(253, 253, 253, 1);
+  --inputBox-border: rgba(239, 239, 239, 1);
+  --inputBox-bg: rgba(254, 254, 254, 1);
 
   /* Text Color */
   --text-value: rgba(55, 65, 81, 1);
@@ -51,7 +52,7 @@
   --white: rgba(255, 255, 255, 1);
   --text-filter-btn: rgba(70, 76, 85, 1);
   --statsOveriew-title-primary: rgba(0, 30, 56, 1);
-  --statsOveriew-title-secondary:rgba(123, 123, 123, 1);
+  --statsOveriew-title-secondary: rgba(123, 123, 123, 1);
   --text-statsOveriew-value-positive: rgba(21, 154, 92, 1);
   --text-statsOveriew-value-negative: rgba(199, 60, 51, 1);
 
@@ -61,16 +62,19 @@
   --text-filterByPeriod-btn: rgba(37, 33, 59, 1);
   --text-barGraph-title: rgba(104, 113, 127, 1);
   --text-sentimentsLabel-title: rgba(8, 47, 73, 1);
-  
+
   /* Youtube */
-  --text-aiBot-time:rgba(155, 167, 182, 1);
-  --text-userInputBox:rgba(156, 163, 175, 1);
-  --statsOverview-SubTitle:rgba(55, 60, 67, 1);
-  --barGraph-label:rgba(87, 94, 106, 1);
+  --text-aiBot-time: rgba(155, 167, 182, 1);
+  --text-userInputBox: rgba(156, 163, 175, 1);
+  --statsOverview-SubTitle: rgba(55, 60, 67, 1);
+  --barGraph-label: rgba(87, 94, 106, 1);
 
   /* Payment page */
-  --text-feature-title:rgba(24, 24, 27, 1);
-
+  --text-feature-title: rgba(24, 24, 27, 1);
+  --text-subTitle: rgba(132, 148, 158, 1);
+  --text-placeholder: rgba(200, 200, 200, 1);
+  --text-caption:rgba(94, 108, 115, 1);
+  
   /* shadow */
   --shadow-xs: rgba(16, 24, 40, 0.05);
 
@@ -88,7 +92,6 @@
   --radius-md: 0.375rem;
   --radius-sm: 0.25rem;
 
-
   --color-bg-negative: #f8e5e7;
   --color-border-negative: #e74c3c;
   --statsOveriew-icon-positive: rgba(66, 194, 134, 1);
@@ -99,7 +102,7 @@
   --color-orange: rgba(242, 153, 74, 1);
   --color-green: rgba(33, 150, 83, 1);
   --color-purple: purple;
-  --color-blue:rgba(47, 128, 237, 1);
+  --color-blue: rgba(47, 128, 237, 1);
 
   --font-size-xs: 0.7rem;
   --font-size-sm: 0.9rem;
