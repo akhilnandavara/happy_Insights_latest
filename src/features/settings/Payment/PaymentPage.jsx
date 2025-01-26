@@ -2,13 +2,16 @@ import React, { useState } from "react";
 import styles from "./Styles/PaymentPage.module.css";
 import { Heading, Img, Text } from "../../../components/ui";
 import Icon from "../../../components/Icon";
-import masterCard from "../../../assets/paymentImages/MasterCard.png";
+import masterCardLogo from "../../../assets/paymentImages/MasterCard.png";
+import dineLogo from "../../../assets/paymentImages/DinersClub.png";
+import visaLogo from "../../../assets/paymentImages/visa.png";
+import amexLogo from "../../../assets/paymentImages/AMEX.png";
 
 const methodIcons = [
-  { name: "visa", src: "visa.png" },
-  { name: "master-card", src: masterCard },
-  { name: "amex", src: "amex.png" },
-  { name: "diners", src: "diners.png" },
+  { name: "visa", src: visaLogo },
+  { name: "master-card", src: masterCardLogo },
+  { name: "amex", src: amexLogo },
+  { name: "diners", src: dineLogo },
 ];
 const membershipPlans = [
   { type: "Basic", price: 36, period: "Year" },
@@ -92,12 +95,18 @@ const PaymentPage = () => {
                     <span className={styles.customRadio}></span>
                     <div className={styles.methodIconsContainer}>
                       {methodIcons.map((icon) => (
-                        <Img
-                          key={icon.name}
-                          src={icon.src}
-                          alt={icon.name}
-                          className={styles.methodsIcon}
-                        />
+                        <div
+                          className={`${styles.iconWrapper} ${
+                            icon.name === "amex" && styles.amexIcon
+                          }`}
+                        >
+                          <Img
+                            key={icon.name}
+                            src={icon.src}
+                            alt={icon.name}
+                            className={`${styles.methodsIcon} `}
+                          />
+                        </div>
                       ))}
                       {/* <Icon
                         sprite="payment"
