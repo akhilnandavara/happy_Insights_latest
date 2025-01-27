@@ -65,7 +65,7 @@ li {
   display: flex;
   flex-direction: column;
   margin: 0 auto;
-  height: calc(100vh - 10px); /* Account for padding or margins */
+  height: calc(100vh); /* Account for padding or margins */
   overflow: hidden;
   position: relative;
 }

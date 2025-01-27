@@ -134,14 +134,11 @@ export default function Comment({
       >
         <div className={styles.userInfo}>
           {isReply && (
-            <>
-              <div className={styles.replyItemGap}></div>
-              <Icon
-                sprite="youtube"
-                name={"arrow-right"}
-                className={`${styles.icon} ${styles.userInfoArrow}`}
-              />
-            </>
+            <Icon
+              sprite="youtube"
+              name={"arrow-right"}
+              className={`${styles.icon} ${styles.userInfoArrow}`}
+            />
           )}
           {!isReply && (
             <ProfileAvatar
