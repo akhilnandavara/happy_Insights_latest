@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styles from "./Styles/PaymentPage.module.css";
 import { Heading, Img, Text } from "../../../components/ui";
+import Icon from "../../../components/Icon";
 import masterCardLogo from "../../../assets/paymentImages/MasterCard.png";
 import dineLogo from "../../../assets/paymentImages/DinersClub.png";
 import visaLogo from "../../../assets/paymentImages/visa.png";
@@ -11,6 +12,7 @@ import payPalLogo from "../../../assets/paymentImages/PayPal.png";
 import shopPayLogo from "../../../assets/paymentImages/ShopPay.png";
 import alipayLogo from "../../../assets/paymentImages/Alipay.png";
 import PeriodToggle from "./components/PeriodToggle";
+
 
 const methodIcons = {
   cardIcons: [
@@ -344,6 +346,7 @@ const PaymentPage = () => {
                 </label>
               </div>
               <button type="submit" className={styles.submitButton}>
+                <Icon name="energy" />
                 Upgrade Plan
               </button>
             </div>

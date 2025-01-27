@@ -77,7 +77,6 @@
   cursor: pointer;
   border: 1px solid var(--divider);
   border-radius: 5px;
-  
 }
 .active {
   border-color: var(--primary) !important;
@@ -260,6 +259,9 @@
   border-radius: 5px;
   cursor: pointer;
   transition: background 0.3s;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .submitButton:hover {
