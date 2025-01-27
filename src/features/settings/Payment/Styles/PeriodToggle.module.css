@@ -1,0 +1,58 @@
+.toggleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  /* max-width: 174px; */
+  max-width: 64%;
+  border: 1px solid var(--divider);
+  border-radius: 100px;
+  position: relative;
+  padding: 4px;
+}
+
+.toggleBtn {
+  cursor: pointer;
+  padding: 8px 16px;
+  border-radius: 100px;
+  width: max-content;
+  font-family: Poppins;
+  font-size: 14px;
+  font-weight: 500;
+  text-wrap: nowrap;
+  line-height: 16.1px;
+  color: var(--text-secondary);
+}
+.saveTag {
+  position: absolute;
+  top: -45px;
+  left: 0;
+  translate: 20%;
+  color: var(--white);
+  background: var(--dark-primary);
+  border-radius: 4px;
+  padding: 6px 12px;
+}
+.toggleBtnTagText {
+  font-family: Poppins;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 15px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+.arrowDown {
+  position: absolute;
+  bottom: -5px;
+  left: 50%;
+  translate: -50%;
+  background: var(--dark-primary);
+  height: 10px;
+  width: 10px;
+  rotate: 45deg;
+}
+
+.active {
+  background: var(--primary); /* Active text color matches brand green */
+  color: var(--white);
+}

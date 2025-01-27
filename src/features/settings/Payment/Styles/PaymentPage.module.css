@@ -77,6 +77,7 @@
   cursor: pointer;
   border: 1px solid var(--divider);
   border-radius: 5px;
+  
 }
 .active {
   border-color: var(--primary) !important;
@@ -105,7 +106,10 @@
   object-fit: contain;
 }
 .amexIcon {
-  background: rgba(31, 114, 205, 1);
+  background: var(--amex-logo-bg);
+}
+.shopPayIcon {
+  background: var(--shopPay-logo-bg);
 }
 
 /* Custom checkbox container */
@@ -196,6 +200,7 @@
   border-radius: 5px;
   background: var(--inputBox-bg);
   border: 1px solid var(--inputBox-border);
+  cursor: pointer;
 }
 .planContent {
   display: flex;

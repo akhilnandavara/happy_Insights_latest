@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import styles from "./Payment.module.css";
 import PricingCard from "./components/PricingCard";
 import PricingHeader from "./components/PricingHeader";
-import { Text } from "../../../components/ui";
 import { useNavigate } from "react-router-dom";
+import PeriodToggle from "./components/PeriodToggle";
 
 const pricingMonthData = [
   {
@@ -56,8 +56,8 @@ const pricingMonthData = [
 ];
 
 const PricingModel = () => {
-  const [planType, setPlanType] = useState("Yearly");
-  const planTypeOptions = ["Yearly", "Monthly"];
+  const [planPeriod, setPlanPeriod] = useState("Yearly");
+
   const navigate = useNavigate();
   const onBtnClick = () => {
     navigate("/settings/pricing-model/payment");
@@ -69,25 +69,7 @@ const PricingModel = () => {
 
       <div className={styles.dynamicPricingContainer}>
         {/* Toggle */}
-        <div className={styles.toggleContainer}>
-          {planTypeOptions.map((plan, index) => (
-            <div
-              onClick={() => setPlanType(plan)}
-              key={index}
-              className={`${styles.toggleBtn} ${
-                planType === plan ? styles.active : ""
-              }`}
-            >
-              {plan}
-            </div>
-          ))}
-          <div className={styles.saveTag}>
-            <Text as={"p"} className={styles.toggleBtnTagText}>
-              Save 20%
-            </Text>
-            <div className={styles.arrowDown}></div>
-          </div>
-        </div>
+        <PeriodToggle planPeriod={planPeriod} setPlanPeriod={setPlanPeriod} pricingPage={true} />
         {/* Pricings Cards */}
         <div className={styles.pricingCardsContainer}>
           {pricingMonthData.map((plan) => (

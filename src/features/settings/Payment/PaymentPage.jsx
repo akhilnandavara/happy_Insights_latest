@@ -1,18 +1,36 @@
 import React, { useState } from "react";
 import styles from "./Styles/PaymentPage.module.css";
 import { Heading, Img, Text } from "../../../components/ui";
-import Icon from "../../../components/Icon";
 import masterCardLogo from "../../../assets/paymentImages/MasterCard.png";
 import dineLogo from "../../../assets/paymentImages/DinersClub.png";
 import visaLogo from "../../../assets/paymentImages/visa.png";
 import amexLogo from "../../../assets/paymentImages/AMEX.png";
+import gpayLogo from "../../../assets/paymentImages/GooglePay.png";
+import applePayLogo from "../../../assets/paymentImages/ApplePay.png";
+import payPalLogo from "../../../assets/paymentImages/PayPal.png";
+import shopPayLogo from "../../../assets/paymentImages/ShopPay.png";
+import alipayLogo from "../../../assets/paymentImages/Alipay.png";
+import PeriodToggle from "./components/PeriodToggle";
 
-const methodIcons = [
-  { name: "visa", src: visaLogo },
-  { name: "master-card", src: masterCardLogo },
-  { name: "amex", src: amexLogo },
-  { name: "diners", src: dineLogo },
-];
+const methodIcons = {
+  cardIcons: [
+    { name: "diners", src: dineLogo },
+    { name: "visa", src: visaLogo },
+    { name: "amex", src: amexLogo },
+    { name: "master-card", src: masterCardLogo },
+  ],
+  upiIcons: [
+    { name: "paypal", src: payPalLogo },
+    { name: "applepay", src: applePayLogo },
+    { name: "shopPay", src: shopPayLogo },
+    { name: "gpay", src: gpayLogo },
+    { name: "alipay", src: alipayLogo },
+  ],
+};
+const paymentPageHeaderContent = {
+  title: "Take Your Membership to the Next Level",
+  desc: "Unlock full access to all features and maximize your savings with an additional  20% discount when you choose our yearly subscription. Take advantage of this exclusive offer and streamline your channel management like never before!",
+};
 const membershipPlans = [
   { type: "Basic", price: 36, period: "Year" },
   { type: "Normal", price: 60, period: "Year" },
@@ -36,6 +54,7 @@ const PaymentPage = () => {
     useCoins: false,
   });
 
+  const [planPeriod, setPlanPeriod] = useState("Yearly");
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
     setFormData((prev) => ({
@@ -55,17 +74,18 @@ const PaymentPage = () => {
     );
     console.log("Form Data:", formData);
   };
+  const { cardIcons, upiIcons } = methodIcons;
+  const { title, desc } = paymentPageHeaderContent;
 
   return (
     <div className={styles.wrapper}>
       <div className={styles.container}>
         <div className={styles.header}>
           <Heading as={"h1"} className={styles.title}>
-            Take Your Membership to the Next Level
+            {title}
           </Heading>
           <Text as={"p"} className={styles.description}>
-            Unlock full access to all features and maximize your savings with an
-            additional <strong>20% discount</strong> for yearly subscriptions.
+            {desc}
           </Text>
         </div>
 
@@ -94,7 +114,7 @@ const PaymentPage = () => {
                     />
                     <span className={styles.customRadio}></span>
                     <div className={styles.methodIconsContainer}>
-                      {methodIcons.map((icon) => (
+                      {cardIcons.map((icon) => (
                         <div
                           className={`${styles.iconWrapper} ${
                             icon.name === "amex" && styles.amexIcon
@@ -108,11 +128,6 @@ const PaymentPage = () => {
                           />
                         </div>
                       ))}
-                      {/* <Icon
-                        sprite="payment"
-                        name="master-card"
-                        className={styles.methodsIcon}
-                      /> */}
                     </div>
                   </label>
                   {/* UPI Option */}
@@ -130,7 +145,20 @@ const PaymentPage = () => {
                       className={styles.radio} // Update class if needed
                     />
                     <span className={styles.customRadio}></span>
-                    <span>UPI</span>
+                    {upiIcons.map((icon) => (
+                      <div
+                        className={`${styles.iconWrapper} ${
+                          icon.name === "shopPay" && styles.shopPayIcon
+                        }`}
+                      >
+                        <Img
+                          key={icon.name}
+                          src={icon.src}
+                          alt={icon.name}
+                          className={`${styles.methodsIcon} `}
+                        />
+                      </div>
+                    ))}
                   </label>
                 </div>
               </div>
@@ -236,7 +264,10 @@ const PaymentPage = () => {
 
             {/* Right Section */}
             <div className={styles.rightSection}>
-              {/* //TODO: Adding Toggle BTn  */}
+              <PeriodToggle
+                planPeriod={planPeriod}
+                setPlanPeriod={setPlanPeriod}
+              />
               <div className={styles.plansInputsWrapper}>
                 <div className={styles.contentWrapper}>
                   <h3 className={styles.sectionTitle}>Membership Type</h3>

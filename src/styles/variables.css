@@ -43,6 +43,8 @@
   --paymentMethod-bg: rgba(253, 253, 253, 1);
   --inputBox-border: rgba(239, 239, 239, 1);
   --inputBox-bg: rgba(254, 254, 254, 1);
+  --amex-logo-bg:rgba(31, 114, 205, 1);
+  --shopPay-logo-bg:rgba(90, 49, 244, 1);
 
   /* Text Color */
   --text-value: rgba(55, 65, 81, 1);
