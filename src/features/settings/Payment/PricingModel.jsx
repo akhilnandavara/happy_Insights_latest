@@ -14,8 +14,9 @@ const pricingMonthData = [
       "Project Planning",
       "Team Collaboration",
       "Notifications and Reminders",
+      "File Sharing",
     ],
-    classes: styles.basicBorderTop,
+    class: styles.basicBorderTop,
   },
   {
     title: "Normal",
@@ -69,7 +70,11 @@ const PricingModel = () => {
 
       <div className={styles.dynamicPricingContainer}>
         {/* Toggle */}
-        <PeriodToggle planPeriod={planPeriod} setPlanPeriod={setPlanPeriod} pricingPage={true} />
+        <PeriodToggle
+          planPeriod={planPeriod}
+          setPlanPeriod={setPlanPeriod}
+          pricingPage={true}
+        />
         {/* Pricings Cards */}
         <div className={styles.pricingCardsContainer}>
           {pricingMonthData.map((plan) => (

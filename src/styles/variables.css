@@ -45,6 +45,7 @@
   --inputBox-bg: rgba(254, 254, 254, 1);
   --amex-logo-bg:rgba(31, 114, 205, 1);
   --shopPay-logo-bg:rgba(90, 49, 244, 1);
+  --popularTag-bg: rgba(5, 150, 105, 1);
 
   /* Text Color */
   --text-value: rgba(55, 65, 81, 1);
@@ -103,7 +104,7 @@
   --statsOveriew-icon-negative: rgba(238, 104, 95, 1);
 
   /* Plan Colors */
-  --color-gray: rgba(161, 161, 170, 1);
+  --color-gray: rgb(152,152,164);
   --color-orange: rgba(242, 153, 74, 1);
   --color-green: rgba(33, 150, 83, 1);
   --color-purple: purple;

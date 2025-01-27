@@ -3,7 +3,14 @@ import styles from "../Payment.module.css";
 import { Heading, Text } from "../../../../components/ui";
 import { IoCheckmarkSharp } from "react-icons/io5";
 
-const PricingCard = ({ title, price, features, buttonText, className ,onBtnClick }) => {
+const PricingCard = ({
+  title,
+  price,
+  features,
+  buttonText,
+  className,
+  onBtnClick,
+}) => {
   return (
     <div className={`${styles.card} ${className}`}>
       <div className={styles.cardHeader}>
@@ -23,17 +30,24 @@ const PricingCard = ({ title, price, features, buttonText, className ,onBtnClick
         </Text>
       </div>
       <ul className={styles.featuresList}>
-        <Heading as={"h2"} className={styles.featuresListTitle}>What You Get</Heading>
+        <Heading as={"h2"} className={styles.featureListTitle}>
+          {title.toLowerCase() === "basic"
+            ? "What You Get"
+            : `All ${title.toLowerCase()} features, plus:`}
+        </Heading>
         {features.map((feature, index) => (
           <li key={index} className={styles.featureItem}>
             <IoCheckmarkSharp
               className={`${styles.icon} ${styles.featureTickIcon}`}
             />
-            <Text className={styles.featureItemText} > {feature}</Text>
+            <Text className={styles.featureItemText}> {feature}</Text>
           </li>
         ))}
       </ul>
-      <button className={styles.cardButton} onClick={onBtnClick}>Get Started</button>
+      <button className={styles.cardButton} onClick={onBtnClick}>
+        Get Started
+      </button>
+     {title.toLowerCase()==="pro" && <Text as={"p"} className={styles.popularTag}>Most Popular</Text>}
     </div>
   );
 };
