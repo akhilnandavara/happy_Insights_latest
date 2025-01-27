@@ -57,6 +57,7 @@
   --statsOveriew-title-secondary: rgba(123, 123, 123, 1);
   --text-statsOveriew-value-positive: rgba(21, 154, 92, 1);
   --text-statsOveriew-value-negative: rgba(199, 60, 51, 1);
+  --text-link:rgba(0, 133, 255, 1);
 
   /* Dashboard  Text */
   --text-dashboard-title: rgba(0, 75, 80, 1);
@@ -64,6 +65,7 @@
   --text-filterByPeriod-btn: rgba(37, 33, 59, 1);
   --text-barGraph-title: rgba(104, 113, 127, 1);
   --text-sentimentsLabel-title: rgba(8, 47, 73, 1);
+
 
   /* Youtube */
   --text-aiBot-time: rgba(155, 167, 182, 1);

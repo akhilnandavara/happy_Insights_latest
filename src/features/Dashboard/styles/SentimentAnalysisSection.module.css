@@ -102,9 +102,9 @@
 }
 .averageValueContainer {
   position: absolute;
-  top: 50%;
+  bottom: 0;
   left: 50%;
-  transform: translate(-50%, -20%);
+  transform: translateX(-50%);
   text-align: center;
 }
 .chartContainer canvas {

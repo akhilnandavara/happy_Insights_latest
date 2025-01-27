@@ -36,17 +36,16 @@
   gap: 6px;
   align-items: center;
 }
-.headertitle {
+.headerTitle {
   font-size: 16px;
   line-height: 24px;
   font-family: Poppins;
   font-size: 16px;
   font-weight: 600;
-  line-height: 24px;
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  color: var(--text-value);
+  color: var(--dark-primary);
 }
 .countTag {
   border-radius: 15px;
@@ -69,20 +68,19 @@
 }
 
 .markAllRead {
-  color: var(--color-blue);
+  color: var(--text-link);
   cursor: pointer;
-  font-family: Inter;
+  font-family: "Inter", sans-serif;
   font-size: 12px;
   font-weight: 500;
-  line-height: 24px;
   text-align: right;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
 
 .closeIcon {
-  color: var(--text-secondary);
-  font-size: 1rem;
+  color: var(--text-userInputBox);
+  font-size: 16px;
   cursor: pointer;
 }
 .closeIcon:hover {

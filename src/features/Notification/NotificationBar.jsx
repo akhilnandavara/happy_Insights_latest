@@ -55,7 +55,7 @@ const NotificationBar = ({ handleNotificationToggle }) => {
         {/* Inbox  -Top Section  */}
         <div className={styles.section_1}>
           <div className={styles.titleContainer}>
-            <Heading as={"h2"} className={styles.headertitle}>
+            <Heading as={"h2"} className={styles.headerTitle}>
               Inbox
             </Heading>
             <Text className={styles.countTag}>2</Text>
