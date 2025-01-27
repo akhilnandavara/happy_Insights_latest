@@ -16,6 +16,7 @@
 .searchIcon {
   width: 20px !important;
   height: 20px !important;
+  flex-shrink: 0;
 }
 
 .searchInput {

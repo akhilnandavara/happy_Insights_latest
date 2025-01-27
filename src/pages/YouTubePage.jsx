@@ -83,7 +83,6 @@ const selectFilteredVideos = createSelector(
 export default function YouTubePage() {
   const dispatch = useDispatch();
   const { userConfig } = useSelector((state) => state.profile);
-
   const { channel_id, channel_name } = userConfig?.YouTube[0];
   const { videoList, showStats } = useSelector((state) => state.youtube);
   const { dateVideos, extraVideos } = useSelector(selectFilteredVideos);
@@ -137,63 +136,59 @@ export default function YouTubePage() {
   );
 
   return (
-    <>
-      {/* CommentsSection */}
-
-      <div className={`${styles.wrapper} `}>
-        {/* Video list Sidebar */}
-        {!showStats && (
-          <VideoListSidebar
-            dateVideos={dateVideos}
-            extraVideos={extraVideos}
-            selectedVideo={
-              compareComments ? selectedVideosMulti : [selectedVideoSingle]
-            }
-            onVideoSelect={handleVideoSelection}
-            compareComments={compareComments}
-          />
-        )}
-        <div className={styles.content}>
-          <div className={`${styles.mainContent} `}>
-            <div
-              className={`${styles.commentContainer}  ${
-                !showStats ? styles.slideInTopLeft : styles.slideOutTopLeft
-              }`}
-            >
-              {compareComments ? (
-                <CompareCommentsSection
-                  selectedVideos={selectedVideosMulti}
-                  setSelectedVideo={handleVideoSelection}
-                  compareComments={compareComments}
-                  handleCompareComments={() =>
-                    setCompareComments(!compareComments)
-                  }
-                  onClearSelection={() => setSelectedVideosMulti([])}
-                />
-              ) : (
-                <CommentSection
-                  selectedVideo={memoizedSelectedVideoSingle}
-                  compareComments={compareComments}
-                  onVideoSelect={handleVideoSelection}
-                  handleCompareComments={() =>
-                    setCompareComments(!compareComments)
-                  }
-                />
-              )}
-            </div>
-            <StatsSection
-              charts={chartsData}
-              statsOverViewData={StatsOverViewData}
-            />
+    <div className={`${styles.wrapper} `}>
+      {/* Video list Sidebar */}
+      {!showStats && (
+        <VideoListSidebar
+          dateVideos={dateVideos}
+          extraVideos={extraVideos}
+          selectedVideo={
+            compareComments ? selectedVideosMulti : [selectedVideoSingle]
+          }
+          onVideoSelect={handleVideoSelection}
+          compareComments={compareComments}
+        />
+      )}
+      <div className={styles.content}>
+        <div className={`${styles.mainContent} `}>
+          <div
+            className={`${styles.commentContainer}  ${
+              !showStats ? styles.slideInTopLeft : styles.slideOutTopLeft
+            }`}
+          >
+            {compareComments ? (
+              <CompareCommentsSection
+                selectedVideos={selectedVideosMulti}
+                setSelectedVideo={handleVideoSelection}
+                compareComments={compareComments}
+                handleCompareComments={() =>
+                  setCompareComments(!compareComments)
+                }
+                onClearSelection={() => setSelectedVideosMulti([])}
+              />
+            ) : (
+              <CommentSection
+                selectedVideo={memoizedSelectedVideoSingle}
+                compareComments={compareComments}
+                onVideoSelect={handleVideoSelection}
+                handleCompareComments={() =>
+                  setCompareComments(!compareComments)
+                }
+              />
+            )}
           </div>
-
-          {!compareComments && !showStats && (
-            <div className={`${styles.suggestionContainer} fadeIn`}>
-              <SuggestionSection />
-            </div>
-          )}
+          <StatsSection
+            charts={chartsData}
+            statsOverViewData={StatsOverViewData}
+          />
         </div>
+
+        {!compareComments && !showStats && (
+          <div className={`${styles.suggestionContainer} fadeIn`}>
+            <SuggestionSection />
+          </div>
+        )}
       </div>
-    </>
+    </div>
   );
 }

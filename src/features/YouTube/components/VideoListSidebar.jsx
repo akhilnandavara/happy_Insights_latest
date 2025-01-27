@@ -44,38 +44,36 @@ const VideoItem = React.memo(
             className={styles.thumbnailImg}
           />
         </div>
-
-        {isSidebarOpen && (
-          <div className={styles.videoInfo}>
-            {/* Video Title */}
-            <Heading as="h3" className={styles.videoTitle}>
-              {title}
-            </Heading>
-            {/* Subtitle */}
-            <Text as="p" className={styles.videoSubTitle}>
-              {description}
-            </Text>
-            {/* Video Stats Cotainer */}
-            <div className={styles.videoStatsContainer}>
-              <div className={styles.videoStats}>
-                <IoMdEye className={styles.icon} />
-                <Text as="p" className={styles.videoSubTitle}>
-                  {formatViewCount(view_count)}
-                </Text>
-              </div>
-              <div className={styles.videoStats}>
-                <Icon
-                  sprite="youtube"
-                  name="message"
-                  className={styles.videoStatsIcon}
-                />
-                <Text as="p" className={styles.videoSubTitle}>
-                  {comment_count}
-                </Text>
-              </div>
+        {/* VideoItem Info */}
+        <div className={classNames(styles.videoInfo)}>
+          {/* Video Title */}
+          <Heading as="h3" className={styles.videoTitle}>
+            {title}
+          </Heading>
+          {/* Subtitle */}
+          <Text as="p" className={styles.videoSubTitle}>
+            {description}
+          </Text>
+          {/* Video Stats Container */}
+          <div className={styles.videoStatsContainer}>
+            <div className={styles.videoStats}>
+              <IoMdEye className={styles.icon} />
+              <Text as="p" className={styles.videoSubTitle}>
+                {formatViewCount(view_count)}
+              </Text>
+            </div>
+            <div className={styles.videoStats}>
+              <Icon
+                sprite="youtube"
+                name="message"
+                className={styles.videoStatsIcon}
+              />
+              <Text as="p" className={styles.videoSubTitle}>
+                {comment_count}
+              </Text>
             </div>
           </div>
-        )}
+        </div>
       </div>
     );
   }
@@ -176,64 +174,61 @@ export default function VideoListSidebar({
         <div className={styles.headerChannelInfoContainer}>
           {/* Section 1 */}
           <div
-            className={`${styles.channelNameContainer} ${
-              !isSidebarOpen && styles.closedIcon
-            }`}
+            className={classNames(styles.channelNameContainer, {
+              [styles.closedIcon]: !isSidebarOpen,
+            })}
           >
             <ProfileAvatar
               name={channelData?.name}
               profilePhotoUrl={channelData?.profile_photo_url}
               className={classNames(styles.headerChannelLogo, {
                 [styles.headerChannelLogoOpen]: isSidebarOpen,
-                [styles.headerChannelLogoClosed]: !isSidebarOpen,
+                [styles.headerChannelLogoClosed]: !isSidebarOpen, // Keep this logic
               })}
             />
-
-            {isSidebarOpen && (
-              <div className={styles.headerChannelInfo}>
-                <Heading className={styles.headerChannelInfoTitle} as="h1">
-                  {channelData.name}
-                </Heading>
-                <Text
-                  as="p"
-                  size="sm"
-                  className={styles.headerChannelInfoSubTitle}
-                >
-                  Channel Name
-                </Text>
-              </div>
-            )}
-          </div>
-          {/* Section 2 */}
-          {isSidebarOpen && (
-            <div className={styles.headerChannelStatsContainer}>
-              <div className={styles.headerChannelStatsItem}>
-                <Text as="p" className={styles.headerChannelInfoTitle}>
-                  1.4M
-                </Text>
-                <Text
-                  as="p"
-                  size="sm"
-                  className={styles.headerChannelInfoSubTitle}
-                >
-                  Subscribers
-                </Text>
-              </div>
-              <div className={styles.headerChannelStatsItem}>
-                <Text as="p" className={styles.headerChannelInfoTitle}>
-                  254
-                </Text>
-                <Text
-                  as="p"
-                  size="sm"
-                  className={styles.headerChannelInfoSubTitle}
-                >
-                  Videos
-                </Text>
-              </div>
+            <div className={styles.headerChannelInfo}>
+              <Heading className={styles.headerChannelInfoTitle} as="h1">
+                {channelData.name}
+              </Heading>
+              <Text
+                as="p"
+                size="sm"
+                className={styles.headerChannelInfoSubTitle}
+              >
+                Channel Name
+              </Text>
             </div>
-          )}
+          </div>
+
+          {/* Section 2 */}
+          <div className={styles.headerChannelStatsContainer}>
+            <div className={styles.headerChannelStatsItem}>
+              <Text as="p" className={styles.headerChannelInfoTitle}>
+                1.4M
+              </Text>
+              <Text
+                as="p"
+                size="sm"
+                className={styles.headerChannelInfoSubTitle}
+              >
+                Subscribers
+              </Text>
+            </div>
+            <div className={styles.headerChannelStatsItem}>
+              <Text as="p" className={styles.headerChannelInfoTitle}>
+                254
+              </Text>
+              <Text
+                as="p"
+                size="sm"
+                className={styles.headerChannelInfoSubTitle}
+              >
+                Videos
+              </Text>
+            </div>
+          </div>
         </div>
+
         {/* Sidebar Toggle Button */}
         <ToggleSideBarBtn
           setSidebarOpen={setSidebarOpen}
