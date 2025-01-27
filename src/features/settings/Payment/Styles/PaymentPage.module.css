@@ -233,10 +233,12 @@
 }
 
 .highLightedText {
+  font-weight: 500;
+  size: 13px;
   color: var(--primary);
 }
 .highLightedTextOrange {
-  color: #ff6b6b;
+  color: var(--text-walletBalance);
 }
 .darkerText {
   color: var(--text-value);
@@ -244,7 +246,7 @@
 .save {
   font-size: 0.8rem;
   color: #ff6b6b;
-  font-weight: bold;
+  font-weight: 500;
   margin-left: 5px;
 }
 
@@ -252,7 +254,7 @@
   width: 100%;
   padding: 6px 92px;
   font-size: 14px;
-  font-weight: bold;
+  font-weight: 500;
   color: var(--white);
   background: var(--primary);
   border: none;
@@ -260,6 +262,7 @@
   cursor: pointer;
   transition: background 0.3s;
   display: flex;
+  gap: 7px;
   justify-content: center;
   align-items: center;
 }

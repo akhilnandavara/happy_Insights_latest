@@ -13,16 +13,15 @@
 .toggleButtonWrapperClosed {
   right: -2.5rem;
 }
-.toggleButtonWrapperClosed:hover {
+.toggleButtonWrapperClosed:has(.toggleButton:hover) {
   border-radius: 0 10px 10px 0;
-  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1); /* Shadow on the right */
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.1);
 }
 .toggleButtonWrapperOpen {
   right: -1px;
 }
-
-.toggleButtonWrapperOpen:hover {
-  box-shadow: -2px 0 2px rgba(0, 0, 0, 0.1); /* Subtle shadow on the left */
+.toggleButtonWrapperOpen:has(.toggleButton:hover) {
+  box-shadow: -2px 0 2px rgba(0, 0, 0, 0.1);
   border-radius: 10px 0px 0 10px;
 }
 

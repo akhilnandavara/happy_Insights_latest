@@ -13,7 +13,6 @@ import shopPayLogo from "../../../assets/paymentImages/ShopPay.png";
 import alipayLogo from "../../../assets/paymentImages/Alipay.png";
 import PeriodToggle from "./components/PeriodToggle";
 
-
 const methodIcons = {
   cardIcons: [
     { name: "diners", src: dineLogo },
@@ -327,6 +326,7 @@ const PaymentPage = () => {
                     </span>
                   </Text>
                 </label>
+
                 {/* T&c */}
                 <label className={styles.checkboxContainer}>
                   <input
@@ -340,8 +340,11 @@ const PaymentPage = () => {
                   ></span>
 
                   <Text as={"p"} className={styles.description}>
-                    By continuing, you agree to our{" "}
-                    <a href="/terms">terms and conditions</a>.
+                    By continuing
+                    <strong className={styles.highLightedText}>
+                      {" "}
+                      you agree to our terms and conditions.
+                    </strong>
                   </Text>
                 </label>
               </div>

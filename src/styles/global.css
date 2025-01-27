@@ -143,11 +143,17 @@ li {
   border: none !important;
   font-family: "poppins" !important;
   position: absolute;
-  bottom: -100px;
+  bottom: 0;
+  left: 0;
+  transform: translate(-50%, 100%);
   /* background-color: #000; */
   width: auto !important;
   max-width: 100% !important;
-  min-width: 230px !important;
+  min-width: 210px !important;
+}
+
+.react-datepicker__input-container input::placeholder {
+  font-size: 12px; 
 }
 
 .react-datepicker__header {

@@ -26,6 +26,7 @@ export default [
       ...react.configs['jsx-runtime'].rules,
       ...reactHooks.configs.recommended.rules,
       'react/jsx-no-target-blank': 'off',
+      "import/no-unresolved": "error", 
     },
   },
 ];

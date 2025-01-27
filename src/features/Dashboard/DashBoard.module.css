@@ -70,13 +70,13 @@
   max-width: 60%;
 }
 .searchButton {
-  padding: 10px 20px;
+  padding: 8px 16px;
   background-color: var(--primary);
   color: var(--white);
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  font-size: 0.875rem;
+  font-size: 14px;
   transition: all 0.3s ease;
 }
 .searchButton:hover {

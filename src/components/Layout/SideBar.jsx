@@ -9,14 +9,15 @@ import ToggleSideBarBtn from "../ToggleSideBarBtn";
 import { setShowIntroModal } from "../../store/slices/profileSlice";
 import { useDispatch } from "react-redux";
 import NotificationBar from "../../features/Notification/NotificationBar";
+import useWindowSize from "../../hooks/useWindowSize";
 
 export default function SideBar({ showIntroModal }) {
   const [isSideBarOpen, setIsSideBarOpen] = useState(true);
   const [notificationBarOpen, setNotificationBarOpen] = useState(false);
   const dispatch = useDispatch();
   const sideBarRef = useRef();
-  // const { width } = useWindowSize();
-  //   const [isMobile, setIsMobile] = useState(width < 600);
+  const { width } = useWindowSize();
+  const [isMobile, setIsMobile] = useState(width < 600);
 
   useOnClickOutside(sideBarRef, (prev) => isMobile && setIsSideBarOpen(!prev));
   const handleNotificationToggle = () => {
@@ -105,13 +106,12 @@ export default function SideBar({ showIntroModal }) {
       </div>
 
       {/* Toggle Button - Only visible on small screens */}
-      {!notificationBarOpen ? (
-        <ToggleSideBarBtn
-          setSidebarOpen={setIsSideBarOpen}
-          isSidebarOpen={isSideBarOpen}
-        />
-      ) : (
-        <NotificationBar  handleNotificationToggle={handleNotificationToggle}/>
+      <ToggleSideBarBtn
+        setSidebarOpen={setIsSideBarOpen}
+        isSidebarOpen={isSideBarOpen}
+      />
+      {notificationBarOpen && (
+        <NotificationBar handleNotificationToggle={handleNotificationToggle} />
       )}
     </div>
   );
