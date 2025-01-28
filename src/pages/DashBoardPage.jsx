@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import {  useSelector } from "react-redux";
+import { useSelector } from "react-redux";
 import useDebounce from "../hooks/useDebounce";
 import styles from "../features/Dashboard/Dashboard.module.css";
 import { Heading } from "../components/ui";
@@ -11,14 +11,26 @@ import SentimentAnalysisSection from "../features/Dashboard/components/Sentiment
 import {
   dashboardStaticData,
   FilterBarData,
-  dashboardBarChartData,
-  dashboardDoughnutChartData,
-} from "../data/Dashboard";
+  dashboardApiData,
+} from "../data/dashboard";
 import DashBoardHeaderRightSlider from "../components/Carousel/DashboardHeaderRightSlider";
+import { barChartDefaultStyles, barChartDefaults } from "../data/chart";
 
 // Utility: Debounced User Data
-const getDebouncedUser = (user) =>
-  useDebounce(user || JSON.parse(sessionStorage.getItem("user")), 300);
+const getDebouncedUser = (user) => useDebounce(user || JSON.parse(sessionStorage.getItem("user")), 300);
+
+// Data and Constants
+const { welcomeMessage } = dashboardStaticData;
+const { barChart, doughnutChart } = dashboardApiData.charts;
+const { sentimentData, sourcesData, averageSentiment } = doughnutChart;
+const datasets = barChart.data.datasets.map((dataset, index) => ({
+  ...dataset,
+  ...(barChartDefaultStyles[index] || {}), // Apply corresponding styles or fallback to an empty object
+}));
+const barChartData = {
+  labels: barChart.data.labels,
+  datasets,
+};
 
 // Header Section
 function HeaderSection({
@@ -34,7 +46,9 @@ function HeaderSection({
           <Heading className={styles.welcomeTitle}>
             {welcomeMessage.title} {debouncedUser?.name}
           </Heading>
-          <p className={styles.welcomeDescription}>{welcomeMessage.desc}</p>
+          <p className={styles.welcomeDescription}>
+            {welcomeMessage.description}
+          </p>
           <div className={styles.searchBarContainer}>
             <SearchBar value={searchTerm} onChange={onSearchChange} />
             <button className={styles.searchButton}>Search</button>
@@ -56,9 +70,7 @@ function StatsAndFilterSection({
   barChartData,
   doughnutChartData,
 }) {
-  console.log("filterMethods", filterMethods);
-  const [activeStatsOverview, setActiveStatsOverview] =
-    useState("Total Comments");
+  const [activeStatsOverview, setActiveStatsOverview] = useState("total");
   const onStatsOverviewSelect = (platform) => setActiveStatsOverview(platform);
   return (
     <section className={styles.statsSection}>
@@ -102,16 +114,9 @@ function StatsAndFilterSection({
 export default function DashBoardPage() {
   const [searchTerm, setSearchTerm] = useState("");
 
-
   // Redux Selector and Debounced User
   const { user } = useSelector((state) => state.profile);
   const debouncedUser = getDebouncedUser(user);
-
-  // Data and Constants
-  const { data, options } = dashboardBarChartData;
-  const { sentimentData, sourcesData, averageSentiment } =
-    dashboardDoughnutChartData;
-  const welcomeMessage = dashboardStaticData.welcome_message;
 
   // Handlers
   const handleFilterSelect = (method) =>
@@ -132,12 +137,9 @@ export default function DashBoardPage() {
       <StatsAndFilterSection
         filterMethods={FilterBarData.filterMethods}
         onFilterSelect={handleFilterSelect}
-        barChartData={{ data, options }}
+        barChartData={{ data: barChartData, options: barChartDefaults.options }}
         doughnutChartData={{ sentimentData, sourcesData, averageSentiment }}
       />
-
-      {/* Modal Section */}
-    
     </div>
   );
 }

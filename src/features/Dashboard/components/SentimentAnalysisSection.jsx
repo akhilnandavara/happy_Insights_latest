@@ -3,27 +3,20 @@ import { Chart as ChartJS, ArcElement, Tooltip, Legend } from "chart.js";
 import { Doughnut } from "react-chartjs-2";
 import styles from "../styles/SentimentAnalysisSection.module.css";
 import { Heading, Text } from "../../../components/ui";
-import { dashboardDoughnutChartData } from "../../../data/dashboard";
+import { sentimentDataColor } from "../../../data/chart";
 
 // Register Chart.js components
 ChartJS.register(ArcElement, Tooltip, Legend);
 
-// Function to calculate average sentiment
-const calculateAverageSentiment = (sentimentData, positiveLabels) => {
-  const total = sentimentData.reduce((sum, item) => sum + item.count, 0);
-  if (total === 0) return 0;
-
-  const positiveCount = sentimentData.reduce(
-    (sum, item) =>
-      positiveLabels.includes(item.label) ? sum + item.count : sum,
-    0
-  );
-  return Math.round((positiveCount / total) * 100);
-};
 // Function to process chart data
-const processChartData = (sourcesData, selectedSentiment, averageSentiment) => {
+const processChartData = (
+  sentimentData,
+  sourcesData,
+  selectedSentiment,
+  averageSentiment
+) => {
   const totalComments = sourcesData.reduce(
-    (sum, source) => sum + (source.counts[selectedSentiment] || 0),
+    (sum, source) => sum + (source.breakdown[selectedSentiment] || 0),
     0
   );
 
@@ -32,15 +25,15 @@ const processChartData = (sourcesData, selectedSentiment, averageSentiment) => {
   }
 
   const filledData = sourcesData.map((source) => {
-    const sourceCount = source.counts[selectedSentiment] || 0;
+    const sourceCount = source.breakdown[selectedSentiment] || 0;
     return Math.round((sourceCount / totalComments) * averageSentiment);
   });
 
   const remainingPercentage =
     100 - filledData.reduce((sum, value) => sum + value, 0);
 
-  const sentiment = dashboardDoughnutChartData.sentimentData.find(
-    (s) => s.label.toLowerCase() === selectedSentiment.toLowerCase()
+  const sentiment = sentimentData.find(
+    (s) => s.type.toLowerCase() === selectedSentiment.toLowerCase()
   );
 
   if (!sentiment) {
@@ -49,14 +42,17 @@ const processChartData = (sourcesData, selectedSentiment, averageSentiment) => {
   }
 
   const dataForChart = sourcesData.map((source, index) => ({
-    label: source.label,
-    color: sentiment.colors[index % sentiment.colors.length],
-    count: source.counts[selectedSentiment] || 0,
+    label: source.platform,
+    color:
+      sentimentDataColor[selectedSentiment]?.[
+        index % sentimentDataColor[selectedSentiment]?.length
+      ] || "#000", // Default color if undefined
+    count: source.breakdown[selectedSentiment] || 0,
   }));
 
   return {
     chartData: {
-      labels: [...sourcesData.map((source) => source.label), "Remaining"],
+      labels: [...sourcesData.map((source) => source.platform), "Remaining"],
       datasets: [
         {
           data: [...filledData, remainingPercentage],
@@ -106,18 +102,18 @@ const SentimentList = ({ sentimentData, selectedSentiment, onSelect }) => (
     </div>
     {sentimentData.map((item) => (
       <li
-        key={item.label}
+        key={item.type}
         className={`${styles.sentimentItem} ${
-          selectedSentiment === item.label && styles.selected
+          selectedSentiment === item.type && styles.selected
         }`}
-        onClick={() => onSelect(item.label)}
+        onClick={() => onSelect(item.type)}
       >
         <div className={styles.sentimentLabel}>
           <Text as="p" className={styles.emoji}>
-            {item.emoji}
+            {item?.icon}
           </Text>
           <Text as="p" className={styles.labelText}>
-            {item.label}
+            {item.type}
           </Text>
         </div>
         <Text as="p" className={styles.count}>
@@ -172,22 +168,25 @@ const SourcesList = ({ sourcesData }) => (
 );
 
 // Main component for Sentiment Analysis Section
-const SentimentAnalysisSection = ({ sentimentData, sourcesData }) => {
+const SentimentAnalysisSection = ({
+  sentimentData,
+  sourcesData,
+  averageSentiment,
+}) => {
   const [selectedSentiment, setSelectedSentiment] = useState(
-    sentimentData[0]?.label || ""
-  );
-
-  // Calculate average sentiment using useMemo for performance optimization
-  const averageSentiment = useMemo(
-    () =>
-      calculateAverageSentiment(sentimentData, ["Happy Words", "Greets Words"]),
-    [sentimentData]
+    sentimentData[0]?.type|| ""
   );
 
   // Process chart data using useMemo for performance optimization
   const { chartData, dataForChart } = useMemo(
-    () => processChartData(sourcesData, selectedSentiment, averageSentiment),
-    [sourcesData, selectedSentiment, averageSentiment]
+    () =>
+      processChartData(
+        sentimentData,
+        sourcesData,
+        selectedSentiment,
+        averageSentiment
+      ),
+    [sentimentData,sourcesData, selectedSentiment, averageSentiment]
   );
 
   return (

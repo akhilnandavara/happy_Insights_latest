@@ -1,51 +1,53 @@
 import React from "react";
 import styles from "../styles/StatsOverView.module.css";
-import { statsOverViewData } from "../../../data/Dashboard";
 import Icon from "../../../components/Icon";
 import { FaArrowUp } from "react-icons/fa";
 import { Text } from "../../../components/ui";
+import { dashboardApiData } from "../../../data/dashboard";
 
 const StatsOverView = ({ activeStatsOverview, onStatsOverviewSelect }) => {
-  const { platforms } = statsOverViewData;
+  const { stats } = dashboardApiData.overview;
   return (
     <div className={styles.container}>
-      {platforms.map(({ name, comments, change, changeType }, index) => (
+      {stats.map(({ platform, totalComments, change }, index) => (
         <div
           key={index}
           className={`${styles.card}  ${
-            activeStatsOverview === name ? styles.active : ""
+            activeStatsOverview === platform.toLowerCase() ? styles.active : ""
           }`}
-          onClick={onStatsOverviewSelect.bind(this, name)}
+          onClick={onStatsOverviewSelect.bind(this, platform.toLowerCase())}
         >
           <div
             className={`${styles.header}  ${
-              activeStatsOverview === name ? styles.active : ""
+              activeStatsOverview === platform ? styles.active : ""
             }`}
           >
             <Icon
               name={
-                name.toLowerCase() === "total comments"
+                platform.toLowerCase() === "total"
                   ? "comments"
-                  : name.toLowerCase()
+                  : platform.toLowerCase()
               }
               className={styles.icon}
             />
-            <span className={styles.platformName}>{name}</span>
+            <span className={styles.platformName}>{platform}</span>
           </div>
           <div className={styles.body}>
-            <span className={styles.count}>{comments.toLocaleString()}</span>
+            <span className={styles.count}>
+              {totalComments.toLocaleString()}
+            </span>
             <div
               className={`${styles.updateTag} ${
-                changeType === "up" ? styles.positive : styles.negative
+                change.type === "up" ? styles.positive : styles.negative
               }`}
             >
               <FaArrowUp
                 className={`${styles.updateTagIcon} ${
-                  changeType === "down" && styles.rotate
+                  change.type === "down" && styles.rotate
                 }`}
               />
               <Text as={"p"} className={styles.updateTagText}>
-                {change}%
+                {change.value}%
               </Text>
             </div>
           </div>

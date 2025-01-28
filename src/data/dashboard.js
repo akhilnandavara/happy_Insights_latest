@@ -1,25 +1,28 @@
 
+// Static data for the dashboard page
 export const dashboardStaticData = {
-    welcome_message: {
-        "title": "Hi Welcome! 👋",
-        "desc": "Explore Happy Insights to effortlessly manage your channels using AI. It helps you analyze comments, likes, and feedback (positive or negative) while automating short replies for better engagement. Gain valuable insights to refine your content strategy and boost audience interaction."
+    welcomeMessage: {
+        title: "Hi Welcome! 👋",
+        description: "Explore Happy Insights to effortlessly manage your channels using AI. It helps you analyze comments, likes, and feedback (positive or negative) while automating short replies for better engagement. Gain valuable insights to refine your content strategy and boost audience interaction."
     },
-    card: [{
-        "title": "Channel Management",
-        "description": "Effortlessly manage video comments across your channels, including all positive and negative feedback.",
-        "button_text": "Configure Now"
-    }, {
-        "title": "Comment Control Hub",
-        "description": "Upgrade to effortlessly manage video comments, gain insights, and handle both positive and negative feedback.",
-        "button_text": "Upgrade To Pro"
-    },
-    {
-        "title": "AI Insghts: Video Enagement Analysis",
-        "description": "Effortlessly manage video comments across your channels, including all positive and negative feedback.",
-        "button_text": "Explore Now"
-    },
-    ]
-}
+    // cards: [
+    //     {
+    //         title: "Channel Management",
+    //         description: "Effortlessly manage video comments across your channels, including all positive and negative feedback.",
+    //         btnText: "Configure Now"
+    //     },
+    //     {
+    //         title: "Comment Control Hub",
+    //         description: "Upgrade to effortlessly manage video comments, gain insights, and handle both positive and negative feedback.",
+    //         btnText: "Upgrade To Pro"
+    //     },
+    //     {
+    //         title: "AI Insights: Video Engagement Analysis",
+    //         description: "Effortlessly manage video comments across your channels, including all positive and negative feedback.",
+    //         btnText: "Explore Now"
+    //     },
+    // ]
+};
 
 export const FilterBarData = {
     filterMethods: {
@@ -33,270 +36,420 @@ export const FilterBarData = {
 
 }
 
-export const statsOverViewData = {
-    platforms: [
-        {
-            name: "Total Comments",
-            comments: 12635,
-            change: "12",
-            changeType: "up"
+
+
+// APi Data for the dashboard page
+// export const statsOverViewData = {
+//     platforms: [
+//         {
+//             name: "Total Comments",
+//             comments: 12635,
+//             change: "12",
+//             changeType: "up"
+//         },
+//         {
+//             name: "Facebook",
+//             comments: 2354,
+//             change: "5",
+//             changeType: "down"
+//         },
+//         {
+//             name: "YouTube",
+//             comments: 3276,
+//             change: "21",
+//             changeType: "up"
+//         },
+//         {
+//             name: "Instagram",
+//             comments: 1804,
+//             change: "3",
+//             changeType: "down"
+//         },
+//         {
+//             name: "LinkedIn",
+//             comments: 2719,
+//             change: "1",
+//             changeType: "down"
+//         },
+//         {
+//             name: "TikTok",
+//             comments: 2482,
+//             change: "8",
+//             changeType: "up"
+//         },
+//     ],
+//     averageComments: [
+//         {
+//             day: "Monday",
+//             thisWeek: 800,
+//             lastWeek: 800,
+//         },
+//         {
+//             day: "Tuesday",
+//             thisWeek: 1000,
+//             lastWeek: 1000,
+//         },
+//         {
+//             day: "Wednesday",
+//             thisWeek: 1600,
+//             lastWeek: 1600,
+//         },
+//         {
+//             day: "Thursday",
+//             thisWeek: 1800,
+//             lastWeek: 1800,
+//         },
+//         {
+//             day: "Friday",
+//             thisWeek: 1200,
+//             lastWeek: 1200,
+//         },
+//         {
+//             day: "Saturday",
+//             thisWeek: 1400,
+//             lastWeek: 1400,
+//         },
+//         {
+//             day: "Sunday",
+//             thisWeek: 2000,
+//             lastWeek: 2000,
+//         },
+//     ],
+//     sentimentAnalysis: {
+//         averageSentiment: "77%",
+//         sentiments: [
+//             { type: "happyWords", count: 2559 },
+//             { type: "sadWords", count: 1471 },
+//             { type: "greetWords", count: 865 },
+//             { type: "neutral", count: 865 },
+//             { type: "angry", count: 865 },
+//         ],
+//     },
+//     sourceBreakdown: [
+//         { platform: "Facebook", value: 768 },
+//         { platform: "YouTube", value: 640 },
+//         { platform: "Instagram", value: 512 },
+//         { platform: "LinkedIn", value: 384 },
+//         { platform: "TikTok", value: 256 },
+//     ],
+// };
+
+// export const dashboardBarChartData = {
+//     data: {
+//         labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+//         datasets: [
+//             {
+//                 label: 'This Week',
+//                 data: [1500, 1800, 2000, 2300, 1900, 1700, 2100],
+//                 backgroundColor: 'rgba(47, 128, 237, 1)', // Blue
+//                 borderColor: 'rgba(47, 128, 237, 1)',
+//                 borderWidth: 1,
+//                 barThickness: 25,
+//             },
+//             {
+//                 label: 'Last Week',
+//                 data: [1300, 1600, 1800, 2100, 1600, 1400, 1900],
+//                 backgroundColor: 'rgba(242, 153, 74, 1)', // Orange
+//                 borderColor: 'rgba(242, 153, 74, 1)',
+//                 borderWidth: 1,
+//                 barThickness: 25,
+//             },
+//         ],
+//     },
+//     options: {
+//         responsive: true,
+//         maintainAspectRatio: false,
+//         plugins: {
+//             legend: {
+//                 display: true,
+//                 position: 'bottom',
+
+//                 labels: {
+//                     usePointStyle: true, // Use circular points instead of squares
+//                     pointStyle: 'circle', // Set the style explicitly to 'circle'
+//                     font: {
+//                         size: 10, // Adjust font size
+//                     },
+//                     boxWidth: 10, // Smaller circle size
+//                     boxHeight: 5, // Optional: Ensure proportional circle height (if needed)
+//                     padding: 20, // Adds space between the circle and the label
+//                 },
+//             },
+//             tooltip: {
+//                 callbacks: {
+//                     label: (tooltipItem) => `${tooltipItem.raw}+`,
+//                 },
+//             },
+//         },
+//         scales: {
+//             x: {
+//                 grid: {
+//                     display: false, // Hides the horizontal line on the x-axis
+//                 },
+//                 ticks: {
+//                     font: {
+//                         family: 'Poppins',
+//                         size: 10,
+//                     },
+//                     color: '#9CA3AF',
+//                 },
+//             },
+//             y: {
+//                 border: {
+//                     dash: [2, 4],
+//                     display: false,
+//                 },
+//                 ticks: {
+//                     font: {
+//                         family: 'Poppins',
+//                         size: 10,
+//                     },
+//                     color: '#9CA3AF', // Slightly darker label color
+//                     stepSize: 500,
+//                     callback: (value) => `${value}`,
+//                 },
+//             },
+//         },
+//     },
+// };
+
+
+// export const dashboardDoughnutChartData = {
+//     sentimentData: [
+//         {
+//             icon: "😊",
+//             label: "Happy Words",
+//             count: 2559, // Total of all sources
+//             colors: ["#4caf50", "#66bb6a", "#81c784", "#a5d6a7", "#c8e6c9"], // Green shades
+//         },
+//         {
+//             icon: "😢",
+//             label: "Sad Words",
+//             count: 1471,
+//             colors: ["#1E88E5", "#42A5F5", "#64B5F6", "#90CAF9", "#BBDEFB"], // Blue shades
+//         },
+//         {
+//             icon: "🤝",
+//             label: "Greets Words",
+//             count: 865,
+//             colors: ["#FFC107", "#FFD54F", "#FFEB3B", "#FFF176", "#FFF59D"], // Yellow shades
+//         },
+//         {
+//             icon: "😐",
+//             label: "Neutral",
+//             count: 865,
+//             colors: ["#9E9E9E", "#BDBDBD", "#E0E0E0", "#EEEEEE", "#F5F5F5"],// Grey shades
+//         },
+//         {
+//             icon: "😡",
+//             label: "Angry Words",
+//             count: 865,
+//             colors: ["#E53935", "#EF5350", "#F44336", "#E57373", "#FFCDD2"], // Red shades
+//         },
+//     ],
+//     sourcesData: [
+//         {
+//             label: "Facebook",
+//             counts: {
+//                 "Happy Words": 768,
+//                 "Sad Words": 441,
+//                 "Greets Words": 50,
+//                 "Neutral": 168,
+//                 "Angry Words": 82,
+//             },
+//         },
+//         {
+//             label: "YouTube",
+//             counts: {
+//                 "Happy Words": 640,
+//                 "Sad Words": 368,
+//                 "Greets Words": 75,
+//                 "Neutral": 40,
+//                 "Angry Words": 185,
+//             },
+//         },
+//         {
+//             label: "Instagram",
+//             counts: {
+//                 "Happy Words": 512,
+//                 "Sad Words": 294,
+//                 "Greets Words": 120,
+//                 "Neutral": 40,
+//                 "Angry Words": 105,
+//             },
+//         },
+//         {
+//             label: "LinkedIn",
+//             counts: {
+//                 "Happy Words": 384,
+//                 "Sad Words": 221,
+//                 "Greets Words": 150,
+//                 "Neutral": 40,
+//                 "Angry Words": 90,
+//             },
+//         },
+//         {
+//             label: "TikTok",
+//             counts: {
+//                 "Happy Words": 256,
+//                 "Sad Words": 147,
+//                 "Greets Words": 100,
+//                 "Neutral": 40,
+//                 "Angry Words": 125,
+//             },
+//         },
+//     ],
+// };
+
+
+
+// Single Api Call
+export const dashboardApiData = {
+    overview: {
+        stats: [
+            {
+                platform: "Total",
+                totalComments: 12635,
+                change: { value: 12, type: "up" },
+            },
+            {
+                platform: "Facebook",
+                totalComments: 2354,
+                change: { value: 5, type: "down" },
+            },
+            {
+                platform: "YouTube",
+                totalComments: 3276,
+                change: { value: 21, type: "up" },
+            },
+            {
+                platform: "Instagram",
+                totalComments: 1804,
+                change: { value: 3, type: "down" },
+            },
+            {
+                platform: "LinkedIn",
+                totalComments: 2719,
+                change: { value: 1, type: "down" },
+            },
+            {
+                platform: "TikTok",
+                totalComments: 2482,
+                change: { value: 8, type: "up" },
+            },
+        ],
+        averageComments: [
+            { day: "Monday", thisWeek: 800, lastWeek: 800 },
+            { day: "Tuesday", thisWeek: 1000, lastWeek: 1000 },
+            { day: "Wednesday", thisWeek: 1600, lastWeek: 1600 },
+            { day: "Thursday", thisWeek: 1800, lastWeek: 1800 },
+            { day: "Friday", thisWeek: 1200, lastWeek: 1200 },
+            { day: "Saturday", thisWeek: 1400, lastWeek: 1400 },
+            { day: "Sunday", thisWeek: 2000, lastWeek: 2000 },
+        ],
+        sentimentAnalysis: {
+            averageSentiment: "77%",
+            details: [
+                { type: "happyWords", count: 2559 },
+                { type: "sadWords", count: 1471 },
+                { type: "greetWords", count: 865 },
+                { type: "neutral", count: 865 },
+                { type: "angry", count: 865 },
+            ],
         },
-        {
-            name: "Facebook",
-            comments: 2354,
-            change: "5",
-            changeType: "down"
-        },
-        {
-            name: "YouTube",
-            comments: 3276,
-            change: "21",
-            changeType: "up"
-        },
-        {
-            name: "Instagram",
-            comments: 1804,
-            change: "3",
-            changeType: "down"
-        },
-        {
-            name: "LinkedIn",
-            comments: 2719,
-            change: "1",
-            changeType: "down"
-        },
-        {
-            name: "TikTok",
-            comments: 2482,
-            change: "8",
-            changeType: "up"
-        },
-    ],
-    averageComments: [
-        {
-            day: "Monday",
-            thisWeek: 800,
-            lastWeek: 800,
-        },
-        {
-            day: "Tuesday",
-            thisWeek: 1000,
-            lastWeek: 1000,
-        },
-        {
-            day: "Wednesday",
-            thisWeek: 1600,
-            lastWeek: 1600,
-        },
-        {
-            day: "Thursday",
-            thisWeek: 1800,
-            lastWeek: 1800,
-        },
-        {
-            day: "Friday",
-            thisWeek: 1200,
-            lastWeek: 1200,
-        },
-        {
-            day: "Saturday",
-            thisWeek: 1400,
-            lastWeek: 1400,
-        },
-        {
-            day: "Sunday",
-            thisWeek: 2000,
-            lastWeek: 2000,
-        },
-    ],
-    sentimentAnalysis: {
-        averageSentiment: "77%",
-        sentiments: [
-            { type: "happyWords", count: 2559 },
-            { type: "sadWords", count: 1471 },
-            { type: "greetWords", count: 865 },
-            { type: "neutral", count: 865 },
-            { type: "angry", count: 865 },
+        sourceBreakdown: [
+            { platform: "Facebook", value: 768 },
+            { platform: "YouTube", value: 640 },
+            { platform: "Instagram", value: 512 },
+            { platform: "LinkedIn", value: 384 },
+            { platform: "TikTok", value: 256 },
         ],
     },
-    sourceBreakdown: [
-        { platform: "Facebook", value: 768 },
-        { platform: "YouTube", value: 640 },
-        { platform: "Instagram", value: 512 },
-        { platform: "LinkedIn", value: 384 },
-        { platform: "TikTok", value: 256 },
-    ],
-};
-
-
-export const dashboardBarChartData = {
-    data: {
-        labels: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-        datasets: [
-            {
-                label: 'This Week',
-                data: [1500, 1800, 2000, 2300, 1900, 1700, 2100],
-                backgroundColor: 'rgba(47, 128, 237, 1)', // Blue
-                borderColor: 'rgba(47, 128, 237, 1)',
-                borderWidth: 1,
-                barThickness: 25,
-            },
-            {
-                label: 'Last Week',
-                data: [1300, 1600, 1800, 2100, 1600, 1400, 1900],
-                backgroundColor: 'rgba(242, 153, 74, 1)', // Orange
-                borderColor: 'rgba(242, 153, 74, 1)',
-                borderWidth: 1,
-                barThickness: 25,
-            },
-        ],
-    },
-    options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-            legend: {
-                display: true,
-                position: 'bottom',
-
-                labels: {
-                    usePointStyle: true, // Use circular points instead of squares
-                    pointStyle: 'circle', // Set the style explicitly to 'circle'
-                    font: {
-                        size: 10, // Adjust font size
+    charts: {
+        barChart: {
+            data: {
+                labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                datasets: [
+                    {
+                        label: "This Week",
+                        data: [1500, 1800, 2000, 2300, 1900, 1700, 2100],
                     },
-                    boxWidth: 10, // Smaller circle size
-                    boxHeight: 5, // Optional: Ensure proportional circle height (if needed)
-                    padding: 20, // Adds space between the circle and the label
-                },
-            },
-            tooltip: {
-                callbacks: {
-                    label: (tooltipItem) => `${tooltipItem.raw}+`,
-                },
+                    {
+                        label: "Last Week",
+                        data: [1300, 1600, 1800, 2100, 1600, 1400, 1900],
+                    },
+                ],
             },
         },
-        scales: {
-            x: {
-                grid: {
-                    display: false, // Hides the horizontal line on the x-axis
-                },
-                ticks: {
-                    font: {
-                        family: 'Poppins',
-                        size: 10,
+        doughnutChart: {
+            sentimentData: [
+                { icon: "😊", type: "happyWords", count: 2559, },
+                { icon: "😢", type: "sadWords", count: 1471, },
+                { icon: "🤝", type: "greetWords", count: 865, },
+                { icon: "😐", type: "neutral", count: 865, },
+                { icon: "😡", type: "angryWords", count: 865, },
+            ],
+            sourcesData: [
+                {
+                    platform: "Facebook",
+                    breakdown: {
+                        happyWords: 768,
+                        sadWords: 441,
+                        greetWords: 50,
+                        neutral: 168,
+                        angryWords: 82,
                     },
-                    color: '#9CA3AF',
                 },
-            },
-            y: {
-                border: {
-                    dash: [2, 4],
-                    display: false,
-                },
-                ticks: {
-                    font: {
-                        family: 'Poppins',
-                        size: 10,
+                {
+                    platform: "YouTube",
+                    breakdown: {
+                        happyWords: 640,
+                        sadWords: 368,
+                        greetWords: 75,
+                        neutral: 40,
+                        angryWords: 185,
                     },
-                    color: '#9CA3AF', // Slightly darker label color
-                    stepSize: 500,
-                    callback: (value) => `${value}`,
                 },
-            },
+                {
+                    platform: "Instagram",
+                    breakdown: {
+                        happyWords: 512,
+                        sadWords: 294,
+                        greetWords: 120,
+                        neutral: 40,
+                        angryWords: 105,
+                    },
+                },
+                {
+                    platform: "LinkedIn",
+                    breakdown: {
+                        happyWords: 384,
+                        sadWords: 221,
+                        greetWords: 150,
+                        neutral: 40,
+                        angryWords: 90,
+                    },
+                },
+                {
+                    platform: "TikTok",
+                    breakdown: {
+                        happyWords: 256,
+                        sadWords: 147,
+                        greetWords: 100,
+                        neutral: 40,
+                        angryWords: 125,
+                    },
+                },
+            ],
+            averageSentiment: "77",
         },
     },
 };
 
 
-export const dashboardDoughnutChartData = {
-    sentimentData: [
-        {
-            emoji: "😊",
-            label: "Happy Words",
-            count: 2559, // Total of all sources
-            colors: ["#4caf50", "#66bb6a", "#81c784", "#a5d6a7", "#c8e6c9"], // Green shades
-        },
-        {
-            emoji: "😢",
-            label: "Sad Words",
-            count: 1471,
-            colors: ["#1E88E5", "#42A5F5", "#64B5F6", "#90CAF9", "#BBDEFB"], // Blue shades
-        },
-        {
-            emoji: "🤝",
-            label: "Greets Words",
-            count: 865,
-            colors: ["#FFC107", "#FFD54F", "#FFEB3B", "#FFF176", "#FFF59D"], // Yellow shades
-        },
-        {
-            emoji: "😐",
-            label: "Neutral",
-            count: 865,
-            colors: ["#9E9E9E", "#BDBDBD", "#E0E0E0", "#EEEEEE", "#F5F5F5"],// Grey shades
-        },
-        {
-            emoji: "😡",
-            label: "Angry Words",
-            count: 865,
-            colors: ["#E53935", "#EF5350", "#F44336", "#E57373", "#FFCDD2"], // Red shades
-        },
-    ],
-    sourcesData: [
-        {
-            label: "Facebook",
-            counts: {
-                "Happy Words": 768,
-                "Sad Words": 441,
-                "Greets Words": 50,
-                "Neutral": 168,
-                "Angry Words": 82,
-            },
-        },
-        {
-            label: "YouTube",
-            counts: {
-                "Happy Words": 640,
-                "Sad Words": 368,
-                "Greets Words": 75,
-                "Neutral": 40,
-                "Angry Words": 185,
-            },
-        },
-        {
-            label: "Instagram",
-            counts: {
-                "Happy Words": 512,
-                "Sad Words": 294,
-                "Greets Words": 120,
-                "Neutral": 40,
-                "Angry Words": 105,
-            },
-        },
-        {
-            label: "LinkedIn",
-            counts: {
-                "Happy Words": 384,
-                "Sad Words": 221,
-                "Greets Words": 150,
-                "Neutral": 40,
-                "Angry Words": 90,
-            },
-        },
-        {
-            label: "TikTok",
-            counts: {
-                "Happy Words": 256,
-                "Sad Words": 147,
-                "Greets Words": 100,
-                "Neutral": 40,
-                "Angry Words": 125,
-            },
-        },
-    ],
-};
 
 
+// Notification APi Data
 export const notificationsData = [
     {
         "id": 1,
@@ -340,7 +493,7 @@ export const notificationsData = [
     }
 ]
 
-
+// Notification Static Menu DropDown Data
 export const notificationsMenuDropDownData = [
     {
         "id": 1,

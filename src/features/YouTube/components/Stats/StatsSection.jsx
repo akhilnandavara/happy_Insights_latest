@@ -1,101 +1,85 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useEffect, useMemo, useState, useCallback } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { setShowStats } from "../../../../store/slices/youTubeSlice";
 import StatCard from "./StatsCard";
 import ChartCard from "./ChartCard";
-import styles from "../../styles/StatsSection.module.css";
-import { setShowStats } from "../../../../store/slices/youTubeSlice";
-import { useDispatch, useSelector } from "react-redux";
 import FilterBar from "../../../../components/FilterBar";
-import { FaListUl } from "react-icons/fa6";
 import Icon from "../../../../components/Icon";
+import { FaListUl } from "react-icons/fa6";
+import { statsApiData } from "../../../../data/statsPage";
+import styles from "../../styles/StatsSection.module.css";
 
-const StatsSection = ({ charts, statsOverViewData }) => {
-  const { commentsList, showStats } = useSelector((state) => state.youtube);
-  const [isExiting, setIsExiting] = useState(false);
+const StatsSection = () => {
   const dispatch = useDispatch();
+  const { commentsList, showStats } = useSelector((state) => state.youtube);
+  const { charts, statsOverview } = statsApiData || {};
+  const [isExiting, setIsExiting] = useState(false);
 
   const visibleCategories = useMemo(() => {
-    if (!commentsList || !Array.isArray(commentsList)) {
-      return { All: commentsList?.length || 0 }; // Handle edge case for empty or non-array commentsList
-    }
+    if (!Array.isArray(commentsList)) return { All: 0 };
 
-    // Reduce the commentsList into a key-value pair object
-    const categories = commentsList.reduce((acc, comment) => {
-      const category = comment.comment_category || "Others"; // Default to "Others" if no category is defined
-      acc[category] = (acc[category] || 0) + 1; // Increment count for each category
-      return acc;
-    }, {});
-
-    // Return the "All" category with the total count + all other categories
-    return {
-      All: commentsList.length, // Adding "All" category with the total count
-      ...categories, // Spread the categories into the object
-    };
+    return commentsList.reduce(
+      (acc, { comment_category = "Others" }) => ({
+        ...acc,
+        [comment_category]: (acc[comment_category] || 0) + 1,
+      }),
+      { All: commentsList.length }
+    );
   }, [commentsList]);
+
+  // Handle exit animation and toggle state
+  const handleExit = useCallback(() => {
+    setIsExiting(true);
+  }, []);
 
   useEffect(() => {
     if (isExiting) {
-      setTimeout(() => {
+      const timeout = setTimeout(() => {
         dispatch(setShowStats(!showStats));
         setIsExiting(false);
       }, 100);
+      return () => clearTimeout(timeout);
     }
-  }, [isExiting]);
+  }, [isExiting, dispatch, showStats]);
+
+  // Render charts dynamically
+  const renderCharts = useMemo(() => {
+    if (!charts || !Array.isArray(charts)) return null;
+
+    return charts.map((chart, index) => (
+      <ChartCard
+        key={index}
+        title={chart.title || "Untitled Chart"}
+        chartType={chart.type}
+        chartData={chart}
+        customClasses={
+          chart.type === "dottedLine"
+            ? styles.spanCol3
+            : chart.type === "line"
+            ? styles.spanCol2
+            : styles.spanCol1
+        }
+      />
+    ));
+  }, [charts]);
 
   return (
     <div
       className={`${styles.statsSectionWrapper} ${
-        !isExiting && showStats ? styles.slideIn : styles.slideOut
-      } `}
+        showStats ? styles.slideIn : styles.slideOut
+      }`}
     >
       <CommentsHeader
         visibleCategories={visibleCategories}
-        // onCategorySelect={handleCategorySelection}
         showStats={showStats}
-        onToggleIsExiting={() => setIsExiting(true)}
+        onToggleExit={handleExit}
       />
 
-      <div className={`${styles.gridContainer} `}>
-        {/* Row 1: Stat Cards */}
-        {statsOverViewData.map(({ id, title, value, change, changeType }) => (
-          <StatCard
-            key={id}
-            title={title}
-            value={value}
-            change={change}
-            changeType={changeType}
-          />
+      <div className={styles.gridContainer}>
+        {statsOverview.map((stat) => (
+          <StatCard key={stat.id} {...stat} />
         ))}
-
-        {/* Row 2: Charts */}
-        <ChartCard
-          title="Most Liked Comments"
-          chartType="bar"
-          chartConfig={charts.barChart}
-        />
-        <ChartCard
-          title="Most Liked Videos"
-          chartType="line"
-          chartConfig={charts.lineChart}
-          customClasses={styles.spanCol2}
-        />
-        <ChartCard
-          title="Overall Sentiment Analysis"
-          chartType="pie"
-          chartConfig={charts.doughnut}
-        />
-
-        {/* Row 3: Charts */}
-        <ChartCard
-          title="Sentiment Categories"
-          chartType="pie"
-          chartConfig={charts.pieChart}
-        />
-        <ChartCard
-          title="Total Comments"
-          chartType="dottedLine"
-          chartConfig={charts.dottedLine}
-          customClasses={styles.spanCol3}
-        />
+        {renderCharts}
       </div>
     </div>
   );
@@ -103,45 +87,34 @@ const StatsSection = ({ charts, statsOverViewData }) => {
 
 export default StatsSection;
 
-const CommentsHeader = ({
-  visibleCategories,
-  onCategorySelect,
-  showStats,
-  onToggleIsExiting,
-}) => (
+const CommentsHeader = ({ visibleCategories, showStats, onToggleExit }) => (
   <div
     className={`${styles.commentsHeaderWrapper} ${
-      showStats && styles.statsHeaderWrapper
+      showStats ? styles.statsHeaderWrapper : ""
     }`}
   >
-    {/* Categories buttons section */}
-    <FilterBar
-      showStats={showStats}
-      methods={visibleCategories}
-      onSelect={onCategorySelect}
-    />
-    {/* Header Actions Section */}
+    <FilterBar showStats={showStats} methods={visibleCategories} />
     <div className={styles.statsToggleBtnContainer}>
       <ToggleOption
         showStats={!showStats}
-        onClick={onToggleIsExiting}
+        onClick={onToggleExit}
         icon={<FaListUl className={styles.icon} />}
       />
       <ToggleOption
         showStats={showStats}
         icon={
-          <Icon sprite="youtube" name={"stats-icon"} className={styles.icon} />
+          <Icon sprite="youtube" name="stats-icon" className={styles.icon} />
         }
       />
     </div>
   </div>
 );
 
-const ToggleOption = ({ showStats, onClick, icon }) => (
+const ToggleOption = React.memo(({ showStats, onClick, icon }) => (
   <div
-    className={`${styles.toggleOption} ${showStats && styles.active}`}
+    className={`${styles.toggleOption} ${showStats ? styles.active : ""}`}
     onClick={onClick}
   >
     {icon}
   </div>
-);
+));

@@ -2,6 +2,9 @@ export const YtvideosAPiResponse = [
     {
         "channel_id": "UCo_JWkdwzVjuX08e04qw72g",
         "channel_name": "Education Desk",
+        "videos": 20,
+        "subscribers": 1000,
+        "channel_url": "https://www.youtube.com/channel/UCo_JWkdwzVjuX08e04qw72g",
         "videos": [
             {
                 "id": 1,

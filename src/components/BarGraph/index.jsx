@@ -22,7 +22,7 @@ ChartJS.register(
 
 const CustomBarChart = ({ data, options }) => {
   return (
-    <div style={{ height: "90%", width: "100%" }}>
+    <div style={{ height: "100%", width: "100%" }}>
       <Bar data={data} options={options} />
     </div>
   );

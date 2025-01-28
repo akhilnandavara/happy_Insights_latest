@@ -11,7 +11,6 @@ import CommentSection from "../features/YouTube/components/CommentSection";
 import CompareCommentsSection from "../features/YouTube/components/CompareCommentsSection";
 import { setShowStats } from "../store/slices/youTubeSlice";
 import StatsSection from "../features/YouTube/components/Stats/StatsSection";
-import { chartsData, StatsOverViewData } from "../data/chart";
 
 dayjs.extend(isBetween);
 
@@ -177,10 +176,7 @@ export default function YouTubePage() {
               />
             )}
           </div>
-          <StatsSection
-            charts={chartsData}
-            statsOverViewData={StatsOverViewData}
-          />
+          <StatsSection/>
         </div>
 
         {!compareComments && !showStats && (

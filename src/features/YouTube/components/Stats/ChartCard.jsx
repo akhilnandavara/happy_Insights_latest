@@ -1,8 +1,14 @@
-import React from "react";
-import { Line, Pie, Doughnut } from "react-chartjs-2";
-import BarChartWithLabels from "./BarChartWithLabels";
+import React, { useMemo } from "react";
+import { Line, Pie, Doughnut, Bar } from "react-chartjs-2";
 import styles from "../../styles/ChartCard.module.css";
 import { Text } from "../../../../components/ui";
+import {
+  barChartOptions,
+  dottedLineChartOptions,
+  doughnutChartOptions,
+  lineChartOptions,
+  pieChartOptions,
+} from "../../../../data/chart";
 import {
   Chart as ChartJS,
   CategoryScale,
@@ -10,53 +16,66 @@ import {
   BarElement,
   PointElement,
   LineElement,
-  Title,
+  ArcElement,
   Tooltip,
   Legend,
-  ArcElement,
 } from "chart.js";
+import { useChartConfig } from "../../hooks/useChartConfig";
 
+// Register Chart.js components
 ChartJS.register(
   CategoryScale,
   LinearScale,
   BarElement,
   PointElement,
   LineElement,
-  Title,
+  ArcElement,
   Tooltip,
-  Legend,
-  ArcElement
+  Legend
 );
 
-const ChartCard = ({ title, chartType, chartConfig, customClasses }) => {
-  const isBarChart = chartType === "bar";
-  const labels = chartConfig.data.labels || [];
-  const counts = chartConfig.data.datasets[0].data || [];
- 
+const ChartCard = ({ title, chartType, chartData, customClasses = "" }) => {
+  // Map chartType to Chart.js components
+  const ChartComponent = {
+    line: Line,
+    pie: Pie,
+    doughnut: Doughnut,
+    bar: Bar,
+    dottedLine: Line,
+  }[chartType];
+
+  // Memoized chart options based on chart type
+  const chartOptions = useMemo(() => {
+    const optionsMap = {
+      line: lineChartOptions,
+      pie: pieChartOptions,
+      doughnut: doughnutChartOptions,
+      bar: barChartOptions,
+      dottedLine: dottedLineChartOptions,
+    };
+
+    return optionsMap[chartType] || {};
+  }, [chartType]);
+
+  // Ensure ChartComponent is valid before rendering
+  if (!ChartComponent) {
+    console.error(`Invalid chartType: ${chartType}`);
+    return null;
+  }
+
   return (
     <div className={`${styles.card} ${customClasses}`}>
       <Text as="p" className={styles.cardTitle}>
-        {title}
+        {title || "Untitled Chart"}
       </Text>
-      {isBarChart ? (
-        <BarChartWithLabels
-          labels={labels}
-          counts={counts}
-          chartConfig={chartConfig}
-        />
-      ) : (
-        <div className={styles.chartContainer}>
-          {chartType === "line" ? (
-            <Line data={chartConfig.data} options={chartConfig.options} />
-          ) : chartType === "pie" ? (
-            <Pie data={chartConfig.data} options={chartConfig.options} />
-          ) : chartType === "doughnut" ? (
-            <Doughnut data={chartConfig.data} options={chartConfig.options} />
-          ) : chartType === "dottedLine" ? (
-            <Line data={chartConfig.data} options={chartConfig.options} />
-          ) : null}
-        </div>
-      )}
+      <div className={styles.chartContainer}>
+        {chartData && (
+          <ChartComponent
+            data={useChartConfig(chartType, chartData)}
+            options={chartOptions}
+          />
+        )}
+      </div>
     </div>
   );
 };

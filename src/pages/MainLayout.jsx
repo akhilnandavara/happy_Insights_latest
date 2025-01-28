@@ -44,7 +44,7 @@ export default function MainLayout() {
     <div className={"mainLayoutContainer"}>
       {/* Top bar and sidebar */}
       <SideBar />
-
+      
       {/* Main content area */}
       <div className={"contentContainer"}>
         <TopBar onLogout={handleLogout} />
