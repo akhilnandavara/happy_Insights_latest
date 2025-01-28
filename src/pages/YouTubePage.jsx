@@ -13,7 +13,6 @@ import { setShowStats } from "../store/slices/youTubeSlice";
 import StatsSection from "../features/YouTube/components/Stats/StatsSection";
 
 dayjs.extend(isBetween);
-
 const selectFilteredVideos = createSelector(
   [
     (state) => state.filter,
@@ -176,7 +175,7 @@ export default function YouTubePage() {
               />
             )}
           </div>
-          <StatsSection/>
+          <StatsSection />
         </div>
 
         {!compareComments && !showStats && (

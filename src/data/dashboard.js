@@ -305,146 +305,140 @@ export const FilterBarData = {
 
 // Single Api Call
 export const dashboardApiData = {
-    overview: {
-        stats: [
+    "overview": {
+        "stats": [
             {
-                platform: "Total",
-                totalComments: 12635,
-                change: { value: 12, type: "up" },
+                "platform": "Total",
+                "totalComments": 12635,
+                "change": { "value": 12, "type": "up" }
             },
             {
-                platform: "Facebook",
-                totalComments: 2354,
-                change: { value: 5, type: "down" },
+                "platform": "Facebook",
+                "totalComments": 2354,
+                "change": { "value": 5, "type": "down" }
             },
             {
-                platform: "YouTube",
-                totalComments: 3276,
-                change: { value: 21, type: "up" },
+                "platform": "YouTube",
+                "totalComments": 3276,
+                "change": { "value": 21, "type": "up" }
             },
             {
-                platform: "Instagram",
-                totalComments: 1804,
-                change: { value: 3, type: "down" },
+                "platform": "Instagram",
+                "totalComments": 1804,
+                "change": { "value": 3, "type": "down" }
             },
             {
-                platform: "LinkedIn",
-                totalComments: 2719,
-                change: { value: 1, type: "down" },
+                "platform": "LinkedIn",
+                "totalComments": 2719,
+                "change": { "value": 1, "type": "down" }
             },
             {
-                platform: "TikTok",
-                totalComments: 2482,
-                change: { value: 8, type: "up" },
-            },
+                "platform": "TikTok",
+                "totalComments": 2482,
+                "change": { "value": 8, "type": "up" }
+            }
         ],
-        averageComments: [
-            { day: "Monday", thisWeek: 800, lastWeek: 800 },
-            { day: "Tuesday", thisWeek: 1000, lastWeek: 1000 },
-            { day: "Wednesday", thisWeek: 1600, lastWeek: 1600 },
-            { day: "Thursday", thisWeek: 1800, lastWeek: 1800 },
-            { day: "Friday", thisWeek: 1200, lastWeek: 1200 },
-            { day: "Saturday", thisWeek: 1400, lastWeek: 1400 },
-            { day: "Sunday", thisWeek: 2000, lastWeek: 2000 },
+        "averageComments": [
+            { "day": "Monday", "thisWeek": 800, "lastWeek": 800 },
+            { "day": "Tuesday", "thisWeek": 1000, "lastWeek": 1000 },
+            { "day": "Wednesday", "thisWeek": 1600, "lastWeek": 1600 },
+            { "day": "Thursday", "thisWeek": 1800, "lastWeek": 1800 },
+            { "day": "Friday", "thisWeek": 1200, "lastWeek": 1200 },
+            { "day": "Saturday", "thisWeek": 1400, "lastWeek": 1400 },
+            { "day": "Sunday", "thisWeek": 2000, "lastWeek": 2000 }
         ],
-        sentimentAnalysis: {
-            averageSentiment: "77%",
-            details: [
-                { type: "happyWords", count: 2559 },
-                { type: "sadWords", count: 1471 },
-                { type: "greetWords", count: 865 },
-                { type: "neutral", count: 865 },
-                { type: "angry", count: 865 },
-            ],
+        "sentimentAnalysis": {
+            "averageSentiment": "77%",
+            "details": [
+                { "type": "happyWords", "count": 2559 },
+                { "type": "sadWords", "count": 1471 },
+                { "type": "greetWords", "count": 865 },
+                { "type": "neutral", "count": 865 },
+                { "type": "angry", "count": 865 }
+            ]
         },
-        sourceBreakdown: [
-            { platform: "Facebook", value: 768 },
-            { platform: "YouTube", value: 640 },
-            { platform: "Instagram", value: 512 },
-            { platform: "LinkedIn", value: 384 },
-            { platform: "TikTok", value: 256 },
-        ],
+        "sourceBreakdown": [
+            { "platform": "Facebook", "value": 768 },
+            { "platform": "YouTube", "value": 640 },
+            { "platform": "Instagram", "value": 512 },
+            { "platform": "LinkedIn", "value": 384 },
+            { "platform": "TikTok", "value": 256 }
+        ]
     },
-    charts: {
-        barChart: {
-            data: {
-                labels: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
-                datasets: [
-                    {
-                        label: "This Week",
-                        data: [1500, 1800, 2000, 2300, 1900, 1700, 2100],
-                    },
-                    {
-                        label: "Last Week",
-                        data: [1300, 1600, 1800, 2100, 1600, 1400, 1900],
-                    },
-                ],
-            },
+    "charts": {
+        "barChart": {
+            "data": {
+                "labels": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+                "datasets": [
+                    { "label": "This Week", "data": [1500, 1800, 2000, 2300, 1900, 1700, 2100] },
+                    { "label": "Last Week", "data": [1300, 1600, 1800, 2100, 1600, 1400, 1900] }
+                ]
+            }
         },
-        doughnutChart: {
-            sentimentData: [
-                { icon: "😊", type: "happyWords", count: 2559, },
-                { icon: "😢", type: "sadWords", count: 1471, },
-                { icon: "🤝", type: "greetWords", count: 865, },
-                { icon: "😐", type: "neutral", count: 865, },
-                { icon: "😡", type: "angryWords", count: 865, },
+        "doughnutChart": {
+            "sentimentData": [
+                { "icon": "😊", "type": "happyWords", "count": 2559 },
+                { "icon": "😢", "type": "sadWords", "count": 1471 },
+                { "icon": "🤝", "type": "greetWords", "count": 865 },
+                { "icon": "😐", "type": "neutral", "count": 865 },
+                { "icon": "😡", "type": "angryWords", "count": 865 }
             ],
-            sourcesData: [
+            "sourcesData": [
                 {
-                    platform: "Facebook",
-                    breakdown: {
-                        happyWords: 768,
-                        sadWords: 441,
-                        greetWords: 50,
-                        neutral: 168,
-                        angryWords: 82,
-                    },
+                    "platform": "Facebook",
+                    "breakdown": {
+                        "happyWords": 768,
+                        "sadWords": 441,
+                        "greetWords": 50,
+                        "neutral": 168,
+                        "angryWords": 82
+                    }
                 },
                 {
-                    platform: "YouTube",
-                    breakdown: {
-                        happyWords: 640,
-                        sadWords: 368,
-                        greetWords: 75,
-                        neutral: 40,
-                        angryWords: 185,
-                    },
+                    "platform": "YouTube",
+                    "breakdown": {
+                        "happyWords": 640,
+                        "sadWords": 368,
+                        "greetWords": 75,
+                        "neutral": 40,
+                        "angryWords": 185
+                    }
                 },
                 {
-                    platform: "Instagram",
-                    breakdown: {
-                        happyWords: 512,
-                        sadWords: 294,
-                        greetWords: 120,
-                        neutral: 40,
-                        angryWords: 105,
-                    },
+                    "platform": "Instagram",
+                    "breakdown": {
+                        "happyWords": 512,
+                        "sadWords": 294,
+                        "greetWords": 120,
+                        "neutral": 40,
+                        "angryWords": 105
+                    }
                 },
                 {
-                    platform: "LinkedIn",
-                    breakdown: {
-                        happyWords: 384,
-                        sadWords: 221,
-                        greetWords: 150,
-                        neutral: 40,
-                        angryWords: 90,
-                    },
+                    "platform": "LinkedIn",
+                    "breakdown": {
+                        "happyWords": 384,
+                        "sadWords": 221,
+                        "greetWords": 150,
+                        "neutral": 40,
+                        "angryWords": 90
+                    }
                 },
                 {
-                    platform: "TikTok",
-                    breakdown: {
-                        happyWords: 256,
-                        sadWords: 147,
-                        greetWords: 100,
-                        neutral: 40,
-                        angryWords: 125,
-                    },
-                },
+                    "platform": "TikTok",
+                    "breakdown": {
+                        "happyWords": 256,
+                        "sadWords": 147,
+                        "greetWords": 100,
+                        "neutral": 40,
+                        "angryWords": 125
+                    }
+                }
             ],
-            averageSentiment: "77",
-        },
-    },
-};
+            "averageSentiment": "77"
+        }
+    }
+}
 
 
 

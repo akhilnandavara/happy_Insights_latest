@@ -35,7 +35,7 @@ export default function TopBar({ onLogout }) {
   const navigate = useNavigate();
 
   const debouncedUser = useDebounce(
-    user !== null ? user : JSON.parse(sessionStorage.getItem("user")),
+    user !== null ? user : JSON.parse(localStorage.getItem("user")),
     300
   );
 

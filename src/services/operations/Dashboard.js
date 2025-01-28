@@ -6,11 +6,11 @@ import { userApi, youtubeAPi } from "../apis";
 const updateLocalStorageAndRedux = (dispatch, user, subscription) => {
     if (user) {
         dispatch(setUser(user));
-        sessionStorage.setItem("user", JSON.stringify(user));
+        localStorage.setItem("user", JSON.stringify(user));
     }
     if (subscription) {
         dispatch(setSubDetails(subscription));
-        sessionStorage.setItem("subscription", JSON.stringify(subscription));
+        localStorage.setItem("subscription", JSON.stringify(subscription));
     }
 };
 

@@ -34,14 +34,13 @@ export function login({ username, passwd, rememberMe, navigate }) {
 
             if (response.status === 200) {
                 localStorage.setItem("login_type", response.data.login_type);
-                sessionStorage.setItem("user", JSON.stringify(response.data.user));
+                localStorage.setItem("user", JSON.stringify(response.data.user));
 
                 if (rememberMe) {
                     localStorage.setItem("user", JSON.stringify(response.data.user));
                 }
 
                 dispatch(setUser(response.data.user));
-                console.log(response.data.user);
                 navigate("/dashboard");
                 return { success: true };
             } else {
@@ -65,7 +64,7 @@ export function signInWithGoogle(id_token, navigate) {
 
             if (response.status === 200) {
                 localStorage.setItem("login_type", response.data.login_type);
-                sessionStorage.setItem("user", JSON.stringify(response.data.user));
+                localStorage.setItem("user", JSON.stringify(response.data.user));
                 dispatch(setUser(response.data.user));
                 navigate("/dashboard");
                 return { success: true };
