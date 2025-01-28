@@ -16,7 +16,7 @@ dayjs.extend(isBetween);
 const selectFilteredVideos = createSelector(
   [
     (state) => state.filter,
-    (state) => state.youtube.videoList[0] || { videos: [] },
+    (state) => state.youtube.videoList || { videos: [] },
   ],
   ({ selectedDate, showFavorites, showTop10 }, videoList) => {
     if (!videoList.videos || videoList.videos.length === 0) {

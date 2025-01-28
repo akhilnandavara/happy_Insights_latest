@@ -123,6 +123,7 @@ export default function VideoListSidebar({
   const filterMenuRef = useRef(null);
   const dispatch = useDispatch();
   const { selectedDate } = useSelector((state) => state.filter);
+  const { videoList } = useSelector((state) => state.youtube);
 
   const handleDateChange = useCallback(
     (date) => {
@@ -152,12 +153,6 @@ export default function VideoListSidebar({
     );
   }, [extraVideos, searchTerm]);
 
-  const channelData = {
-    name: "Tamil Pokkisham",
-    email: "tamil.pokkisham@gmail.com",
-    profile_photo_url: "",
-  };
-
   return (
     <div
       className={classNames(styles.videoListSidebar, {
@@ -179,8 +174,8 @@ export default function VideoListSidebar({
             })}
           >
             <ProfileAvatar
-              name={channelData?.name}
-              profilePhotoUrl={channelData?.profile_photo_url}
+              name={videoList?.channel_name}
+              profilePhotoUrl={videoList.profile_photo_url}
               className={classNames(styles.headerChannelLogo, {
                 [styles.headerChannelLogoOpen]: isSidebarOpen,
                 [styles.headerChannelLogoClosed]: !isSidebarOpen, // Keep this logic
@@ -188,7 +183,7 @@ export default function VideoListSidebar({
             />
             <div className={styles.headerChannelInfo}>
               <Heading className={styles.headerChannelInfoTitle} as="h1">
-                {channelData.name}
+                {videoList.channel_name}
               </Heading>
               <Text
                 as="p"
