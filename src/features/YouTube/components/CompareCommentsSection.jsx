@@ -154,6 +154,7 @@ export default function CompareCommentsSection({
                 expandedReplies={expandedReplies}
                 toggleReply={toggleReply}
                 selectedComments={selectedComments}
+                compareMode={true}
                 toggleCommentSelection={toggleCommentSelection}
               />
             ))

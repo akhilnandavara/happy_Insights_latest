@@ -467,9 +467,13 @@ contentContainer .commentsWrapper::-webkit-scrollbar-thumb:hover,
   border-radius: 25px;
   font-family: Open Sans;
   font-size: 10px;
+  width: 10px;
   font-weight: 600;
   /* line-height: 13.62px; */
   text-align: left;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
 }
@@ -478,8 +482,8 @@ contentContainer .commentsWrapper::-webkit-scrollbar-thumb:hover,
   display: flex;
   gap: 10px;
   font-size: 0.8rem;
-  max-width: 20%;
-  align-items: right;
+  width: 20%;
+  justify-content: end;
 }
 .commentStats {
   display: flex;

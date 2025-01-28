@@ -111,6 +111,7 @@ export default function Comment({
   expandedReplies,
   toggleReply,
   selectedComments,
+  compareMode,
   toggleCommentSelection,
 }) {
   const isExpanded = expandedReplies.includes(comment.comment_id);
@@ -163,13 +164,15 @@ export default function Comment({
           {isReply ? comment.reply_text : comment.comment_text}
         </Text>
 
-        <Text
-          as={"p"}
-          style={{ color: labelColor, background: labelbg }}
-          className={styles.videoTagLabel}
-        >
-          {label}
-        </Text>
+        {compareMode && (
+          <Text
+            as={"p"}
+            style={{ color: labelColor, background: labelbg }}
+            className={styles.videoTagLabel}
+          >
+            {label}
+          </Text>
+        )}
 
         <div className={styles.commentActionsContainer}>
           {/* Comment Stats */}
