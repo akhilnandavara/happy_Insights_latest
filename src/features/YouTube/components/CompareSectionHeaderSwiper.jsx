@@ -23,7 +23,7 @@ export default function CompareSectionHeaderSwiper({
   const swiperInstanceRef = useRef(null); // Reference for the Swiper instance
 
   const videosToShow = useMemo(() => {
-    return videoList[0].videos?.filter((video) =>
+    return videoList.videos?.filter((video) =>
       selectedVideo?.some((item) => item.video_id === video.video_id)
     );
   }, [videoList, selectedVideo]);
